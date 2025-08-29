@@ -1,0 +1,9 @@
+{
+  "base_url": "https://juice-shop.herokuapp.com",
+  "actions": [],
+  "optional": {
+    "bounce_url": "https://juice-shop.herokuapp.com",
+    "noreferrer": true,
+    "auth_header": "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6MzAsInVzZXJuYW1lIjoiIiwiZW1haWwiOiJuZXJhbmdlbjIwMDVAZ21haWwuY29tIiwicGFzc3dvcmQiOiJlNGYzYzlhOTIyNzBhNDFjNDBlZjRhOWYxMGQ4MGFlNCIsInJvbGUiOiJjdXN0b21lciIsImRlbHV4ZVRva2VuIjoiIiwibGFzdExvZ2luSXAiOiIwLjAuMC4wIiwicHJvZmlsZUltYWdlIjoiL2Fzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdC5zdmciLCJ0b3RwU2VjcmV0IjoiIiwiaXNBY3RpdmUiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjUtMDgtMjkgMTY6NTQ6MjUuNDAxICswMDowMCIsInVwZGF0ZWRBdCI6IjIwMjUtMDgtMjkgMTY6NTQ6MjUuNDAxICswMDowMCIsImRlbGV0ZWRBdCI6bnVsbH0sImlhdCI6MTc1NjQ4NjQ3MX0.qafkK4u8vruI71QJWja2cRiBjllu4PDga2TlIUuTjTtyeT_saM-VjLqozaeWyj2TEkNhw_AiVrT56U5W8QOKH2JjvLr1ac7v1YmIQUuxhe_M7YoYZGtTbi4BCzTg8azPhn9vPkBsF90lhB-fFZh2Pk49EKV5B_1yhFfbTF40ccY"
+  }
+}

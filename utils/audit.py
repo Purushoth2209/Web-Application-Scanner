@@ -1,26 +1,28 @@
 import hashlib, json, os, time
 
-AUDIT_FILE = "reports/audit_log.jsonl"
+AUDIT_FILE = os.path.join("reports", "audit_log.jsonl")
 
-def _digest(s: str) -> str:
-    return hashlib.sha256(s.encode("utf-8")).hexdigest()
+def _hash_entry(d: dict, prev_hash: str) -> str:
+    m = hashlib.sha256()
+    m.update((prev_hash or "").encode("utf-8"))
+    m.update(json.dumps(d, sort_keys=True).encode("utf-8"))
+    return m.hexdigest()
 
-def append_audit(event: dict, out_path=AUDIT_FILE):
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    prev = "0"*64
-    if os.path.exists(out_path):
-        with open(out_path, "rb") as f:
+def append_audit(event: dict):
+    os.makedirs("reports", exist_ok=True)
+    prev = ""
+    if os.path.exists(AUDIT_FILE):
+        with open(AUDIT_FILE, "rb") as f:
             try:
-                last = f.readlines()[-1]
-                prev = json.loads(last)["hash"]
+                last = f.read().splitlines()[-1]
+                prev = json.loads(last.decode("utf-8")).get("hash", "")
             except Exception:
-                prev = "0"*64
+                prev = ""
     entry = {
         "ts": time.strftime("%Y-%m-%d %H:%M:%S"),
         "event": event,
         "prev": prev
     }
-    entry["hash"] = _digest(entry["prev"] + json.dumps(entry["event"], sort_keys=True) + entry["ts"])
-    with open(out_path, "a", encoding="utf-8") as f:
+    entry["hash"] = _hash_entry(entry, prev)
+    with open(AUDIT_FILE, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry) + "\n")
-    return entry["hash"]

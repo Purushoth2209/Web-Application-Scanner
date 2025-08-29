@@ -1,0 +1,27 @@
+{
+  "base_url": "http://localhost:8080",
+  "actions": [
+    {
+      "name": "POST_1",
+      "method": "POST",
+      "url": "http://localhost:8080/login.php",
+      "params": {
+        "username": "attacker",
+        "password": "NewPass123!"
+      }
+    }
+  ],
+  "optional": {
+    "bounce_url": "http://localhost:8080",
+    "noreferrer": true
+  },
+  "session_cookie": {
+    "name": "PHPSESSID",
+    "value": "4bkaikq0utkto01in0keoiuc01",
+    "domain": "localhost",
+    "path": "/",
+    "secure": false,
+    "httpOnly": false,
+    "sameSite": "Lax"
+  }
+}

