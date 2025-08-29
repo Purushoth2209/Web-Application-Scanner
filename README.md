@@ -1,5 +1,3 @@
----
-
 # 📖 README.md (Final Polished Version)
 
 ```markdown
@@ -187,6 +185,3 @@ git add README.md
 git commit -m "Polished README for hackathon presentation"
 git push origin csrf
 ````
-
----
-
