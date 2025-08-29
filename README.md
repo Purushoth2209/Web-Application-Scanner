@@ -172,16 +172,4 @@ git push origin xss-module
    * “This dual mode (exploit + compliance) makes it enterprise-ready.”
 
 ---
-
-````
-
----
-
-👉 Copy this entire block into your **README.md** and push again:
-
-```bash
-nano README.md   # paste and save
-git add README.md
-git commit -m "Polished README for hackathon presentation"
-git push origin csrf
 ````
