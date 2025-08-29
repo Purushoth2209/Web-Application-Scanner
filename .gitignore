@@ -1,0 +1,32 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.log
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Playwright browsers/cache
+playwright/.cache/
+playwright/.local-browsers/
+playwright-report/
+test-results/
+
+# Reports (optional: keep them locally, don’t push to GitHub)
+reports/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
