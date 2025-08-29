@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<title>WebSentinel+ CSRF Report</title>
+<style>
+body{font-family:system-ui,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;margin:24px}
+h1{margin:0 0 8px} .muted{color:#666} code,pre{background:#f6f8fa;padding:2px 6px;border-radius:6px}
+table{border-collapse:collapse;width:100%;margin-top:16px}
+th,td{border:1px solid #e5e7eb;padding:8px;text-align:left;vertical-align:top}
+th{background:#f3f4f6}
+.badge{display:inline-inline;padding:2px 8px;border-radius:999px;font-size:12px}
+.ok{background:#e6ffed;color:#036400} .warn{background:#fff7d6;color:#7a5a00} .err{background:#ffecec;color:#8a0202}
+small{color:#555}
+.kpill{display:inline-block;padding:2px 8px;border-radius:999px;background:#eef2ff;color:#1e40af;margin:2px 6px 2px 0}
+</style>
+
+<h1>CSRF Attack Suite Report</h1>
+<div class="muted">Generated: {{ generated }}</div>
+<p><b>Base:</b> {{ base_url }} &nbsp; | &nbsp; <b>Actions:</b> {{ actions_count }} &nbsp; | &nbsp;
+<b>Vectors fired:</b> {{ total_vectors }} &nbsp; | &nbsp; <b>OK (&lt;400 status):</b> {{ successes }}</p>
+
+{% if exploited and exploited|length > 0 %}
+<h3>✅ Exploited vectors (high signal)</h3>
+<p>
+  {% for e in exploited %}
+  <span class="kpill">{{ e.action }} → {{ e.vector }} ({{ e.status }})</span>
+  {% endfor %}
+</p>
+{% else %}
+<h3>ℹ️ No vectors classified as exploited in this run</h3>
+{% endif %}
+
+<table>
+<thead><tr>
+<th>Action</th><th>Vector</th><th>Exploited</th><th>Req Method</th><th>Status</th><th>Referer</th><th>Origin</th><th>Notes</th>
+</tr></thead>
+<tbody>
+{% for r in results %}
+<tr>
+<td><div><b>{{ r.action }}</b><br><small>{{ r.url }}</small></div></td>
+<td><code>{{ r.vector }}</code></td>
+<td>{{ "✅" if r.exploited else "❌" }}</td>
+<td>{{ r.req_method or '—' }}</td>
+<td>
+  <span class="badge {{ 'ok' if r.status and r.status < 400 else 'warn' if r.status else 'err' }}">
+    {{ r.status or '—' }}
+  </span>
+</td>
+<td><small>{{ r.referer if r.referer is not none else '—' }}</small></td>
+<td><small>{{ r.origin if r.origin is not none else '—' }}</small></td>
+<td><small>{{ r.note or '' }}</small></td>
+</tr>
+{% endfor %}
+</tbody></table>
+
+<p class="muted"><small>
+“Exploited” means our heuristics detected the forged request was likely accepted: status &lt; 400, no login redirect, and (for certain vectors) missing/foreign Referer was still accepted or a GET was processed for a state change. Use the JSON for cURL reproduction.
+</small></p>
+</html>

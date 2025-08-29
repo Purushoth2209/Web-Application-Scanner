@@ -1,0 +1,204 @@
+{
+  "generated": "2025-08-29 22:30:58",
+  "base_url": "https://juice-shop.herokuapp.com",
+  "results": [
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "img_get:img",
+      "req_method": "GET",
+      "status": null,
+      "referer": "",
+      "origin": null,
+      "ok": false,
+      "note": null
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "img_get:script",
+      "req_method": "GET",
+      "status": null,
+      "referer": "",
+      "origin": null,
+      "ok": false,
+      "note": null
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "img_get:iframe",
+      "req_method": "GET",
+      "status": 500,
+      "referer": null,
+      "origin": null,
+      "ok": false,
+      "note": "No Referer"
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "script_get:img",
+      "req_method": "GET",
+      "status": null,
+      "referer": "",
+      "origin": null,
+      "ok": false,
+      "note": null
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "script_get:script",
+      "req_method": "GET",
+      "status": null,
+      "referer": "",
+      "origin": null,
+      "ok": false,
+      "note": null
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "script_get:iframe",
+      "req_method": "GET",
+      "status": 500,
+      "referer": null,
+      "origin": null,
+      "ok": false,
+      "note": "No Referer"
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "iframe_get:img",
+      "req_method": "GET",
+      "status": null,
+      "referer": "",
+      "origin": null,
+      "ok": false,
+      "note": null
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "iframe_get:script",
+      "req_method": "GET",
+      "status": null,
+      "referer": "",
+      "origin": null,
+      "ok": false,
+      "note": null
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "iframe_get:iframe",
+      "req_method": "GET",
+      "status": 500,
+      "referer": null,
+      "origin": null,
+      "ok": false,
+      "note": "No Referer"
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 500,
+      "referer": null,
+      "origin": null,
+      "ok": false,
+      "note": "No Referer"
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 500,
+      "referer": null,
+      "origin": null,
+      "ok": false,
+      "note": "No Referer"
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 500,
+      "referer": null,
+      "origin": null,
+      "ok": false,
+      "note": "Referer intentionally suppressed; No Referer"
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 500,
+      "referer": null,
+      "origin": "null",
+      "ok": false,
+      "note": "No Referer"
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": null,
+      "referer": "",
+      "origin": null,
+      "ok": false,
+      "note": null
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "xhr_post_json",
+      "req_method": "POST",
+      "status": null,
+      "referer": "",
+      "origin": null,
+      "ok": false,
+      "note": null
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 500,
+      "referer": null,
+      "origin": "null",
+      "ok": false,
+      "note": "No Referer"
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "method_override_param",
+      "req_method": "GET",
+      "status": 500,
+      "referer": null,
+      "origin": null,
+      "ok": false,
+      "note": "Uses _method=POST; No Referer"
+    },
+    {
+      "action": "ChangePassword",
+      "url": "https://juice-shop.herokuapp.com/rest/user/change-password",
+      "vector": "cookie_refresh_then_post",
+      "req_method": null,
+      "status": null,
+      "referer": null,
+      "origin": null,
+      "ok": false,
+      "note": "SameSite Lax 'refresh' flow; No Referer"
+    }
+  ]
+}

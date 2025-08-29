@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<title>WebSentinel+ CSRF Report</title>
+<style>
+body{font-family:system-ui,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;margin:24px}
+h1{margin:0 0 8px} .muted{color:#666} code,pre{background:#f6f8fa;padding:2px 6px;border-radius:6px}
+table{border-collapse:collapse;width:100%;margin-top:16px}
+th,td{border:1px solid #e5e7eb;padding:8px;text-align:left;vertical-align:top}
+th{background:#f3f4f6}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;margin-left:6px}
+.ok{background:#e6ffed;color:#036400} .warn{background:#fff7d6;color:#7a5a00} .err{background:#ffecec;color:#8a0202}
+small{color:#555}
+</style>
+<h1>CSRF Attack Suite Report</h1>
+<div class="muted">Generated: 2025-08-29 22:30:58</div>
+<p><b>Base:</b> https://juice-shop.herokuapp.com &nbsp; | &nbsp; <b>Actions:</b> 1 &nbsp; | &nbsp;
+<b>Vectors fired:</b> 18 &nbsp; | &nbsp; <b>OK (&lt;400 status):</b> 0</p>
+
+<table>
+<thead><tr>
+<th>Action</th><th>Vector</th><th>Req Method</th><th>Status</th><th>Referer</th><th>Origin</th><th>Notes</th>
+</tr></thead>
+<tbody>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>img_get:img</code></td>
+<td>GET</td>
+<td><span class="badge err">—</span></td>
+<td><small></small></td>
+<td><small>—</small></td>
+<td><small></small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>img_get:script</code></td>
+<td>GET</td>
+<td><span class="badge err">—</span></td>
+<td><small></small></td>
+<td><small>—</small></td>
+<td><small></small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>img_get:iframe</code></td>
+<td>GET</td>
+<td><span class="badge warn">500</span></td>
+<td><small>—</small></td>
+<td><small>—</small></td>
+<td><small>No Referer</small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>script_get:img</code></td>
+<td>GET</td>
+<td><span class="badge err">—</span></td>
+<td><small></small></td>
+<td><small>—</small></td>
+<td><small></small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>script_get:script</code></td>
+<td>GET</td>
+<td><span class="badge err">—</span></td>
+<td><small></small></td>
+<td><small>—</small></td>
+<td><small></small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>script_get:iframe</code></td>
+<td>GET</td>
+<td><span class="badge warn">500</span></td>
+<td><small>—</small></td>
+<td><small>—</small></td>
+<td><small>No Referer</small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>iframe_get:img</code></td>
+<td>GET</td>
+<td><span class="badge err">—</span></td>
+<td><small></small></td>
+<td><small>—</small></td>
+<td><small></small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>iframe_get:script</code></td>
+<td>GET</td>
+<td><span class="badge err">—</span></td>
+<td><small></small></td>
+<td><small>—</small></td>
+<td><small></small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>iframe_get:iframe</code></td>
+<td>GET</td>
+<td><span class="badge warn">500</span></td>
+<td><small>—</small></td>
+<td><small>—</small></td>
+<td><small>No Referer</small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>meta_refresh</code></td>
+<td>GET</td>
+<td><span class="badge warn">500</span></td>
+<td><small>—</small></td>
+<td><small>—</small></td>
+<td><small>No Referer</small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>link_click</code></td>
+<td>GET</td>
+<td><span class="badge warn">500</span></td>
+<td><small>—</small></td>
+<td><small>—</small></td>
+<td><small>No Referer</small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>noreferrer_link</code></td>
+<td>GET</td>
+<td><span class="badge warn">500</span></td>
+<td><small>—</small></td>
+<td><small>—</small></td>
+<td><small>Referer intentionally suppressed; No Referer</small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>form_post</code></td>
+<td>POST</td>
+<td><span class="badge warn">500</span></td>
+<td><small>—</small></td>
+<td><small>null</small></td>
+<td><small>No Referer</small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>fetch_post</code></td>
+<td>POST</td>
+<td><span class="badge err">—</span></td>
+<td><small></small></td>
+<td><small>—</small></td>
+<td><small></small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>xhr_post_json</code></td>
+<td>POST</td>
+<td><span class="badge err">—</span></td>
+<td><small></small></td>
+<td><small>—</small></td>
+<td><small></small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>multipart_post</code></td>
+<td>POST</td>
+<td><span class="badge warn">500</span></td>
+<td><small>—</small></td>
+<td><small>null</small></td>
+<td><small>No Referer</small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>method_override_param</code></td>
+<td>GET</td>
+<td><span class="badge warn">500</span></td>
+<td><small>—</small></td>
+<td><small>—</small></td>
+<td><small>Uses _method=POST; No Referer</small></td>
+</tr>
+
+<tr>
+<td><div><b>ChangePassword</b><br><small>https://juice-shop.herokuapp.com/rest/user/change-password</small></div></td>
+<td><code>cookie_refresh_then_post</code></td>
+<td>—</td>
+<td><span class="badge err">—</span></td>
+<td><small>—</small></td>
+<td><small>—</small></td>
+<td><small>SameSite Lax 'refresh' flow; No Referer</small></td>
+</tr>
+
+</tbody></table>
+
+<p class="muted"><small>Notes: “OK” means the browser made a same-origin request to the target and status was &lt; 400 (not proof of state change, but strong CSRF signal). Missing/foreign <b>Referer/Origin</b> with acceptance indicates broken validation. Top-level navigations simulate SameSite behaviors and the cookie “refresh” flow used in PortSwigger labs.</small></p>
+</html>
