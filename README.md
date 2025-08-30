@@ -34,10 +34,15 @@ This makes WebSentinel+ both a **red-team tool** and a **compliance checker**, d
 ```
 
 websentinel-csrf/
+
 ├── auto\_run.py          # CLI wrapper for quick scans
+
 ├── csrf\_suite\_cli.py    # Core engine (attack + reporting)
+
 ├── requirements.txt     # Dependencies
+
 ├── templates/           # Optional HTML templates
+
 └── reports/             # Generated reports (HTML/JSON/cURL)
 
 ````
