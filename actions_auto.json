@@ -1,0 +1,33 @@
+{
+  "base_url": "https://juice-shop.herokuapp.com",
+  "actions": [
+    {
+      "name": "form_1",
+      "method": "get",
+      "url": "https://github.com/juice-shop/juice-shop",
+      "params": {
+        "query-builder-test": "test123"
+      }
+    },
+    {
+      "name": "form_2",
+      "method": "post",
+      "url": "https://github.com/search/feedback",
+      "params": {
+        "authenticity_token": "test123",
+        "include_email": "test123"
+      }
+    },
+    {
+      "name": "form_3",
+      "method": "post",
+      "url": "https://github.com/search/custom_scopes",
+      "params": {
+        "authenticity_token": "test123",
+        "custom_scope_id": "test123",
+        "custom_scope_name": "test123",
+        "custom_scope_query": "test123"
+      }
+    }
+  ]
+}

