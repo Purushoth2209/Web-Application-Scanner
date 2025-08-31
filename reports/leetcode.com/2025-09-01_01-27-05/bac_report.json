@@ -1,0 +1,63 @@
+{
+    "site": "https://leetcode.com",
+    "timestamp": "2025-09-01_01-27-05",
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": []
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "details": "No admin credentials provided"
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "https://leetcode.com/../etc/passwd",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 403"
+                },
+                {
+                    "url": "https://leetcode.com/../../admin/config",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 403"
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": []
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "https://leetcode.com/admin",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 403"
+                },
+                {
+                    "url": "https://leetcode.com/config",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 403"
+                },
+                {
+                    "url": "https://leetcode.com/debug",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 403"
+                },
+                {
+                    "url": "https://leetcode.com/private",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 403"
+                }
+            ]
+        }
+    ]
+}

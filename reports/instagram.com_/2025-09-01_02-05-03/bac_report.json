@@ -1,0 +1,78 @@
+{
+    "site": "https://instagram.com/",
+    "timestamp": "2025-09-01_02-05-03",
+    "crawled_links": 0,
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": []
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "risk": "High",
+                    "details": "No admin credentials provided",
+                    "mitigation": "Enforce role-based access control (RBAC) at server side."
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "https://instagram.com//../etc/passwd",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP 200)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                },
+                {
+                    "url": "https://instagram.com//../../admin/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP 200)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": []
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "https://instagram.com//admin",
+                    "status": "Error",
+                    "risk": "Medium",
+                    "details": "Request failed",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://instagram.com//config",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP 200)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://instagram.com//debug",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP 200)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://instagram.com//private",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP 200)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                }
+            ]
+        }
+    ]
+}

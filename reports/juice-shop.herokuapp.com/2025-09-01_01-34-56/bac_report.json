@@ -1,0 +1,63 @@
+{
+    "site": "https://juice-shop.herokuapp.com",
+    "timestamp": "2025-09-01_01-34-56",
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": []
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "details": "No admin credentials provided"
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/../etc/passwd",
+                    "status": "Vulnerable",
+                    "details": "File accessed"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/../../admin/config",
+                    "status": "Vulnerable",
+                    "details": "File accessed"
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": []
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/admin",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/config",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/debug",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/private",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                }
+            ]
+        }
+    ]
+}

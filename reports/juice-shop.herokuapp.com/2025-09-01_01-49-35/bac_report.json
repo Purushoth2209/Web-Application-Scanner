@@ -1,0 +1,172 @@
+{
+    "site": "https://juice-shop.herokuapp.com",
+    "timestamp": "2025-09-01_01-49-35",
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": [
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                }
+            ]
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "details": "No admin credentials provided",
+                    "mitigation": "Enforce role-based access control (RBAC) at server side."
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/../etc/passwd",
+                    "status": "Not Vulnerable",
+                    "details": "Returned HTTP 200",
+                    "mitigation": "Sanitize user input, deny '../' sequences, enforce path whitelisting."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/../../admin/config",
+                    "status": "Not Vulnerable",
+                    "details": "Returned HTTP 200",
+                    "mitigation": "Sanitize user input, deny '../' sequences, enforce path whitelisting."
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/vendor.js",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/main.js",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/contact",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/runtime.js",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/score-board",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/about",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/login",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/photo-wall",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/polyfills.js",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate methods server-side."
+                }
+            ]
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/admin",
+                    "status": "Vulnerable",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/config",
+                    "status": "Vulnerable",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/debug",
+                    "status": "Vulnerable",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/private",
+                    "status": "Vulnerable",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                }
+            ]
+        }
+    ]
+}

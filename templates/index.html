@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>BAC Scanner</title></head>
+<body>
+  <h1>Broken Access Control Scanner</h1>
+  <form action="/scan" method="post">
+    <label>Target URL:</label><br>
+    <input type="text" name="url" required><br>
+    <label>User:</label><br>
+    <input type="text" name="user" required><br>
+    <label>Password:</label><br>
+    <input type="password" name="passwd" required><br>
+    <label>Admin (optional):</label><br>
+    <input type="text" name="admin"><br>
+    <label>Admin Password:</label><br>
+    <input type="password" name="admin_pass"><br>
+    <button type="submit">Run Scan</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+    "site": "https://instagram.com",
+    "timestamp": "2025-09-01_01-42-30",
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": []
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "details": "No admin credentials provided"
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "https://instagram.com/../etc/passwd",
+                    "status": "Vulnerable",
+                    "details": "File accessed"
+                },
+                {
+                    "url": "https://instagram.com/../../admin/config",
+                    "status": "Vulnerable",
+                    "details": "File accessed"
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": []
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "https://instagram.com/admin",
+                    "status": "Error",
+                    "details": "Request failed"
+                },
+                {
+                    "url": "https://instagram.com/config",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                },
+                {
+                    "url": "https://instagram.com/debug",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                },
+                {
+                    "url": "https://instagram.com/private",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                }
+            ]
+        }
+    ]
+}

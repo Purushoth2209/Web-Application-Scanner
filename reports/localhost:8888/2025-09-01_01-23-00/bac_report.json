@@ -1,0 +1,182 @@
+{
+    "site": "http://localhost:8888",
+    "timestamp": "2025-09-01_01-23-00",
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": [
+                [
+                    {
+                        "status": "No IDOR parameters found"
+                    }
+                ],
+                [
+                    {
+                        "status": "No IDOR parameters found"
+                    }
+                ],
+                [
+                    {
+                        "status": "No IDOR parameters found"
+                    }
+                ],
+                [
+                    {
+                        "status": "No IDOR parameters found"
+                    }
+                ],
+                [
+                    {
+                        "status": "No IDOR parameters found"
+                    }
+                ],
+                [
+                    {
+                        "status": "No IDOR parameters found"
+                    }
+                ],
+                [
+                    {
+                        "status": "No IDOR parameters found"
+                    }
+                ],
+                [
+                    {
+                        "status": "No IDOR parameters found"
+                    }
+                ],
+                [
+                    {
+                        "status": "No IDOR parameters found"
+                    }
+                ]
+            ]
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "details": "No admin credentials provided"
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "http://localhost:8888/../etc/passwd",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 404"
+                },
+                {
+                    "url": "http://localhost:8888/../../admin/config",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 404"
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": [
+                [
+                    {
+                        "url": "http://localhost:8888/user_new.php",
+                        "method": "POST",
+                        "status": "Vulnerable",
+                        "details": "POST allowed"
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/info.php",
+                        "method": "POST",
+                        "status": "Vulnerable",
+                        "details": "POST allowed"
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/training.php",
+                        "method": "POST",
+                        "status": "Vulnerable",
+                        "details": "POST allowed"
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/login.php",
+                        "method": "POST",
+                        "status": "Vulnerable",
+                        "details": "POST allowed"
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/user_new.php",
+                        "method": "POST",
+                        "status": "Vulnerable",
+                        "details": "POST allowed"
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/info.php",
+                        "method": "POST",
+                        "status": "Vulnerable",
+                        "details": "POST allowed"
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/login.php",
+                        "method": "POST",
+                        "status": "Vulnerable",
+                        "details": "POST allowed"
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/user_new.php",
+                        "method": "POST",
+                        "status": "Vulnerable",
+                        "details": "POST allowed"
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/login.php",
+                        "method": "POST",
+                        "status": "Vulnerable",
+                        "details": "POST allowed"
+                    }
+                ]
+            ]
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "http://localhost:8888/admin",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                },
+                {
+                    "url": "http://localhost:8888/config",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 404"
+                },
+                {
+                    "url": "http://localhost:8888/debug",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 404"
+                },
+                {
+                    "url": "http://localhost:8888/private",
+                    "status": "Not Vulnerable",
+                    "details": "HTTP 404"
+                }
+            ]
+        }
+    ]
+}

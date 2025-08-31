@@ -1,0 +1,116 @@
+{
+    "site": "http://localhost:8888",
+    "timestamp": "2025-09-01_00-22-17",
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": [
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                []
+            ]
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": {
+                "error": "Admin creds not provided"
+            }
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "path": "../etc/passwd",
+                    "status": 404
+                },
+                {
+                    "path": "../../admin/config",
+                    "status": 404
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": [
+                [
+                    {
+                        "url": "http://localhost:8888/user_new.php",
+                        "method": "POST",
+                        "status": 200
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/info.php",
+                        "method": "POST",
+                        "status": 200
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/training.php",
+                        "method": "POST",
+                        "status": 200
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/login.php",
+                        "method": "POST",
+                        "status": 200
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/user_new.php",
+                        "method": "POST",
+                        "status": 200
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/info.php",
+                        "method": "POST",
+                        "status": 200
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/login.php",
+                        "method": "POST",
+                        "status": 200
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/user_new.php",
+                        "method": "POST",
+                        "status": 200
+                    }
+                ],
+                [
+                    {
+                        "url": "http://localhost:8888/login.php",
+                        "method": "POST",
+                        "status": 200
+                    }
+                ]
+            ]
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "http://localhost:8888/admin",
+                    "vulnerable": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,119 @@
+{
+    "site": "https://juice-shop.herokuapp.com",
+    "timestamp": "2025-09-01_01-41-25",
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": [
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                },
+                {
+                    "status": "No IDOR parameters found"
+                }
+            ]
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "details": "No admin credentials provided"
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/../etc/passwd",
+                    "status": "Vulnerable",
+                    "details": "File accessed"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/../../admin/config",
+                    "status": "Vulnerable",
+                    "details": "File accessed"
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/photo-wall",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "POST allowed"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/login",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "POST allowed"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "POST allowed"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/score-board",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "POST allowed"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/contact",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "POST allowed"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/about",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "details": "POST allowed"
+                }
+            ]
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/admin",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/config",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/debug",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/private",
+                    "status": "Vulnerable",
+                    "details": "Accessible"
+                }
+            ]
+        }
+    ]
+}

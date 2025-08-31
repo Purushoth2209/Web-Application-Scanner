@@ -1,0 +1,10 @@
+curl -X POST 'http://localhost:8888/user_new.php' -v
+curl -X POST 'http://localhost:8888/info.php' -v
+curl -X POST 'http://localhost:8888/training.php' -v
+curl -X POST 'http://localhost:8888/login.php' -v
+curl -X POST 'http://localhost:8888/user_new.php' -v
+curl -X POST 'http://localhost:8888/info.php' -v
+curl -X POST 'http://localhost:8888/login.php' -v
+curl -X POST 'http://localhost:8888/user_new.php' -v
+curl -X POST 'http://localhost:8888/login.php' -v
+curl -X GET 'http://localhost:8888/admin' -v
