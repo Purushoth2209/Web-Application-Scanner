@@ -1,180 +1,192 @@
-# 📖 README.md (Final Polished Version)
+# 🛡️ B-Secure — WebSentinel-CSRF
 
-```markdown
-# WebSentinel+ — CSRF Attack Suite
+**Automated CSRF Vulnerability Detection & Exploitation Suite**
 
-## 🚀 Overview
-WebSentinel+ is a **Cross-Site Request Forgery (CSRF) attack suite** developed for the **CTS Cybersecurity Hackathon (NPN Recruitment)**.
-
-Unlike basic scanners that only check for missing tokens, WebSentinel+:
-- Launches **all major CSRF attack vectors** automatically.
-- Works on both **cookie-based apps (e.g., DVWA)** and **modern JWT/header-based apps (e.g., Juice Shop)**.
-- Auto-generates **timestamped reports (HTML, JSON, cURL repro)**.
-- Differentiates between:
-  - ✅ **Exploitable apps** (DVWA → vulnerable to CSRF).  
-  - 🛡️ **Secure-by-design apps** (Juice Shop → JWT → CSRF not applicable).
-
-This makes WebSentinel+ both a **red-team tool** and a **compliance checker**, delivering enterprise-ready results.
+> 🏆 Built with ❤️ by **Team B-Secure** for Hackathons & Beyond
 
 ---
 
-## 🌟 Features & Wow Factor
-- **Full CSRF attack simulation**: img, script, iframe, meta refresh, link, noreferrer, form post, fetch, xhr, multipart, method override, cookie-refresh.
-- **Universal coverage**:  
-  - Exploits cookie-based apps (shows ✅ exploited).  
-  - Recognizes JWT/header apps where CSRF doesn’t apply (shows 🛡️ N/A).  
-- **Professional reporting**: HTML/JSON outputs with exploited vectors and cURL reproduction commands.  
-- **Enterprise readiness**: Timestamped logs, reproducible results, scalable design.  
+## 📌 Overview
 
-> Judges see not just detection, but **true exploitation + validation**. No false positives.
+**WebSentinel-CSRF** is a **fully automated security tool** by **Team B-Secure** designed to detect and exploit **Cross-Site Request Forgery (CSRF)** vulnerabilities.
+
+All you need to do is **enter a site URL** — our tool takes care of the rest:
+
+1. **Crawl** → Explore all links & subpages (static + dynamic)
+2. **Detect** → Extract forms & form-like requests
+3. **Extract Tokens** → Grab cookies, session IDs, JWTs from storage
+4. **Attack** → Launch **basic + advanced CSRF vectors**
+5. **Report** → Generate professional multi-format reports
+
+⚡ **Hackathon WOW Factor**: Truly **URL-only, zero-config automation**, with **deep crawl + exploitation + reporting**.
 
 ---
 
-## 📂 Project Structure
+## 🎯 Why CSRF Matters
+
+CSRF is a **high-severity vulnerability**:
+
+* Attacker tricks a logged-in user’s browser to perform unwanted actions.
+* Example: Transfer money, change password, delete account.
+* Many apps still rely on **cookies** → auto-sent with requests → exploitable.
+* JWT/header-only systems resist CSRF but can still be checked.
+
+---
+
+## 🔥 Attack Flow (Diagram)
+
+```mermaid
+flowchart TD
+    A[User enters URL] --> B[Crawler visits subpages]
+    B --> C[Form Detection]
+    C --> D[Extract Tokens (Cookies/JWT)]
+    D --> E[Launch CSRF Attack Suite]
+    E --> F[Check Responses]
+    F --> G[Generate Reports (HTML, JSON, PoC)]
 ```
 
-websentinel-csrf/
+---
 
-├── auto\_run.py          # CLI wrapper for quick scans
+## 🛠️ System Architecture (Diagram)
 
-├── csrf\_suite\_cli.py    # Core engine (attack + reporting)
+```mermaid
+graph LR
+    subgraph User
+        U[User enters site URL]
+    end
 
-├── requirements.txt     # Dependencies
+    subgraph WebSentinel-CSRF
+        C1[Crawler (Selenium + Requests)] --> F1[Form Extractor]
+        F1 --> T1[Token Extractor (Cookies/JWT)]
+        T1 --> A1[Attack Suite (Playwright Payloads)]
+        A1 --> R1[Report Generator (Jinja2 Templates)]
+    end
 
-├── templates/           # Optional HTML templates
+    U --> C1
+    R1 --> O[Multi-format Reports: HTML, JSON, PoCs]
+```
 
-└── reports/             # Generated reports (HTML/JSON/cURL)
+---
 
-````
+## ✨ Features
+
+* 🔎 **Deep Crawl** → Visits internal links to detect forms
+* 📝 **Form Detection** → Extracts methods, hidden inputs, params
+* 🔐 **Token Extraction** → Cookies, Session IDs, JWTs
+* ⚔️ **CSRF Attack Suite**:
+
+  * Basic vectors → `<img>`, `<iframe>`, `<script>`, `<form>` auto-submit, `<meta refresh>`
+  * Advanced vectors → Duplicate token replay, Method override, SameSite bypass, Referer sandbox, Subdomain bypass, Multipart abuse
+* 📊 **Reports (5 files/run)**:
+
+  * Full HTML
+  * Full JSON
+  * Exploited-only HTML
+  * Exploited-only JSON
+  * `curl` PoCs file
+* 💡 **Mitigation Hints** → Clear, actionable fixes
 
 ---
 
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/Nerangen/b-secure-cts.git
-cd b-secure-cts
-git checkout csrf
-pip3 install -r requirements.txt
-python3 -m playwright install chromium
-````
+git clone <your-repo-link>
+cd websentinel-csrf
+pip install -r requirements.txt
+pip install playwright
+playwright install
+sudo apt install chromium-browser chromium-chromedriver   # Linux
+```
 
 ---
 
-## 🧪 Usage
+## 🚀 Usage
 
-### 🔐 DVWA (Cookie-based, vulnerable)
-
-1. Run DVWA at `http://localhost:8080`.
-2. Login → Security Level = **Low**.
-3. Copy `PHPSESSID` from DevTools → Cookies.
-4. Run:
+### 1️⃣ Auto Mode (just give URL)
 
 ```bash
-set +H   # disable history expansion
-
-python3 auto_run.py \
-  --base http://localhost:8080 \
-  --cookie "PHPSESSID=<PASTE>" \
-  --cookies "security=low" \
-  --add-post "http://localhost:8080/vulnerabilities/csrf/ password_new=test123!&password_conf=test123!&Change=Change" \
-  --body-format form \
-  --noreferrer \
-  --exploits-only
+python3 auto_full.py --base http://localhost:9090 --depth 2
 ```
 
-✅ Report shows multiple **exploited vectors** (DVWA is vulnerable).
-
----
-
-### 🛡️ Juice Shop (JWT-based, secure)
-
-1. Run `https://juice-shop.herokuapp.com`.
-2. Login → DevTools → Network → copy `Authorization: Bearer <JWT>`.
-3. Export JWT and password:
+### 2️⃣ With Login (Juice Shop example)
 
 ```bash
-export JWT='<paste-long-jwt>'
-export CUR='<your-current-password>'
-```
-
-4. Run:
-
-```bash
-python3 auto_run.py \
+python3 auto_full.py \
   --base https://juice-shop.herokuapp.com \
-  --auth-header "Authorization: Bearer $JWT" \
-  --add-post "https://juice-shop.herokuapp.com/rest/user/change-password current=$CUR&new=Attacker123!&repeat=Attacker123!" \
-  --body-format json \
-  --noreferrer \
-  --exploits-only
+  --login-path /#/login \
+  --username testemail123@gmail.com \
+  --password password123@24 \
+  --username-field "input[name='email']" \
+  --password-field "input[name='password']" \
+  --login-button "button#loginButton" \
+  --depth 3
 ```
 
-🛡️ Report shows **“Not applicable (JWT/header-based auth)”** (correct, no CSRF possible).
-
----
-
-## 📊 Viewing Reports
-
-Reports are saved in `reports/` with domain + timestamp.
-
-Example:
-
-```
-reports/localhost_csrf_2025-08-30_12-30-01.html
-reports/juice-shop.herokuapp.com_csrf_2025-08-30_12-35-44.json
-reports/juice-shop.herokuapp.com_csrf_2025-08-30_12-35-44_curl.txt
-```
-
-View in browser:
+### 3️⃣ Suite Mode (config JSON)
 
 ```bash
-python3 -m http.server 8000 --directory reports
-# then open http://localhost:8000/
+python3 csrf_suite_cli.py --config config.json --out reports
 ```
 
 ---
 
-## 🛠️ Modifying for New Targets
+## 📊 Reports
 
-* Use `--cookie` / `--cookies` for cookie-based apps.
-* Use `--auth-header` for JWT/header apps.
-* Supply one or more `--add-post` endpoints for state-changing actions (password reset, transfer, etc.).
-* Set `--body-format form` or `--body-format json` depending on API.
-* Add multiple `--add-post` for multiple actions.
+Each run generates **5 reports** in `reports/`:
 
----
-
-## 👥 Team Workflow
-
-* Clone repo:
-
-```bash
-git clone https://github.com/Nerangen/b-secure-cts.git
-cd b-secure-cts
-git checkout csrf
+```
+reports/
+├── target_csrf_<timestamp>.html
+├── target_csrf_<timestamp>.json
+├── target_csrf_<timestamp>_exploited.html
+├── target_csrf_<timestamp>_exploited.json
+└── target_csrf_<timestamp>_curl.txt
 ```
 
-* Each member → work in their branch:
+✔ **HTML** → Judge-friendly, professional layout
+✔ **JSON** → Developer-ready
+✔ **PoC cURL file** → Instant replay
 
-```bash
-git checkout -b xss-module
-git push origin xss-module
+---
+
+## 📖 Example Snippet
+
+```
+CSRF Attack Suite Report
+Generated: Aug 31, 2025 | Base: http://localhost:9090 | Actions: 3 | Vectors: 16
+
+✅ Exploited:
+- form_1 → img_get (200)
+- form_1 → script_get (200)
+
+ℹ️ Not applicable:
+- form_2 → jwt_based (header auth)
+
+Mitigations:
+- Use CSRF tokens
+- Enforce SameSite=strict
+- Validate Origin/Referer
 ```
 
-* Merge into `csrf` for integration.
+---
+
+## 🏆 Hackathon WOW Factors
+
+* ✅ **One-click automation** → Just URL input
+* ✅ **Universal** → Static + dynamic, cookies + JWTs
+* ✅ **Full attack coverage** → Basic + advanced vectors
+* ✅ **Professional reporting** → HTML, JSON, PoCs, mitigations
+* ✅ **Built for developers & judges** → Easy to demo + clear value
 
 ---
 
-## 🏆 Hackathon Demo Flow
+## ⚠️ Disclaimer
 
-1. **Run on DVWA** → report shows ✅ exploited CSRF vectors.
-2. **Run on Juice Shop** → report shows 🛡️ N/A (secure design).
-3. **Explain**:
-
-   * “Our tool doesn’t just detect CSRF — it simulates every vector.”
-   * “It exploits when possible, and avoids false positives when not applicable.”
-   * “This dual mode (exploit + compliance) makes it enterprise-ready.”
+* For **educational & authorized testing only**.
+* Do **NOT** run on real production apps without permission.
+* Team B-Secure is not responsible for misuse.
 
 ---
-````
+
+🔥 With **WebSentinel-CSRF by B-Secure**, you’re not just scanning — you’re **demonstrating real-world exploits** with crystal-clear reporting and automation.
