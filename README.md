@@ -1,38 +1,26 @@
-# 🛡️ B-Secure: Automated CSRF Vulnerability Detection Suite
+# 🔒 B-Secure — Automated CSRF Attack & Detection Suite
 
-B-Secure is a **fully automated security testing framework** that detects and exploits **Cross-Site Request Forgery (CSRF) vulnerabilities** in both **static and dynamic web applications**.
-All you need to do is **enter a target site URL** — the suite will:
+B-Secure is an automated security tool designed to **detect and exploit CSRF vulnerabilities** across **any web application** — whether it uses **cookies, JWTs, or other authentication methods**.
 
-1. **Crawl** through all sub-links and forms
-2. **Extract session tokens** (Cookies / JWT / Headers)
-3. **Launch a wide range of CSRF attack vectors** (basic + advanced)
-4. **Classify results** as `Exploited ✅` or `Not Applicable (JWT/CSRF-Proof)`
-5. **Generate detailed reports** in multiple formats (HTML, JSON, Exploited Only, PoC cURL commands)
+It crawls the target website deeply, extracts **forms and form-like endpoints**, retrieves **tokens (Cookies / JWT)**, launches **basic & advanced CSRF attack vectors**, and generates detailed reports.
 
 ---
 
 ## 🚀 Key Features
 
-* 🔎 **Deep Crawler** — recursively scans sub-links and detects forms/form-like actions
-* 🔐 **Token Extraction** — retrieves session cookies and JWT tokens automatically
-* 🧨 **Attack Suite** — launches a wide range of CSRF attack payloads:
+* 🌐 **Automated Crawling** — Scans all sublinks of the target site (static & dynamic).
+* 📝 **Form & Endpoint Detection** — Finds all forms and form-like inputs.
+* 🔑 **Token Extraction** — Retrieves Cookies and JWTs (localStorage / sessionStorage).
+* 🎯 **Attack Suite** — Launches both **basic** (img/script/iframe/form) and **advanced** (samesite bypass, referer bypass, method override, duplicate token, subdomain bypass) CSRF attacks.
+* 📊 **Reports** — Generates **5 files** for every run:
 
-  * Image/script/iframe GET requests
-  * Hidden form POST submissions
-  * Fetch/XHR with cookies or headers
-  * Multipart/form-data uploads
-  * Advanced bypasses: **Duplicate Tokens, SameSite Refresh, Referer Bypass, Subdomain Bypass, Method Override**
-* 📊 **Multi-Format Reports** — auto-generated:
-
-  * Full HTML Report
-  * Exploited Only HTML Report
-  * JSON (full + exploited)
-  * PoC cURL command file
-* ✅ **Smart Classification**
-
-  * Exploited ✅ → Vulnerability confirmed
-  * Not Applicable → Token scheme (JWT/header-based) resists CSRF
-  * HTTP Error → Request blocked
+  * HTML (full report)
+  * JSON (full raw results)
+  * Exploited HTML (only successful attacks)
+  * Exploited JSON (only exploited results)
+  * cURL PoC file (ready-to-run Proof-of-Concept)
+* 🛡️ **JWT Awareness** — Marks JWT-protected endpoints as **Not Applicable (CSRF-proof)**.
+* 🤖 **Fully Automated** — Just give a **URL**, the tool does the rest.
 
 ---
 
@@ -40,55 +28,54 @@ All you need to do is **enter a target site URL** — the suite will:
 
 ```
 B-Secure/
-│── csrf_suite_cli.py     # Core CSRF attack suite
-│── auto_full.py          # Automation: crawling + token extraction + orchestration
-│── reports/              # Auto-generated reports stored here
-│── requirements.txt      # Python dependencies
+│── auto_full.py          # Main orchestrator: crawling, token extraction, attack execution
+│── csrf_suite_cli.py     # Core attack suite: generates payloads & reports
+│── reports/              # Output directory for generated reports
 │── README.md             # Documentation
 ```
 
 ---
 
-## 🔧 Installation
+## ⚡ Installation
 
-1. **Clone the repository**
+1. Clone the repo:
 
-```bash
-git clone https://github.com/<your-repo>/b-secure.git
-cd b-secure
-```
+   ```bash
+   git clone https://github.com/<your-repo-link>/b-secure.git
+   cd b-secure
+   ```
 
-2. **Set up Python environment**
+2. Install dependencies:
 
-```bash
-python3 -m venv venv
-source venv/bin/activate   # On Linux/Mac
-venv\Scripts\activate      # On Windows
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. **Install dependencies**
+   Required libraries include:
 
-```bash
-pip install -r requirements.txt
-```
+   * `selenium`
+   * `requests`
+   * `beautifulsoup4`
+   * `playwright`
+   * `jinja2`
 
-Dependencies include:
+3. Install browser drivers:
 
-* `requests`
-* `beautifulsoup4`
-* `selenium`
-* `playwright`
-* `jinja2`
-
-(⚡ Run `playwright install` after installing dependencies.)
+   ```bash
+   playwright install chromium
+   ```
 
 ---
 
 ## ▶️ Usage
 
-### 1. Run Automated Mode (Recommended)
+### 1. **Basic run (public site)**
 
-This will crawl, extract tokens, attack, and generate reports:
+```bash
+python3 auto_full.py --base https://example.com --depth 2
+```
+
+### 2. **Authenticated run (login page)**
 
 ```bash
 python3 auto_full.py \
@@ -102,37 +89,26 @@ python3 auto_full.py \
   --depth 3
 ```
 
-Outputs are saved in `reports/` with timestamped filenames.
-
 ---
 
-### 2. Run CLI Mode (Custom Config)
+## 📊 Output
 
-You can manually define attack targets via a JSON config:
+For every run, **5 reports** are generated in `reports/`:
+
+1. `site_csrf_<timestamp>.html` — Full report (all vectors).
+2. `site_csrf_<timestamp>.json` — Raw JSON results.
+3. `site_csrf_<timestamp>_exploited.html` — Only exploited vulnerabilities.
+4. `site_csrf_<timestamp>_exploited.json` — Only exploited vulnerabilities in JSON.
+5. `site_csrf_<timestamp>_curl.txt` — Ready-to-run cURL PoCs.
+
+You can serve them locally:
 
 ```bash
-python3 csrf_suite_cli.py --config config.json
+python3 -m http.server 8000 --directory reports
 ```
 
----
-
-## 📊 Example Reports
-
-### Exploited Report (HTML)
-
-✅ Shows which vectors worked against which forms:
-
-* `form_1 → img_get (200)`
-* `form_1 → fetch_post (200)`
-* Mitigation suggestions automatically included.
-
-### JSON Output
-
-Structured machine-readable logs for integration with other tools.
-
-### PoC (cURL) File
-
-Each attack vector produces a `curl` command that you can re-run to reproduce.
+Then view in your browser:
+👉 [http://localhost:8000](http://localhost:8000)
 
 ---
 
@@ -142,15 +118,15 @@ Each attack vector produces a `curl` command that you can re-run to reproduce.
 flowchart TD
     A[User enters URL] --> B[Crawler visits subpages]
     B --> C[Form Detection]
-    C --> D[Extract Tokens: Cookies / JWT]
+    C --> D["Extract Tokens (Cookies / JWT)"]
     D --> E[Launch CSRF Attack Suite]
     E --> F[Check Responses]
-    F --> G[Generate Reports: HTML, JSON, PoC]
+    F --> G[Generate Reports (HTML, JSON, PoC)]
 ```
 
 ---
 
-## 🛠️ System Architecture (Diagram)
+## 🏗️ System Architecture (Diagram)
 
 ```mermaid
 graph LR
@@ -158,9 +134,9 @@ graph LR
 
     subgraph B-Secure
         C1 --> F1[Form Extractor]
-        F1 --> T1[Token Extractor (Cookies/JWT)]
-        T1 --> A1[Attack Suite: Basic + Advanced Vectors]
-        A1 --> R1[Report Generator: Jinja2 Templates]
+        F1 --> T1["Token Extractor (Cookies / JWT)"]
+        T1 --> A1["Attack Suite: Basic + Advanced Vectors"]
+        A1 --> R1["Report Generator: Jinja2 Templates"]
     end
 
     R1 --> O[Outputs: HTML + JSON + Exploited + PoC (cURL)]
@@ -168,28 +144,32 @@ graph LR
 
 ---
 
-## 💡 Wow Factors
+## 💡 Example Runs
 
-* Fully **automated end-to-end CSRF testing**
-* Handles **static + dynamic sites** (Selenium + Playwright hybrid)
-* **JWT detection** → marks attacks as not applicable
-* **Crawls deeply** into sublinks to maximize coverage
-* Generates **professional reports** with exploits & mitigations
+* ✅ **DVWA (PHP session cookie)** → Exploitable → Report marks attacks as **Exploited**.
+* ✅ **Juice Shop (JWT in localStorage)** → Not exploitable → Report marks as **Not Applicable (JWT)**.
+* ✅ **LinkedIn / LeetCode** → No exploitable forms → Report marks as **None Exploited**.
 
 ---
 
-## 👥 Team
+## 🔮 Future Enhancements
 
-**Team Name**: 🛡️ B-Secure
-
-* Built for hackathons & security challenges
-* Focused on making **security testing simple, automated, and powerful**
+* Support for **multi-factor login flows**.
+* Integration with **BurpSuite / ZAP**.
+* Automatic **report uploads (CI/CD pipelines)**.
+* **Visualization dashboard** for vulnerabilities.
 
 ---
 
-## ⚠️ Disclaimer
+## 👨‍💻 Team
 
-This tool is for **educational and authorized security testing only**.
-Do **NOT** use against systems you do not own or have explicit permission to test.
+**B-Secure (Team)**
 
+* Security-first automation
+* Designed for hackathons & real-world demo
+* Wow Factor ⭐ → **Fully automated, supports static/dynamic sites, JWT-aware, generates PoC automatically**
+
+---
+
+⚡ **B-Secure** — *One URL, Full CSRF Assessment.*
 
