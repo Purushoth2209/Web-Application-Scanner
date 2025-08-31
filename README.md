@@ -1,6 +1,6 @@
 # 🔒 B-Secure — Automated CSRF Attack & Detection Suite
 
-B-Secure is an automated security tool designed to **detect and exploit CSRF vulnerabilities** across **any web application** — whether it uses **cookies, JWTs, or other authentication methods**.
+B-Secure is an automated security tool designed to **detect and exploit CSRF vulnerabilities** across **any web application** — whether it uses **Cookies, JWTs, or other authentication methods**.
 
 It crawls the target website deeply, extracts **forms and form-like endpoints**, retrieves **tokens (Cookies / JWT)**, launches **basic & advanced CSRF attack vectors**, and generates detailed reports.
 
@@ -10,7 +10,7 @@ It crawls the target website deeply, extracts **forms and form-like endpoints**,
 
 * 🌐 **Automated Crawling** — Scans all sublinks of the target site (static & dynamic).
 * 📝 **Form & Endpoint Detection** — Finds all forms and form-like inputs.
-* 🔑 **Token Extraction** — Retrieves Cookies and JWTs (localStorage / sessionStorage).
+* 🔑 **Token Extraction** — Retrieves Cookies and JWTs (from localStorage / sessionStorage).
 * 🎯 **Attack Suite** — Launches both **basic** (img/script/iframe/form) and **advanced** (samesite bypass, referer bypass, method override, duplicate token, subdomain bypass) CSRF attacks.
 * 📊 **Reports** — Generates **5 files** for every run:
 
@@ -118,10 +118,10 @@ Then view in your browser:
 flowchart TD
     A[User enters URL] --> B[Crawler visits subpages]
     B --> C[Form Detection]
-    C --> D["Extract Tokens (Cookies / JWT)"]
+    C --> D[Extract Tokens (Cookies / JWT)]
     D --> E[Launch CSRF Attack Suite]
     E --> F[Check Responses]
-    F --> G[Generate Reports (HTML, JSON, PoC)]
+    F --> G[Generate Reports: HTML, JSON, PoC]
 ```
 
 ---
@@ -134,12 +134,12 @@ graph LR
 
     subgraph B-Secure
         C1 --> F1[Form Extractor]
-        F1 --> T1["Token Extractor (Cookies / JWT)"]
-        T1 --> A1["Attack Suite: Basic + Advanced Vectors"]
-        A1 --> R1["Report Generator: Jinja2 Templates"]
+        F1 --> T1[Token Extractor: Cookies / JWT]
+        T1 --> A1[Attack Suite: Basic + Advanced Vectors]
+        A1 --> R1[Report Generator: Jinja2 Templates]
     end
 
-    R1 --> O[Outputs: HTML + JSON + Exploited + PoC (cURL)]
+    R1 --> O[Outputs: HTML, JSON, Exploited Reports, PoC (cURL)]
 ```
 
 ---
