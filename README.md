@@ -1,115 +1,94 @@
-# 🛡️ B-Secure — WebSentinel-CSRF
+# 🛡️ B-Secure: Automated CSRF Vulnerability Detection Suite
 
-**Automated CSRF Vulnerability Detection & Exploitation Suite**
+B-Secure is a **fully automated security testing framework** that detects and exploits **Cross-Site Request Forgery (CSRF) vulnerabilities** in both **static and dynamic web applications**.
+All you need to do is **enter a target site URL** — the suite will:
 
-> 🏆 Built with ❤️ by **Team B-Secure** for Hackathons & Beyond
-
----
-
-## 📌 Overview
-
-**WebSentinel-CSRF** is a **fully automated security tool** by **Team B-Secure** designed to detect and exploit **Cross-Site Request Forgery (CSRF)** vulnerabilities.
-
-All you need to do is **enter a site URL** — our tool takes care of the rest:
-
-1. **Crawl** → Explore all links & subpages (static + dynamic)
-2. **Detect** → Extract forms & form-like requests
-3. **Extract Tokens** → Grab cookies, session IDs, JWTs from storage
-4. **Attack** → Launch **basic + advanced CSRF vectors**
-5. **Report** → Generate professional multi-format reports
-
-⚡ **Hackathon WOW Factor**: Truly **URL-only, zero-config automation**, with **deep crawl + exploitation + reporting**.
+1. **Crawl** through all sub-links and forms
+2. **Extract session tokens** (Cookies / JWT / Headers)
+3. **Launch a wide range of CSRF attack vectors** (basic + advanced)
+4. **Classify results** as `Exploited ✅` or `Not Applicable (JWT/CSRF-Proof)`
+5. **Generate detailed reports** in multiple formats (HTML, JSON, Exploited Only, PoC cURL commands)
 
 ---
 
-## 🎯 Why CSRF Matters
+## 🚀 Key Features
 
-CSRF is a **high-severity vulnerability**:
+* 🔎 **Deep Crawler** — recursively scans sub-links and detects forms/form-like actions
+* 🔐 **Token Extraction** — retrieves session cookies and JWT tokens automatically
+* 🧨 **Attack Suite** — launches a wide range of CSRF attack payloads:
 
-* Attacker tricks a logged-in user’s browser to perform unwanted actions.
-* Example: Transfer money, change password, delete account.
-* Many apps still rely on **cookies** → auto-sent with requests → exploitable.
-* JWT/header-only systems resist CSRF but can still be checked.
+  * Image/script/iframe GET requests
+  * Hidden form POST submissions
+  * Fetch/XHR with cookies or headers
+  * Multipart/form-data uploads
+  * Advanced bypasses: **Duplicate Tokens, SameSite Refresh, Referer Bypass, Subdomain Bypass, Method Override**
+* 📊 **Multi-Format Reports** — auto-generated:
+
+  * Full HTML Report
+  * Exploited Only HTML Report
+  * JSON (full + exploited)
+  * PoC cURL command file
+* ✅ **Smart Classification**
+
+  * Exploited ✅ → Vulnerability confirmed
+  * Not Applicable → Token scheme (JWT/header-based) resists CSRF
+  * HTTP Error → Request blocked
 
 ---
 
-## 🔥 Attack Flow (Diagram)
+## 📂 Project Structure
 
-```mermaid
-flowchart TD
-    A[User enters URL] --> B[Crawler visits subpages]
-    B --> C[Form Detection]
-    C --> D[Extract Tokens (Cookies/JWT)]
-    D --> E[Launch CSRF Attack Suite]
-    E --> F[Check Responses]
-    F --> G[Generate Reports (HTML, JSON, PoC)]
+```
+B-Secure/
+│── csrf_suite_cli.py     # Core CSRF attack suite
+│── auto_full.py          # Automation: crawling + token extraction + orchestration
+│── reports/              # Auto-generated reports stored here
+│── requirements.txt      # Python dependencies
+│── README.md             # Documentation
 ```
 
 ---
 
-## 🛠️ System Architecture (Diagram)
+## 🔧 Installation
 
-```mermaid
-graph LR
-    subgraph User
-        U[User enters site URL]
-    end
-
-    subgraph WebSentinel-CSRF
-        C1[Crawler (Selenium + Requests)] --> F1[Form Extractor]
-        F1 --> T1[Token Extractor (Cookies/JWT)]
-        T1 --> A1[Attack Suite (Playwright Payloads)]
-        A1 --> R1[Report Generator (Jinja2 Templates)]
-    end
-
-    U --> C1
-    R1 --> O[Multi-format Reports: HTML, JSON, PoCs]
-```
-
----
-
-## ✨ Features
-
-* 🔎 **Deep Crawl** → Visits internal links to detect forms
-* 📝 **Form Detection** → Extracts methods, hidden inputs, params
-* 🔐 **Token Extraction** → Cookies, Session IDs, JWTs
-* ⚔️ **CSRF Attack Suite**:
-
-  * Basic vectors → `<img>`, `<iframe>`, `<script>`, `<form>` auto-submit, `<meta refresh>`
-  * Advanced vectors → Duplicate token replay, Method override, SameSite bypass, Referer sandbox, Subdomain bypass, Multipart abuse
-* 📊 **Reports (5 files/run)**:
-
-  * Full HTML
-  * Full JSON
-  * Exploited-only HTML
-  * Exploited-only JSON
-  * `curl` PoCs file
-* 💡 **Mitigation Hints** → Clear, actionable fixes
-
----
-
-## ⚙️ Installation
+1. **Clone the repository**
 
 ```bash
-git clone <your-repo-link>
-cd websentinel-csrf
+git clone https://github.com/<your-repo>/b-secure.git
+cd b-secure
+```
+
+2. **Set up Python environment**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate   # On Linux/Mac
+venv\Scripts\activate      # On Windows
+```
+
+3. **Install dependencies**
+
+```bash
 pip install -r requirements.txt
-pip install playwright
-playwright install
-sudo apt install chromium-browser chromium-chromedriver   # Linux
 ```
+
+Dependencies include:
+
+* `requests`
+* `beautifulsoup4`
+* `selenium`
+* `playwright`
+* `jinja2`
+
+(⚡ Run `playwright install` after installing dependencies.)
 
 ---
 
-## 🚀 Usage
+## ▶️ Usage
 
-### 1️⃣ Auto Mode (just give URL)
+### 1. Run Automated Mode (Recommended)
 
-```bash
-python3 auto_full.py --base http://localhost:9090 --depth 2
-```
-
-### 2️⃣ With Login (Juice Shop example)
+This will crawl, extract tokens, attack, and generate reports:
 
 ```bash
 python3 auto_full.py \
@@ -123,70 +102,94 @@ python3 auto_full.py \
   --depth 3
 ```
 
-### 3️⃣ Suite Mode (config JSON)
+Outputs are saved in `reports/` with timestamped filenames.
+
+---
+
+### 2. Run CLI Mode (Custom Config)
+
+You can manually define attack targets via a JSON config:
 
 ```bash
-python3 csrf_suite_cli.py --config config.json --out reports
+python3 csrf_suite_cli.py --config config.json
 ```
 
 ---
 
-## 📊 Reports
+## 📊 Example Reports
 
-Each run generates **5 reports** in `reports/`:
+### Exploited Report (HTML)
 
-```
-reports/
-├── target_csrf_<timestamp>.html
-├── target_csrf_<timestamp>.json
-├── target_csrf_<timestamp>_exploited.html
-├── target_csrf_<timestamp>_exploited.json
-└── target_csrf_<timestamp>_curl.txt
-```
+✅ Shows which vectors worked against which forms:
 
-✔ **HTML** → Judge-friendly, professional layout
-✔ **JSON** → Developer-ready
-✔ **PoC cURL file** → Instant replay
+* `form_1 → img_get (200)`
+* `form_1 → fetch_post (200)`
+* Mitigation suggestions automatically included.
+
+### JSON Output
+
+Structured machine-readable logs for integration with other tools.
+
+### PoC (cURL) File
+
+Each attack vector produces a `curl` command that you can re-run to reproduce.
 
 ---
 
-## 📖 Example Snippet
+## 🔥 Attack Flow (Diagram)
 
-```
-CSRF Attack Suite Report
-Generated: Aug 31, 2025 | Base: http://localhost:9090 | Actions: 3 | Vectors: 16
-
-✅ Exploited:
-- form_1 → img_get (200)
-- form_1 → script_get (200)
-
-ℹ️ Not applicable:
-- form_2 → jwt_based (header auth)
-
-Mitigations:
-- Use CSRF tokens
-- Enforce SameSite=strict
-- Validate Origin/Referer
+```mermaid
+flowchart TD
+    A[User enters URL] --> B[Crawler visits subpages]
+    B --> C[Form Detection]
+    C --> D[Extract Tokens: Cookies / JWT]
+    D --> E[Launch CSRF Attack Suite]
+    E --> F[Check Responses]
+    F --> G[Generate Reports: HTML, JSON, PoC]
 ```
 
 ---
 
-## 🏆 Hackathon WOW Factors
+## 🛠️ System Architecture (Diagram)
 
-* ✅ **One-click automation** → Just URL input
-* ✅ **Universal** → Static + dynamic, cookies + JWTs
-* ✅ **Full attack coverage** → Basic + advanced vectors
-* ✅ **Professional reporting** → HTML, JSON, PoCs, mitigations
-* ✅ **Built for developers & judges** → Easy to demo + clear value
+```mermaid
+graph LR
+    U[User enters site URL] --> C1[Crawler: Selenium + Requests]
+
+    subgraph B-Secure
+        C1 --> F1[Form Extractor]
+        F1 --> T1[Token Extractor (Cookies/JWT)]
+        T1 --> A1[Attack Suite: Basic + Advanced Vectors]
+        A1 --> R1[Report Generator: Jinja2 Templates]
+    end
+
+    R1 --> O[Outputs: HTML + JSON + Exploited + PoC (cURL)]
+```
+
+---
+
+## 💡 Wow Factors
+
+* Fully **automated end-to-end CSRF testing**
+* Handles **static + dynamic sites** (Selenium + Playwright hybrid)
+* **JWT detection** → marks attacks as not applicable
+* **Crawls deeply** into sublinks to maximize coverage
+* Generates **professional reports** with exploits & mitigations
+
+---
+
+## 👥 Team
+
+**Team Name**: 🛡️ B-Secure
+
+* Built for hackathons & security challenges
+* Focused on making **security testing simple, automated, and powerful**
 
 ---
 
 ## ⚠️ Disclaimer
 
-* For **educational & authorized testing only**.
-* Do **NOT** run on real production apps without permission.
-* Team B-Secure is not responsible for misuse.
+This tool is for **educational and authorized security testing only**.
+Do **NOT** use against systems you do not own or have explicit permission to test.
 
----
 
-🔥 With **WebSentinel-CSRF by B-Secure**, you’re not just scanning — you’re **demonstrating real-world exploits** with crystal-clear reporting and automation.
