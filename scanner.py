@@ -1,419 +1,285 @@
-import json
+import os
 import time
-import requests
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
+
 from selenium import webdriver
+from selenium.common.exceptions import StaleElementReferenceException
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.firefox.service import Service as FirefoxService
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import TimeoutException, ElementNotInteractableException, StaleElementReferenceException
-from html import unescape
+from selenium.webdriver.common.keys import Keys # Added for Keys.ENTER
 
+class XSSScanner:
+    def __init__(self, driver_path):
+        self.visited_urls = set()
+        self.potential_vulnerabilities = []
 
-# Load XSS payloads from JSON file
-with open("xss_payloads.json", "r") as f:
-    xss_payloads_dict = json.load(f)
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")  # Run in headless mode (no GUI)
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument(
+            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        )
+        chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])  # Suppress console logs
 
-xss_payloads = []
-for category, payloads in xss_payloads_dict.items():
-    xss_payloads.extend(payloads)
+        service = Service(driver_path)
+        self.driver = webdriver.Chrome(service=service, options=chrome_options)
+        self.driver.set_page_load_timeout(30)  # Set a timeout for page loads
 
-
-def get_driver(preferred="firefox", headless=True):
-    print(f"[*] Initializing browser driver: {preferred} (headless={headless})")
-    driver = None
-    if preferred == "firefox":
-        try:
-            options = FirefoxOptions()
-            if headless:
-                options.add_argument("--headless")
-            driver = webdriver.Firefox(service=FirefoxService(), options=options)
-            print("[+] Firefox driver initialized successfully")
-            return driver
-        except Exception as e:
-            print(f"[-] Firefox failed: {e}")
-            print("[*] Falling back to Chrome...")
-
-    if preferred == "chrome":
-        try:
-            options = ChromeOptions()
-            if headless:
-                options.add_argument("--headless")
-            driver = webdriver.Chrome(service=ChromeService(), options=options)
-            print("[+] Chrome driver initialized successfully")
-            return driver
-        except Exception as e:
-            print(f"[-] Chrome failed: {e}")
-            print("[!] No working browser found. Install geckodriver or chromedriver.")
-            raise
-
-    return driver
-
-def dismiss_cookie_banner(driver):
-    """
-    Attempts to dismiss common cookie consent banners.
-    """
-    print("[*] Checking for cookie consent banner...")
-    try:
-        # Common selectors for "Accept", "Got it!", "Dismiss" buttons
-        cookie_button_selectors = [
-            (By.XPATH, "//button[contains(normalize-space(), 'Got it!')]"),
-            (By.XPATH, "//a[contains(normalize-space(), 'Got it!')]"),
-            (By.XPATH, "//button[contains(normalize-space(), 'Accept')]"),
-            (By.XPATH, "//a[contains(normalize-space(), 'Accept')]"),
-            (By.XPATH, "//button[contains(normalize-space(), 'Dismiss')]"),
-            (By.XPATH, "//a[contains(normalize-space(), 'Dismiss')]"),
-            (By.ID, "cookieconsent:button"), # Specific for some cookie consent libs
-            (By.CSS_SELECTOR, ".cc-window .cc-btn.cc-allow"), # Generic for cookieconsent.js
-            (By.CSS_SELECTOR, ".cc-btn.cc-dismiss"), # Another common one
-            (By.CSS_SELECTOR, "[aria-label='Accept cookies']"), # Accessibility friendly
+        self.xss_payloads = [
+            "<script>alert('XSS')</script>",
+            "<img src=x onerror=alert('XSS')>",
+            "';alert(String.fromCharCode(88,83,83))//",
+            "<svg onload=alert(1)>",
+            "<body onload=alert('XSS')>",
+            "<div onmouseover=alert('XSS')>Hover here!</div>",
+            # Add more payloads for better coverage
+            # E.g., HTML entity encoded, URL encoded, different tags, etc.
         ]
 
-        for by_type, selector in cookie_button_selectors:
-            try:
-                cookie_button = WebDriverWait(driver, 3).until(
-                    EC.element_to_be_clickable((by_type, selector))
-                )
-                if cookie_button:
-                    # Use JavaScript click to bypass potential interception by other elements
-                    driver.execute_script("arguments[0].click();", cookie_button)
-                    print("[+] Cookie consent banner dismissed.")
-                    time.sleep(1) # Give it a moment to disappear
-                    return True # Banner dismissed
-            except TimeoutException:
-                continue # Try next selector
-            except StaleElementReferenceException:
-                # Element became stale, try again (e.g., if page reloaded slightly)
-                time.sleep(0.5)
-                continue
-            except Exception as e:
-                print(f"[-] Error trying to click cookie button '{selector}': {e}")
-                continue # Try next selector
-        print("[-] No cookie consent banner found or dismissed within timeout.")
-        return False
-    except Exception as e:
-        print(f"[-] General error during cookie banner dismissal: {e}")
-        return False
+    def _is_same_domain(self, url, base_domain_url):
+        """Checks if a URL belongs to the same exact domain as the base URL."""
+        return urlparse(url).netloc == urlparse(base_domain_url).netloc
 
+    def _get_absolute_url(self, base_url, href):
+        """Converts a relative URL to an absolute URL."""
+        return urljoin(base_url, href)
 
-def fetch_forms_and_inputs_selenium(url, driver): # Modified to accept existing driver
-    print(f"[*] Navigating to {url} to fetch forms and inputs")
-    driver.get(url)
-    dismiss_cookie_banner(driver) # Dismiss banner after navigating
+    def _extract_links_from_page(self, current_url, base_domain_url):
+        """Extracts all same-domain, absolute links from the current page."""
+        found_links = set()
+        try:
+            self.driver.get(current_url)
+            # Reduced sleep for faster crawling
+            time.sleep(0.5) 
+            
+            links = self.driver.find_elements(By.TAG_NAME, 'a')
+            for link in links:
+                try:
+                    href = link.get_attribute('href')
+                    if href:
+                        absolute_url = self._get_absolute_url(current_url, href)
+                        
+                        # Only follow http/https links within the exact same domain
+                        if (absolute_url.startswith('http://') or absolute_url.startswith('https://')) \
+                           and self._is_same_domain(absolute_url, base_domain_url):
+                           
+                            # Explicitly exclude known external redirect patterns if they still pass the domain check
+                            # This targets URLs like https://juice-shop.herokuapp.com/redirect?to=https://github.com/...
+                            parsed_absolute_url = urlparse(absolute_url)
+                            if parsed_absolute_url.path.startswith('/redirect') and 'to=' in absolute_url:
+                                # Extract the 'to' parameter from the query string
+                                query_params = urlparse(absolute_url).query
+                                to_param = next((param.split('=')[1] for param in query_params.split('&') if param.startswith('to=')), None)
+                                
+                                if to_param:
+                                    # Ensure the redirect target is not within the same domain
+                                    if not self._is_same_domain(to_param, base_domain_url):
+                                        # print(f"  Skipping external redirect target: {absolute_url} pointing to {to_param}")
+                                        continue # Skip this link as it points externally
+                            
+                            if absolute_url not in self.visited_urls: 
+                                found_links.add(absolute_url)
+                except Exception as e:
+                    pass
+        except Exception as e:
+            print(f"  Error accessing {current_url} during link extraction: {e}")
+        return list(found_links)
 
-    # Wait until at least one input is visible (handles JS-heavy SPAs)
-    try:
-        WebDriverWait(driver, 8).until(
-            EC.presence_of_element_located((By.TAG_NAME, "input"))
+    def crawl_all_pages(self, start_url):
+        """Crawls the entire website from the start_url."""
+        self.base_url = start_url
+        self.visited_urls.add(start_url)
+        urls_to_visit = [start_url]
+        base_domain_url = start_url  # Keep the original base URL for domain checks
+
+        i = 0
+        while urls_to_visit and i < 50:  # Limit crawl depth/number of pages for practical reasons
+            current_url = urls_to_visit.pop(0)  # BFS-like approach
+            print(f"Crawling: {current_url}")
+
+            new_links = self._extract_links_from_page(current_url, base_domain_url)
+            for link in new_links:
+                if link not in self.visited_urls:
+                    self.visited_urls.add(link)
+                    urls_to_visit.append(link)
+            i += 1
+
+    def check_xss_on_page(self, url):
+        print(f"\n--- Checking XSS on page: {url} ---")
+        try:
+            self.driver.get(url)
+            # Reduced initial sleep
+            time.sleep(0.5) 
+        except Exception as e:
+            print(f"  Error accessing {url} for XSS check: {e}")
+            return
+
+        initial_input_elements = self.driver.find_elements(
+            By.CSS_SELECTOR, 'input[type="text"], input[type="search"], textarea'
         )
-        print("[+] At least one input detected on page")
-    except TimeoutException:
-        print("[-] No input visible immediately, continuing anyway...")
-
-    forms_data = []
-    forms = driver.find_elements(By.TAG_NAME, "form")
-    print(f"[*] Found {len(forms)} <form> elements on page")
-
-    # --- Collect forms normally ---
-    for idx, form in enumerate(forms, start=1):
-        form_action = form.get_attribute("action") or url
-        form_method = form.get_attribute("method") or "get"
-        print(f"    [+] Form #{idx}: action={form_action}, method={form_method}")
-
-        inputs_info = {} # Store info to re-locate later
-        input_elements = form.find_elements(By.TAG_NAME, "input")
-        textarea_elements = form.find_elements(By.TAG_NAME, "textarea")
-
-        for elem in input_elements + textarea_elements:
-            name = elem.get_attribute("name") or elem.get_attribute("id")
-            if name:
-                inputs_info[name] = {
-                    "tag": elem.tag_name,
-                    "id": elem.get_attribute("id"),
-                    "name": elem.get_attribute("name"),
-                    "type": elem.get_attribute("type") # Store type for later
-                }
-                print(f"        - Found input field: {name} (type={inputs_info[name]['type']})")
-
-        forms_data.append({
-            "action": form_action,
-            "method": form_method.lower(),
-            "inputs_info": inputs_info, # Store info, not stale elements
-            "form_element_id": form.get_attribute("id") if form.get_attribute("id") else None # Store ID to re-locate form
-        })
-
-    # --- Handle standalone inputs (not inside any form) ---
-    standalone_elements = driver.find_elements(
-        By.XPATH, "//input[not(ancestor::form)] | //textarea[not(ancestor::form)]"
-    )
-    if standalone_elements:
-        print(f"[*] Found {len(standalone_elements)} standalone input(s)/textarea(s) (outside <form>)")
-        inputs_info = {}
-        for elem in standalone_elements:
-            name = elem.get_attribute("name") or elem.get_attribute("id")
-            if name:
-                inputs_info[name] = {
-                    "tag": elem.tag_name,
-                    "id": elem.get_attribute("id"),
-                    "name": elem.get_attribute("name"),
-                    "type": elem.get_attribute("type")
-                }
-                print(f"        - Found standalone input: {name} (type={inputs_info[name]['type']})")
-
-        if inputs_info:
-            forms_data.append({
-                "action": url,
-                "method": "get",
-                "inputs_info": inputs_info,
-                "form_element_id": None # No form element for standalone
-            })
-
-    return forms_data # Return only forms_data, as driver is managed externally
+        
+        input_field_identifiers = []
+        for i, field in enumerate(initial_input_elements):
+            identifier = {}
+            if field.get_attribute("name"):
+                identifier["name"] = field.get_attribute("name")
+            if field.get_attribute("id"):
+                identifier["id"] = field.get_attribute("id")
+            if not identifier: # If no name or id, use index as a fallback (less reliable)
+                identifier["index"] = i
+            identifier["tag"] = field.tag_name # Store tag name to refine CSS selector
+            input_field_identifiers.append(identifier)
 
 
-def is_payload_reflected(payload, response_text):
-    resp_body = unescape(response_text)
-    reflected = payload in resp_body or payload.lower() in resp_body.lower()
-    print(f"        [~] Checking reflection for payload: {payload[:30]}... -> {'YES' if reflected else 'NO'}")
-    return reflected
+        if not input_field_identifiers:
+            print("  No input fields found on this page.")
+            return
 
+        for field_index, field_identifier in enumerate(input_field_identifiers):
+            field_name_for_output = field_identifier.get('name') or field_identifier.get('id') or f'unnamed_field_{field_identifier.get("index", field_index)}'
+            print(f"  Testing field: '{field_name_for_output}'")
 
-def test_xss_on_form_requests(form_data, payload):
-    """Fallback server-side reflection test. Skips Angular hash-routes."""
-    action_url = form_data["action"]
+            original_window = self.driver.current_window_handle
 
-    if "#/" in action_url:
-        print(f"        [~] Skipping request test for SPA route: {action_url}")
-        return False
+            for payload in self.xss_payloads:
+                try:
+                    self.driver.get(url)
+                    # Reduced sleep after navigating back for each payload
+                    time.sleep(0.5) 
 
-    method = form_data["method"]
-    # For server-side, we just need names, not element objects
-    inputs = {name: payload for name in form_data["inputs_info"]}
-    print(f"    [>] Sending {method.upper()} request to {action_url} with payload: {payload[:30]}...")
+                    current_field = None
+                    if "name" in field_identifier:
+                        current_field = self.driver.find_element(
+                            By.NAME, field_identifier["name"]
+                        )
+                    elif "id" in field_identifier:
+                        current_field = self.driver.find_element(
+                            By.ID, field_identifier["id"]
+                        )
+                    else:  # Fallback: re-find all input fields and pick by index
+                        all_inputs_on_page = self.driver.find_elements(
+                            By.CSS_SELECTOR,
+                            'input[type="text"], input[type="search"], textarea',
+                        )
+                        if field_identifier["index"] < len(all_inputs_on_page):
+                            current_field = all_inputs_on_page[field_identifier["index"]]
 
-    try:
-        if method == "post":
-            response = requests.post(action_url, data=inputs, timeout=5)
+                    if not current_field:
+                        print(f"    Could not re-find field '{field_name_for_output}'. Skipping.")
+                        continue
+
+                    current_field.clear()
+                    current_field.send_keys(payload)
+
+                    form = None
+                    try:
+                        form = current_field.find_element(By.XPATH, "./ancestor::form")
+                        form.submit()
+                        # Reduced sleep after form submission
+                        time.sleep(1) 
+                    except Exception:
+                        if current_field.tag_name == 'input':
+                            try:
+                                current_field.send_keys(Keys.ENTER)
+                                # Reduced sleep after pressing ENTER
+                                time.sleep(1) 
+                            except Exception as e:
+                                pass
+
+                    if len(self.driver.window_handles) > 1:
+                        print(
+                            f"    [!!! POTENTIAL XSS - New Window Opened !!!] Payload '{payload}' in field '{field_name_for_output}' at {self.driver.current_url}"
+                        )
+                        self.potential_vulnerabilities.append(
+                            {
+                                "url": self.driver.current_url,
+                                "field": field_name_for_output,
+                                "payload": payload,
+                                "detection_method": "New Window/Tab Opened",
+                            }
+                        )
+                        for window_handle in self.driver.window_handles:
+                            if window_handle != original_window:
+                                self.driver.switch_to.window(window_handle)
+                                self.driver.close()
+                        self.driver.switch_to.window(original_window)
+                        break
+
+                    if payload in self.driver.page_source:
+                        print(
+                            f"    [!!! POTENTIAL XSS !!!] Payload '{payload}' reflected in field '{field_name_for_output}' at {self.driver.current_url}"
+                        )
+                        self.potential_vulnerabilities.append(
+                            {
+                                "url": self.driver.current_url,
+                                "field": field_name_for_output,
+                                "payload": payload,
+                                "detection_method": "String Reflection",
+                            }
+                        )
+                        break
+
+                except StaleElementReferenceException:
+                    print(f"    StaleElementReferenceException for field '{field_name_for_output}' with payload '{payload}'. Re-trying might be needed or element disappeared.")
+                    continue
+                except Exception as e:
+                    pass
+
+    def scan(self, target_url):
+        print(f"Starting XSS scan for: {target_url}")
+        print("Initializing browser and crawling website...\n")
+
+        self.crawl_all_pages(target_url)
+
+        print("\nCrawl complete. Visited the following pages:")
+        self.base_url = target_url 
+        for url in sorted(list(self.visited_urls)):
+            print(f"- {url}")
+
+        print("\n--- Starting XSS vulnerability checks on visited pages ---\n")
+        for url in sorted(list(self.visited_urls)):
+            self.check_xss_on_page(url)
+
+        print("\n--- XSS Scan Finished ---")
+        if self.potential_vulnerabilities:
+            print("\n!!! POTENTIAL XSS VULNERABILITIES FOUND !!!")
+            for i, vul in enumerate(self.potential_vulnerabilities):
+                print(f"\nVulnerability {i+1}:")
+                print(f"  URL: {vul['url']}")
+                print(f"  Field: {vul['field']}")
+                print(f"  Payload: {vul['payload']}")
+                print(f"  Detection: {vul.get('detection_method', 'Unknown')}")
+                print("-" * 40)
         else:
-            response = requests.get(action_url, params=inputs, timeout=5)
-        response.raise_for_status()
+            print("\nNo reflected XSS vulnerabilities detected with the given payloads (basic check).")
+            print("Remember, this is a basic scanner and may miss complex XSS.")
 
-        if is_payload_reflected(payload, response.text):
-            return True
-    except requests.exceptions.RequestException as e:
-        print(f"    [!] Request failed: {e}")
-    return False
-
-
-def test_xss_with_selenium(driver, form_data, payload):
-    print(f"    [>] Testing with Selenium payload injection: {payload[:40]}...")
-
-    interacted_inputs = []
-
-    for name, input_info in form_data["inputs_info"].items():
-        try:
-            # Re-locate the element since the page might have reloaded or elements refreshed
-            current_element = None
-            if input_info["id"]:
-                current_element = WebDriverWait(driver, 3).until(
-                    EC.presence_of_element_located((By.ID, input_info["id"]))
-                )
-            elif input_info["name"]:
-                 current_element = WebDriverWait(driver, 3).until(
-                    EC.presence_of_element_located((By.NAME, input_info["name"]))
-                )
-            elif input_info["tag"] == "textarea": # Textarea without id/name might be found by tag
-                 current_element = WebDriverWait(driver, 3).until(
-                    EC.presence_of_element_located((By.TAG_NAME, "textarea"))
-                )
-            # Add more robust selection if needed, e.g., by class
-
-            if not current_element:
-                print(f"        [!] Could not re-locate input element: {name}")
-                continue
-
-            input_type = input_info["type"] # Use stored type or re-fetch
-            if not input_type:
-                 input_type = current_element.get_attribute("type") or "text"
-
-
-            if input_type in ["hidden", "submit", "button", "file"]:
-                print(f"        [~] Skipping input: {name} (type={input_type})")
-                continue
-
-            # Handle checkbox explicitly
-            if input_type == "checkbox":
-                if not current_element.is_selected(): # Only click if not already selected
-                    # Use JavaScript click to ensure it's interactable
-                    driver.execute_script("arguments[0].click();", current_element)
-                print(f"        - Toggled checkbox: {name}")
-                interacted_inputs.append(current_element)
-                continue
-
-            # Skip specific non-interactable inputs if known (like mat-input-1 for Juice Shop)
-            if name == "mat-input-1":
-                 print(f"        [~] Skipping known non-interactable input: {name}")
-                 continue
-
-            current_element.clear()
-            current_element.send_keys(payload)
-            print(f"        - Injected payload into: {name}")
-            interacted_inputs.append(current_element)
-
-        except ElementNotInteractableException:
-            print(f"        [!] Could not interact with input: {name}")
-        except StaleElementReferenceException:
-            print(f"        [!] Stale element reference for input: {name}. Page likely refreshed unexpectedly.")
-        except TimeoutException:
-            print(f"        [!] Timeout re-locating input element: {name}")
-        except Exception as e:
-            print(f"        [!] Unexpected error on input {name}: {e}")
-
-    # Try to submit the form/inputs
-    submitted = False
-
-    # 1. Try explicit form submission if a form element exists and can be re-located
-    if form_data["form_element_id"]:
-        try:
-            form_element = WebDriverWait(driver, 3).until(
-                EC.presence_of_element_located((By.ID, form_data["form_element_id"]))
-            )
-            form_element.submit()
-            print("        [>] Submitted form via .submit()")
-            submitted = True
-        except TimeoutException:
-            print("        [!] Form element not found or stale for .submit()")
-        except Exception as e:
-            print(f"        [!] Form .submit() failed: {e}")
-
-    # 2. Try to find and click a more specific login/submit button (especially for SPAs)
-    if not submitted and interacted_inputs:
-        try:
-            # Common selectors for login/submit buttons (Juice Shop's loginButton)
-            submit_button = WebDriverWait(driver, 5).until( # Increased timeout for button
-                EC.element_to_be_clickable((By.CSS_SELECTOR,
-                                            "button[type='submit'], button[id='loginButton'], button[aria-label*='Login'], button.btn-primary"))
-            )
-            # Use JavaScript click to bypass potential interception
-            driver.execute_script("arguments[0].click();", submit_button)
-            print("        [>] Submitted via specific submit/login button click (JS click)")
-            submitted = True
-        except TimeoutException:
-            print("        [!] No specific submit/login button found or clickable within timeout.")
-        except Exception as e:
-            print(f"        [!] Error clicking specific submit/login button: {e}")
-
-    # 3. Fallback: Send RETURN key to the last interacted input field
-    if not submitted and interacted_inputs:
-        try:
-            # Ensure the last interacted input is still valid or re-locate it
-            last_input = interacted_inputs[-1]
-            try:
-                # Check if it's still attached to the DOM
-                last_input.is_displayed()
-            except StaleElementReferenceException:
-                # If stale, try to re-locate it using its info
-                last_input_info = form_data["inputs_info"][last_input.get_attribute("name") or last_input.get_attribute("id")]
-                if last_input_info["id"]:
-                    last_input = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.ID, last_input_info["id"])))
-                elif last_input_info["name"]:
-                    last_input = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.NAME, last_input_info["name"])))
-                else:
-                    raise Exception("Cannot re-locate last input for RETURN key.")
-
-            last_input.send_keys(Keys.RETURN)
-            print("        [>] Submitted with RETURN key on an input field")
-            submitted = True
-        except Exception as e:
-            print(f"        [!] Failed to submit with RETURN key: {e}")
-
-    if not submitted:
-        print("        [!] Could not find a way to submit the payload.")
-
-
-    # Check for JS alert popup
-    try:
-        WebDriverWait(driver, 5).until(EC.alert_is_present()) # Increased timeout to 5s
-        alert = driver.switch_to.alert
-        alert.dismiss()
-        print("        [+] DOM XSS triggered (alert detected!)")
-        return True
-    except TimeoutException:
-        print("        [-] No alert triggered for this payload")
-        return False
-
-
-def scan_xss(target_url, browser_choice="firefox"):
-    print(f"[*] Starting XSS scan on: {target_url}")
-    vulnerabilities = []
-    driver = None # Initialize driver to None
-
-    try:
-        driver = get_driver(browser_choice) # Get the driver once
-
-        # Initial fetch of forms and inputs
-        forms_on_page = fetch_forms_and_inputs_selenium(target_url, driver)
-
-        if not forms_on_page:
-            print(f"[-] No forms or inputs found on {target_url}.")
-            return vulnerabilities
-
-        print(f"[*] Found {len(forms_on_page)} form/input group(s). Beginning payload injection...")
-        for form in forms_on_page:
-            print(f"\n    [*] Testing target at {form['action']} ({form['method'].upper()})")
-            for payload in xss_payloads:
-                # Navigate back to the target URL before each payload injection
-                # This ensures a clean state for each test run.
-                driver.get(target_url)
-                dismiss_cookie_banner(driver) # Dismiss banner on each page load
-                time.sleep(1) # Give it a moment to load and settle
-
-                if test_xss_with_selenium(driver, form, payload):
-                    vulnerabilities.append({
-                        "type": "DOM XSS (Injection)",
-                        "url": target_url,
-                        "payload": payload
-                    })
-                # Only run server-side check if DOM XSS not found and it's not an SPA route
-                elif "#/" not in form['action'] and test_xss_on_form_requests(form, payload):
-                    vulnerabilities.append({
-                        "type": "Reflected XSS (Injection)",
-                        "url": form["action"],
-                        "method": form["method"],
-                        "payload": payload
-                    })
-
-    except KeyboardInterrupt:
-        print("\n[-] Scan interrupted by user. Shutting down browser...")
-    except Exception as e:
-        print(f"\n[!] An unexpected error occurred during the scan: {e}")
-    finally:
-        if driver:
-            driver.quit() # Ensure driver is always closed
-    return vulnerabilities
-
+    def close(self):
+        self.driver.quit()
 
 if __name__ == "__main__":
-    target = input("Enter target URL: ").strip()
-    browser_choice = input("Choose browser (firefox/chrome) [default: firefox]: ").strip().lower() or "firefox"
-    results = scan_xss(target, browser_choice)
+    CHROMEDRIVER_PATH = "/usr/local/bin/chromedriver"
 
-    print("\n--- XSS Scan Results ---")
-    if results:
-        for vul in results:
-            print(f"Vulnerability Type: {vul['type']}")
-            print(f"Affected URL: {vul['url']}")
-            if "method" in vul:
-                print(f"Method: {vul['method']}")
-            print(f"Payload Used: {vul['payload']}\n")
+    if not os.path.exists(CHROMEDRIVER_PATH):
+        print(f"Error: Chromedriver not found at '{CHROMEDRIVER_PATH}'.")
+        print("Please download the correct version for your Chrome browser and OS from:")
+        print("https://chromedriver.chromium.org/downloads")
+        print("And place it in the specified path.")
+        exit()
 
-        with open("xss_results.json", "w") as f:
-            json.dump(results, f, indent=2)
-        print("[*] Results saved to xss_results.json")
-    else:
-        print("No XSS vulnerabilities detected.")
+    target_website = input(
+        "Enter the target website URL (e.g., http://example.com): "
+    ).strip()
+    if not target_website.startswith("http://") and not target_website.startswith(
+        "https://"
+    ):
+        print("Error: URL must start with http:// or https://")
+        exit()
+
+    scanner = XSSScanner(CHROMEDRIVER_PATH)
+    try:
+        scanner.scan(target_website)
+    finally:
+        scanner.close()
