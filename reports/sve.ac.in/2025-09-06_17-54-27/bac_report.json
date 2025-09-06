@@ -1,0 +1,191 @@
+{
+  "site": "https://sve.ac.in",
+  "timestamp": "2025-09-06_17-54-27",
+  "crawled_links": 1,
+  "links_discovered": [
+    "https://sve.ac.in"
+  ],
+  "tests": [
+    {
+      "type": "IDOR",
+      "results": [
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        }
+      ]
+    },
+    {
+      "type": "Privilege Escalation",
+      "results": [
+        {
+          "status": "Skipped",
+          "risk": "High",
+          "details": "No admin creds",
+          "mitigation": "Enforce RBAC",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Method Bypass",
+      "results": [
+        {
+          "url": "https://sve.ac.in",
+          "method": "POST",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        }
+      ]
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [
+        {
+          "url": "https://sve.ac.in",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "CORS test failed",
+          "mitigation": "Check CORS headers",
+          "cvss": 6.0
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [
+        {
+          "url": "https://sve.ac.in/../etc/passwd",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Sanitize inputs",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://sve.ac.in/../../admin/config",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Sanitize inputs",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "TLS",
+      "results": [
+        {
+          "status": {
+            "hostname": "sve.ac.in",
+            "port": 443,
+            "ok": false,
+            "protocol": null,
+            "cipher": null,
+            "cert_subject": null,
+            "cert_issuer": null,
+            "cert_notbefore": null,
+            "cert_notafter": null,
+            "cert_days_until_expiry": null,
+            "error": "[Errno -2] Name or service not known",
+            "status": "TLS check error"
+          },
+          "cvss": 4.0
+        }
+      ]
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [
+        {
+          "url": "https://sve.ac.in/admin",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Do not store roles client-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://sve.ac.in/config",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Do not store roles client-side",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [
+        {
+          "url": "https://sve.ac.in/admin",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Validate tokens",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://sve.ac.in/config",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Validate tokens",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://sve.ac.in/private",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Validate tokens",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Force Browsing",
+      "results": [
+        {
+          "url": "https://sve.ac.in/admin",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://sve.ac.in/config",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://sve.ac.in/debug",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://sve.ac.in/private",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        }
+      ]
+    }
+  ]
+}

@@ -5,97 +5,113 @@
   <title>Unified BAC & CSRF Scanner</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width:900px; margin:24px auto; padding:0 16px; }
-    header { display:flex; align-items:center; justify-content:space-between; }
-    form { margin-top:18px; display:grid; gap:8px; }
-    label { font-weight:600; }
-    input[type="text"], input[type="password"], select { width:100%; padding:8px; border:1px solid #ccc; border-radius:6px; }
-    .row { display:flex; gap:8px; }
-    .small { font-size:0.9rem; color:#555; }
-    button { padding:10px 14px; border:0; background:#0b76ef; color:white; border-radius:8px; cursor:pointer; }
-    button.secondary { background:#666; }
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#0b76ef; --muted:#9aa4b2; --glass: rgba(255,255,255,0.04);
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; background: linear-gradient(180deg,#071025 0%, #0a1626 100%); color:#e6eef6; margin:0; padding:28px; }
+    .container{max-width:980px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between; gap:16px;margin-bottom:18px}
+    h1{margin:0;font-size:1.35rem;letter-spacing:-0.2px}
+    .lead{color:var(--muted);font-size:0.95rem}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); padding:18px;border-radius:var(--radius); border:1px solid rgba(255,255,255,0.04); box-shadow: 0 6px 20px rgba(3,6,12,0.6);}
+    form{display:grid;gap:12px}
+    label{display:block;color:var(--muted);font-weight:600;margin-bottom:6px;font-size:0.85rem}
+    input[type="text"], input[type="password"], select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .row{display:flex;gap:8px;align-items:center}
+    .small{font-size:0.85rem;color:var(--muted)}
+    .controls{display:flex;gap:10px;margin-top:10px}
+    button{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .primary{background:linear-gradient(90deg,var(--accent),#0066cc);color:white;box-shadow:0 6px 18px rgba(11,118,239,0.16)}
+    .secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+    footer{margin-top:16px;color:var(--muted);font-size:0.9rem}
+    .toggles{display:flex;gap:10px;align-items:center}
+    .toggles label{display:flex;align-items:center;gap:8px;color:var(--muted);font-weight:500}
+    .note{margin-top:10px;color:var(--muted);font-size:0.9rem}
+    pre.small{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;color:var(--muted);overflow:auto}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Unified BAC & CSRF Scanner</h1>
-    <div class="small">Local UI for running the CLI scanner</div>
-  </header>
-
-  <p class="small">Fill the target and optional credentials, then press <strong>Run Scan</strong>. This form posts to <code>/scan</code> — adapt in your web app to call the CLI or run the scan backend.</p>
-
-  <form action="/scan" method="post">
-    <div>
-      <label for="base">Target base URL</label>
-      <input id="base" name="base" type="text" placeholder="https://example.com" required />
-    </div>
-
-    <div class="row">
-      <div style="flex:1">
-        <label for="depth">Crawl depth</label>
-        <select id="depth" name="depth">
-          <option value="1">1</option>
-          <option value="2" selected>2</option>
-          <option value="3">3</option>
-        </select>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Unified BAC & CSRF Scanner</h1>
+        <div class="lead">Local UI to run the scanner CLI — fill target and options, then run.</div>
       </div>
-      <div style="flex:1">
-        <label for="out">Output directory</label>
-        <input id="out" name="out" type="text" value="reports" />
-      </div>
+      <div class="small">Built for hackathons — run locally</div>
+    </header>
+
+    <div class="card">
+      <form action="/scan" method="post">
+        <div>
+          <label for="base">Target base URL</label>
+          <input id="base" name="base" type="text" placeholder="https://example.com" required />
+        </div>
+
+        <div class="grid">
+          <div>
+            <label for="depth">Crawl depth</label>
+            <select id="depth" name="depth">
+              <option value="0">0 (only base)</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div>
+            <label for="out">Output directory</label>
+            <input id="out" name="out" type="text" value="reports" />
+          </div>
+        </div>
+
+        <h3 style="margin:8px 0 0 0">Credentials (optional)</h3>
+        <div class="grid">
+          <div>
+            <label for="user">Username</label>
+            <input id="user" name="user" type="text" />
+          </div>
+          <div>
+            <label for="passwd">Password</label>
+            <input id="passwd" name="passwd" type="password" />
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label for="username_field">Username field (CSS selector)</label>
+          <input id="username_field" name="username_field" type="text" placeholder="e.g. input[name='email']" />
+        </div>
+
+        <div class="grid">
+          <div>
+            <label for="password_field">Password field (CSS selector)</label>
+            <input id="password_field" name="password_field" type="text" placeholder="e.g. input[type='password']" />
+          </div>
+          <div>
+            <label for="login_button">Login button (CSS selector)</label>
+            <input id="login_button" name="login_button" type="text" placeholder="e.g. button[type='submit']" />
+          </div>
+        </div>
+
+        <div class="toggles" style="margin-top:10px">
+          <label><input type="checkbox" name="run_bac" checked /> Run BAC tests</label>
+          <label><input type="checkbox" name="run_csrf" checked /> Run CSRF suite</label>
+          <label><input type="checkbox" name="no_headless" /> Disable headless (show browser)</label>
+        </div>
+
+        <div class="controls">
+          <button type="submit" class="primary">Run Scan</button>
+          <button type="button" class="secondary" onclick="window.open('/reports','_blank')">Open reports folder</button>
+        </div>
+
+        <div class="note">Tip: use CLI for heavy scans: <small class="small">python3 unified_bac.py --base https://example.com --depth 1 --workers 8</small></div>
+      </form>
     </div>
 
-    <h3 style="margin-top:12px">Credentials (optional)</h3>
-    <div class="row">
-      <div style="flex:1">
-        <label for="user">Username</label>
-        <input id="user" name="user" type="text" />
-      </div>
-      <div style="flex:1">
-        <label for="passwd">Password</label>
-        <input id="passwd" name="passwd" type="password" />
-      </div>
-    </div>
-
-    <p class="small">If the login fields require CSS selectors (single-page apps), include them below so the crawler can automatically perform login via Selenium.</p>
-    <div class="row">
-      <div style="flex:1">
-        <label for="username_field">Username field (CSS selector)</label>
-        <input id="username_field" name="username_field" type="text" placeholder="e.g. input[name='email']" />
-      </div>
-      <div style="flex:1">
-        <label for="password_field">Password field (CSS selector)</label>
-        <input id="password_field" name="password_field" type="text" placeholder="e.g. input[type='password']" />
-      </div>
-    </div>
-    <div>
-      <label for="login_button">Login button (CSS selector)</label>
-      <input id="login_button" name="login_button" type="text" placeholder="e.g. button[type='submit']" />
-    </div>
-
-    <div class="row" style="margin-top:6px;">
-      <label style="display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" name="run_bac" checked /> Run BAC tests
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" name="run_csrf" checked /> Run CSRF suite
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" name="no_headless" /> Disable headless (show browser)
-      </label>
-    </div>
-
-    <div style="margin-top:12px;">
-      <button type="submit">Run Scan</button>
-      <button type="button" class="secondary" onclick="window.open('/reports','_blank')">Open reports folder</button>
-    </div>
-  </form>
-
-  <hr />
-  <p class="small">CLI alternative (recommended for heavy scans):</p>
-  <pre class="small" style="background:#f7f7f7;padding:8px;border-radius:6px;">
-python3 unified_bac.py --base https://example.com --depth 2 --run-bac --run-csrf --out reports
-python3 -m http.server 8000 --directory reports
-  </pre>
+    <footer>
+      <div>Use responsibly. This UI is local and runs the scanner on your machine.</div>
+    </footer>
+  </div>
 </body>
 </html>

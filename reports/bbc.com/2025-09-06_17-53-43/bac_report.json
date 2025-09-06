@@ -1,0 +1,431 @@
+{
+  "site": "https://bbc.com",
+  "timestamp": "2025-09-06_17-53-43",
+  "crawled_links": 15,
+  "links_discovered": [
+    "https://bbc.com",
+    "https://bbc.com/",
+    "https://bbc.com/arts",
+    "https://bbc.com/audio",
+    "https://bbc.com/business",
+    "https://bbc.com/culture",
+    "https://bbc.com/future-planet",
+    "https://bbc.com/home",
+    "https://bbc.com/innovation",
+    "https://bbc.com/live",
+    "https://bbc.com/news",
+    "https://bbc.com/sport",
+    "https://bbc.com/travel",
+    "https://bbc.com/undefined",
+    "https://bbc.com/video"
+  ],
+  "tests": [
+    {
+      "type": "Privilege Escalation",
+      "results": [
+        {
+          "status": "Skipped",
+          "risk": "High",
+          "details": "No admin creds",
+          "mitigation": "Enforce RBAC",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "IDOR",
+      "results": [
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        }
+      ]
+    },
+    {
+      "type": "TLS",
+      "results": [
+        {
+          "status": {
+            "hostname": "bbc.com",
+            "port": 443,
+            "ok": true,
+            "protocol": "TLSv1.3",
+            "cipher": "TLS_AES_128_GCM_SHA256 TLSv1.3 128",
+            "cert_subject": null,
+            "cert_issuer": null,
+            "cert_notbefore": null,
+            "cert_notafter": null,
+            "cert_days_until_expiry": null,
+            "error": null,
+            "status": "TLS OK"
+          },
+          "cvss": 4.0
+        }
+      ]
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [
+        {
+          "url": "https://bbc.com",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "CORS restricted",
+          "mitigation": "Restrict Access-Control-Allow-Origin",
+          "cvss": 6.0
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [
+        {
+          "url": "https://bbc.com/../etc/passwd",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content (HTTP 404)",
+          "mitigation": "Sanitize inputs",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://bbc.com/../../admin/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content (HTTP 404)",
+          "mitigation": "Sanitize inputs",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [
+        {
+          "url": "https://bbc.com/admin",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Cookies validated",
+          "mitigation": "Do not store roles client-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://bbc.com/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Cookies validated",
+          "mitigation": "Do not store roles client-side",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Force Browsing",
+      "results": [
+        {
+          "url": "https://bbc.com/admin",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Blocked or redirected (HTTP 404)",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/config",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Blocked or redirected (HTTP 404)",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/debug",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Blocked or redirected (HTTP 404)",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/private",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Blocked or redirected (HTTP 404)",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        }
+      ]
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [
+        {
+          "url": "https://bbc.com/admin",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization enforced",
+          "mitigation": "Validate tokens server-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://bbc.com/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization enforced",
+          "mitigation": "Validate tokens server-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://bbc.com/private",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization enforced",
+          "mitigation": "Validate tokens server-side",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Method Bypass",
+      "results": [
+        {
+          "url": "https://bbc.com",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/arts",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/audio",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/business",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/culture",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/future-planet",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/home",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/innovation",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/live",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/news",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/sport",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/travel",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/undefined",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://bbc.com/video",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        }
+      ]
+    }
+  ],
+  "csrf_html": "bbc.com_csrf_2025-09-06_17-54-06.html",
+  "csrf_json": "bbc.com_csrf_2025-09-06_17-54-06.json"
+}

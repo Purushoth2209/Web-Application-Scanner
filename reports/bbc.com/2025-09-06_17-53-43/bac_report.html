@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>BAC Report - https://bbc.com</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root { --bg:#f6f8fb; --card:#fff; --accent:#0b76ef; --muted:#6b7280; --vuln:#c62828; --ok:#2e7d32; }
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:var(--bg); margin:0; padding:22px; color:#111827; }
+    .wrap{max-width:1200px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    h1{margin:0;font-size:1.4rem}
+    .meta{color:var(--muted);font-size:0.95rem}
+    .summary{background:linear-gradient(180deg,#f9fbff,#fff);border:1px solid #eef4ff;padding:14px;border-radius:10px;margin:12px 0}
+    .tests{margin-top:12px}
+    .test-card{background:var(--card);padding:12px;margin-bottom:12px;border-radius:10px;border:1px solid #eef2f6}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{padding:10px;border-bottom:1px solid #f1f5f9;text-align:left;vertical-align:top}
+    th{background:#fbfdff;color:#0f1724;font-weight:700}
+    .vuln{color:var(--vuln);font-weight:700}
+    .not-vuln{color:var(--ok);font-weight:700}
+    .skipped{color:#f59e0b;font-weight:700}
+    small{color:var(--muted)}
+    .muted{color:var(--muted)}
+    .actions{display:flex;gap:8px;align-items:center}
+    .button{padding:8px 10px;background:var(--accent);color:white;text-decoration:none;border-radius:8px;font-size:0.95rem}
+    .link{background:#6c757d}
+    .code{background:#f6f6f6;padding:6px 10px;border-radius:6px;font-family:monospace}
+    .cvss{font-weight:700;color:#0b76ef}
+    footer{margin-top:20px;color:#6b7280;font-size:0.9rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>BAC Scan Report</h1>
+        <div class="meta">Site: <strong>https://bbc.com</strong> — Generated: <strong>2025-09-06_17-53-43</strong></div>
+      </div>
+      <div class="actions">
+        
+          <div class="muted">Tests: 9 • Findings: 44 • Vulnerable: 0</div>
+        
+        <a class="button link" href="javascript:window.print()">Print</a>
+        <a class="button" href="../">Back</a>
+      </div>
+    </header>
+
+    <section class="summary" aria-label="summary">
+      <h3>Scan summary</h3>
+      <div class="muted" style="margin-top:6px;">
+        
+          Crawled 15 links.
+        
+      </div>
+      
+        <div style="margin-top:8px;">
+          <strong>Discovered links (sample):</strong>
+          <ul>
+            
+              <li><small><a href="https://bbc.com" target="_blank" rel="noopener noreferrer">https://bbc.com</a></small></li>
+            
+              <li><small><a href="https://bbc.com/" target="_blank" rel="noopener noreferrer">https://bbc.com/</a></small></li>
+            
+              <li><small><a href="https://bbc.com/arts" target="_blank" rel="noopener noreferrer">https://bbc.com/arts</a></small></li>
+            
+              <li><small><a href="https://bbc.com/audio" target="_blank" rel="noopener noreferrer">https://bbc.com/audio</a></small></li>
+            
+              <li><small><a href="https://bbc.com/business" target="_blank" rel="noopener noreferrer">https://bbc.com/business</a></small></li>
+            
+              <li><small><a href="https://bbc.com/culture" target="_blank" rel="noopener noreferrer">https://bbc.com/culture</a></small></li>
+            
+              <li><small><a href="https://bbc.com/future-planet" target="_blank" rel="noopener noreferrer">https://bbc.com/future-planet</a></small></li>
+            
+              <li><small><a href="https://bbc.com/home" target="_blank" rel="noopener noreferrer">https://bbc.com/home</a></small></li>
+            
+              <li><small><a href="https://bbc.com/innovation" target="_blank" rel="noopener noreferrer">https://bbc.com/innovation</a></small></li>
+            
+              <li><small><a href="https://bbc.com/live" target="_blank" rel="noopener noreferrer">https://bbc.com/live</a></small></li>
+            
+              <li><small><a href="https://bbc.com/news" target="_blank" rel="noopener noreferrer">https://bbc.com/news</a></small></li>
+            
+              <li><small><a href="https://bbc.com/sport" target="_blank" rel="noopener noreferrer">https://bbc.com/sport</a></small></li>
+            
+          </ul>
+        </div>
+      
+    </section>
+
+    <section class="tests">
+      
+        <div class="test-card">
+          <h3>Privilege Escalation</h3>
+          
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Resource</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Risk</th>
+                  <th style="width:8%">CVSS</th>
+                  <th>Details & Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="skipped">Skipped</span>
+                      
+                    </td>
+                    <td>High</td>
+                    <td><span class="cvss">9.0</span></td>
+                    <td>
+                      <div>No admin creds</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce RBAC</div>
+                      
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+      
+        <div class="test-card">
+          <h3>IDOR</h3>
+          
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Resource</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Risk</th>
+                  <th style="width:8%">CVSS</th>
+                  <th>Details & Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>No IDOR parameters found</span>
+                      
+                    </td>
+                    <td>Low</td>
+                    <td><span class="cvss">2.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                      
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+      
+        <div class="test-card">
+          <h3>TLS</h3>
+          
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Resource</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Risk</th>
+                  <th style="width:8%">CVSS</th>
+                  <th>Details & Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      -
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span>{'hostname': 'bbc.com', 'port': 443, 'ok': True, 'protocol': 'TLSv1.3', 'cipher': 'TLS_AES_128_GCM_SHA256 TLSv1.3 128', 'cert_subject': None, 'cert_issuer': None, 'cert_notbefore': None, 'cert_notafter': None, 'cert_days_until_expiry': None, 'error': None, 'status': 'TLS OK'}</span>
+                      
+                    </td>
+                    <td>-</td>
+                    <td><span class="cvss">4.0</span></td>
+                    <td>
+                      <div>-</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Use modern TLS versions, strong ciphers; renew certificates.</div>
+                      
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+      
+        <div class="test-card">
+          <h3>CORS Misconfiguration</h3>
+          
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Resource</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Risk</th>
+                  <th style="width:8%">CVSS</th>
+                  <th>Details & Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com" target="_blank" rel="noopener noreferrer">https://bbc.com</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>CORS restricted</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict Access-Control-Allow-Origin</div>
+                      
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+      
+        <div class="test-card">
+          <h3>Directory Traversal</h3>
+          
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Resource</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Risk</th>
+                  <th style="width:8%">CVSS</th>
+                  <th>Details & Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/../etc/passwd" target="_blank" rel="noopener noreferrer">https://bbc.com/../etc/passwd</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>High</td>
+                    <td><span class="cvss">9.0</span></td>
+                    <td>
+                      <div>No sensitive content (HTTP 404)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Sanitize inputs</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/../../admin/config" target="_blank" rel="noopener noreferrer">https://bbc.com/../../admin/config</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>High</td>
+                    <td><span class="cvss">9.0</span></td>
+                    <td>
+                      <div>No sensitive content (HTTP 404)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Sanitize inputs</div>
+                      
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+      
+        <div class="test-card">
+          <h3>Cookie Manipulation</h3>
+          
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Resource</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Risk</th>
+                  <th style="width:8%">CVSS</th>
+                  <th>Details & Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/admin" target="_blank" rel="noopener noreferrer">https://bbc.com/admin</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>High</td>
+                    <td><span class="cvss">9.0</span></td>
+                    <td>
+                      <div>Cookies validated</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Do not store roles client-side</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/config" target="_blank" rel="noopener noreferrer">https://bbc.com/config</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>High</td>
+                    <td><span class="cvss">9.0</span></td>
+                    <td>
+                      <div>Cookies validated</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Do not store roles client-side</div>
+                      
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+      
+        <div class="test-card">
+          <h3>Force Browsing</h3>
+          
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Resource</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Risk</th>
+                  <th style="width:8%">CVSS</th>
+                  <th>Details & Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/admin" target="_blank" rel="noopener noreferrer">https://bbc.com/admin</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Blocked or redirected (HTTP 404)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce auth</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/config" target="_blank" rel="noopener noreferrer">https://bbc.com/config</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Blocked or redirected (HTTP 404)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce auth</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/debug" target="_blank" rel="noopener noreferrer">https://bbc.com/debug</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Blocked or redirected (HTTP 404)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce auth</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/private" target="_blank" rel="noopener noreferrer">https://bbc.com/private</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Blocked or redirected (HTTP 404)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce auth</div>
+                      
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+      
+        <div class="test-card">
+          <h3>Header/Token Tampering</h3>
+          
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Resource</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Risk</th>
+                  <th style="width:8%">CVSS</th>
+                  <th>Details & Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/admin" target="_blank" rel="noopener noreferrer">https://bbc.com/admin</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>High</td>
+                    <td><span class="cvss">9.0</span></td>
+                    <td>
+                      <div>Authorization enforced</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Validate tokens server-side</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/config" target="_blank" rel="noopener noreferrer">https://bbc.com/config</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>High</td>
+                    <td><span class="cvss">9.0</span></td>
+                    <td>
+                      <div>Authorization enforced</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Validate tokens server-side</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/private" target="_blank" rel="noopener noreferrer">https://bbc.com/private</a>
+                      
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>High</td>
+                    <td><span class="cvss">9.0</span></td>
+                    <td>
+                      <div>Authorization enforced</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Validate tokens server-side</div>
+                      
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+      
+        <div class="test-card">
+          <h3>Method Bypass</h3>
+          
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Resource</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Risk</th>
+                  <th style="width:8%">CVSS</th>
+                  <th>Details & Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com" target="_blank" rel="noopener noreferrer">https://bbc.com</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/" target="_blank" rel="noopener noreferrer">https://bbc.com/</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/arts" target="_blank" rel="noopener noreferrer">https://bbc.com/arts</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/audio" target="_blank" rel="noopener noreferrer">https://bbc.com/audio</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/business" target="_blank" rel="noopener noreferrer">https://bbc.com/business</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/culture" target="_blank" rel="noopener noreferrer">https://bbc.com/culture</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/future-planet" target="_blank" rel="noopener noreferrer">https://bbc.com/future-planet</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/home" target="_blank" rel="noopener noreferrer">https://bbc.com/home</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/innovation" target="_blank" rel="noopener noreferrer">https://bbc.com/innovation</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/live" target="_blank" rel="noopener noreferrer">https://bbc.com/live</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/news" target="_blank" rel="noopener noreferrer">https://bbc.com/news</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/sport" target="_blank" rel="noopener noreferrer">https://bbc.com/sport</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/travel" target="_blank" rel="noopener noreferrer">https://bbc.com/travel</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/undefined" target="_blank" rel="noopener noreferrer">https://bbc.com/undefined</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 404)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <a href="https://bbc.com/video" target="_blank" rel="noopener noreferrer">https://bbc.com/video</a>
+                      <div class="muted">method: <span class="code">POST</span></div>
+                      
+                      
+                    </td>
+                    <td>
+                      
+                      
+                        <span class="not-vuln">Not Vulnerable</span>
+                      
+                    </td>
+                    <td>Medium</td>
+                    <td><span class="cvss">6.0</span></td>
+                    <td>
+                      <div>Rejected (HTTP 200)</div>
+                      
+                        <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                      
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+      
+    </section>
+
+    <hr/>
+
+    <section>
+      <h3>CSRF Suite</h3>
+      <p class="muted">If CSRF suite was run, links to the generated CSRF artifacts will appear here (they live inside the same report folder).</p>
+
+      
+        <div style="margin-top:8px">
+          <a class="button" href="bbc.com_csrf_2025-09-06_17-54-06.html" target="_blank">Open CSRF HTML report</a>
+          <a class="button link" href="bbc.com_csrf_2025-09-06_17-54-06.json" target="_blank">CSRF JSON</a>
+        </div>
+      
+    </section>
+
+    <footer>
+      <div>Generated by UnifiedBACCSRF — TLS info: TLSv1.3 (OK: True)</div>
+    </footer>
+  </div>
+</body>
+</html>

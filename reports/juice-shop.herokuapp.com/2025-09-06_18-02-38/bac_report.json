@@ -1,0 +1,312 @@
+{
+  "site": "https://juice-shop.herokuapp.com",
+  "timestamp": "2025-09-06_18-02-38",
+  "crawled_links": 8,
+  "links_discovered": [
+    "https://juice-shop.herokuapp.com",
+    "https://juice-shop.herokuapp.com/",
+    "https://juice-shop.herokuapp.com/main.js",
+    "https://juice-shop.herokuapp.com/polyfills.js",
+    "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+    "https://juice-shop.herokuapp.com/runtime.js",
+    "https://juice-shop.herokuapp.com/search",
+    "https://juice-shop.herokuapp.com/vendor.js"
+  ],
+  "tests": [
+    {
+      "type": "Privilege Escalation",
+      "results": [
+        {
+          "status": "Skipped",
+          "risk": "High",
+          "details": "No admin creds",
+          "mitigation": "Enforce RBAC",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "IDOR",
+      "results": [
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com/../etc/passwd",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content (HTTP 200)",
+          "mitigation": "Sanitize inputs",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/../../admin/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content (HTTP 200)",
+          "mitigation": "Sanitize inputs",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "TLS",
+      "results": [
+        {
+          "status": {
+            "hostname": "juice-shop.herokuapp.com",
+            "port": 443,
+            "ok": true,
+            "protocol": "TLSv1.2",
+            "cipher": "ECDHE-RSA-AES128-GCM-SHA256 TLSv1.2 128",
+            "cert_subject": null,
+            "cert_issuer": null,
+            "cert_notbefore": null,
+            "cert_notafter": null,
+            "cert_days_until_expiry": null,
+            "error": null,
+            "status": "TLS OK"
+          },
+          "cvss": 4.0
+        }
+      ]
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "CORS allows any origin (*)",
+          "mitigation": "Restrict Access-Control-Allow-Origin",
+          "cvss": 6.0
+        }
+      ]
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com/admin",
+          "status": "Vulnerable",
+          "risk": "High",
+          "details": "Cookie manipulation bypassed access",
+          "mitigation": "Do not store roles client-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/config",
+          "status": "Vulnerable",
+          "risk": "High",
+          "details": "Cookie manipulation bypassed access",
+          "mitigation": "Do not store roles client-side",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Force Browsing",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com/admin",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "Sensitive page accessible without login",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/config",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "Sensitive page accessible without login",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/debug",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "Sensitive page accessible without login",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/private",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "Sensitive page accessible without login",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        }
+      ]
+    },
+    {
+      "type": "Method Bypass",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/main.js",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/polyfills.js",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/runtime.js",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/search",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/vendor.js",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        }
+      ]
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com/admin",
+          "status": "Vulnerable",
+          "risk": "High",
+          "details": "Bypassed auth with missing/forged token",
+          "mitigation": "Validate tokens server-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/config",
+          "status": "Vulnerable",
+          "risk": "High",
+          "details": "Bypassed auth with missing/forged token",
+          "mitigation": "Validate tokens server-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/private",
+          "status": "Vulnerable",
+          "risk": "High",
+          "details": "Bypassed auth with missing/forged token",
+          "mitigation": "Validate tokens server-side",
+          "cvss": 9.0
+        }
+      ]
+    }
+  ],
+  "csrf_html": "juice-shop.herokuapp.com_csrf_2025-09-06_18-03-55.html",
+  "csrf_json": "juice-shop.herokuapp.com_csrf_2025-09-06_18-03-55.json"
+}

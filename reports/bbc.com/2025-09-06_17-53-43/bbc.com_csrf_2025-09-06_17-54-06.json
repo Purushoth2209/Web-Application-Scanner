@@ -1,0 +1,167 @@
+[
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "img_get",
+    "req_method": "GET",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X GET 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "script_get",
+    "req_method": "GET",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X GET 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "iframe_get",
+    "req_method": "GET",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X GET 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "meta_refresh",
+    "req_method": "GET",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X GET 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "link_click",
+    "req_method": "GET",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X GET 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "noreferrer_link",
+    "req_method": "GET",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X GET 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "form_post",
+    "req_method": "POST",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X POST 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "fetch_post",
+    "req_method": "POST",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X POST 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "xhr_post",
+    "req_method": "POST",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X POST 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "multipart_post",
+    "req_method": "POST",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X POST 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "duplicate_token",
+    "req_method": "POST",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X POST 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "samesite_refresh",
+    "req_method": "POST",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X POST 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "referer_bypass",
+    "req_method": "POST",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X POST 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "subdomain_bypass",
+    "req_method": "POST",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X POST 'https://search.bbc.co.uk/search'"
+  },
+  {
+    "action": "form_1",
+    "url": "https://search.bbc.co.uk/search",
+    "vector": "method_override",
+    "req_method": "GET",
+    "status": 200,
+    "exploited": false,
+    "note": "Not applicable (no session-bound action)",
+    "mitigation": "N/A",
+    "curl": "curl -X GET 'https://search.bbc.co.uk/search'"
+  }
+]

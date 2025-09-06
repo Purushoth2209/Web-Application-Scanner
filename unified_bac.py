@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """
-unified_bac_fixed.py
+unified_bac.py
 
-Fixed version of the Combined multithreaded BAC + CSRF scanner.
-- Multithreaded crawler (ThreadPoolExecutor) — rewritten to be robust and not busy-wait.
-- Concurrent BAC tests (per-link)
-- CSRF attack suite (Playwright) — optional
-- TLS basic checks
-- Simple CVSS-like scoring
-- All outputs placed under `reports/`
+Fixed and improved Combined multithreaded BAC + CSRF scanner.
+
+Key fixes & features:
+- Crawl strictly respects max_depth and same-origin; prevents exploding link counts.
+- Resolves relative links against the *current* page (not base) when crawling.
+- Keeps track of discovered link depth (so final link set honors max_depth).
+- Selenium fallback restricted to URLs within depth and same origin (prevents large extractions).
+- CSRF report linking fixed (uses basename since CSRF files live in same report dir).
+- Adds TLS test as a proper concurrent test (uses tls_check).
+- CVSS scores are attached to each finding; template updated to display it.
+- Multithreading retained for crawl & tests.
 """
 
 import os
@@ -58,6 +62,8 @@ STATIC_EXTENSIONS = (
     ".ico", ".pdf", ".zip", ".rar", ".7z", ".tar", ".gz",
     ".mp3", ".ogg"
 )
+# Maximum number of links to discover overall to prevent runaway (still respects depth)
+MAX_TOTAL_LINKS = 5000
 # ----------------------------
 
 # CVSS-like heuristic
@@ -70,7 +76,7 @@ def tls_check(hostname, port=443, timeout=5):
     res = {
         "hostname": hostname, "port": port, "ok": False, "protocol": None, "cipher": None,
         "cert_subject": None, "cert_issuer": None, "cert_notbefore": None, "cert_notafter": None,
-        "cert_days_until_expiry": None, "error": None
+        "cert_days_until_expiry": None, "error": None, "status": None
     }
     try:
         ctx = ssl.create_default_context()
@@ -106,8 +112,10 @@ def tls_check(hostname, port=443, timeout=5):
                         except Exception:
                             res["cert_notafter"] = notafter
                 res["ok"] = True
+                res["status"] = "TLS OK"
     except Exception as e:
         res["error"] = str(e)
+        res["status"] = "TLS check error"
     return res
 
 # Simple login helper (best-effort)
@@ -128,7 +136,11 @@ def login(base_url, username, password, login_endpoint="/login"):
 def normalize_url(u):
     p = urlparse(u)
     p = p._replace(fragment="")
-    return urlunparse(p).rstrip("/")
+    # strip trailing slash for canonicalization (but keep root '/')
+    out = urlunparse(p)
+    if out.endswith("/") and urlparse(out).path != "/":
+        out = out.rstrip("/")
+    return out
 
 def looks_static(href):
     if not href:
@@ -140,7 +152,11 @@ def looks_static(href):
     return False
 
 # Multithreaded link fetch
-def fetch_links_single(url, base_url, session):
+def fetch_links_single(url, session):
+    """
+    Fetch page at `url` and return resolved, normalized, same-origin links
+    relative to that page (not the base).
+    """
     links = []
     headers = {"User-Agent": CRAWL_USER_AGENT}
     try:
@@ -156,73 +172,111 @@ def fetch_links_single(url, base_url, session):
                 continue
             if looks_static(href):
                 continue
-            full = urljoin(base_url, href)
-            full_norm = normalize_url(full)
-            links.append(full_norm)
+            try:
+                full = urljoin(url, href)
+                full_norm = normalize_url(full)
+                links.append(full_norm)
+            except Exception:
+                continue
     except Exception:
         pass
     return links
+
+def _same_origin(a, b):
+    pa = urlparse(a)
+    pb = urlparse(b)
+    return (pa.scheme, pa.hostname, pa.port) == (pb.scheme, pb.hostname, pb.port)
+
+def _path_depth_relative(base, target):
+    """
+    Return an integer approximating the path depth of `target` relative to `base`.
+    Base '/a/b' -> target '/a/b/c/d' => depth 2
+    """
+    pb = urlparse(base).path.rstrip("/")
+    pt = urlparse(target).path.rstrip("/")
+    if not pb:
+        pb = ""
+    if not pt:
+        pt = ""
+    if pt.startswith(pb):
+        rel = pt[len(pb):].lstrip("/")
+        if not rel:
+            return 0
+        return len([p for p in rel.split("/") if p])
+    else:
+        # completely different path, consider depth high
+        return 999
 
 def crawl_site_multithread(base_url, session, max_depth=3, max_workers=MAX_WORKERS):
     """
     Robust multithreaded BFS crawl:
       - base_url: starting page
       - session: requests.Session()
-      - max_depth: how deep to follow links
+      - max_depth: how deep to follow links (0 => only base page)
       - max_workers: max concurrent fetches
     """
     base_norm = normalize_url(base_url)
-    discovered = set([base_norm])
+    base_parsed = urlparse(base_norm)
+    discovered_depth: Dict[str, int] = {base_norm: 0}
     visited = set()
     q = deque()
-    q.append((base_norm, 0))
+    q.append(base_norm)
     session.headers.update({"User-Agent": CRAWL_USER_AGENT})
 
-    print(f"[+] Crawling {base_norm} (depth={max_depth}) with {max_workers} workers ...")
+    print(f"[+] Crawling {base_norm} (max_depth={max_depth}) with {max_workers} workers ...")
     with ThreadPoolExecutor(max_workers=max_workers) as ex:
-        # active futures mapping future -> (src_url, depth)
         active = {}
         try:
             while q or active:
                 # schedule new tasks up to pool capacity
-                while q and len(active) < max_workers:
-                    url, depth = q.popleft()
-                    if url in visited or depth > max_depth:
+                while q and len(active) < max_workers and len(discovered_depth) < MAX_TOTAL_LINKS:
+                    url = q.popleft()
+                    if url in visited:
                         continue
                     visited.add(url)
-                    fut = ex.submit(fetch_links_single, url, base_norm, session)
-                    active[fut] = (url, depth)
+                    fut = ex.submit(fetch_links_single, url, session)
+                    active[fut] = url
 
                 if not active:
                     # no active tasks, continue scheduling
-                    continue
+                    if q:
+                        continue
+                    else:
+                        break
 
-                # wait for at least one future to complete (non-blocking for long)
+                # wait for at least one future to complete
                 done, _ = wait(active.keys(), timeout=5, return_when=FIRST_COMPLETED)
                 for fut in list(done):
-                    src_url, src_depth = active.pop(fut, (None, None))
+                    src_url = active.pop(fut, None)
                     try:
                         links = fut.result(timeout=1) or []
                     except Exception:
                         links = []
+                    src_depth = discovered_depth.get(src_url, 0)
                     for l in links:
-                        # keep within same origin / host
-                        if base_norm.split("#")[0] not in l:
+                        # enforce same origin
+                        if not _same_origin(base_norm, l):
                             continue
-                        if l not in discovered:
-                            discovered.add(l)
-                            if src_depth is not None and src_depth + 1 <= max_depth:
-                                q.append((l, src_depth + 1))
+                        # compute depth relative to base
+                        depth = _path_depth_relative(base_norm, l)
+                        # treat depth above threshold as not to be included
+                        if depth > max_depth:
+                            continue
+                        if l not in discovered_depth:
+                            discovered_depth[l] = depth
+                            # only enqueue if within depth limit
+                            if depth < max_depth:
+                                q.append(l)
         except KeyboardInterrupt:
             print("[!] Crawl interrupted by user.")
         except Exception as e:
             print("[!] Crawl error:", e)
 
-    all_links = sorted(discovered)
+    all_links = sorted(discovered_depth.keys())
 
-    # Selenium fallback to handle heavy JS SPAs if few links found
+    # Selenium fallback to handle heavy JS SPAs only if very few links found
     if len(all_links) < 15 and selenium_available:
-        print("[!] Few links found with requests. Falling back to Selenium (headless) to discover SPA links...")
+        print("[!] Few links found with requests. Falling back to Selenium (headless) to discover SPA links up to max_depth ...")
         driver = None
         try:
             chrome_options = Options()
@@ -252,12 +306,15 @@ def crawl_site_multithread(base_url, session, max_depth=3, max_workers=MAX_WORKE
                     if href and not looks_static(href):
                         full = urljoin(base_norm, href)
                         full_norm = normalize_url(full)
-                        if base_norm.split("#")[0] in full_norm:
-                            all_links.append(full_norm)
+                        if _same_origin(base_norm, full_norm):
+                            depth = _path_depth_relative(base_norm, full_norm)
+                            if depth <= max_depth and full_norm not in discovered_depth:
+                                discovered_depth[full_norm] = depth
                 except Exception:
                     continue
+            # try clicking a few navs to expose dynamic routes
             navs = driver.find_elements(By.XPATH, "//a[@routerlink] | //a[contains(@href,'#')]")
-            for nav in navs[:50]:
+            for nav in navs[:20]:
                 try:
                     driver.execute_script("arguments[0].click();", nav)
                     time.sleep(0.5)
@@ -267,7 +324,11 @@ def crawl_site_multithread(base_url, session, max_depth=3, max_workers=MAX_WORKE
                         href = tag["href"]
                         if href and not looks_static(href):
                             full = urljoin(base_norm, href)
-                            all_links.append(normalize_url(full))
+                            full_norm = normalize_url(full)
+                            if _same_origin(base_norm, full_norm):
+                                depth = _path_depth_relative(base_norm, full_norm)
+                                if depth <= max_depth and full_norm not in discovered_depth:
+                                    discovered_depth[full_norm] = depth
                 except Exception:
                     continue
         except Exception as e:
@@ -279,8 +340,8 @@ def crawl_site_multithread(base_url, session, max_depth=3, max_workers=MAX_WORKE
             except Exception:
                 pass
 
-    final_links = sorted(list(set(all_links)))
-    print(f"[+] Found {len(final_links)} links total.")
+    final_links = sorted(list(discovered_depth.keys()))
+    print(f"[+] Found {len(final_links)} links total (respecting max_depth).")
     return final_links
 
 # -----------------------
@@ -471,7 +532,8 @@ TEST_GUIDE = {
     "Force Browsing": "Enforce authentication/authorization.",
     "Header/Token Tampering": "Validate tokens server-side.",
     "Cookie Manipulation": "Do not store roles client-side.",
-    "CORS Misconfiguration": "Limit Access-Control-Allow-Origin."
+    "CORS Misconfiguration": "Limit Access-Control-Allow-Origin.",
+    "TLS": "Use modern TLS versions, strong ciphers; renew certificates."
 }
 
 MINIMAL_TEMPLATE = """<!doctype html><html><head><meta charset="utf-8"><title>BAC Report</title></head><body>
@@ -500,6 +562,9 @@ def generate_reports(json_file, include_csrf_links=None):
         advice = TEST_GUIDE.get(test["type"], "General best practice")
         for r in test.get("results", []):
             r["mitigation"] = r.get("mitigation") or advice
+            # ensure cvss present
+            if "cvss" not in r:
+                r["cvss"] = cvss_score_for_risk(r.get("risk", "Unknown"))
 
     summary = {
         "total_tests": len(data.get("tests", [])),
@@ -514,6 +579,7 @@ def generate_reports(json_file, include_csrf_links=None):
     data["tls_info"] = tls_info
 
     if include_csrf_links:
+        # include_csrf_links expected as tuple of basenames so same-dir linking works
         data["csrf_html"], data["csrf_json"] = include_csrf_links
 
     template_path = "templates/report.html"
@@ -605,7 +671,6 @@ def html_xhr(url, params, auth_header, body_format):
     hk = _auth_header_pair(auth_header) if auth_header else None
     header_setter = f'x.setRequestHeader("{hk[0]}","{hk[1]}");' if hk else ''
     body = _json.dumps(params or {}) if body_format == "json" else _urlencode_local(params or {})
-    # ensure proper JSON quoting of body inside script
     return f'<script>var x=new XMLHttpRequest();x.open("POST","{url}",true);x.withCredentials=true;{header_setter}x.send({json.dumps(body)});</script>'
 def html_multipart(url, params):
     inputs = "".join([f'<input type="hidden" name="{k}" value="{v}">' for k, v in params.items()])
@@ -738,14 +803,12 @@ def run_suite(cfg, out_dir, max_actions=None, per_action_timeout=10, headless=Tr
                     row = {"action": act.name, "url": act.url, "vector": vid, "req_method": rm,
                            "status": None, "exploited": False, "note": None, "mitigation": None, "curl": f"curl -X {rm} '{act.url}'"}
                     try:
-                        # Primary: set_content (fast) — but this can fail if the content triggers navigation.
+                        # Primary: set_content (fast)
                         try:
                             page.set_content(html, wait_until="domcontentloaded")
-                            # small delay to let scripts execute (milliseconds)
                             page.wait_for_timeout(200)
                             status = 200
                         except Exception:
-                            # fallback: use data URL / iframe srcdoc approach to reduce navigation side-effects
                             try:
                                 safe_html = f"<!doctype html><meta charset='utf-8'><body>{html}</body>"
                                 data_url = "data:text/html;charset=utf-8," + requests.utils.requote_uri(safe_html)
@@ -753,7 +816,6 @@ def run_suite(cfg, out_dir, max_actions=None, per_action_timeout=10, headless=Tr
                                 page.wait_for_timeout(200)
                                 status = 200
                             except Exception:
-                                # final fallback: create an iframe with srcdoc on the page to run the snippet in isolated context
                                 try:
                                     safe_srcdoc = html.replace("'", "&#39;").replace("\n", "")
                                     wrapper = "<iframe sandbox='allow-scripts allow-forms' srcdoc='{}'></iframe>".format(safe_srcdoc)
@@ -806,6 +868,8 @@ def run_bac_scan(base_url, user_creds, admin_creds=None, max_depth=3, workers=MA
             continue
 
     # BAC tests — run per-test concurrently across links to speed up
+    parsed = urlparse(base_url)
+    host = parsed.hostname or ""
     tests_to_run = [
         ("IDOR", lambda: sum((test_idor(l, session) for l in links), [])),
         ("Privilege Escalation", lambda: test_privilege(base_url, session, admin_creds)),
@@ -815,6 +879,7 @@ def run_bac_scan(base_url, user_creds, admin_creds=None, max_depth=3, workers=MA
         ("Header/Token Tampering", lambda: test_header_token(base_url, session)),
         ("Cookie Manipulation", lambda: test_cookie_manipulation(base_url, session)),
         ("CORS Misconfiguration", lambda: test_cors(base_url, session)),
+        ("TLS", lambda: [{"status": tls_check(host)}])
     ]
 
     test_results = []
@@ -826,6 +891,10 @@ def run_bac_scan(base_url, user_creds, admin_creds=None, max_depth=3, workers=MA
                 res = fut.result(timeout=REQUEST_TIMEOUT * 10)
             except Exception as e:
                 res = [{"status": "Error", "risk": "Unknown", "details": str(e), "mitigation": "N/A", "cvss": cvss_score_for_risk("Unknown")}]
+            # Ensure each result has cvss
+            for r in (res or []):
+                if "cvss" not in r:
+                    r["cvss"] = cvss_score_for_risk(r.get("risk", "Unknown"))
             test_results.append({"type": name, "results": res})
 
     results["tests"] = test_results
@@ -871,7 +940,7 @@ def build_csrf_cfg_from_forms(base_url, session, forms):
 def main():
     parser = argparse.ArgumentParser(description="Unified BAC + CSRF scanner (multithreaded)")
     parser.add_argument("--base", required=True, help="Target site URL")
-    parser.add_argument("--depth", type=int, default=3, help="Crawl depth")
+    parser.add_argument("--depth", type=int, default=3, help="Crawl depth (0 => only base page)")
     parser.add_argument("--user", default="", help="username (optional)")
     parser.add_argument("--pass", dest="passwd", default="", help="password (optional)")
     parser.add_argument("--admin-user", default=None, help="admin user (optional)")
@@ -912,12 +981,15 @@ def main():
     include_csrf_links = None
     if csrf_outputs:
         # csrf_outputs returns (html,json,exploited_html,exploited_json,curl)
-        include_csrf_links = (os.path.relpath(csrf_outputs[0], start="reports"), os.path.relpath(csrf_outputs[1], start="reports"))
+        # use basenames (CSRF files live in same report_dir), so HTML linking works from bac report
+        csrf_html_basename = os.path.basename(csrf_outputs[0])
+        csrf_json_basename = os.path.basename(csrf_outputs[1])
+        include_csrf_links = (csrf_html_basename, csrf_json_basename)
         # load bac json, add csrf links to its top-level keys for template
         with open(json_report) as f:
             bac_data = json.load(f)
-        bac_data["csrf_html"] = os.path.basename(csrf_outputs[0])
-        bac_data["csrf_json"] = os.path.basename(csrf_outputs[1])
+        bac_data["csrf_html"] = csrf_html_basename
+        bac_data["csrf_json"] = csrf_json_basename
         with open(json_report, "w") as f:
             json.dump(bac_data, f, indent=2)
     # generate final reports (reads bac json)
