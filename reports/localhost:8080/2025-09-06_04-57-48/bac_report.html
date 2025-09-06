@@ -1,0 +1,397 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>BAC Scan Report - http://localhost:8080</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .summary { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; background:#f5f6fb }
+    .test { border: 1px solid #eee; padding: 10px; margin-bottom: 8px; }
+    .vuln { color: red; font-weight: bold; }
+    table{border-collapse:collapse;width:100%}
+    td,th{border:1px solid #ddd;padding:6px}
+  </style>
+</head>
+<body>
+  <h1>Broken Access Control Report</h1>
+  <h3>Site: http://localhost:8080</h3>
+  <div class="summary">
+    <strong>Timestamp:</strong> 2025-09-06_04-57-48<br>
+    <strong>Total tests:</strong> 8 |
+    <strong>Total findings:</strong> 32 |
+    <strong>Vulnerable:</strong> 6
+    <p>Crawled 8 links successfully.<br><small>Discovered links:<br>http://localhost:8080<br>http://localhost:8080/images/favicon.ico<br>http://localhost:8080/info.php<br>http://localhost:8080/js/html5.js<br>http://localhost:8080/login.php<br>http://localhost:8080/stylesheets/stylesheet.css<br>http://localhost:8080/training.php<br>http://localhost:8080/user_new.php</small></p>
+    
+  </div>
+  
+    <div class="test">
+      <h4>IDOR</h4>
+      
+        <table>
+          <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th><th>CVSS</th></tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">-</td>
+            <td style="color: green;">No IDOR parameters found</td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs/indirect refs.</td>
+            <td>2.5 (Low)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">-</td>
+            <td style="color: green;">No IDOR parameters found</td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs/indirect refs.</td>
+            <td>2.5 (Low)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">-</td>
+            <td style="color: green;">No IDOR parameters found</td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs/indirect refs.</td>
+            <td>2.5 (Low)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">-</td>
+            <td style="color: green;">No IDOR parameters found</td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs/indirect refs.</td>
+            <td>2.5 (Low)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">-</td>
+            <td style="color: green;">No IDOR parameters found</td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs/indirect refs.</td>
+            <td>2.5 (Low)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">-</td>
+            <td style="color: green;">No IDOR parameters found</td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs/indirect refs.</td>
+            <td>2.5 (Low)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">-</td>
+            <td style="color: green;">No IDOR parameters found</td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs/indirect refs.</td>
+            <td>2.5 (Low)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">-</td>
+            <td style="color: green;">No IDOR parameters found</td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs/indirect refs.</td>
+            <td>2.5 (Low)</td>
+          </tr>
+        
+        </table>
+      
+    </div>
+  
+    <div class="test">
+      <h4>Privilege Escalation</h4>
+      
+        <table>
+          <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th><th>CVSS</th></tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">-</td>
+            <td style="color: green;">Skipped</td>
+            <td>High</td>
+            <td>No admin credentials provided</td>
+            <td>Enforce RBAC server-side.</td>
+            <td>8.0 (High)</td>
+          </tr>
+        
+        </table>
+      
+    </div>
+  
+    <div class="test">
+      <h4>Directory Traversal</h4>
+      
+        <table>
+          <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th><th>CVSS</th></tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/../etc/passwd</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>High</td>
+            <td>No sensitive content detected (HTTP ERR)</td>
+            <td>Sanitize input; deny '../'.</td>
+            <td>8.0 (High)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/../../admin/config</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>High</td>
+            <td>No sensitive content detected (HTTP ERR)</td>
+            <td>Sanitize input; deny '../'.</td>
+            <td>8.0 (High)</td>
+          </tr>
+        
+        </table>
+      
+    </div>
+  
+    <div class="test">
+      <h4>Method Bypass</h4>
+      
+        <table>
+          <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th><th>CVSS</th></tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/login.php</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/images/favicon.ico</td>
+            <td style="color: red;">Vulnerable</td>
+            <td>Medium</td>
+            <td>Endpoint accepted POST (possible bypass)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>6.5 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/info.php</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/js/html5.js</td>
+            <td style="color: red;">Vulnerable</td>
+            <td>Medium</td>
+            <td>Endpoint accepted POST (possible bypass)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>6.5 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/login.php</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/login.php</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/stylesheets/stylesheet.css</td>
+            <td style="color: red;">Vulnerable</td>
+            <td>Medium</td>
+            <td>Endpoint accepted POST (possible bypass)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>6.5 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/training.php</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/user_new.php</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/user_new.php</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+        </table>
+      
+    </div>
+  
+    <div class="test">
+      <h4>Force Browsing</h4>
+      
+        <table>
+          <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th><th>CVSS</th></tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/admin</td>
+            <td style="color: red;">Vulnerable</td>
+            <td>Medium</td>
+            <td>Sensitive page accessible without login</td>
+            <td>Enforce authentication on sensitive endpoints.</td>
+            <td>6.5 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/config</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Access blocked or redirected (HTTP ERR)</td>
+            <td>Enforce authentication on sensitive endpoints.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/debug</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Access blocked or redirected (HTTP ERR)</td>
+            <td>Enforce authentication on sensitive endpoints.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/private</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>Access blocked or redirected (HTTP ERR)</td>
+            <td>Enforce authentication on sensitive endpoints.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+        </table>
+      
+    </div>
+  
+    <div class="test">
+      <h4>Header/Token Tampering</h4>
+      
+        <table>
+          <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th><th>CVSS</th></tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/admin</td>
+            <td style="color: red;">Vulnerable</td>
+            <td>High</td>
+            <td>Bypassed authorization using missing/forged token</td>
+            <td>Validate tokens strictly server-side.</td>
+            <td>9.5 (Critical)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/config</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>High</td>
+            <td>Authorization header enforced</td>
+            <td>Validate tokens strictly server-side.</td>
+            <td>8.0 (High)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/private</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>High</td>
+            <td>Authorization header enforced</td>
+            <td>Validate tokens strictly server-side.</td>
+            <td>8.0 (High)</td>
+          </tr>
+        
+        </table>
+      
+    </div>
+  
+    <div class="test">
+      <h4>Cookie Manipulation</h4>
+      
+        <table>
+          <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th><th>CVSS</th></tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/admin</td>
+            <td style="color: red;">Vulnerable</td>
+            <td>High</td>
+            <td>Cookie manipulation bypassed access</td>
+            <td>Do not store roles in cookies; enforce server-side.</td>
+            <td>9.5 (Critical)</td>
+          </tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080/config</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>High</td>
+            <td>Cookies required and validated</td>
+            <td>Do not store roles in cookies; enforce server-side.</td>
+            <td>8.0 (High)</td>
+          </tr>
+        
+        </table>
+      
+    </div>
+  
+    <div class="test">
+      <h4>CORS Misconfiguration</h4>
+      
+        <table>
+          <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th><th>CVSS</th></tr>
+        
+          <tr>
+            <td style="max-width:360px;word-break:break-all">http://localhost:8080</td>
+            <td style="color: green;">Not Vulnerable</td>
+            <td>Medium</td>
+            <td>CORS restricted properly</td>
+            <td>Restrict Access-Control-Allow-Origin to trusted domains.</td>
+            <td>5.0 (Medium)</td>
+          </tr>
+        
+        </table>
+      
+    </div>
+  
+</body>
+</html>

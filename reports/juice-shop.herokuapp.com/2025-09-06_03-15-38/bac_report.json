@@ -1,0 +1,484 @@
+{
+    "site": "https://juice-shop.herokuapp.com",
+    "timestamp": "2025-09-06_03-15-38",
+    "crawled_links": 21,
+    "links_discovered": [
+        "https://juice-shop.herokuapp.com#/about",
+        "https://juice-shop.herokuapp.com#/contact",
+        "https://juice-shop.herokuapp.com#/forgot-password",
+        "https://juice-shop.herokuapp.com#/login",
+        "https://juice-shop.herokuapp.com#/photo-wall",
+        "https://juice-shop.herokuapp.com#/register",
+        "https://juice-shop.herokuapp.com#/score-board",
+        "https://juice-shop.herokuapp.com/#/about",
+        "https://juice-shop.herokuapp.com/#/contact",
+        "https://juice-shop.herokuapp.com/#/forgot-password",
+        "https://juice-shop.herokuapp.com/#/login",
+        "https://juice-shop.herokuapp.com/#/photo-wall",
+        "https://juice-shop.herokuapp.com/#/score-board",
+        "https://juice-shop.herokuapp.com/#/search?q=OWASP SSL Advanced Forensic Tool (O-Saft)",
+        "https://juice-shop.herokuapp.com/ftp/legal.md",
+        "https://juice-shop.herokuapp.com/main.js",
+        "https://juice-shop.herokuapp.com/polyfills.js",
+        "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+        "https://juice-shop.herokuapp.com/runtime.js",
+        "https://juice-shop.herokuapp.com/search",
+        "https://juice-shop.herokuapp.com/vendor.js"
+    ],
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": [
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                }
+            ]
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "risk": "High",
+                    "details": "No admin credentials provided",
+                    "mitigation": "Enforce role-based access control (RBAC) at server side."
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/../etc/passwd",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP 200)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/../../admin/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP 200)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com#/about",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com#/contact",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com#/forgot-password",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com#/login",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com#/photo-wall",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com#/register",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com#/score-board",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/about",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/contact",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/forgot-password",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/login",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/photo-wall",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/score-board",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/#/search?q=OWASP SSL Advanced Forensic Tool (O-Saft)",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/ftp/legal.md",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Method Not Allowed (405)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/main.js",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/polyfills.js",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/search/feedback",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/search/custom_scopes",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/runtime.js",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/search",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/vendor.js",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                }
+            ]
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/admin",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/config",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/debug",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/private",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                }
+            ]
+        },
+        {
+            "type": "Header/Token Tampering",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/admin",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Bypassed authorization using missing/forged token",
+                    "mitigation": "Always validate tokens server-side, never trust client headers."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/config",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Bypassed authorization using missing/forged token",
+                    "mitigation": "Always validate tokens server-side, never trust client headers."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/private",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Bypassed authorization using missing/forged token",
+                    "mitigation": "Always validate tokens server-side, never trust client headers."
+                }
+            ]
+        },
+        {
+            "type": "Cookie Manipulation",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/admin",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Cookie manipulation bypassed access",
+                    "mitigation": "Do not store roles in cookies; enforce access server-side."
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/config",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Cookie manipulation bypassed access",
+                    "mitigation": "Do not store roles in cookies; enforce access server-side."
+                }
+            ]
+        },
+        {
+            "type": "CORS Misconfiguration",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "CORS misconfiguration allows any origin (*)",
+                    "mitigation": "Restrict Access-Control-Allow-Origin to trusted domains only."
+                }
+            ]
+        }
+    ]
+}

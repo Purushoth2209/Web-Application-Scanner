@@ -1,0 +1,198 @@
+{
+  "site": "https://juice-shop.herokuapp.com",
+  "timestamp": "2025-09-06_05-07-00",
+  "crawled_links": 1,
+  "links_discovered": [
+    "https://juice-shop.herokuapp.com"
+  ],
+  "tests": [
+    {
+      "type": "IDOR",
+      "results": [
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+          "cvss": 2.0
+        }
+      ]
+    },
+    {
+      "type": "Privilege Escalation",
+      "results": [
+        {
+          "status": "Skipped",
+          "risk": "High",
+          "details": "No admin credentials provided",
+          "mitigation": "Enforce RBAC server-side.",
+          "cvss": 7.5
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com/../etc/passwd",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Sanitize inputs, deny '../', enforce path whitelisting.",
+          "cvss": 7.5
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/../../admin/config",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Sanitize inputs, deny '../', enforce path whitelisting.",
+          "cvss": 7.5
+        }
+      ]
+    },
+    {
+      "type": "Method Bypass",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com",
+          "method": "POST",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+          "cvss": 4.0
+        }
+      ]
+    },
+    {
+      "type": "Force Browsing",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com/admin",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce authentication/authorization on all sensitive endpoints.",
+          "cvss": 4.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/config",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce authentication/authorization on all sensitive endpoints.",
+          "cvss": 4.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/debug",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce authentication/authorization on all sensitive endpoints.",
+          "cvss": 4.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/private",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce authentication/authorization on all sensitive endpoints.",
+          "cvss": 4.0
+        }
+      ]
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com/admin",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Validate tokens strictly server-side; never trust missing or forged headers.",
+          "cvss": 7.5
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/config",
+          "status": "Vulnerable",
+          "risk": "High",
+          "details": "Bypassed authorization using missing/forged token",
+          "mitigation": "Validate tokens strictly server-side; never trust missing or forged headers.",
+          "cvss": 7.5
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/private",
+          "status": "Vulnerable",
+          "risk": "High",
+          "details": "Bypassed authorization using missing/forged token",
+          "mitigation": "Validate tokens strictly server-side; never trust missing or forged headers.",
+          "cvss": 7.5
+        }
+      ]
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com/admin",
+          "status": "Vulnerable",
+          "risk": "High",
+          "details": "Cookie manipulation bypassed access",
+          "mitigation": "Do not store roles in cookies; enforce access server-side.",
+          "cvss": 7.5
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com/config",
+          "status": "Vulnerable",
+          "risk": "High",
+          "details": "Cookie manipulation bypassed access",
+          "mitigation": "Do not store roles in cookies; enforce access server-side.",
+          "cvss": 7.5
+        }
+      ]
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "CORS allows any origin (*)",
+          "mitigation": "Restrict Access-Control-Allow-Origin to trusted domains only.",
+          "cvss": 4.0
+        }
+      ]
+    },
+    {
+      "type": "TLS/SSL",
+      "results": [
+        {
+          "url": "https://juice-shop.herokuapp.com",
+          "test": "Certificate",
+          "status": "OK",
+          "risk": "Low",
+          "details": "Issuer: ((('countryName', 'US'),), (('organizationName', 'Amazon'),), (('commonName', 'Amazon RSA 2048 M02'),)); SAN: (('DNS', '*.herokuapp.com'),); Expires: Mar  1 23:59:59 2026 GMT",
+          "cvss": 2.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com",
+          "test": "TLSv1_accepted",
+          "status": "Not Vulnerable",
+          "risk": "Low",
+          "details": "TLSv1 not accepted",
+          "cvss": 2.0
+        },
+        {
+          "url": "https://juice-shop.herokuapp.com",
+          "test": "TLSv1_1_accepted",
+          "status": "Not Vulnerable",
+          "risk": "Low",
+          "details": "TLSv1_1 not accepted",
+          "cvss": 2.0
+        }
+      ]
+    }
+  ]
+}

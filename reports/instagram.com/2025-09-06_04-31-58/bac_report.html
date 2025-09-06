@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>BAC Scan Report - https://instagram.com</title>
+<style>body{font-family:Arial;padding:18px}table{width:100%;border-collapse:collapse}th,td{border:1px solid #ddd;padding:6px}</style>
+</head><body>
+<h1>Broken Access Control Report</h1>
+<h3>Site: https://instagram.com</h3>
+<p><strong>Timestamp:</strong> 2025-09-06_04-31-58</p>
+<p>Crawled 2 links successfully.<br><small>Discovered links:<br>https://instagram.com<br>https://instagram.com/data/manifest.json</small></p>
+<h2>Summary</h2>
+<p>Total tests: 8 | Total findings: 17 | Vulnerable: 1</p>
+
+  <h3>IDOR</h3>
+  <table>
+    <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th></tr>
+    
+      <tr>
+        <td style="word-break:break-all">-</td>
+        <td style="color:green">No IDOR parameters found</td>
+        <td>Low</td>
+        <td>-</td>
+        <td>Use UUIDs or indirect references, enforce server-side access checks.</td>
+      </tr>
+    
+      <tr>
+        <td style="word-break:break-all">-</td>
+        <td style="color:green">No IDOR parameters found</td>
+        <td>Low</td>
+        <td>-</td>
+        <td>Use UUIDs or indirect references, enforce server-side access checks.</td>
+      </tr>
+    
+  </table>
+
+  <h3>Privilege Escalation</h3>
+  <table>
+    <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th></tr>
+    
+      <tr>
+        <td style="word-break:break-all">-</td>
+        <td style="color:green">Skipped</td>
+        <td>High</td>
+        <td>No admin credentials provided</td>
+        <td>Enforce server-side RBAC.</td>
+      </tr>
+    
+  </table>
+
+  <h3>Directory Traversal</h3>
+  <table>
+    <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th></tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/../etc/passwd</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>High</td>
+        <td>No sensitive content detected (HTTP 200)</td>
+        <td>Sanitize input and enforce path whitelisting.</td>
+      </tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/../../admin/config</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>High</td>
+        <td>No sensitive content detected (HTTP 200)</td>
+        <td>Sanitize input and enforce path whitelisting.</td>
+      </tr>
+    
+  </table>
+
+  <h3>Method Bypass</h3>
+  <table>
+    <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th></tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>Medium</td>
+        <td>Rejected (HTTP 200)</td>
+        <td>Restrict HTTP methods server-side.</td>
+      </tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/data/manifest.json</td>
+        <td style="color:red">Vulnerable</td>
+        <td>Medium</td>
+        <td>Endpoint accepted POST (possible bypass)</td>
+        <td>Restrict HTTP methods server-side.</td>
+      </tr>
+    
+  </table>
+
+  <h3>Force Browsing</h3>
+  <table>
+    <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th></tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/admin</td>
+        <td style="color:green">Error</td>
+        <td>Medium</td>
+        <td>Request failed</td>
+        <td>Enforce authentication/authorization on sensitive endpoints.</td>
+      </tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/config</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>Medium</td>
+        <td>Access blocked or redirected (HTTP 200)</td>
+        <td>Enforce authentication/authorization on sensitive endpoints.</td>
+      </tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/debug</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>Medium</td>
+        <td>Access blocked or redirected (HTTP 200)</td>
+        <td>Enforce authentication/authorization on sensitive endpoints.</td>
+      </tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/private</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>Medium</td>
+        <td>Access blocked or redirected (HTTP 200)</td>
+        <td>Enforce authentication/authorization on sensitive endpoints.</td>
+      </tr>
+    
+  </table>
+
+  <h3>Header/Token Tampering</h3>
+  <table>
+    <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th></tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/admin</td>
+        <td style="color:green">Error</td>
+        <td>High</td>
+        <td>Request failed</td>
+        <td>Validate tokens server-side.</td>
+      </tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/config</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>High</td>
+        <td>Authorization header enforced</td>
+        <td>Validate tokens server-side.</td>
+      </tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/private</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>High</td>
+        <td>Authorization header enforced</td>
+        <td>Validate tokens server-side.</td>
+      </tr>
+    
+  </table>
+
+  <h3>Cookie Manipulation</h3>
+  <table>
+    <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th></tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/admin</td>
+        <td style="color:green">Error</td>
+        <td>High</td>
+        <td>Request failed</td>
+        <td>Ensure cookies validated.</td>
+      </tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com/config</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>High</td>
+        <td>Cookies required and validated</td>
+        <td>Do not store roles in cookies; enforce server-side.</td>
+      </tr>
+    
+  </table>
+
+  <h3>CORS Misconfiguration</h3>
+  <table>
+    <tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>Mitigation</th></tr>
+    
+      <tr>
+        <td style="word-break:break-all">https://instagram.com</td>
+        <td style="color:green">Not Vulnerable</td>
+        <td>Medium</td>
+        <td>CORS restricted properly</td>
+        <td>Restrict Access-Control-Allow-Origin to trusted domains only.</td>
+      </tr>
+    
+  </table>
+
+</body></html>

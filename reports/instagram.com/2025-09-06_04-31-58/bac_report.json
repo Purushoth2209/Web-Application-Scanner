@@ -1,0 +1,245 @@
+{
+  "site": "https://instagram.com",
+  "timestamp": "2025-09-06_04-31-58",
+  "crawled_links": 2,
+  "links_discovered": [
+    "https://instagram.com",
+    "https://instagram.com/data/manifest.json"
+  ],
+  "tests": [
+    {
+      "type": "IDOR",
+      "results": [
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+        }
+      ]
+    },
+    {
+      "type": "Privilege Escalation",
+      "results": [
+        {
+          "status": "Skipped",
+          "risk": "High",
+          "details": "No admin credentials provided",
+          "mitigation": "Enforce server-side RBAC."
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [
+        {
+          "url": "https://instagram.com/../etc/passwd",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content detected (HTTP 200)",
+          "mitigation": "Sanitize input and enforce path whitelisting."
+        },
+        {
+          "url": "https://instagram.com/../../admin/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content detected (HTTP 200)",
+          "mitigation": "Sanitize input and enforce path whitelisting."
+        }
+      ]
+    },
+    {
+      "type": "Method Bypass",
+      "results": [
+        {
+          "url": "https://instagram.com",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict HTTP methods server-side."
+        },
+        {
+          "url": "https://instagram.com/data/manifest.json",
+          "method": "POST",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "Endpoint accepted POST (possible bypass)",
+          "mitigation": "Restrict HTTP methods server-side."
+        }
+      ]
+    },
+    {
+      "type": "Force Browsing",
+      "results": [
+        {
+          "url": "https://instagram.com/admin",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce authentication/authorization on sensitive endpoints."
+        },
+        {
+          "url": "https://instagram.com/config",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Access blocked or redirected (HTTP 200)",
+          "mitigation": "Enforce authentication/authorization on sensitive endpoints."
+        },
+        {
+          "url": "https://instagram.com/debug",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Access blocked or redirected (HTTP 200)",
+          "mitigation": "Enforce authentication/authorization on sensitive endpoints."
+        },
+        {
+          "url": "https://instagram.com/private",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Access blocked or redirected (HTTP 200)",
+          "mitigation": "Enforce authentication/authorization on sensitive endpoints."
+        }
+      ]
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [
+        {
+          "url": "https://instagram.com/admin",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Validate tokens server-side."
+        },
+        {
+          "url": "https://instagram.com/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization header enforced",
+          "mitigation": "Validate tokens server-side."
+        },
+        {
+          "url": "https://instagram.com/private",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization header enforced",
+          "mitigation": "Validate tokens server-side."
+        }
+      ]
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [
+        {
+          "url": "https://instagram.com/admin",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Ensure cookies validated."
+        },
+        {
+          "url": "https://instagram.com/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Cookies required and validated",
+          "mitigation": "Do not store roles in cookies; enforce server-side."
+        }
+      ]
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [
+        {
+          "url": "https://instagram.com",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "CORS restricted properly",
+          "mitigation": "Restrict Access-Control-Allow-Origin to trusted domains only."
+        }
+      ]
+    }
+  ],
+  "tls_info": {
+    "host": "instagram.com",
+    "port": 443,
+    "ok": true,
+    "error": null,
+    "protocol": "TLSv1.3",
+    "cipher": [
+      "TLS_CHACHA20_POLY1305_SHA256",
+      "TLSv1.3",
+      256
+    ],
+    "cert_subject": [
+      [
+        [
+          "countryName",
+          "US"
+        ]
+      ],
+      [
+        [
+          "stateOrProvinceName",
+          "California"
+        ]
+      ],
+      [
+        [
+          "localityName",
+          "Menlo Park"
+        ]
+      ],
+      [
+        [
+          "organizationName",
+          "Meta Platforms, Inc."
+        ]
+      ],
+      [
+        [
+          "commonName",
+          "*.instagram.com"
+        ]
+      ]
+    ],
+    "cert_issuer": [
+      [
+        [
+          "countryName",
+          "US"
+        ]
+      ],
+      [
+        [
+          "organizationName",
+          "DigiCert Inc"
+        ]
+      ],
+      [
+        [
+          "organizationalUnitName",
+          "www.digicert.com"
+        ]
+      ],
+      [
+        [
+          "commonName",
+          "DigiCert SHA2 High Assurance Server CA"
+        ]
+      ]
+    ],
+    "cert_notBefore": "Jun 15 00:00:00 2025 GMT",
+    "cert_notAfter": "Sep 13 23:59:59 2025 GMT"
+  },
+  "cvss": {
+    "cvss_avg": 7.06,
+    "severity": "High"
+  }
+}

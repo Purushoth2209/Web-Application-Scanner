@@ -1,0 +1,75 @@
+{
+  "site": "http://localhost:8080",
+  "timestamp": "2025-09-06_03-55-39",
+  "links": [
+    "http://localhost:8080/info.php",
+    "http://localhost:8080/js/html5.js",
+    "http://localhost:8080/login.php",
+    "http://localhost:8080/training.php",
+    "http://localhost:8080/user_new.php"
+  ],
+  "forms": [
+    {
+      "url": "http://localhost:8080/login.php",
+      "method": "POST",
+      "inputs": [
+        "login",
+        "password",
+        "security_level"
+      ]
+    },
+    {
+      "url": "http://localhost:8080/login.php",
+      "method": "POST",
+      "inputs": [
+        "login",
+        "password",
+        "security_level"
+      ]
+    },
+    {
+      "url": "http://localhost:8080/user_new.php",
+      "method": "POST",
+      "inputs": [
+        "login",
+        "email",
+        "password",
+        "password_conf",
+        "secret",
+        "mail_activation"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "type": "CORS",
+      "detail": "http://localhost:8080",
+      "note": "No ACAO header",
+      "risk": "Low",
+      "cvss": {
+        "cvss_score": 2.0,
+        "severity": "Low"
+      }
+    },
+    {
+      "type": "Cookies",
+      "detail": "PHPSESSID",
+      "note": "Likely session cookie",
+      "risk": "Low",
+      "cvss": {
+        "cvss_score": 2.0,
+        "severity": "Low"
+      }
+    }
+  ],
+  "tls": {
+    "host": "http://localhost:8080",
+    "ok": false,
+    "error": "[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1007)"
+  },
+  "summary": {
+    "links": 5,
+    "forms": 3,
+    "findings": 2
+  }
+}

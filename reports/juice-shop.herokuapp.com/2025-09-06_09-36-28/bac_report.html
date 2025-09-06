@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>BAC Report - https://juice-shop.herokuapp.com</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width:1100px; margin:20px auto; padding:0 16px; color:#222; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    h1 { margin:0; font-size:1.6rem; }
+    .meta { color:#555; font-size:0.95rem; }
+    .summary { background:#f5f8ff; border:1px solid #e3ecff; padding:12px; border-radius:8px; margin:12px 0; }
+    .tests { margin-top:12px; }
+    .test-card { border:1px solid #eee; padding:10px; margin-bottom:10px; border-radius:8px; }
+    table { width:100%; border-collapse:collapse; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid #eee; vertical-align:top; }
+    th { background:#fafafa; color:#333; font-weight:700; }
+    .vuln { color:#c62828; font-weight:700; }
+    .not-vuln { color:#2e7d32; }
+    .skipped { color:#ff8f00; }
+    small { color:#666; }
+    .muted { color:#666; font-size:0.9rem; }
+    .actions { display:flex; gap:8px; margin-top:8px; }
+    .button { padding:8px 10px; background:#0b76ef; color:white; text-decoration:none; border-radius:6px; font-size:0.95rem; }
+    .link { background:#6c757d; }
+    .code { background:#f6f6f6; padding:6px 10px; border-radius:6px; font-family:monospace; display:inline-block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>BAC Scan Report</h1>
+      <div class="meta">Site: <strong>https://juice-shop.herokuapp.com</strong> — Generated: <strong>2025-09-06_09-36-28</strong></div>
+    </div>
+    <div class="actions">
+      
+        <div class="muted">Tests: 8 • Findings: 71 • Vulnerable: 10</div>
+      
+      <a class="button link" href="javascript:window.print()">Print</a>
+      <a class="button" href="../">Back</a>
+    </div>
+  </header>
+
+  <section class="summary" aria-label="summary">
+    <h3>Scan summary</h3>
+    <div class="muted" style="margin-top:6px;">
+      
+        Crawled 29 links.
+      
+    </div>
+    
+      <div style="margin-top:8px;">
+        <strong>Discovered links (sample):</strong>
+        <ul>
+          
+            <li><small><a href="https://bsky.app/profile/owasp-juice.shop" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/owasp-juice.shop</a></small></li>
+          
+            <li><small><a href="https://fosstodon.org/@owasp_juiceshop" target="_blank" rel="noopener noreferrer">https://fosstodon.org/@owasp_juiceshop</a></small></li>
+          
+            <li><small><a href="https://github.com/OWASP/owasp-swag/tree/master/projects/juice-shop" target="_blank" rel="noopener noreferrer">https://github.com/OWASP/owasp-swag/tree/master/projects/juice-shop</a></small></li>
+          
+            <li><small><a href="https://juice-shop.herokuapp.com" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com</a></small></li>
+          
+            <li><small><a href="https://juice-shop.herokuapp.com/ftp/legal.md" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/ftp/legal.md</a></small></li>
+          
+            <li><small><a href="https://juice-shop.herokuapp.com/main.js" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/main.js</a></small></li>
+          
+            <li><small><a href="https://juice-shop.herokuapp.com/polyfills.js" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/polyfills.js</a></small></li>
+          
+            <li><small><a href="https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop</a></small></li>
+          
+            <li><small><a href="https://juice-shop.herokuapp.com/runtime.js" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/runtime.js</a></small></li>
+          
+            <li><small><a href="https://juice-shop.herokuapp.com/search" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/search</a></small></li>
+          
+            <li><small><a href="https://juice-shop.herokuapp.com/vendor.js" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/vendor.js</a></small></li>
+          
+            <li><small><a href="https://opensea.io/collection/juice-shop" target="_blank" rel="noopener noreferrer">https://opensea.io/collection/juice-shop</a></small></li>
+          
+        </ul>
+      </div>
+    
+  </section>
+
+  <section class="tests">
+    
+      <div class="test-card">
+        <h3>Privilege Escalation</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="skipped">Skipped</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>No admin creds</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce RBAC</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>IDOR</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs/indirect references.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>CORS Misconfiguration</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>CORS allows any origin (*)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict Access-Control-Allow-Origin</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Directory Traversal</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/../etc/passwd" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/../etc/passwd</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>No sensitive content (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Sanitize inputs</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/../../admin/config" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/../../admin/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>No sensitive content (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Sanitize inputs</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Force Browsing</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/admin" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/admin</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Sensitive page accessible without login</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce auth</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/config" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Sensitive page accessible without login</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce auth</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/debug" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/debug</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Sensitive page accessible without login</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce auth</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/private" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/private</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Sensitive page accessible without login</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce auth</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Header/Token Tampering</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/admin" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/admin</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Bypassed auth with missing/forged token</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Validate tokens server-side</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/config" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Bypassed auth with missing/forged token</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Validate tokens server-side</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/private" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/private</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Bypassed auth with missing/forged token</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Validate tokens server-side</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Cookie Manipulation</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/admin" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/admin</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Cookie manipulation bypassed access</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Do not store roles client-side</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/config" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Cookie manipulation bypassed access</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Do not store roles client-side</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Method Bypass</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://bsky.app/profile/owasp-juice.shop" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/owasp-juice.shop</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 404)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://fosstodon.org/@owasp_juiceshop" target="_blank" rel="noopener noreferrer">https://fosstodon.org/@owasp_juiceshop</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 404)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://github.com/OWASP/owasp-swag/tree/master/projects/juice-shop" target="_blank" rel="noopener noreferrer">https://github.com/OWASP/owasp-swag/tree/master/projects/juice-shop</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 422)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/ftp/legal.md" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/ftp/legal.md</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Method Not Allowed (405)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/main.js" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/main.js</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/polyfills.js" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/polyfills.js</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/runtime.js" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/runtime.js</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/search" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/search</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://juice-shop.herokuapp.com/vendor.js" target="_blank" rel="noopener noreferrer">https://juice-shop.herokuapp.com/vendor.js</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://opensea.io/collection/juice-shop" target="_blank" rel="noopener noreferrer">https://opensea.io/collection/juice-shop</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://owasp-juice.shop" target="_blank" rel="noopener noreferrer">https://owasp-juice.shop</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://owasp.org" target="_blank" rel="noopener noreferrer">https://owasp.org</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Method Not Allowed (405)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://owasp.org/slack/invite" target="_blank" rel="noopener noreferrer">https://owasp.org/slack/invite</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Method Not Allowed (405)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=Building something literally bottom up... @owasp_juiceshop&hashtags=appsec" target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=Building something literally bottom up... @owasp_juiceshop&hashtags=appsec</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=Everything up and running! @owasp_juiceshop&hashtags=appsec" target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=Everything up and running! @owasp_juiceshop&hashtags=appsec</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=I love going hiking here... (© j0hNny) @owasp_juiceshop&hashtags=appsec" target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=I love going hiking here... (© j0hNny) @owasp_juiceshop&hashtags=appsec</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=Magn(et)ificent! (© bkimminich) @owasp_juiceshop&hashtags=appsec" target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=Magn(et)ificent! (© bkimminich) @owasp_juiceshop&hashtags=appsec</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=My old workplace... (© E=ma²) @owasp_juiceshop&hashtags=appsec" target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=My old workplace... (© E=ma²) @owasp_juiceshop&hashtags=appsec</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=My rare collectors item! [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅] (© bkimminich) @owasp_juiceshop&hashtags=appsec" target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=My rare collectors item! [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅] (© bkimminich) @owasp_juiceshop&hashtags=appsec</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=Putting in the hardware... @owasp_juiceshop&hashtags=appsec" target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=Putting in the hardware... @owasp_juiceshop&hashtags=appsec</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=Sorted the pieces, starting assembly process... @owasp_juiceshop&hashtags=appsec" target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=Sorted the pieces, starting assembly process... @owasp_juiceshop&hashtags=appsec</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=Welcome to the Bee Haven (" target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=Welcome to the Bee Haven (</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/intent/tweet?text=😼 " target="_blank" rel="noopener noreferrer">https://twitter.com/intent/tweet?text=😼 </a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://twitter.com/owasp_juiceshop" target="_blank" rel="noopener noreferrer">https://twitter.com/owasp_juiceshop</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.facebook.com/owasp.juiceshop" target="_blank" rel="noopener noreferrer">https://www.facebook.com/owasp.juiceshop</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.reddit.com/r/owasp_juiceshop" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/owasp_juiceshop</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.youtube.com/watch?v=9PnbKL3wuH4" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=9PnbKL3wuH4</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 400)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict methods</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+  </section>
+
+  <hr/>
+
+  <section>
+    <h3>CSRF Suite</h3>
+    <p class="muted">If CSRF suite was run, links to the generated CSRF artifacts will appear here (if your runner added them to the template data).</p>
+
+    
+      <div>
+        <a class="button" href="juice-shop.herokuapp.com/2025-09-06_09-36-28/juice-shop.herokuapp.com_csrf_2025-09-06_09-38-21.html" target="_blank">Open CSRF HTML report</a>
+        <a class="button link" href="juice-shop.herokuapp.com/2025-09-06_09-36-28/juice-shop.herokuapp.com_csrf_2025-09-06_09-38-21.json" target="_blank">CSRF JSON</a>
+      </div>
+    
+  </section>
+
+  <footer style="margin-top:20px;color:#666;font-size:0.9rem;">
+    <div>Generated by UnifiedBACCSRF</div>
+  </footer>
+</body>
+</html>

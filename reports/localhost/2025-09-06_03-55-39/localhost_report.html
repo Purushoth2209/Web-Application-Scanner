@@ -1,0 +1,63 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Safe Scanner Report - http://localhost:8080</title>
+  <style>body{font-family:Arial;padding:18px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ddd;padding:6px}</style>
+</head>
+<body>
+<h1>Safe Scanner Report</h1>
+<p><strong>Site:</strong> http://localhost:8080 &nbsp; <strong>Timestamp:</strong> 2025-09-06_03-55-39</p>
+
+<h2>Summary</h2>
+<ul>
+  <li>Links discovered: 5</li>
+  <li>Forms discovered: 3</li>
+  <li>Heuristic findings: 2</li>
+</ul>
+
+
+<h2>TLS / Certificate</h2>
+<table><tr><th>Host</th><th>Protocol</th><th>Cert Expires</th><th>Issuer</th></tr>
+<tr><td>http://localhost:8080:</td><td></td><td></td><td></td></tr>
+</table>
+
+
+
+<h2>Findings</h2>
+<table><tr><th>Type</th><th>URL / Detail</th><th>Note</th><th>Risk</th><th>CVSS</th></tr>
+
+<tr>
+  <td>CORS</td>
+  <td>http://localhost:8080</td>
+  <td>No ACAO header</td>
+  <td>Low</td>
+  <td>2.0 (Low)</td>
+</tr>
+
+<tr>
+  <td>Cookies</td>
+  <td>PHPSESSID</td>
+  <td>Likely session cookie</td>
+  <td>Low</td>
+  <td>2.0 (Low)</td>
+</tr>
+
+</table>
+
+
+<h2>Forms</h2>
+
+<table><tr><th>Form URL</th><th>Method</th><th>Inputs (names)</th></tr>
+
+<tr><td>http://localhost:8080/login.php</td><td>POST</td><td>login, password, security_level</td></tr>
+
+<tr><td>http://localhost:8080/login.php</td><td>POST</td><td>login, password, security_level</td></tr>
+
+<tr><td>http://localhost:8080/user_new.php</td><td>POST</td><td>login, email, password, password_conf, secret, mail_activation</td></tr>
+
+</table>
+
+
+</body></html>

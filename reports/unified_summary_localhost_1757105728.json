@@ -1,0 +1,60 @@
+{
+  "base_url": "http://localhost:8080/",
+  "visited": [
+    "http://localhost:8080/training.php",
+    "http://localhost:8080/user_new.php",
+    "http://localhost:8080/info.php",
+    "http://localhost:8080",
+    "http://localhost:8080/login.php",
+    "http://localhost:8080/stylesheets/stylesheet.css",
+    "http://localhost:8080/",
+    "http://localhost:8080/images/favicon.ico"
+  ],
+  "links": [
+    "http://localhost:8080/user_new.php",
+    "http://localhost:8080/info.php",
+    "http://localhost:8080/training.php",
+    "http://localhost:8080/login.php"
+  ],
+  "actions": [
+    {
+      "name": "form_1",
+      "method": "POST",
+      "url": "http://localhost:8080/login.php",
+      "params": {
+        "login": "",
+        "password": "",
+        "security_level": ""
+      }
+    },
+    {
+      "name": "form_2",
+      "method": "POST",
+      "url": "http://localhost:8080/user_new.php",
+      "params": {
+        "login": "",
+        "email": "",
+        "password": "",
+        "password_conf": "",
+        "secret": "",
+        "mail_activation": ""
+      }
+    }
+  ],
+  "scripts": [
+    "http://localhost:8080/js/html5.js"
+  ],
+  "optional": {
+    "jwt": false,
+    "jwt_value": null,
+    "cookie_names": [
+      "PHPSESSID"
+    ]
+  },
+  "session_cookie": {
+    "name": "PHPSESSID",
+    "value": "ks26ir4c6e8dfgojelka0saei5",
+    "domain": "localhost",
+    "path": "/"
+  }
+}

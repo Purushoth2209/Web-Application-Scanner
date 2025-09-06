@@ -1,0 +1,162 @@
+{
+    "site": "http://localhost:8080/portal.php",
+    "timestamp": "2025-09-06_04-06-22",
+    "crawled_links": 1,
+    "links_discovered": [
+        "http://localhost:8080/portal.php"
+    ],
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": [
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                }
+            ]
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "risk": "High",
+                    "details": "No admin credentials provided",
+                    "mitigation": "Enforce role-based access control (RBAC) at server side."
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "http://localhost:8080/portal.php/../etc/passwd",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP N/A)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                },
+                {
+                    "url": "http://localhost:8080/portal.php/../../admin/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP N/A)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": [
+                {
+                    "url": "http://localhost:8080/portal.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "http://localhost:8080/login.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                }
+            ]
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "http://localhost:8080/portal.php/admin",
+                    "status": "Error",
+                    "risk": "Medium",
+                    "details": "Request failed",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "http://localhost:8080/portal.php/config",
+                    "status": "Error",
+                    "risk": "Medium",
+                    "details": "Request failed",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "http://localhost:8080/portal.php/debug",
+                    "status": "Error",
+                    "risk": "Medium",
+                    "details": "Request failed",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "http://localhost:8080/portal.php/private",
+                    "status": "Error",
+                    "risk": "Medium",
+                    "details": "Request failed",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                }
+            ]
+        },
+        {
+            "type": "Header/Token Tampering",
+            "results": [
+                {
+                    "url": "http://localhost:8080/portal.php/admin",
+                    "status": "Error",
+                    "risk": "High",
+                    "details": "Request failed",
+                    "mitigation": "Ensure proper error handling for auth headers."
+                },
+                {
+                    "url": "http://localhost:8080/portal.php/config",
+                    "status": "Error",
+                    "risk": "High",
+                    "details": "Request failed",
+                    "mitigation": "Ensure proper error handling for auth headers."
+                },
+                {
+                    "url": "http://localhost:8080/portal.php/private",
+                    "status": "Error",
+                    "risk": "High",
+                    "details": "Request failed",
+                    "mitigation": "Ensure proper error handling for auth headers."
+                }
+            ]
+        },
+        {
+            "type": "Cookie Manipulation",
+            "results": [
+                {
+                    "url": "http://localhost:8080/portal.php/admin",
+                    "status": "Error",
+                    "risk": "High",
+                    "details": "Request failed",
+                    "mitigation": "Ensure cookies are validated properly."
+                },
+                {
+                    "url": "http://localhost:8080/portal.php/config",
+                    "status": "Error",
+                    "risk": "High",
+                    "details": "Request failed",
+                    "mitigation": "Ensure cookies are validated properly."
+                }
+            ]
+        },
+        {
+            "type": "CORS Misconfiguration",
+            "results": [
+                {
+                    "url": "http://localhost:8080/portal.php",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "CORS restricted properly",
+                    "mitigation": "Restrict Access-Control-Allow-Origin to trusted domains only."
+                }
+            ]
+        }
+    ]
+}

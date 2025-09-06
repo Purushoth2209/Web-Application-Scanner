@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>BAC Report - {{ data.site }}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width:1100px; margin:20px auto; padding:0 16px; color:#222; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    h1 { margin:0; font-size:1.6rem; }
+    .meta { color:#555; font-size:0.95rem; }
+    .summary { background:#f5f8ff; border:1px solid #e3ecff; padding:12px; border-radius:8px; margin:12px 0; }
+    .tests { margin-top:12px; }
+    .test-card { border:1px solid #eee; padding:10px; margin-bottom:10px; border-radius:8px; }
+    table { width:100%; border-collapse:collapse; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid #eee; vertical-align:top; }
+    th { background:#fafafa; color:#333; font-weight:700; }
+    .vuln { color:#c62828; font-weight:700; }
+    .not-vuln { color:#2e7d32; }
+    .skipped { color:#ff8f00; }
+    small { color:#666; }
+    .muted { color:#666; font-size:0.9rem; }
+    .actions { display:flex; gap:8px; margin-top:8px; }
+    .button { padding:8px 10px; background:#0b76ef; color:white; text-decoration:none; border-radius:6px; font-size:0.95rem; }
+    .link { background:#6c757d; }
+    .code { background:#f6f6f6; padding:6px 10px; border-radius:6px; font-family:monospace; display:inline-block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>BAC Scan Report</h1>
+      <div class="meta">Site: <strong>{{ data.site }}</strong> — Generated: <strong>{{ data.timestamp }}</strong></div>
+    </div>
+    <div class="actions">
+      {% if data.summary %}
+        <div class="muted">Tests: {{ data.summary.total_tests }} • Findings: {{ data.summary.total_findings }} • Vulnerable: {{ data.summary.vulnerable }}</div>
+      {% endif %}
+      <a class="button link" href="javascript:window.print()">Print</a>
+      <a class="button" href="../">Back</a>
+    </div>
+  </header>
+
+  <section class="summary" aria-label="summary">
+    <h3>Scan summary</h3>
+    <div class="muted" style="margin-top:6px;">
+      {% if data.crawl_note %}
+        {{ data.crawl_note | safe }}
+      {% else %}
+        Crawled {{ data.crawled_links | default(0) }} links.
+      {% endif %}
+    </div>
+    {% if data.links_discovered %}
+      <div style="margin-top:8px;">
+        <strong>Discovered links (sample):</strong>
+        <ul>
+          {% for l in data.links_discovered[:12] %}
+            <li><small><a href="{{ l }}" target="_blank" rel="noopener noreferrer">{{ l }}</a></small></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </section>
+
+  <section class="tests">
+    {% for test in data.tests %}
+      <div class="test-card">
+        <h3>{{ test.type }}</h3>
+        {% if test.results %}
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for r in test.results %}
+                <tr>
+                  <td>
+                    {% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener noreferrer">{{ r.url }}</a>{% elif r.name %}{{ r.name }}{% else %}-{% endif %}
+                    {% if r.method %}<div class="muted">method: <span class="code">{{ r.method }}</span></div>{% endif %}
+                    {% if r.req_method %}<div class="muted">req: <span class="code">{{ r.req_method }}</span></div>{% endif %}
+                    {% if r.curl %}<div class="muted">PoC: <span class="code">{{ r.curl }}</span></div>{% endif %}
+                  </td>
+                  <td>
+                    {% set s = (r.status or '') %}
+                    {% if s == 'Vulnerable' %}
+                      <span class="vuln">{{ s }}</span>
+                    {% elif s == 'Not Vulnerable' %}
+                      <span class="not-vuln">{{ s }}</span>
+                    {% elif s == 'Skipped' %}
+                      <span class="skipped">{{ s }}</span>
+                    {% else %}
+                      <span>{{ s }}</span>
+                    {% endif %}
+                  </td>
+                  <td>{{ r.risk | default('-') }}</td>
+                  <td>
+                    <div>{{ r.details | default(r.detail | default('-')) }}</div>
+                    {% if r.mitigation %}
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> {{ r.mitigation }}</div>
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <div class="muted">No results for this test.</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </section>
+
+  <hr/>
+
+  <section>
+    <h3>CSRF Suite</h3>
+    <p class="muted">If CSRF suite was run, links to the generated CSRF artifacts will appear here (if your runner added them to the template data).</p>
+
+    {% if data.csrf_html %}
+      <div>
+        <a class="button" href="{{ data.csrf_html }}" target="_blank">Open CSRF HTML report</a>
+        {% if data.csrf_json %}<a class="button link" href="{{ data.csrf_json }}" target="_blank">CSRF JSON</a>{% endif %}
+      </div>
+    {% else %}
+      <div class="muted">No CSRF report linked in this BAC report. The CSRF suite produces its own HTML/JSON files in the <code>reports/</code> directory (look for filenames containing <code>csrf</code>).</div>
+    {% endif %}
+  </section>
+
+  <footer style="margin-top:20px;color:#666;font-size:0.9rem;">
+    <div>Generated by UnifiedBACCSRF</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>BAC Report - http://localhost:8080/portal.php</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width:1100px; margin:20px auto; padding:0 16px; color:#222; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    h1 { margin:0; font-size:1.6rem; }
+    .meta { color:#555; font-size:0.95rem; }
+    .summary { background:#f5f8ff; border:1px solid #e3ecff; padding:12px; border-radius:8px; margin:12px 0; }
+    .tests { margin-top:12px; }
+    .test-card { border:1px solid #eee; padding:10px; margin-bottom:10px; border-radius:8px; }
+    table { width:100%; border-collapse:collapse; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid #eee; vertical-align:top; }
+    th { background:#fafafa; color:#333; font-weight:700; }
+    .vuln { color:#c62828; font-weight:700; }
+    .not-vuln { color:#2e7d32; }
+    .skipped { color:#ff8f00; }
+    small { color:#666; }
+    .muted { color:#666; font-size:0.9rem; }
+    .actions { display:flex; gap:8px; margin-top:8px; }
+    .button { padding:8px 10px; background:#0b76ef; color:white; text-decoration:none; border-radius:6px; font-size:0.95rem; }
+    .link { background:#6c757d; }
+    .code { background:#f6f6f6; padding:6px 10px; border-radius:6px; font-family:monospace; display:inline-block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>BAC Scan Report</h1>
+      <div class="meta">Site: <strong>http://localhost:8080/portal.php</strong> — Generated: <strong>2025-09-06_04-06-22</strong></div>
+    </div>
+    <div class="actions">
+      
+        <div class="muted">Tests: 8 • Findings: 16 • Vulnerable: 0</div>
+      
+      <a class="button link" href="javascript:window.print()">Print</a>
+      <a class="button" href="../">Back</a>
+    </div>
+  </header>
+
+  <section class="summary" aria-label="summary">
+    <h3>Scan summary</h3>
+    <div class="muted" style="margin-top:6px;">
+      
+        Crawled 1 links successfully.<br><small>Discovered links:<br>http://localhost:8080/portal.php</small>
+      
+    </div>
+    
+      <div style="margin-top:8px;">
+        <strong>Discovered links (sample):</strong>
+        <ul>
+          
+            <li><small><a href="http://localhost:8080/portal.php" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php</a></small></li>
+          
+        </ul>
+      </div>
+    
+  </section>
+
+  <section class="tests">
+    
+      <div class="test-card">
+        <h3>IDOR</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce server-side access checks.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Privilege Escalation</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="skipped">Skipped</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>No admin credentials provided</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce role-based access control (RBAC) at server side.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Directory Traversal</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/../etc/passwd" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/../etc/passwd</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>No sensitive content detected (HTTP N/A)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Sanitize user input, deny '../', enforce path whitelisting.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/../../admin/config" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/../../admin/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>No sensitive content detected (HTTP N/A)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Sanitize user input, deny '../', enforce path whitelisting.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Method Bypass</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/login.php" target="_blank" rel="noopener noreferrer">http://localhost:8080/login.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Force Browsing</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/admin" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/admin</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>Error</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Request failed</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce authentication/authorization on all sensitive endpoints.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/config" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>Error</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Request failed</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce authentication/authorization on all sensitive endpoints.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/debug" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/debug</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>Error</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Request failed</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce authentication/authorization on all sensitive endpoints.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/private" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/private</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>Error</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Request failed</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce authentication/authorization on all sensitive endpoints.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Header/Token Tampering</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/admin" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/admin</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>Error</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Request failed</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Ensure proper error handling for auth headers.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/config" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>Error</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Request failed</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Ensure proper error handling for auth headers.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/private" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/private</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>Error</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Request failed</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Ensure proper error handling for auth headers.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Cookie Manipulation</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/admin" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/admin</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>Error</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Request failed</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Ensure cookies are validated properly.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php/config" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>Error</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Request failed</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Ensure cookies are validated properly.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>CORS Misconfiguration</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="http://localhost:8080/portal.php" target="_blank" rel="noopener noreferrer">http://localhost:8080/portal.php</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>CORS restricted properly</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict Access-Control-Allow-Origin to trusted domains only.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+  </section>
+
+  <hr/>
+
+  <section>
+    <h3>CSRF Suite</h3>
+    <p class="muted">If CSRF suite was run, links to the generated CSRF artifacts will appear here (if your runner added them to the template data).</p>
+
+    
+      <div class="muted">No CSRF report linked in this BAC report. The CSRF suite produces its own HTML/JSON files in the <code>reports/</code> directory (look for filenames containing <code>csrf</code>).</div>
+    
+  </section>
+
+  <footer style="margin-top:20px;color:#666;font-size:0.9rem;">
+    <div>Generated by UnifiedBACCSRF</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,207 @@
+
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>BAC Scan Report - https://svce.ac.in</title>
+<style>body{font-family:Arial;padding:16px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:6px}</style>
+</head><body>
+<h1>Broken Access Control Report</h1>
+<p><strong>Site:</strong> https://svce.ac.in</p>
+<p><strong>Timestamp:</strong> 2025-09-06_04-42-45</p>
+<p><strong>Crawled links:</strong> 1</p>
+<p>Crawled 1 links successfully.<br><small>Discovered links:<br>https://svce.ac.in</small></p>
+
+<hr/>
+
+  <h2>IDOR</h2>
+  <table><tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>CVSS</th></tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">-</td>
+      <td style="color: green">No IDOR parameters found</td>
+      <td>Low</td>
+      <td>-</td>
+      <td>1.0 (LOW)</td>
+    </tr>
+  
+  </table>
+
+  <h2>Privilege Escalation</h2>
+  <table><tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>CVSS</th></tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">-</td>
+      <td style="color: green">Skipped</td>
+      <td>High</td>
+      <td>No admin credentials provided</td>
+      <td>8.0 (HIGH)</td>
+    </tr>
+  
+  </table>
+
+  <h2>Directory Traversal</h2>
+  <table><tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>CVSS</th></tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/../etc/passwd</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>High</td>
+      <td>No sensitive content detected (HTTP 404)</td>
+      <td>8.0 (HIGH)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/../../admin/config</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>High</td>
+      <td>No sensitive content detected (HTTP 404)</td>
+      <td>8.0 (HIGH)</td>
+    </tr>
+  
+  </table>
+
+  <h2>Method Bypass</h2>
+  <table><tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>CVSS</th></tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>Medium</td>
+      <td>Rejected (HTTP 200)</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://www.svce.ac.in/</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>Medium</td>
+      <td>Rejected (HTTP 200)</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://www.svce.ac.in/</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>Medium</td>
+      <td>Rejected (HTTP 200)</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/#wpcf7-f4261-o1</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>Medium</td>
+      <td>Rejected (HTTP 200)</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://www.svceadmissions.com/formtools/process.php</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>Medium</td>
+      <td>Rejected (HTTP 403)</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+  </table>
+
+  <h2>Force Browsing</h2>
+  <table><tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>CVSS</th></tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/admin</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>Medium</td>
+      <td>Access blocked or redirected (HTTP 200)</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/config</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>Medium</td>
+      <td>Access blocked or redirected (HTTP 404)</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/debug</td>
+      <td style="color: green">Error</td>
+      <td>Medium</td>
+      <td>Request failed</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/private</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>Medium</td>
+      <td>Access blocked or redirected (HTTP 404)</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+  </table>
+
+  <h2>Header/Token Tampering</h2>
+  <table><tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>CVSS</th></tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/admin</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>High</td>
+      <td>Authorization header enforced</td>
+      <td>8.0 (HIGH)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/config</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>High</td>
+      <td>Authorization header enforced</td>
+      <td>8.0 (HIGH)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/private</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>High</td>
+      <td>Authorization header enforced</td>
+      <td>8.0 (HIGH)</td>
+    </tr>
+  
+  </table>
+
+  <h2>Cookie Manipulation</h2>
+  <table><tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>CVSS</th></tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/admin</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>High</td>
+      <td>Cookies required and validated</td>
+      <td>8.0 (HIGH)</td>
+    </tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in/config</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>High</td>
+      <td>Cookies required and validated</td>
+      <td>8.0 (HIGH)</td>
+    </tr>
+  
+  </table>
+
+  <h2>CORS Misconfiguration</h2>
+  <table><tr><th>URL</th><th>Status</th><th>Risk</th><th>Details</th><th>CVSS</th></tr>
+  
+    <tr>
+      <td style="max-width:420px;word-break:break-all">https://svce.ac.in</td>
+      <td style="color: green">Not Vulnerable</td>
+      <td>Medium</td>
+      <td>CORS restricted properly</td>
+      <td>4.0 (MEDIUM)</td>
+    </tr>
+  
+  </table>
+
+</body></html>

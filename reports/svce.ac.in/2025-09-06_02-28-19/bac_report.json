@@ -1,0 +1,1295 @@
+{
+    "site": "https://svce.ac.in",
+    "timestamp": "2025-09-06_02-28-19",
+    "crawled_links": 19,
+    "links_discovered": [
+        "https://svce.ac.in/placement/?page=office-of-training-placement",
+        "https://svce.ac.in/placement/?page=training",
+        "https://svce.ac.in/placement/?page=training&subMenu=placement",
+        "https://svce.ac.in/placement/?page=training&subMenu=higher-studies",
+        "https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer",
+        "https://svce.ac.in/placement/?page=training&subMenu=internship",
+        "https://svce.ac.in/placement/?page=major-recruiters",
+        "https://svce.ac.in/placement/?page=list-of-recruiters",
+        "https://svce.ac.in/placement/?page=packages-offered",
+        "https://svce.ac.in/placement/?page=placement-statistics",
+        "https://svce.ac.in/placement/?page=feedback",
+        "https://svce.ac.in/placement/?page=feedback&subMenu=recruiters",
+        "https://svce.ac.in/placement/?page=feedback&subMenu=students",
+        "https://svce.ac.in/placement/?page=feedback&subMenu=parents",
+        "https://svce.ac.in/placement/?page=gallery",
+        "https://svce.ac.in/placement/?page=preparation-for-placement",
+        "https://svce.ac.in/placement/?page=circulars",
+        "https://svce.ac.in/placement/?page=contact",
+        "https://svce.ac.in"
+    ],
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": [
+                {
+                    "url": "https://svce.ac.in/placement/?page=office-of-training-placement-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (office-of-training-placement \u2192 office-of-training-placement-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (training \u2192 training-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training-other&subMenu=placement",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (training \u2192 training-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=placement-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter subMenu modified (placement \u2192 placement-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training-other&subMenu=higher-studies",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (training \u2192 training-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=higher-studies-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter subMenu modified (higher-studies \u2192 higher-studies-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training-other&subMenu=train-the-trainer",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (training \u2192 training-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter subMenu modified (train-the-trainer \u2192 train-the-trainer-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training-other&subMenu=internship",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (training \u2192 training-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=internship-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter subMenu modified (internship \u2192 internship-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=major-recruiters-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (major-recruiters \u2192 major-recruiters-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=list-of-recruiters-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (list-of-recruiters \u2192 list-of-recruiters-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=packages-offered-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (packages-offered \u2192 packages-offered-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=placement-statistics-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (placement-statistics \u2192 placement-statistics-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (feedback \u2192 feedback-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback-other&subMenu=recruiters",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (feedback \u2192 feedback-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback&subMenu=recruiters-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter subMenu modified (recruiters \u2192 recruiters-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback-other&subMenu=students",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (feedback \u2192 feedback-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback&subMenu=students-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter subMenu modified (students \u2192 students-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback-other&subMenu=parents",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (feedback \u2192 feedback-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback&subMenu=parents-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter subMenu modified (parents \u2192 parents-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=gallery-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (gallery \u2192 gallery-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=preparation-for-placement-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (preparation-for-placement \u2192 preparation-for-placement-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=circulars-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (circulars \u2192 circulars-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=contact-other",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Parameter page modified (contact \u2192 contact-other)",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                }
+            ]
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "risk": "High",
+                    "details": "No admin credentials provided",
+                    "mitigation": "Enforce role-based access control (RBAC) at server side."
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "https://svce.ac.in/../etc/passwd",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP 404)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                },
+                {
+                    "url": "https://svce.ac.in/../../admin/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP 404)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": [
+                {
+                    "url": "https://svce.ac.in/placement/?page=office-of-training-placement",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=office-of-training-placement#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=placement",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=placement#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=higher-studies",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=higher-studies#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=internship",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=training&subMenu=internship#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=major-recruiters",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=major-recruiters#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=list-of-recruiters",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=list-of-recruiters#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=packages-offered",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=packages-offered#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=placement-statistics",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback&subMenu=recruiters",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback&subMenu=recruiters#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback&subMenu=students",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback&subMenu=students#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback&subMenu=parents",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=feedback&subMenu=parents#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=gallery",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=gallery#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=preparation-for-placement",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=preparation-for-placement#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=circulars",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=circulars#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=contact",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/placement/?page=contact#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svce.ac.in/",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/#wpcf7-f4261-o1",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "https://www.svceadmissions.com/formtools/process.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                }
+            ]
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "https://svce.ac.in/admin",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP 200)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://svce.ac.in/config",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP 404)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://svce.ac.in/debug",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP 404)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "https://svce.ac.in/private",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP 404)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                }
+            ]
+        },
+        {
+            "type": "Header/Token Tampering",
+            "results": [
+                {
+                    "url": "https://svce.ac.in/admin",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "Authorization header enforced",
+                    "mitigation": "Always validate tokens server-side, never trust client headers."
+                },
+                {
+                    "url": "https://svce.ac.in/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "Authorization header enforced",
+                    "mitigation": "Always validate tokens server-side, never trust client headers."
+                },
+                {
+                    "url": "https://svce.ac.in/private",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "Authorization header enforced",
+                    "mitigation": "Always validate tokens server-side, never trust client headers."
+                }
+            ]
+        },
+        {
+            "type": "Cookie Manipulation",
+            "results": [
+                {
+                    "url": "https://svce.ac.in/admin",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "Cookies required and validated",
+                    "mitigation": "Do not store roles in cookies; enforce access server-side."
+                },
+                {
+                    "url": "https://svce.ac.in/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "Cookies required and validated",
+                    "mitigation": "Do not store roles in cookies; enforce access server-side."
+                }
+            ]
+        },
+        {
+            "type": "CORS Misconfiguration",
+            "results": [
+                {
+                    "url": "https://svce.ac.in",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "CORS restricted properly",
+                    "mitigation": "Restrict Access-Control-Allow-Origin to trusted domains only."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,167 @@
+{
+  "site": "https://svce.ac.in",
+  "timestamp": "2025-09-06_04-42-45",
+  "crawled_links": 1,
+  "links_discovered": [
+    "https://svce.ac.in"
+  ],
+  "tests": [
+    {
+      "type": "IDOR",
+      "results": [
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-"
+        }
+      ]
+    },
+    {
+      "type": "Privilege Escalation",
+      "results": [
+        {
+          "status": "Skipped",
+          "risk": "High",
+          "details": "No admin credentials provided"
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [
+        {
+          "url": "https://svce.ac.in/../etc/passwd",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content detected (HTTP 404)"
+        },
+        {
+          "url": "https://svce.ac.in/../../admin/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content detected (HTTP 404)"
+        }
+      ]
+    },
+    {
+      "type": "Method Bypass",
+      "results": [
+        {
+          "url": "https://svce.ac.in",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)"
+        },
+        {
+          "url": "https://www.svce.ac.in/",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)"
+        },
+        {
+          "url": "https://www.svce.ac.in/",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)"
+        },
+        {
+          "url": "https://svce.ac.in/#wpcf7-f4261-o1",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)"
+        },
+        {
+          "url": "https://www.svceadmissions.com/formtools/process.php",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 403)"
+        }
+      ]
+    },
+    {
+      "type": "Force Browsing",
+      "results": [
+        {
+          "url": "https://svce.ac.in/admin",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Access blocked or redirected (HTTP 200)"
+        },
+        {
+          "url": "https://svce.ac.in/config",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Access blocked or redirected (HTTP 404)"
+        },
+        {
+          "url": "https://svce.ac.in/debug",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed"
+        },
+        {
+          "url": "https://svce.ac.in/private",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Access blocked or redirected (HTTP 404)"
+        }
+      ]
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [
+        {
+          "url": "https://svce.ac.in/admin",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization header enforced"
+        },
+        {
+          "url": "https://svce.ac.in/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization header enforced"
+        },
+        {
+          "url": "https://svce.ac.in/private",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization header enforced"
+        }
+      ]
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [
+        {
+          "url": "https://svce.ac.in/admin",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Cookies required and validated"
+        },
+        {
+          "url": "https://svce.ac.in/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Cookies required and validated"
+        }
+      ]
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [
+        {
+          "url": "https://svce.ac.in",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "CORS restricted properly"
+        }
+      ]
+    }
+  ]
+}

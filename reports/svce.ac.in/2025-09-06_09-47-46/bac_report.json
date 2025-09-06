@@ -1,0 +1,477 @@
+{
+  "site": "https://svce.ac.in",
+  "timestamp": "2025-09-06_09-47-46",
+  "crawled_links": 19,
+  "links_discovered": [
+    "https://svce.ac.in",
+    "https://svce.ac.in/placement/?page=circulars",
+    "https://svce.ac.in/placement/?page=contact",
+    "https://svce.ac.in/placement/?page=feedback",
+    "https://svce.ac.in/placement/?page=feedback&subMenu=parents",
+    "https://svce.ac.in/placement/?page=feedback&subMenu=recruiters",
+    "https://svce.ac.in/placement/?page=feedback&subMenu=students",
+    "https://svce.ac.in/placement/?page=gallery",
+    "https://svce.ac.in/placement/?page=list-of-recruiters",
+    "https://svce.ac.in/placement/?page=major-recruiters",
+    "https://svce.ac.in/placement/?page=office-of-training-placement",
+    "https://svce.ac.in/placement/?page=packages-offered",
+    "https://svce.ac.in/placement/?page=placement-statistics",
+    "https://svce.ac.in/placement/?page=preparation-for-placement",
+    "https://svce.ac.in/placement/?page=training",
+    "https://svce.ac.in/placement/?page=training&subMenu=higher-studies",
+    "https://svce.ac.in/placement/?page=training&subMenu=internship",
+    "https://svce.ac.in/placement/?page=training&subMenu=placement",
+    "https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer"
+  ],
+  "tests": [
+    {
+      "type": "IDOR",
+      "results": [
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use UUIDs/indirect references.",
+          "cvss": 2.0
+        }
+      ]
+    },
+    {
+      "type": "Privilege Escalation",
+      "results": [
+        {
+          "status": "Skipped",
+          "risk": "High",
+          "details": "No admin creds",
+          "mitigation": "Enforce RBAC",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [
+        {
+          "url": "https://svce.ac.in",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "CORS restricted",
+          "mitigation": "Restrict Access-Control-Allow-Origin",
+          "cvss": 6.0
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [
+        {
+          "url": "https://svce.ac.in/../etc/passwd",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content (HTTP 404)",
+          "mitigation": "Sanitize inputs",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://svce.ac.in/../../admin/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content (HTTP 404)",
+          "mitigation": "Sanitize inputs",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [
+        {
+          "url": "https://svce.ac.in/admin",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Cookies validated",
+          "mitigation": "Do not store roles client-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://svce.ac.in/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Cookies validated",
+          "mitigation": "Do not store roles client-side",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Force Browsing",
+      "results": [
+        {
+          "url": "https://svce.ac.in/admin",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Blocked or redirected (HTTP 200)",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/config",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Blocked or redirected (HTTP 404)",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/debug",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Blocked or redirected (HTTP 404)",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/private",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Blocked or redirected (HTTP 404)",
+          "mitigation": "Enforce auth",
+          "cvss": 6.0
+        }
+      ]
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [
+        {
+          "url": "https://svce.ac.in/admin",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization enforced",
+          "mitigation": "Validate tokens server-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://svce.ac.in/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization enforced",
+          "mitigation": "Validate tokens server-side",
+          "cvss": 9.0
+        },
+        {
+          "url": "https://svce.ac.in/private",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "Authorization enforced",
+          "mitigation": "Validate tokens server-side",
+          "cvss": 9.0
+        }
+      ]
+    },
+    {
+      "type": "Method Bypass",
+      "results": [
+        {
+          "url": "https://svce.ac.in",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=circulars",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=contact",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=feedback",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=feedback&subMenu=parents",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=feedback&subMenu=recruiters",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=feedback&subMenu=students",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=gallery",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=list-of-recruiters",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=major-recruiters",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=office-of-training-placement",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=packages-offered",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=placement-statistics",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=preparation-for-placement",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=training",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=training&subMenu=higher-studies",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=training&subMenu=internship",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=training&subMenu=placement",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        },
+        {
+          "url": "https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict methods",
+          "cvss": 6.0
+        }
+      ]
+    }
+  ],
+  "csrf_html": "svce.ac.in_csrf_2025-09-06_09-50-51.html",
+  "csrf_json": "svce.ac.in_csrf_2025-09-06_09-50-51.json"
+}

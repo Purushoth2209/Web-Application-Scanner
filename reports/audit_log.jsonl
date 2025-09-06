@@ -1,0 +1,40 @@
+{"site": "https://svce.ac.in", "timestamp": "2025-09-06_01-04-03", "findings": 309, "vulnerabilities": 0}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_01-09-51", "findings": 57, "vulnerabilities": 10}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_02-05-15", "findings": 525, "vulnerabilities": 36}
+{"site": "http://localhost:8080/", "timestamp": "2025-09-06_02-25-28", "findings": 23, "vulnerabilities": 3}
+{"site": "https://svce.ac.in", "timestamp": "2025-09-06_02-28-19", "findings": 168, "vulnerabilities": 25}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_02-42-14", "findings": 517, "vulnerabilities": 32}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_03-06-28", "findings": 59, "vulnerabilities": 10}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_03-15-38", "findings": 59, "vulnerabilities": 10}
+{"site": "http://localhost:8080", "timestamp": "2025-09-06_03-33-38", "findings": 25, "vulnerabilities": 4}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_04-04-50", "findings": 26, "vulnerabilities": 11}
+{"site": "http://localhost:8080/portal.php", "timestamp": "2025-09-06_04-06-22", "findings": 16, "vulnerabilities": 0}
+{"site": "http://localhost:8080", "timestamp": "2025-09-06_04-07-44", "findings": 28, "vulnerabilities": 4}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_04-13-53", "findings": 61, "vulnerabilities": 10}
+{"site": "https://svce.ac.in", "timestamp": "2025-09-06_04-16-25", "findings": 335, "vulnerabilities": 1}
+{"site": "https://instagram.com", "timestamp": "2025-09-06_04-31-58", "findings": 17, "vulnerabilities": 1}
+{"site": "https://svce.ac.in", "timestamp": "2025-09-06_04-42-45", "findings": 19, "vulnerabilities": 0}
+{"site": "http://localhost:8080", "timestamp": "2025-09-06_05-13-38", "findings": 25, "vulnerabilities": 4}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_05-15-01", "findings": 59, "vulnerabilities": 10}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_05-20-49", "findings": 227, "vulnerabilities": 11, "tls_ok": true, "tls_protocol": "TLSv1.2", "tls_days_until_expiry": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_05-48-07", "findings": 227, "vulnerabilities": 11, "tls_ok": true, "tls_protocol": "TLSv1.2", "tls_days_until_expiry": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_05-55-57", "findings": 105, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2", "tls_days_until_expiry": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_06-00-01", "findings": 105, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2", "tls_days_until_expiry": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_06-16-45", "findings": 23, "vulnerabilities": 10, "tls_ok": true}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_06-32-25", "findings": 105, "vulnerabilities": 9, "tls_ok": true, "tls_protocol": "TLSv1.2", "tls_days_until_expiry": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_06-50-52", "findings": 15, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2", "tls_days_until_expiry": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_07-03-15", "findings": 105, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2", "tls_days_until_expiry": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_07-03-15", "findings": 105, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2", "tls_days_until_expiry": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_07-44-51", "findings": 105, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2", "tls_days_until_expiry": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_07-56-49", "findings": 71, "vulnerabilities": 10, "tls_ok": true}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_08-13-47", "findings": 71, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2"}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_08-27-26", "findings": 71, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2"}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_08-48-28", "findings": 71, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2"}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_09-36-28", "findings": 71, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2"}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_09-44-45", "findings": 71, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2"}
+{"site": "https://svce.ac.in", "timestamp": "2025-09-06_09-47-46", "findings": 51, "vulnerabilities": 0, "tls_ok": true, "tls_protocol": "TLSv1.2"}
+{"site": "http://localhost:8080", "timestamp": "2025-09-06_09-57-06", "findings": 25, "vulnerabilities": 4, "tls_ok": false, "tls_protocol": null}
+{"site": "http://localhost:8080", "timestamp": "2025-09-06_10-03-45", "findings": 25, "vulnerabilities": 4, "tls_ok": false, "tls_protocol": null}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-06_10-05-33", "findings": 35, "vulnerabilities": 10, "tls_ok": true, "tls_protocol": "TLSv1.2"}
+{"site": "http://localhost:8080", "timestamp": "2025-09-06_10-13-34", "findings": 25, "vulnerabilities": 4, "tls_ok": false, "tls_protocol": null}
+{"site": "https://svce.ac.in", "timestamp": "2025-09-06_10-14-40", "findings": 51, "vulnerabilities": 0, "tls_ok": true, "tls_protocol": "TLSv1.2"}

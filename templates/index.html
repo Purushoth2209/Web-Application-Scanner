@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Unified BAC & CSRF Scanner</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width:900px; margin:24px auto; padding:0 16px; }
+    header { display:flex; align-items:center; justify-content:space-between; }
+    form { margin-top:18px; display:grid; gap:8px; }
+    label { font-weight:600; }
+    input[type="text"], input[type="password"], select { width:100%; padding:8px; border:1px solid #ccc; border-radius:6px; }
+    .row { display:flex; gap:8px; }
+    .small { font-size:0.9rem; color:#555; }
+    button { padding:10px 14px; border:0; background:#0b76ef; color:white; border-radius:8px; cursor:pointer; }
+    button.secondary { background:#666; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Unified BAC & CSRF Scanner</h1>
+    <div class="small">Local UI for running the CLI scanner</div>
+  </header>
+
+  <p class="small">Fill the target and optional credentials, then press <strong>Run Scan</strong>. This form posts to <code>/scan</code> — adapt in your web app to call the CLI or run the scan backend.</p>
+
+  <form action="/scan" method="post">
+    <div>
+      <label for="base">Target base URL</label>
+      <input id="base" name="base" type="text" placeholder="https://example.com" required />
+    </div>
+
+    <div class="row">
+      <div style="flex:1">
+        <label for="depth">Crawl depth</label>
+        <select id="depth" name="depth">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div style="flex:1">
+        <label for="out">Output directory</label>
+        <input id="out" name="out" type="text" value="reports" />
+      </div>
+    </div>
+
+    <h3 style="margin-top:12px">Credentials (optional)</h3>
+    <div class="row">
+      <div style="flex:1">
+        <label for="user">Username</label>
+        <input id="user" name="user" type="text" />
+      </div>
+      <div style="flex:1">
+        <label for="passwd">Password</label>
+        <input id="passwd" name="passwd" type="password" />
+      </div>
+    </div>
+
+    <p class="small">If the login fields require CSS selectors (single-page apps), include them below so the crawler can automatically perform login via Selenium.</p>
+    <div class="row">
+      <div style="flex:1">
+        <label for="username_field">Username field (CSS selector)</label>
+        <input id="username_field" name="username_field" type="text" placeholder="e.g. input[name='email']" />
+      </div>
+      <div style="flex:1">
+        <label for="password_field">Password field (CSS selector)</label>
+        <input id="password_field" name="password_field" type="text" placeholder="e.g. input[type='password']" />
+      </div>
+    </div>
+    <div>
+      <label for="login_button">Login button (CSS selector)</label>
+      <input id="login_button" name="login_button" type="text" placeholder="e.g. button[type='submit']" />
+    </div>
+
+    <div class="row" style="margin-top:6px;">
+      <label style="display:flex;align-items:center;gap:8px;">
+        <input type="checkbox" name="run_bac" checked /> Run BAC tests
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;">
+        <input type="checkbox" name="run_csrf" checked /> Run CSRF suite
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;">
+        <input type="checkbox" name="no_headless" /> Disable headless (show browser)
+      </label>
+    </div>
+
+    <div style="margin-top:12px;">
+      <button type="submit">Run Scan</button>
+      <button type="button" class="secondary" onclick="window.open('/reports','_blank')">Open reports folder</button>
+    </div>
+  </form>
+
+  <hr />
+  <p class="small">CLI alternative (recommended for heavy scans):</p>
+  <pre class="small" style="background:#f7f7f7;padding:8px;border-radius:6px;">
+python3 unified_bac.py --base https://example.com --depth 2 --run-bac --run-csrf --out reports
+python3 -m http.server 8000 --directory reports
+  </pre>
+</body>
+</html>

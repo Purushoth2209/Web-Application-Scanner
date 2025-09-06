@@ -1,0 +1,3952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>BAC Report - https://svce.ac.in</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width:1100px; margin:20px auto; padding:0 16px; color:#222; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    h1 { margin:0; font-size:1.6rem; }
+    .meta { color:#555; font-size:0.95rem; }
+    .summary { background:#f5f8ff; border:1px solid #e3ecff; padding:12px; border-radius:8px; margin:12px 0; }
+    .tests { margin-top:12px; }
+    .test-card { border:1px solid #eee; padding:10px; margin-bottom:10px; border-radius:8px; }
+    table { width:100%; border-collapse:collapse; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid #eee; vertical-align:top; }
+    th { background:#fafafa; color:#333; font-weight:700; }
+    .vuln { color:#c62828; font-weight:700; }
+    .not-vuln { color:#2e7d32; }
+    .skipped { color:#ff8f00; }
+    small { color:#666; }
+    .muted { color:#666; font-size:0.9rem; }
+    .actions { display:flex; gap:8px; margin-top:8px; }
+    .button { padding:8px 10px; background:#0b76ef; color:white; text-decoration:none; border-radius:6px; font-size:0.95rem; }
+    .link { background:#6c757d; }
+    .code { background:#f6f6f6; padding:6px 10px; border-radius:6px; font-family:monospace; display:inline-block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>BAC Scan Report</h1>
+      <div class="meta">Site: <strong>https://svce.ac.in</strong> — Generated: <strong>2025-09-06_02-28-19</strong></div>
+    </div>
+    <div class="actions">
+      
+        <div class="muted">Tests: 8 • Findings: 168 • Vulnerable: 25</div>
+      
+      <a class="button link" href="javascript:window.print()">Print</a>
+      <a class="button" href="../">Back</a>
+    </div>
+  </header>
+
+  <section class="summary" aria-label="summary">
+    <h3>Scan summary</h3>
+    <div class="muted" style="margin-top:6px;">
+      
+        Crawled 19 links successfully.<br><small>Discovered links:<br>https://svce.ac.in/placement/?page=office-of-training-placement<br>https://svce.ac.in/placement/?page=training<br>https://svce.ac.in/placement/?page=training&subMenu=placement<br>https://svce.ac.in/placement/?page=training&subMenu=higher-studies<br>https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer<br>https://svce.ac.in/placement/?page=training&subMenu=internship<br>https://svce.ac.in/placement/?page=major-recruiters<br>https://svce.ac.in/placement/?page=list-of-recruiters<br>https://svce.ac.in/placement/?page=packages-offered<br>https://svce.ac.in/placement/?page=placement-statistics<br>https://svce.ac.in/placement/?page=feedback<br>https://svce.ac.in/placement/?page=feedback&subMenu=recruiters<br>https://svce.ac.in/placement/?page=feedback&subMenu=students<br>https://svce.ac.in/placement/?page=feedback&subMenu=parents<br>https://svce.ac.in/placement/?page=gallery<br>https://svce.ac.in/placement/?page=preparation-for-placement<br>https://svce.ac.in/placement/?page=circulars<br>https://svce.ac.in/placement/?page=contact<br>https://svce.ac.in</small>
+      
+    </div>
+    
+      <div style="margin-top:8px;">
+        <strong>Discovered links (sample):</strong>
+        <ul>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=office-of-training-placement" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=office-of-training-placement</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=training" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=training&subMenu=placement" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=placement</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=training&subMenu=higher-studies" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=higher-studies</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=training&subMenu=internship" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=internship</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=major-recruiters" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=major-recruiters</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=list-of-recruiters" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=list-of-recruiters</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=packages-offered" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=packages-offered</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=placement-statistics" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=placement-statistics</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=feedback" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback</a></small></li>
+          
+            <li><small><a href="https://svce.ac.in/placement/?page=feedback&subMenu=recruiters" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=recruiters</a></small></li>
+          
+        </ul>
+      </div>
+    
+  </section>
+
+  <section class="tests">
+    
+      <div class="test-card">
+        <h3>IDOR</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=office-of-training-placement-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=office-of-training-placement-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (office-of-training-placement → office-of-training-placement-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (training → training-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training-other&subMenu=placement" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training-other&subMenu=placement</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (training → training-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=placement-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=placement-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter subMenu modified (placement → placement-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training-other&subMenu=higher-studies" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training-other&subMenu=higher-studies</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (training → training-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=higher-studies-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=higher-studies-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter subMenu modified (higher-studies → higher-studies-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training-other&subMenu=train-the-trainer" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training-other&subMenu=train-the-trainer</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (training → training-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter subMenu modified (train-the-trainer → train-the-trainer-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training-other&subMenu=internship" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training-other&subMenu=internship</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (training → training-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=internship-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=internship-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter subMenu modified (internship → internship-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=major-recruiters-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=major-recruiters-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (major-recruiters → major-recruiters-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=list-of-recruiters-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=list-of-recruiters-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (list-of-recruiters → list-of-recruiters-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=packages-offered-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=packages-offered-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (packages-offered → packages-offered-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=placement-statistics-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=placement-statistics-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (placement-statistics → placement-statistics-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (feedback → feedback-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback-other&subMenu=recruiters" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback-other&subMenu=recruiters</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (feedback → feedback-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback&subMenu=recruiters-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=recruiters-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter subMenu modified (recruiters → recruiters-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback-other&subMenu=students" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback-other&subMenu=students</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (feedback → feedback-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback&subMenu=students-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=students-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter subMenu modified (students → students-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback-other&subMenu=parents" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback-other&subMenu=parents</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (feedback → feedback-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback&subMenu=parents-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=parents-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter subMenu modified (parents → parents-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=gallery-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=gallery-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (gallery → gallery-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=preparation-for-placement-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=preparation-for-placement-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (preparation-for-placement → preparation-for-placement-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=circulars-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=circulars-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (circulars → circulars-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=contact-other" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=contact-other</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="vuln">Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Parameter page modified (contact → contact-other)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span>No IDOR parameters found</span>
+                    
+                  </td>
+                  <td>Low</td>
+                  <td>
+                    <div>-</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Use UUIDs or indirect references, enforce access checks on every request.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Privilege Escalation</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    -
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="skipped">Skipped</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>No admin credentials provided</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce server-side RBAC, never rely on client-side checks.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Directory Traversal</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/../etc/passwd" target="_blank" rel="noopener noreferrer">https://svce.ac.in/../etc/passwd</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>No sensitive content detected (HTTP 404)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Sanitize inputs, deny '../', use path whitelisting.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/../../admin/config" target="_blank" rel="noopener noreferrer">https://svce.ac.in/../../admin/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>No sensitive content detected (HTTP 404)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Sanitize inputs, deny '../', use path whitelisting.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Method Bypass</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=office-of-training-placement" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=office-of-training-placement</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=office-of-training-placement#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=office-of-training-placement#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=placement" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=placement</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=placement#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=placement#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=higher-studies" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=higher-studies</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=higher-studies#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=higher-studies#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=internship" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=internship</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=training&subMenu=internship#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=training&subMenu=internship#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=major-recruiters" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=major-recruiters</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=major-recruiters#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=major-recruiters#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=list-of-recruiters" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=list-of-recruiters</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=list-of-recruiters#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=list-of-recruiters#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=packages-offered" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=packages-offered</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=packages-offered#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=packages-offered#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=placement-statistics" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=placement-statistics</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback&subMenu=recruiters" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=recruiters</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback&subMenu=recruiters#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=recruiters#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback&subMenu=students" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=students</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback&subMenu=students#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=students#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback&subMenu=parents" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=parents</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=feedback&subMenu=parents#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=feedback&subMenu=parents#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=gallery" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=gallery</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=gallery#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=gallery#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=preparation-for-placement" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=preparation-for-placement</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=preparation-for-placement#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=preparation-for-placement#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=circulars" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=circulars</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=circulars#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=circulars#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=contact" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=contact</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/placement/?page=contact#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/placement/?page=contact#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in" target="_blank" rel="noopener noreferrer">https://svce.ac.in</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svce.ac.in/" target="_blank" rel="noopener noreferrer">https://www.svce.ac.in/</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/#wpcf7-f4261-o1" target="_blank" rel="noopener noreferrer">https://svce.ac.in/#wpcf7-f4261-o1</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://www.svceadmissions.com/formtools/process.php" target="_blank" rel="noopener noreferrer">https://www.svceadmissions.com/formtools/process.php</a>
+                    <div class="muted">method: <span class="code">POST</span></div>
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Rejected (HTTP 403)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict allowed HTTP methods, validate them server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Force Browsing</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/admin" target="_blank" rel="noopener noreferrer">https://svce.ac.in/admin</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Access blocked or redirected (HTTP 200)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce authentication/authorization on all sensitive endpoints.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/config" target="_blank" rel="noopener noreferrer">https://svce.ac.in/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Access blocked or redirected (HTTP 404)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce authentication/authorization on all sensitive endpoints.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/debug" target="_blank" rel="noopener noreferrer">https://svce.ac.in/debug</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Access blocked or redirected (HTTP 404)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce authentication/authorization on all sensitive endpoints.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/private" target="_blank" rel="noopener noreferrer">https://svce.ac.in/private</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>Access blocked or redirected (HTTP 404)</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Enforce authentication/authorization on all sensitive endpoints.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Header/Token Tampering</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/admin" target="_blank" rel="noopener noreferrer">https://svce.ac.in/admin</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Authorization header enforced</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Validate tokens strictly server-side; never trust missing or forged headers.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/config" target="_blank" rel="noopener noreferrer">https://svce.ac.in/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Authorization header enforced</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Validate tokens strictly server-side; never trust missing or forged headers.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/private" target="_blank" rel="noopener noreferrer">https://svce.ac.in/private</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Authorization header enforced</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Validate tokens strictly server-side; never trust missing or forged headers.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>Cookie Manipulation</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/admin" target="_blank" rel="noopener noreferrer">https://svce.ac.in/admin</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Cookies required and validated</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Do not store roles in cookies; enforce all roles and permissions server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in/config" target="_blank" rel="noopener noreferrer">https://svce.ac.in/config</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <div>Cookies required and validated</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Do not store roles in cookies; enforce all roles and permissions server-side.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+      <div class="test-card">
+        <h3>CORS Misconfiguration</h3>
+        
+          <table>
+            <thead>
+              <tr>
+                <th style="width:45%">Resource</th>
+                <th style="width:12%">Status</th>
+                <th style="width:12%">Risk</th>
+                <th>Details & Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>
+                    <a href="https://svce.ac.in" target="_blank" rel="noopener noreferrer">https://svce.ac.in</a>
+                    
+                    
+                    
+                  </td>
+                  <td>
+                    
+                    
+                      <span class="not-vuln">Not Vulnerable</span>
+                    
+                  </td>
+                  <td>Medium</td>
+                  <td>
+                    <div>CORS restricted properly</div>
+                    
+                      <div style="margin-top:6px"><strong>Mitigation:</strong> Restrict CORS Access-Control-Allow-Origin to trusted domains only.</div>
+                    
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    
+  </section>
+
+  <hr/>
+
+  <section>
+    <h3>CSRF Suite</h3>
+    <p class="muted">If CSRF suite was run, links to the generated CSRF artifacts will appear here (if your runner added them to the template data).</p>
+
+    
+      <div class="muted">No CSRF report linked in this BAC report. The CSRF suite produces its own HTML/JSON files in the <code>reports/</code> directory (look for filenames containing <code>csrf</code>).</div>
+    
+  </section>
+
+  <footer style="margin-top:20px;color:#666;font-size:0.9rem;">
+    <div>Generated by UnifiedBACCSRF</div>
+  </footer>
+</body>
+</html>

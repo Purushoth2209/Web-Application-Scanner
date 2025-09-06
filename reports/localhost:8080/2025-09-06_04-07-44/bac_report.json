@@ -1,0 +1,253 @@
+{
+    "site": "http://localhost:8080",
+    "timestamp": "2025-09-06_04-07-44",
+    "crawled_links": 6,
+    "links_discovered": [
+        "http://localhost:8080",
+        "http://localhost:8080/info.php",
+        "http://localhost:8080/js/html5.js",
+        "http://localhost:8080/login.php",
+        "http://localhost:8080/training.php",
+        "http://localhost:8080/user_new.php"
+    ],
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": [
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
+                }
+            ]
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "risk": "High",
+                    "details": "No admin credentials provided",
+                    "mitigation": "Enforce role-based access control (RBAC) at server side."
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "http://localhost:8080/../etc/passwd",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP N/A)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                },
+                {
+                    "url": "http://localhost:8080/../../admin/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP N/A)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": [
+                {
+                    "url": "http://localhost:8080",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "http://localhost:8080/login.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "http://localhost:8080/info.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "http://localhost:8080/js/html5.js",
+                    "method": "POST",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Endpoint accepted POST (possible bypass)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "http://localhost:8080/login.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "http://localhost:8080/login.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "http://localhost:8080/training.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "http://localhost:8080/user_new.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                },
+                {
+                    "url": "http://localhost:8080/user_new.php",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side."
+                }
+            ]
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "http://localhost:8080/admin",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "http://localhost:8080/config",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP N/A)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "http://localhost:8080/debug",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP N/A)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                },
+                {
+                    "url": "http://localhost:8080/private",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Access blocked or redirected (HTTP N/A)",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+                }
+            ]
+        },
+        {
+            "type": "Header/Token Tampering",
+            "results": [
+                {
+                    "url": "http://localhost:8080/admin",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Bypassed authorization using missing/forged token",
+                    "mitigation": "Always validate tokens server-side, never trust client headers."
+                },
+                {
+                    "url": "http://localhost:8080/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "Authorization header enforced",
+                    "mitigation": "Always validate tokens server-side, never trust client headers."
+                },
+                {
+                    "url": "http://localhost:8080/private",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "Authorization header enforced",
+                    "mitigation": "Always validate tokens server-side, never trust client headers."
+                }
+            ]
+        },
+        {
+            "type": "Cookie Manipulation",
+            "results": [
+                {
+                    "url": "http://localhost:8080/admin",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Cookie manipulation bypassed access",
+                    "mitigation": "Do not store roles in cookies; enforce access server-side."
+                },
+                {
+                    "url": "http://localhost:8080/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "Cookies required and validated",
+                    "mitigation": "Do not store roles in cookies; enforce access server-side."
+                }
+            ]
+        },
+        {
+            "type": "CORS Misconfiguration",
+            "results": [
+                {
+                    "url": "http://localhost:8080",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "CORS restricted properly",
+                    "mitigation": "Restrict Access-Control-Allow-Origin to trusted domains only."
+                }
+            ]
+        }
+    ]
+}

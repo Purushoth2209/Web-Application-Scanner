@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BAC Report - https://juice-shop.herokuapp.com</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2, h3 { color: #333; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f2f2f2; }
+    .vulnerable { color: red; font-weight: bold; }
+    .not-vulnerable { color: green; }
+    .skipped { color: orange; }
+    .error { color: gray; }
+    .summary { background: #eef; padding: 10px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Broken Access Control Report</h1>
+  <h2>Site: https://juice-shop.herokuapp.com</h2>
+  <h3>Date: 2025-09-06_01-09-51</h3>
+
+  
+  <p><strong>Note:</strong> Crawled 21 links successfully.<br><small>Discovered links:<br>https://juice-shop.herokuapp.com/#/login<br>https://juice-shop.herokuapp.com/ftp/legal.md<br>https://juice-shop.herokuapp.com#/login<br>https://juice-shop.herokuapp.com#/forgot-password<br>https://juice-shop.herokuapp.com#/contact<br>https://juice-shop.herokuapp.com/#/score-board<br>https://juice-shop.herokuapp.com/#/contact<br>https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop<br>https://juice-shop.herokuapp.com/#/about<br>https://juice-shop.herokuapp.com/runtime.js<br>https://juice-shop.herokuapp.com/main.js<br>https://juice-shop.herokuapp.com/vendor.js<br>https://juice-shop.herokuapp.com#/about<br>https://juice-shop.herokuapp.com#/register<br>https://juice-shop.herokuapp.com/search<br>https://juice-shop.herokuapp.com#/score-board<br>https://juice-shop.herokuapp.com#/photo-wall<br>https://juice-shop.herokuapp.com/#/photo-wall<br>https://juice-shop.herokuapp.com/polyfills.js<br>https://juice-shop.herokuapp.com/#/forgot-password<br>https://juice-shop.herokuapp.com/#/search?q=OWASP SSL Advanced Forensic Tool (O-Saft)</small></p>
+  
+  <hr>
+
+  <!-- Summary -->
+  
+  <div class="summary">
+    <h3>Summary</h3>
+    <p>Total Tests: 8</p>
+    <p>Total Findings: 57</p>
+    <p><span class="vulnerable">Vulnerable: 10</span></p>
+  </div>
+  
+
+  <!-- Detailed Results -->
+  
+    <h3>IDOR</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Privilege Escalation</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              skipped
+              ">
+              Skipped
+            </td>
+            <td>High</td>
+            <td>No admin credentials provided</td>
+            <td>Enforce server-side RBAC, never rely on client-side checks.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Directory Traversal</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/../etc/passwd</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>High</td>
+            <td>No sensitive content detected (HTTP 200)</td>
+            <td>Sanitize inputs, deny '../', use path whitelisting.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/../../admin/config</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>High</td>
+            <td>No sensitive content detected (HTTP 200)</td>
+            <td>Sanitize inputs, deny '../', use path whitelisting.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Method Bypass</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/#/login</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/ftp/legal.md</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Method Not Allowed (405)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com#/login</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com#/forgot-password</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com#/contact</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/#/score-board</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/#/contact</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/search/feedback</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/search/custom_scopes</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/#/about</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/runtime.js</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/main.js</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/vendor.js</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com#/about</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com#/register</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/search</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com#/score-board</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com#/photo-wall</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/#/photo-wall</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/polyfills.js</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/#/forgot-password</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/#/search?q=OWASP SSL Advanced Forensic Tool (O-Saft)</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Force Browsing</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/admin</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Sensitive page accessible without login</td>
+            <td>Enforce authentication/authorization on all sensitive endpoints.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/config</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Sensitive page accessible without login</td>
+            <td>Enforce authentication/authorization on all sensitive endpoints.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/debug</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Sensitive page accessible without login</td>
+            <td>Enforce authentication/authorization on all sensitive endpoints.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/private</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Sensitive page accessible without login</td>
+            <td>Enforce authentication/authorization on all sensitive endpoints.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Header/Token Tampering</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/admin</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>High</td>
+            <td>Bypassed authorization using missing/forged token</td>
+            <td>Validate tokens strictly server-side; never trust missing or forged headers.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/config</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>High</td>
+            <td>Bypassed authorization using missing/forged token</td>
+            <td>Validate tokens strictly server-side; never trust missing or forged headers.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/private</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>High</td>
+            <td>Bypassed authorization using missing/forged token</td>
+            <td>Validate tokens strictly server-side; never trust missing or forged headers.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Cookie Manipulation</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/admin</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>High</td>
+            <td>Cookie manipulation bypassed access</td>
+            <td>Do not store roles in cookies; enforce all roles and permissions server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com/config</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>High</td>
+            <td>Cookie manipulation bypassed access</td>
+            <td>Do not store roles in cookies; enforce all roles and permissions server-side.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>CORS Misconfiguration</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>https://juice-shop.herokuapp.com</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>CORS misconfiguration allows any origin (*)</td>
+            <td>Restrict CORS Access-Control-Allow-Origin to trusted domains only.</td>
+          </tr>
+        
+      </table>
+    
+  
+</body>
+</html>

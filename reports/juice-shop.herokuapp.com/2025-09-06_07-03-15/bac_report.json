@@ -1,0 +1,926 @@
+{
+    "site": "https://juice-shop.herokuapp.com",
+    "timestamp": "2025-09-06_07-03-15",
+    "crawled_links": 29,
+    "links_discovered": [
+        "https://bsky.app/profile/owasp-juice.shop",
+        "https://fosstodon.org/@owasp_juiceshop",
+        "https://github.com/OWASP/owasp-swag/tree/master/projects/juice-shop",
+        "https://juice-shop.herokuapp.com",
+        "https://juice-shop.herokuapp.com/ftp/legal.md",
+        "https://juice-shop.herokuapp.com/main.js",
+        "https://juice-shop.herokuapp.com/polyfills.js",
+        "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+        "https://juice-shop.herokuapp.com/runtime.js",
+        "https://juice-shop.herokuapp.com/search",
+        "https://juice-shop.herokuapp.com/vendor.js",
+        "https://opensea.io/collection/juice-shop",
+        "https://owasp-juice.shop",
+        "https://owasp.org",
+        "https://owasp.org/slack/invite",
+        "https://twitter.com/intent/tweet?text=Building something literally bottom up... @owasp_juiceshop&hashtags=appsec",
+        "https://twitter.com/intent/tweet?text=Everything up and running! @owasp_juiceshop&hashtags=appsec",
+        "https://twitter.com/intent/tweet?text=I love going hiking here... (\u00a9 j0hNny) @owasp_juiceshop&hashtags=appsec",
+        "https://twitter.com/intent/tweet?text=Magn(et)ificent! (\u00a9 bkimminich) @owasp_juiceshop&hashtags=appsec",
+        "https://twitter.com/intent/tweet?text=My old workplace... (\u00a9 E=ma\u00b2) @owasp_juiceshop&hashtags=appsec",
+        "https://twitter.com/intent/tweet?text=My rare collectors item! [\u0332\u0305$\u0332\u0305(\u0332\u0305 \u0361\u00b0 \u035c\u0296 \u0361\u00b0\u0332\u0305)\u0332\u0305$\u0332\u0305] (\u00a9 bkimminich) @owasp_juiceshop&hashtags=appsec",
+        "https://twitter.com/intent/tweet?text=Putting in the hardware... @owasp_juiceshop&hashtags=appsec",
+        "https://twitter.com/intent/tweet?text=Sorted the pieces, starting assembly process... @owasp_juiceshop&hashtags=appsec",
+        "https://twitter.com/intent/tweet?text=Welcome to the Bee Haven (",
+        "https://twitter.com/intent/tweet?text=\ud83d\ude3c ",
+        "https://twitter.com/owasp_juiceshop",
+        "https://www.facebook.com/owasp.juiceshop",
+        "https://www.reddit.com/r/owasp_juiceshop",
+        "https://www.youtube.com/watch?v=9PnbKL3wuH4"
+    ],
+    "tests": [
+        {
+            "type": "IDOR",
+            "results": [
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                },
+                {
+                    "status": "No IDOR parameters found",
+                    "risk": "Low",
+                    "details": "-",
+                    "mitigation": "Use UUIDs or indirect references, enforce server-side access checks.",
+                    "cvss": 2.0
+                }
+            ]
+        },
+        {
+            "type": "Privilege Escalation",
+            "results": [
+                {
+                    "status": "Skipped",
+                    "risk": "High",
+                    "details": "No admin credentials provided",
+                    "mitigation": "Enforce role-based access control (RBAC) at server side.",
+                    "cvss": 9.0
+                }
+            ]
+        },
+        {
+            "type": "Directory Traversal",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/../etc/passwd",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP 200)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting.",
+                    "cvss": 9.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/../../admin/config",
+                    "status": "Not Vulnerable",
+                    "risk": "High",
+                    "details": "No sensitive content detected (HTTP 200)",
+                    "mitigation": "Sanitize user input, deny '../', enforce path whitelisting.",
+                    "cvss": 9.0
+                }
+            ]
+        },
+        {
+            "type": "Method Bypass",
+            "results": [
+                {
+                    "url": "https://bsky.app/profile/owasp-juice.shop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 404)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://fosstodon.org/@owasp_juiceshop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 404)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://github.com/OWASP/owasp-swag/tree/master/projects/juice-shop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 422)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://github.com/OWASP/owasp-swag/tree/master/projects/juice-shop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 422)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://github.com/search/feedback",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 422)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://github.com/search/custom_scopes",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 422)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/ftp/legal.md",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Method Not Allowed (405)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/main.js",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/polyfills.js",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/search/feedback",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/search/custom_scopes",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/runtime.js",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/search",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/vendor.js",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://opensea.io/collection/juice-shop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 403)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://owasp-juice.shop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://owasp.org",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Method Not Allowed (405)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://owasp.org/search",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Method Not Allowed (405)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://owasp.org/slack/invite",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Method Not Allowed (405)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Building something literally bottom up... @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Building something literally bottom up... @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Everything up and running! @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Everything up and running! @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=I love going hiking here... (\u00a9 j0hNny) @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=I love going hiking here... (\u00a9 j0hNny) @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Magn(et)ificent! (\u00a9 bkimminich) @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Magn(et)ificent! (\u00a9 bkimminich) @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=My old workplace... (\u00a9 E=ma\u00b2) @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=My old workplace... (\u00a9 E=ma\u00b2) @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=My rare collectors item! [\u0332\u0305$\u0332\u0305(\u0332\u0305 \u0361\u00b0 \u035c\u0296 \u0361\u00b0\u0332\u0305)\u0332\u0305$\u0332\u0305] (\u00a9 bkimminich) @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=My rare collectors item! [\u0332\u0305$\u0332\u0305(\u0332\u0305 \u0361\u00b0 \u035c\u0296 \u0361\u00b0\u0332\u0305)\u0332\u0305$\u0332\u0305] (\u00a9 bkimminich) @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Putting in the hardware... @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Putting in the hardware... @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Sorted the pieces, starting assembly process... @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Sorted the pieces, starting assembly process... @owasp_juiceshop&hashtags=appsec",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Welcome to the Bee Haven (",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=Welcome to the Bee Haven (",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=\ud83d\ude3c ",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/intent/tweet?text=\ud83d\ude3c ",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/owasp_juiceshop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://twitter.com/owasp_juiceshop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://www.facebook.com/owasp.juiceshop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://www.reddit.com/r/owasp_juiceshop",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 200)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://www.reddit.com/r/owasp_juiceshop/search/?q=",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Method Not Allowed (405)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://www.youtube.com/watch?v=9PnbKL3wuH4",
+                    "method": "POST",
+                    "status": "Not Vulnerable",
+                    "risk": "Medium",
+                    "details": "Rejected (HTTP 400)",
+                    "mitigation": "Restrict allowed HTTP methods, validate server-side.",
+                    "cvss": 6.0
+                }
+            ]
+        },
+        {
+            "type": "Force Browsing",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/admin",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/config",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/debug",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints.",
+                    "cvss": 6.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/private",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "Sensitive page accessible without login",
+                    "mitigation": "Enforce authentication/authorization on all sensitive endpoints.",
+                    "cvss": 6.0
+                }
+            ]
+        },
+        {
+            "type": "Header/Token Tampering",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/admin",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Bypassed authorization using missing/forged token",
+                    "mitigation": "Always validate tokens server-side, never trust client headers.",
+                    "cvss": 9.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/config",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Bypassed authorization using missing/forged token",
+                    "mitigation": "Always validate tokens server-side, never trust client headers.",
+                    "cvss": 9.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/private",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Bypassed authorization using missing/forged token",
+                    "mitigation": "Always validate tokens server-side, never trust client headers.",
+                    "cvss": 9.0
+                }
+            ]
+        },
+        {
+            "type": "Cookie Manipulation",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com/admin",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Cookie manipulation bypassed access",
+                    "mitigation": "Do not store roles in cookies; enforce access server-side.",
+                    "cvss": 9.0
+                },
+                {
+                    "url": "https://juice-shop.herokuapp.com/config",
+                    "status": "Vulnerable",
+                    "risk": "High",
+                    "details": "Cookie manipulation bypassed access",
+                    "mitigation": "Do not store roles in cookies; enforce access server-side.",
+                    "cvss": 9.0
+                }
+            ]
+        },
+        {
+            "type": "CORS Misconfiguration",
+            "results": [
+                {
+                    "url": "https://juice-shop.herokuapp.com",
+                    "status": "Vulnerable",
+                    "risk": "Medium",
+                    "details": "CORS misconfiguration allows any origin (*)",
+                    "mitigation": "Restrict Access-Control-Allow-Origin to trusted domains only.",
+                    "cvss": 6.0
+                }
+            ]
+        }
+    ],
+    "csrf_html": "juice-shop.herokuapp.com_csrf_2025-09-06_07-07-14.html",
+    "csrf_json": "juice-shop.herokuapp.com_csrf_2025-09-06_07-07-14.json",
+    "csrf_exploited_html": "juice-shop.herokuapp.com_csrf_2025-09-06_07-07-14_exploited.html",
+    "csrf_exploited_json": "juice-shop.herokuapp.com_csrf_2025-09-06_07-07-14_exploited.json",
+    "csrf_curl": "juice-shop.herokuapp.com_csrf_2025-09-06_07-07-14_curl.txt"
+}
