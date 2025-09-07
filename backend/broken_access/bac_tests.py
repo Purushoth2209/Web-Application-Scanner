@@ -1,5 +1,6 @@
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse, urljoin
 from bs4 import BeautifulSoup
+import re, uuid
 
 # Lightweight heuristics & helpers added to expand BAC coverage without large time cost.
 
@@ -19,6 +20,9 @@ def _safe_int(val: str):
 
 
 def extract_forms(url, session):
+    """Extract forms with their method, action, and simple input name/value pairs.
+    Added inputs list for POST IDOR testing; backwards-compatible (previous callers ignore extra key).
+    """
     forms = []
     try:
         res = session.get(url, timeout=5)
@@ -26,63 +30,178 @@ def extract_forms(url, session):
         for form in soup.find_all("form"):
             action = form.get("action")
             method = form.get("method", "get").lower()
-            if action:
-                full_url = urljoin(url, action)
-                forms.append({"url": full_url, "method": method})
+            if not action:
+                continue
+            full_url = urljoin(url, action)
+            inputs = []
+            for inp in form.find_all(["input", "textarea"]):
+                name = inp.get("name")
+                if not name:
+                    continue
+                val = inp.get("value", "")
+                inputs.append((name, val))
+            forms.append({"url": full_url, "method": method, "inputs": inputs})
     except Exception:
         pass
     return forms
 
 
+UUID_RE = re.compile(r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$')
+
 def test_idor(url, session):
-    """Parameter-based IDOR checks with multiple numeric mutations."""
+    """Parameter-based IDOR checks with numeric and UUID mutations plus response size heuristic."""
     parsed = urlparse(url)
     params = parse_qs(parsed.query)
     findings = []
+    if not params:
+        return [{
+            "status": "No IDOR parameters found",
+            "risk": "Low",
+            "details": "No query parameters discovered",
+            "mitigation": "Use opaque identifiers and enforce access checks."}]
+
+    # Baseline content length once
+    try:
+        base_res = session.get(url, timeout=4)
+        baseline_len = len(base_res.text or '')
+    except Exception:
+        baseline_len = None
+
     for param in params:
         base_val = params[param][0]
-        base_int = _safe_int(base_val)
-        if base_int is None:
-            continue
-        for mutate in NUMERIC_MUTATIONS:
-            try:
-                mutated = mutate(base_val)
-                if mutated == base_val:
+        is_numeric = _safe_int(base_val) is not None
+        is_uuid = bool(UUID_RE.match(base_val))
+        mutation_values = []
+        if is_numeric:
+            for mutate in NUMERIC_MUTATIONS:
+                try:
+                    mv = mutate(base_val)
+                    if mv != base_val:
+                        mutation_values.append(mv)
+                except Exception:
                     continue
-                params[param] = mutated
-                tampered_url = urlunparse(parsed._replace(query=urlencode(params, doseq=True)))
+        if is_uuid:
+            # generate a few random UUIDs
+            mutation_values.extend([str(uuid.uuid4()) for _ in range(3)])
+
+        if not mutation_values:
+            continue
+
+        for mutated in mutation_values:
+            params[param] = mutated
+            tampered_url = urlunparse(parsed._replace(query=urlencode(params, doseq=True)))
+            try:
                 res = session.get(tampered_url, timeout=4)
                 body_l = res.text.lower()
-                if res.status_code == 200 and 'unauthor' not in body_l and 'forbidden' not in body_l:
+                length = len(res.text or '')
+                size_diff = None
+                if baseline_len is not None and length and baseline_len:
+                    # relative difference
+                    size_diff = abs(length - baseline_len) / max(baseline_len, 1)
+                vuln_condition = (
+                    res.status_code == 200 and 'unauthor' not in body_l and 'forbidden' not in body_l and
+                    (size_diff is None or size_diff > 0.05 or base_val != mutated)
+                )
+                if vuln_condition:
                     findings.append({
                         "url": tampered_url,
                         "status": "Vulnerable",
                         "risk": "High",
                         "parameter": param,
-                        "details": f"Parameter {param} modified ({base_val} -> {mutated}) accepted",
+                        "original": base_val,
+                        "mutated": mutated,
+                        "details": f"Parameter {param} modified ({base_val} -> {mutated}) accepted (lenΔ={size_diff:.2%} if size_diff else 'n/a')",
                         "mitigation": "Validate object ownership server-side and use opaque identifiers."
                     })
                 else:
                     findings.append({
                         "url": tampered_url,
                         "status": "Not Vulnerable",
-                        "risk": "Medium",
+                        "risk": "Low",
                         "parameter": param,
-                        "details": f"Modification blocked or unchanged ({base_val} -> {mutated}) (HTTP {res.status_code})",
+                        "original": base_val,
+                        "mutated": mutated,
+                        "details": f"Modification blocked or inconclusive (HTTP {res.status_code})",
                         "mitigation": "Validate object ownership server-side and use opaque identifiers."
                     })
             except Exception:
                 continue
-        # restore param for next loop
         params[param] = base_val
+
     if not findings:
         return [{
-            "status": "No IDOR parameters found",
+            "status": "No IDOR parameters tested",
             "risk": "Low",
-            "details": "No numeric query parameters discovered",
-            "mitigation": "Use UUIDs or indirect references, enforce server-side access checks."
-        }]
+            "details": "Parameters present but no numeric/UUID candidates",
+            "mitigation": "Use opaque identifiers and enforce access checks."}]
     return findings
+
+def test_post_idor(form, session):
+    """POST form IDOR / parameter tampering for numeric and uuid values."""
+    results = []
+    url = form["url"]
+    inputs = form.get("inputs", [])
+    if not inputs:
+        return []
+    baseline_payload = {k: v for k, v in inputs}
+    # Send baseline once
+    try:
+        base_res = session.post(url, data=baseline_payload, timeout=5)
+        baseline_len = len(base_res.text or '')
+    except Exception:
+        baseline_len = None
+    for name, value in inputs:
+        if not value:
+            continue
+        is_num = _safe_int(value) is not None
+        is_uuid = bool(UUID_RE.match(value))
+        mutations = []
+        if is_num:
+            for mutate in NUMERIC_MUTATIONS:
+                try:
+                    mv = mutate(value)
+                    if mv != value:
+                        mutations.append(mv)
+                except Exception:
+                    continue
+        if is_uuid:
+            mutations.extend([str(uuid.uuid4()) for _ in range(2)])
+        for mv in mutations:
+            payload = {k: v for k, v in inputs}
+            payload[name] = mv
+            try:
+                r = session.post(url, data=payload, timeout=5)
+                body_l = r.text.lower()
+                length = len(r.text or '')
+                size_diff = None
+                if baseline_len is not None and length:
+                    size_diff = abs(length - baseline_len) / max(baseline_len, 1)
+                vuln_condition = (r.status_code == 200 and 'unauthor' not in body_l and 'forbidden' not in body_l and (size_diff is None or size_diff > 0.05))
+                if vuln_condition:
+                    results.append({
+                        "url": url,
+                        "status": "Vulnerable",
+                        "risk": "High",
+                        "form_param": name,
+                        "original": value,
+                        "mutated": mv,
+                        "details": f"POST param {name} modified ({value}->{mv}) accepted (lenΔ={size_diff:.2%} if size_diff else 'n/a')",
+                        "mitigation": "Validate object ownership and authorization on POST requests."
+                    })
+                else:
+                    results.append({
+                        "url": url,
+                        "status": "Not Vulnerable",
+                        "risk": "Low",
+                        "form_param": name,
+                        "original": value,
+                        "mutated": mv,
+                        "details": f"Modification blocked or inconclusive (HTTP {r.status_code})",
+                        "mitigation": "Validate object ownership and authorization on POST requests."
+                    })
+            except Exception:
+                continue
+    return results
 
 
 def test_path_idor(url, session):
@@ -180,16 +299,59 @@ def test_unauthenticated_access(urls, user_session, anon_session, limit=20):
     return results
 
 
+SENSITIVE_ENDPOINTS = ["/admin", "/config", "/manage", "/management", "/settings", "/panel", "/dashboard"]
+
 def test_privilege(base_url, session, admin_creds):
+    """Compare user vs admin access to sensitive endpoints; flag if user can access admin-only endpoints."""
     if not admin_creds:
         return [{
-            "status": "Skipped", "risk": "High", "details": "No admin credentials provided",
-            "mitigation": "Enforce role-based access control (RBAC) at server side."
-        }]
-    return [{
-        "status": "Simulated", "risk": "High", "details": "Privilege escalation test placeholder",
-        "mitigation": "Enforce role-based access control (RBAC) at server side."
-    }]
+            "status": "Skipped", "risk": "Medium", "details": "No admin credentials provided",
+            "mitigation": "Provide admin creds to validate RBAC or test with dedicated role accounts."}]
+    try:
+        import requests
+        admin_session = requests.Session()
+        # Basic login attempt for admin (assumes common login path)
+        login_paths = ["/login", "/admin/login"]
+        for lp in login_paths:
+            try:
+                admin_session.post(base_url.rstrip('/') + lp, data={"username": admin_creds.get("username"), "password": admin_creds.get("password")}, timeout=5)
+            except Exception:
+                continue
+        findings = []
+        for ep in SENSITIVE_ENDPOINTS:
+            url = base_url.rstrip('/') + ep
+            try:
+                user_r = session.get(url, timeout=5, allow_redirects=False)
+                admin_r = admin_session.get(url, timeout=5, allow_redirects=False)
+                if admin_r.status_code == 200:
+                    if user_r.status_code == 200 and 'login' not in user_r.text.lower():
+                        findings.append({
+                            "url": url,
+                            "status": "Vulnerable",
+                            "risk": "High",
+                            "details": "User access to admin endpoint (no RBAC)",
+                            "mitigation": "Enforce role checks server-side and segregate admin routes."})
+                    elif user_r.status_code in (401, 403):
+                        findings.append({
+                            "url": url,
+                            "status": "Not Vulnerable",
+                            "risk": "Low",
+                            "details": f"Properly restricted (HTTP {user_r.status_code})",
+                            "mitigation": "Maintain RBAC enforcement."})
+                    else:
+                        findings.append({
+                            "url": url,
+                            "status": "Info",
+                            "risk": "Low",
+                            "details": f"Ambiguous user response (HTTP {user_r.status_code})",
+                            "mitigation": "Manually verify RBAC for this endpoint."})
+            except Exception:
+                continue
+        if not findings:
+            return [{"status": "Info", "risk": "Low", "details": "No sensitive endpoints responded with 200 for admin", "mitigation": "Ensure admin-only routes are clearly segregated."}]
+        return findings
+    except Exception:
+        return [{"status": "Error", "risk": "Medium", "details": "Privilege test failed", "mitigation": "Verify admin login flow and retry."}]
 
 
 def test_directory(base_url, session):

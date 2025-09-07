@@ -5,6 +5,7 @@ from pathlib import Path
 
 TEST_GUIDE = {
     "IDOR": "Use UUIDs or indirect references, enforce access checks on every request.",
+    "POST IDOR": "Validate authorization on POST parameters and use indirect object references.",
     "Privilege Escalation": "Enforce server-side RBAC, never rely on client-side checks.",
     "Directory Traversal": "Sanitize inputs, deny '../', use path whitelisting.",
     "Method Bypass": "Restrict allowed HTTP methods, validate them server-side.",

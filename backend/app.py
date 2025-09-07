@@ -25,6 +25,20 @@ from backend.reports.enhanced_combine import combine_reports
 from backend.reports.pdf import html_to_pdf
 from backend.reports.ai_enhance import generate_ai_summary, generate_detailed_recommendations
 
+# Import SSL/TLS module (attempt both canonical and legacy paths for safety)
+ssl_tls_module = None
+try:  # Preferred canonical path
+    from backend.ssl_tls import module as ssl_tls_module  # type: ignore
+except Exception as e1:  # pragma: no cover
+    try:
+        from ssl_tls import module as ssl_tls_module  # fallback if PYTHONPATH altered
+        logger = logging.getLogger(__name__)
+        logger.warning(f"Loaded ssl_tls module via fallback import path: {e1}")
+    except Exception as e2:  # pragma: no cover
+        logger = logging.getLogger(__name__)
+        logger.warning(f"SSL/TLS module not available (imports failed): primary={e1} fallback={e2}")
+        ssl_tls_module = None
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -267,6 +281,37 @@ def scan(req: ScanRequest):
         results["errors"]["cors"] = f"Scan error: {str(res)}"
     else:
         results["outputs"]["cors"] = res
+
+    # SSL/TLS Assessment (only for HTTPS targets)
+    logger.info("Initiating SSL/TLS assessment")
+    if ssl_tls_module is None:
+        logger.warning("SSL/TLS module not available, skipping SSL/TLS assessment")
+    elif not url.lower().startswith("https://"):
+        logger.info("Non-HTTPS target detected; skipping SSL/TLS assessment")
+    else:
+        res = run_with_timeout(lambda target=url, reports_dir=out_dir / "ssl_tls": ssl_tls_module.run(target, reports_dir),
+                               timeout=30, scanner_name="SSL/TLS",
+                               target=url, reports_dir=out_dir / "ssl_tls")
+        if isinstance(res, TimeoutError):
+            results["errors"]["ssl_tls"] = "Scan timeout - SSL/TLS analysis could not complete"
+        elif isinstance(res, Exception):
+            results["errors"]["ssl_tls"] = f"Scan error: {str(res)}"
+        else:
+            try:
+                json_path = res.get("json")
+                with open(json_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                vulns = data.get("vulnerabilities", [])
+                results["outputs"]["ssl_tls"] = {
+                    "html": res.get("html"),
+                    "json": json_path,
+                    "vulnerabilities_found": len(vulns),
+                    "protocol_support": data.get("protocol_support"),
+                    "certificate": data.get("certificate"),
+                    "summary_text": data.get("summary_text"),
+                }
+            except Exception as e:
+                results["errors"]["ssl_tls"] = f"Failed to process SSL/TLS scan results: {e}"
 
     # Generate combined report
     logger.info("Generating comprehensive security report")

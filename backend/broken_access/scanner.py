@@ -5,7 +5,7 @@ from pathlib import Path
 from .crawler import crawl_site
 from .auth import login
 from .bac_tests import (
-    test_idor, test_path_idor, test_unauthenticated_access,
+    test_idor, test_post_idor, test_path_idor, test_unauthenticated_access,
     test_privilege, test_directory,
     test_method_bypass, test_force_browse, extract_forms,
     test_header_token, test_cookie_manipulation, test_cors,
@@ -57,6 +57,7 @@ def run(base_url: str, out_dir: Path, user_creds: dict | None = None, admin_cred
     }
 
     idor_results = []
+    post_idor_results = []
     for l in links:
         # Early abort check
         if time.time() - start_overall > max_runtime:
@@ -66,7 +67,11 @@ def run(base_url: str, out_dir: Path, user_creds: dict | None = None, admin_cred
         for f in extract_forms(l, session):
             if f["method"] == "get":
                 idor_results.extend(test_idor(f["url"], session))
+            elif f["method"] == "post":
+                post_idor_results.extend(test_post_idor(f, session))
     results["tests"].append({"type": "IDOR", "results": idor_results})
+    if post_idor_results:
+        results["tests"].append({"type": "POST IDOR", "results": post_idor_results})
 
     # Path-based IDOR
     if time.time() - start_overall <= max_runtime:

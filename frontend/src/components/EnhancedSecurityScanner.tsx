@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
-type ScannerKey = 'broken_access' | 'csrf' | 'sqli' | 'xss' | 'cors' | 'combined';
+type ScannerKey = 'broken_access' | 'csrf' | 'sqli' | 'xss' | 'cors' | 'ssl_tls' | 'combined';
 
 type Status = 'safe' | 'warning' | 'vulnerable' | 'info' | 'scanning' | 'pending';
 
@@ -28,13 +28,17 @@ interface ScannerOutput {
   cvss_max?: number;
   cvss_avg?: number;
   cvss_count?: number;
+  // SSL/TLS specific
+  protocol_support?: Record<string, boolean>;
+  certificate?: CertificateInfo;
+  summary_text?: string;
 }
 
 interface ApiResponse {
   status: 'ok' | 'error';
   reportsBase: string;
   outputs: Partial<Record<ScannerKey, ScannerOutput>>;
-  errors: Partial<Record<'broken_access' | 'csrf' | 'sqli' | 'xss' | 'cors', string>>;
+  errors: Partial<Record<'broken_access' | 'csrf' | 'sqli' | 'xss' | 'cors' | 'ssl_tls', string>>;
 }
 
 interface UiScannerResult {
@@ -59,6 +63,10 @@ interface UiScannerResult {
   cvss_avg?: number;
   cvss_count?: number;
   };
+  // SSL/TLS specific
+  summary_text?: string;
+  protocol_support?: Record<string, boolean>;
+  certificate?: CertificateInfo;
 }
 
 interface LogEntry {
@@ -66,6 +74,41 @@ interface LogEntry {
   level: 'info' | 'warning' | 'error' | 'success';
   message: string;
   scanner?: string;
+}
+
+interface SSLTLSFinding { issue: string; status: string; risk: string; evidence: string; mitigation: string }
+
+interface ScanResultSummary {
+  broken_access?: { findings: number; high_risk: number; };
+  csrf?: { findings: number; high_risk: number; };
+  sqli?: { findings: number; high_risk: number; };
+  xss?: { findings: number; high_risk: number; };
+  cors?: { findings: number; high_risk: number; };
+  ssl_tls?: { findings: number; high_risk: number; protocols: Record<string, boolean> }
+}
+
+interface CertificateInfo { subject?: string; issuer?: string; not_before?: string; not_after?: string; days_until_expiry?: number; wildcard?: boolean; self_signed?: boolean; sans?: string[]; host_match?: boolean }
+
+interface ScanResult {
+  key: ScannerKey;
+  status: Status;
+  error?: string;
+  html?: string;
+  pdf?: string;
+  json?: string;
+  html_exploited?: string;
+  web_html?: string;
+  web_pdf?: string;
+  web_json?: string;
+  web_html_exploited?: string;
+  vulnerabilities_found?: number;
+  links_crawled?: number;
+  forms_found?: number;
+  scan_duration?: number;
+  cvss_max?: number;
+  cvss_avg?: number;
+  cvss_count?: number;
+  ssl_tls?: { findings: SSLTLSFinding[]; protocol_support: Record<string, boolean>; certificate: CertificateInfo | null; summary_text: string }
 }
 
 const EnhancedSecurityScanner = () => {
@@ -111,6 +154,8 @@ const EnhancedSecurityScanner = () => {
         return 'XSS Prevention';
       case 'cors':
         return 'CORS Configuration';
+      case 'ssl_tls':
+        return 'SSL/TLS';
       case 'combined':
         return 'Overall Report';
       default:
@@ -130,6 +175,8 @@ const EnhancedSecurityScanner = () => {
         return 'Examines protection against script injection vulnerabilities';
       case 'cors':
         return 'Analyzes Cross-Origin Resource Sharing configuration';
+      case 'ssl_tls':
+        return 'Analyzes certificate health & protocol support';
       case 'combined':
         return 'Comprehensive security assessment summary';
       default:
@@ -212,10 +259,10 @@ const EnhancedSecurityScanner = () => {
       addLog('info', 'Processing scan results...');
 
       // Build UI results with enhanced stats
-  const scanners: ScannerKey[] = ['broken_access', 'csrf', 'sqli', 'xss', 'cors'];
+  const scanners: ScannerKey[] = ['broken_access', 'csrf', 'sqli', 'xss', 'cors', 'ssl_tls'];
       const ui: UiScannerResult[] = scanners.map((key) => {
-        const out = data.outputs?.[key];
-  const err = data.errors?.[key as 'broken_access' | 'csrf' | 'sqli' | 'xss' | 'cors'];
+  const out = data.outputs?.[key];
+  const err = data.errors?.[key as 'broken_access' | 'csrf' | 'sqli' | 'xss' | 'cors' | 'ssl_tls'];
         const hasReport = !!out?.web_html || !!out?.web_json || !!out?.web_pdf;
         
         let status: Status = 'safe';
@@ -240,7 +287,7 @@ const EnhancedSecurityScanner = () => {
           details = 'Scan completed but no report generated.';
         }
 
-    return {
+  return {
           key,
           name: toScannerName(key),
           status,
@@ -262,6 +309,9 @@ const EnhancedSecurityScanner = () => {
       cvss_avg: out?.cvss_avg,
       cvss_count: out?.cvss_count,
           },
+      summary_text: out?.summary_text,
+      protocol_support: out?.protocol_support,
+      certificate: out?.certificate,
         };
       });
 
@@ -616,27 +666,35 @@ const EnhancedSecurityScanner = () => {
                             <strong>Error:</strong> {result.error}
                           </div>
                         )}
+
+                        {/* SSL/TLS extra details inside its card */}
+                        {result.key === 'ssl_tls' && result.stats && (
+                          <div className="space-y-3">
+                            {result.summary_text && <p className="text-sm text-gray-700">{result.summary_text}</p>}
+                            {result.protocol_support && (
+                              <div>
+                                <div className="font-semibold text-xs mb-1">Protocol Support</div>
+                                <div className="grid grid-cols-2 gap-1 text-xs">
+                                  {Object.entries(result.protocol_support).map(([p,v]) => (
+                                    <div key={p} className="flex justify-between bg-white/50 px-2 py-1 rounded"><span>{p}</span><span>{v? '✅':'❌'}</span></div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                            {result.certificate && (
+                              <details className="text-xs">
+                                <summary className="cursor-pointer font-medium">Certificate Details</summary>
+                                <pre className="mt-1 p-2 bg-gray-100 rounded max-h-48 overflow-y-auto whitespace-pre-wrap">{JSON.stringify(result.certificate,null,2)}</pre>
+                              </details>
+                            )}
+                          </div>
+                        )}
                       </CardContent>
                     </Card>
                   ))}
                 </div>
 
-                {/* Summary Card */}
-                <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 shadow-lg">
-                  <CardContent className="pt-6">
-                    <div className="text-center">
-                      <Shield className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-                      <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                        Assessment Complete
-                      </h3>
-                      <p className="text-gray-600 max-w-2xl mx-auto">
-                        Your web application has been thoroughly analyzed for security vulnerabilities. 
-                        Review each report section above for detailed findings and recommendations. 
-                        Priority should be given to addressing any high-risk vulnerabilities identified.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
+                {/* SSL/TLS extra details inside its card */}
               </>
             )}
 
