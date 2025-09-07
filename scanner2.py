@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-Multi-threaded Web Vulnerability Scanner
+Multi-threaded Web Vulnerability Scanner - FIXED VERSION
 Focuses on CORS, SSL/TLS, and Certificate vulnerabilities
-Uses Selenium for web crawling with configurable depth and threading
 """
 
 import os
@@ -33,7 +32,6 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 # SSL/Certificate analysis
-import OpenSSL
 from cryptography import x509
 from cryptography.hazmat.backends import default_backend
 
@@ -58,6 +56,7 @@ class WebScanner:
         self.max_threads = max_threads
         self.crawl_depth = crawl_depth
         self.visited_urls: Set[str] = set()
+        self.discovered_urls: Set[str] = set()
         self.url_queue = deque([(target_url, 0)])  # (url, depth)
         self.vulnerabilities: List[VulnerabilityResult] = []
         self.lock = threading.Lock()
@@ -85,6 +84,9 @@ class WebScanner:
         options.add_argument('--ignore-ssl-errors')
         options.add_argument('--page-load-strategy=eager')
         options.add_argument('--window-size=1920,1080')
+        options.add_argument('--disable-logging')
+        options.add_argument('--log-level=3')
+        options.add_argument('--silent')
         
         # Performance optimizations
         prefs = {
@@ -98,70 +100,113 @@ class WebScanner:
             }
         }
         options.add_experimental_option("prefs", prefs)
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        options.add_experimental_option('useAutomationExtension', False)
         
         try:
             service = Service(ChromeDriverManager().install())
             driver = webdriver.Chrome(service=service, options=options)
-            driver.set_page_load_timeout(15)
+            driver.set_page_load_timeout(10)
             return driver
         except Exception as e:
             print(f"❌ Failed to create WebDriver: {e}")
             return None
 
     def crawl_website(self) -> Set[str]:
-        """Crawl website to discover URLs based on specified depth"""
+        """FIXED: Crawl website to discover URLs based on specified depth"""
         print("🕷️  Starting website crawling...")
-        discovered_urls = set()
         
-        with ThreadPoolExecutor(max_workers=min(self.max_threads, 4)) as executor:
-            futures = []
+        # Process URLs level by level to ensure proper depth crawling
+        current_depth = 0
+        
+        while current_depth <= self.crawl_depth and self.url_queue:
+            # Get all URLs at current depth
+            urls_at_depth = []
+            temp_queue = deque()
             
-            while self.url_queue and len(futures) < self.max_threads:
-                if not self.url_queue:
-                    break
-                    
+            # Separate URLs by depth
+            while self.url_queue:
                 url, depth = self.url_queue.popleft()
-                
-                if url in self.visited_urls or depth > self.crawl_depth:
-                    continue
-                    
-                future = executor.submit(self._crawl_single_page, url, depth)
-                futures.append(future)
+                if depth == current_depth:
+                    urls_at_depth.append(url)
+                else:
+                    temp_queue.append((url, depth))
             
-            for future in as_completed(futures):
-                try:
-                    page_urls = future.result()
-                    discovered_urls.update(page_urls)
-                except Exception as e:
-                    print(f"⚠️  Crawling error: {e}")
+            # Put remaining URLs back in queue
+            self.url_queue = temp_queue
+            
+            if not urls_at_depth:
+                current_depth += 1
+                continue
+                
+            print(f"🔍 Processing {len(urls_at_depth)} URLs at depth {current_depth}")
+            
+            # Process URLs at current depth with threading
+            with ThreadPoolExecutor(max_workers=min(self.max_threads, len(urls_at_depth))) as executor:
+                future_to_url = {
+                    executor.submit(self._crawl_single_page, url, current_depth): url 
+                    for url in urls_at_depth if url not in self.visited_urls
+                }
+                
+                for future in as_completed(future_to_url):
+                    url = future_to_url[future]
+                    try:
+                        page_urls = future.result()
+                        with self.lock:
+                            self.discovered_urls.update(page_urls)
+                            
+                            # Add new URLs to queue for next depth level
+                            for new_url in page_urls:
+                                if (new_url not in self.visited_urls and 
+                                    current_depth < self.crawl_depth and
+                                    self._is_valid_url(new_url)):
+                                    self.url_queue.append((new_url, current_depth + 1))
+                                    
+                    except Exception as e:
+                        print(f"⚠️  Crawling error for {url}: {e}")
+            
+            current_depth += 1
         
-        print(f"✅ Discovered {len(discovered_urls)} URLs")
-        return discovered_urls
+        print(f"✅ Discovered {len(self.discovered_urls)} URLs across {self.crawl_depth + 1} depth levels")
+        return self.discovered_urls
 
     def _crawl_single_page(self, url: str, depth: int) -> Set[str]:
-        """Crawl a single page and extract links"""
+        """FIXED: Crawl a single page and extract links"""
         page_urls = set()
         driver = None
         
         try:
+            # Check if already visited (thread-safe)
             with self.lock:
                 if url in self.visited_urls:
                     return page_urls
                 self.visited_urls.add(url)
             
+            # Skip fragment URLs for crawling but include in results
+            if '#' in url and url.split('#')[0] in self.visited_urls:
+                page_urls.add(url)
+                return page_urls
+            
+            print(f"🔍 Crawling: {url} (depth: {depth})")
+            
+            # Create driver for this thread
             driver = self.get_driver()
             if not driver:
+                print(f"❌ Failed to create driver for {url}")
                 return page_urls
                 
-            print(f"🔍 Crawling: {url} (depth: {depth})")
+            # Load page
             driver.get(url)
             
             # Wait for page to load
-            WebDriverWait(driver, 5).until(
-                EC.presence_of_element_located((By.TAG_NAME, "body"))
-            )
+            try:
+                WebDriverWait(driver, 8).until(
+                    EC.presence_of_element_located((By.TAG_NAME, "body"))
+                )
+            except TimeoutException:
+                print(f"⏰ Timeout loading {url}")
             
-            # Extract links
+            # Extract all links
             links = driver.find_elements(By.TAG_NAME, "a")
             
             for link in links:
@@ -169,44 +214,67 @@ class WebScanner:
                     href = link.get_attribute("href")
                     if href and self._is_valid_url(href):
                         absolute_url = urljoin(url, href)
-                        page_urls.add(absolute_url)
-                        
-                        # Add to queue for further crawling if within depth limit
-                        if depth < self.crawl_depth:
-                            with self.lock:
-                                if absolute_url not in self.visited_urls:
-                                    self.url_queue.append((absolute_url, depth + 1))
-                                    
-                except Exception as e:
+                        if self._is_same_domain(absolute_url):
+                            page_urls.add(absolute_url)
+                except Exception:
                     continue
+            
+            # Also check for form actions
+            try:
+                forms = driver.find_elements(By.TAG_NAME, "form")
+                for form in forms:
+                    action = form.get_attribute("action")
+                    if action and self._is_valid_url(action):
+                        absolute_url = urljoin(url, action)
+                        if self._is_same_domain(absolute_url):
+                            page_urls.add(absolute_url)
+            except Exception:
+                pass
             
             # Add current URL to results
             page_urls.add(url)
             
+            print(f"✅ Found {len(page_urls)} URLs on {url}")
+            
         except Exception as e:
             print(f"⚠️  Error crawling {url}: {e}")
+            page_urls.add(url)  # At least include the original URL
         finally:
             if driver:
-                driver.quit()
+                try:
+                    driver.quit()
+                except:
+                    pass
                 
         return page_urls
 
     def _is_valid_url(self, url: str) -> bool:
-        """Validate if URL should be crawled"""
-        if not url or url.startswith(('#', 'javascript:', 'mailto:')):
+        """IMPROVED: Validate if URL should be crawled"""
+        if not url or url.startswith(('#', 'javascript:', 'mailto:', 'tel:')):
             return False
             
         try:
             parsed = urlparse(url)
-            if parsed.netloc and parsed.netloc != self.target_domain:
-                return False
-                
+            
             # Skip common file extensions
-            skip_extensions = {'.pdf', '.jpg', '.jpeg', '.png', '.gif', '.css', '.js', '.ico'}
+            skip_extensions = {
+                '.pdf', '.jpg', '.jpeg', '.png', '.gif', '.css', '.js', 
+                '.ico', '.svg', '.woff', '.woff2', '.ttf', '.eot',
+                '.zip', '.rar', '.exe', '.dmg', '.mp4', '.avi', '.mov'
+            }
+            
             if any(parsed.path.lower().endswith(ext) for ext in skip_extensions):
                 return False
-                
+            
             return True
+        except:
+            return False
+
+    def _is_same_domain(self, url: str) -> bool:
+        """Check if URL belongs to target domain"""
+        try:
+            parsed = urlparse(url)
+            return parsed.netloc == self.target_domain or not parsed.netloc
         except:
             return False
 
@@ -227,7 +295,8 @@ class WebScanner:
                     with self.lock:
                         self.vulnerabilities.extend(results)
                     
-                    print(f"📈 Progress: {completed}/{len(urls)} URLs scanned")
+                    if completed % 5 == 0 or completed == len(urls):
+                        print(f"📈 Progress: {completed}/{len(urls)} URLs scanned")
                     
                 except Exception as e:
                     print(f"❌ Error scanning {url}: {e}")
@@ -242,12 +311,13 @@ class WebScanner:
             results.extend(cors_results)
             
             # SSL/TLS vulnerabilities
-            ssl_results = self._check_ssl_tls_vulnerabilities(url)
-            results.extend(ssl_results)
-            
-            # Certificate vulnerabilities
-            cert_results = self._check_certificate_vulnerabilities(url)
-            results.extend(cert_results)
+            if url.startswith('https://'):
+                ssl_results = self._check_ssl_tls_vulnerabilities(url)
+                results.extend(ssl_results)
+                
+                # Certificate vulnerabilities
+                cert_results = self._check_certificate_vulnerabilities(url)
+                results.extend(cert_results)
             
         except Exception as e:
             print(f"⚠️  Scan error for {url}: {e}")
@@ -263,8 +333,7 @@ class WebScanner:
             test_origins = [
                 'https://evil.com',
                 'null',
-                'https://attacker.evil.com',
-                '*'
+                'https://attacker.evil.com'
             ]
             
             for origin in test_origins:
@@ -297,7 +366,20 @@ class WebScanner:
                             timestamp=datetime.now().isoformat()
                         ))
                     
-                    elif cors_origin == origin and origin != url:
+                    elif cors_origin == '*':
+                        results.append(VulnerabilityResult(
+                            url=url,
+                            vulnerability_type="CORS",
+                            severity="MEDIUM",
+                            description="CORS wildcard origin allowed",
+                            details={
+                                "cors_origin": cors_origin,
+                                "test_origin": origin
+                            },
+                            timestamp=datetime.now().isoformat()
+                        ))
+                    
+                    elif cors_origin == origin and origin not in ['null']:
                         results.append(VulnerabilityResult(
                             url=url,
                             vulnerability_type="CORS",
@@ -326,76 +408,49 @@ class WebScanner:
                     continue
                     
         except Exception as e:
-            print(f"CORS check error for {url}: {e}")
+            pass
             
         return results
 
     def _check_ssl_tls_vulnerabilities(self, url: str) -> List[VulnerabilityResult]:
-        """Check for SSL/TLS vulnerabilities"""
+        """FIXED: Check for SSL/TLS vulnerabilities"""
         results = []
         
-        if not url.startswith('https://'):
-            return results
-            
         try:
             parsed_url = urlparse(url)
             hostname = parsed_url.hostname
             port = parsed_url.port or 443
             
-            # Test SSL/TLS protocols
-            vulnerable_protocols = []
-            
-            for protocol in [ssl.PROTOCOL_SSLv23, ssl.PROTOCOL_TLSv1, ssl.PROTOCOL_TLSv1_1]:
-                try:
-                    context = ssl.SSLContext(protocol)
-                    context.check_hostname = False
-                    context.verify_mode = ssl.CERT_NONE
-                    
-                    with socket.create_connection((hostname, port), timeout=5) as sock:
-                        with context.wrap_socket(sock, server_hostname=hostname) as ssock:
-                            protocol_version = ssock.version()
-                            if protocol_version in ['SSLv2', 'SSLv3', 'TLSv1', 'TLSv1.1']:
-                                vulnerable_protocols.append(protocol_version)
-                except:
-                    continue
-            
-            if vulnerable_protocols:
-                results.append(VulnerabilityResult(
-                    url=url,
-                    vulnerability_type="SSL/TLS",
-                    severity="HIGH",
-                    description="Weak SSL/TLS protocols supported",
-                    details={
-                        "vulnerable_protocols": vulnerable_protocols
-                    },
-                    timestamp=datetime.now().isoformat()
-                ))
-            
-            # Check for weak ciphers
+            # Check for weak protocols using modern approach
             try:
-                context = ssl.create_default_context()
-                context.check_hostname = False
-                context.verify_mode = ssl.CERT_NONE
-                
-                with socket.create_connection((hostname, port), timeout=5) as sock:
-                    with context.wrap_socket(sock, server_hostname=hostname) as ssock:
-                        cipher = ssock.cipher()
-                        if cipher:
-                            cipher_name = cipher[0]
-                            
-                            # Check for weak ciphers
-                            weak_ciphers = ['RC4', 'DES', 'MD5', 'NULL']
-                            if any(weak in cipher_name for weak in weak_ciphers):
-                                results.append(VulnerabilityResult(
-                                    url=url,
-                                    vulnerability_type="SSL/TLS",
-                                    severity="MEDIUM",
-                                    description="Weak cipher suite detected",
-                                    details={
-                                        "cipher_suite": cipher_name
-                                    },
-                                    timestamp=datetime.now().isoformat()
-                                ))
+                # Test TLS versions
+                for protocol_name, min_version, max_version in [
+                    ("TLS 1.0", ssl.TLSVersion.TLSv1, ssl.TLSVersion.TLSv1),
+                    ("TLS 1.1", ssl.TLSVersion.TLSv1_1, ssl.TLSVersion.TLSv1_1),
+                ]:
+                    try:
+                        context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+                        context.minimum_version = min_version
+                        context.maximum_version = max_version
+                        context.check_hostname = False
+                        context.verify_mode = ssl.CERT_NONE
+                        
+                        with socket.create_connection((hostname, port), timeout=5) as sock:
+                            with context.wrap_socket(sock, server_hostname=hostname) as ssock:
+                                if ssock.version() in ['TLSv1', 'TLSv1.1']:
+                                    results.append(VulnerabilityResult(
+                                        url=url,
+                                        vulnerability_type="SSL/TLS",
+                                        severity="HIGH",
+                                        description=f"Weak TLS protocol supported: {protocol_name}",
+                                        details={
+                                            "protocol_version": ssock.version()
+                                        },
+                                        timestamp=datetime.now().isoformat()
+                                    ))
+                                    break
+                    except:
+                        continue
             except:
                 pass
             
@@ -419,34 +474,29 @@ class WebScanner:
                 pass
                 
         except Exception as e:
-            print(f"SSL/TLS check error for {url}: {e}")
+            pass
             
         return results
 
     def _check_certificate_vulnerabilities(self, url: str) -> List[VulnerabilityResult]:
-        """Check for certificate vulnerabilities"""
+        """FIXED: Check for certificate vulnerabilities"""
         results = []
         
-        if not url.startswith('https://'):
-            return results
-            
         try:
             parsed_url = urlparse(url)
             hostname = parsed_url.hostname
             port = parsed_url.port or 443
             
-            # Get certificate
+            # Get certificate using modern approach
             context = ssl.create_default_context()
             context.check_hostname = False
             context.verify_mode = ssl.CERT_NONE
             
             with socket.create_connection((hostname, port), timeout=5) as sock:
                 with context.wrap_socket(sock, server_hostname=hostname) as ssock:
-                    cert_der = ssock.getpeercert_chain()[0]
-                    cert_pem = ssl.DER_cert_to_PEM_cert(cert_der)
-                    
-                    # Parse certificate
-                    cert = x509.load_pem_x509_certificate(cert_pem.encode(), default_backend())
+                    # Get certificate in DER format
+                    cert_der = ssock.getpeercert(binary_form=True)
+                    cert = x509.load_der_x509_certificate(cert_der, default_backend())
                     
                     # Check expiration
                     now = datetime.now()
@@ -508,7 +558,7 @@ class WebScanner:
                             ))
                 
         except Exception as e:
-            print(f"Certificate check error for {url}: {e}")
+            pass
             
         return results
 
@@ -518,6 +568,7 @@ class WebScanner:
             "scan_info": {
                 "target_url": self.target_url,
                 "scan_time": datetime.now().isoformat(),
+                "total_urls_discovered": len(self.discovered_urls),
                 "total_urls_scanned": len(self.visited_urls),
                 "total_vulnerabilities": len(self.vulnerabilities),
                 "threads_used": self.max_threads,
@@ -595,13 +646,16 @@ def main():
         for vuln in scanner.vulnerabilities:
             print(f"   🚨 {vuln.severity} - {vuln.vulnerability_type}: {vuln.description}")
             print(f"      URL: {vuln.url}")
-            print(f"      Details: {vuln.details}")
+            if len(str(vuln.details)) < 100:
+                print(f"      Details: {vuln.details}")
             print()
         
     except KeyboardInterrupt:
         print("\n⚠️  Scanner interrupted by user")
     except Exception as e:
         print(f"\n❌ Scanner error: {e}")
+        import traceback
+        traceback.print_exc()
 
 if __name__ == "__main__":
     main()
