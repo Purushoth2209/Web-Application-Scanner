@@ -1,0 +1,9 @@
+<!doctype html><html><meta charset="utf-8"><title>CSRF Report</title>
+<style>body{font-family:Arial;margin:20px}th,td{border:1px solid #ddd;padding:6px}table{border-collapse:collapse;width:100%}</style>
+<h1>CSRF Attack Suite Report</h1>
+<p>Generated {{generated}} | Base: {{base_url}} | Actions: {{actions_count}} | Vectors: {{total_vectors}}</p>
+{% if exploited %}<h3>✅ Exploited Vectors</h3><ul>{% for e in exploited %}<li>{{e.action}} → {{e.vector}} ({{e.status}}) → {{e.note}}</li>{% endfor %}</ul>{% else %}<p>ℹ️ None exploited</p>{% endif %}
+<h2>Detailed Results</h2>
+<table><tr><th>Action</th><th>Vector</th><th>Status</th><th>Exploited</th><th>Note</th></tr>
+{% for r in results %}<tr><td>{{r.action}}<br><small>{{r.url}}</small></td><td>{{r.vector}}</td><td>{{r.status}}</td><td>{{"✅" if r.exploited else "❌"}}</td><td>{{r.note}}</td></tr>{% endfor %}</table>
+</html>
