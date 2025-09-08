@@ -1,0 +1,14 @@
+{
+  "site": "https://juice-shop.herokuapp.com",
+  "timestamp": "2025-09-08_15-10-51",
+  "results": [
+    {
+      "issue": "Baseline request failed",
+      "status": "Error",
+      "risk": "Low",
+      "evidence": "No response for random origin probe",
+      "mitigation": "Verify target availability."
+    }
+  ],
+  "summary_text": "Total findings: 1 (vulnerabilities: 0) | Elapsed: 9.03s"
+}

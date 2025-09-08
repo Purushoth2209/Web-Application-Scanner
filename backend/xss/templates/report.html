@@ -1,0 +1,9 @@
+<!doctype html><html><meta charset="utf-8"><title>XSS Report</title>
+<style>body{font-family:Arial;margin:20px}li{margin:4px 0}</style>
+<h1>XSS Scan Report</h1>
+<p>Target: {{ target_url }}</p>
+<h3>Summary</h3>
+<pre>{{ summary | tojson(indent=2) }}</pre>
+<h3>Visited URLs</h3>
+<ul>{% for u in visited_urls %}<li>{{u}}</li>{% endfor %}</ul>
+</html>

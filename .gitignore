@@ -1,0 +1,47 @@
+# Create comprehensive .gitignore
+cat > .gitignore << 'EOF'
+# Python virtual environments
+venv/
+.venv/
+env/
+test_env/
+backend/venv/
+backend/.venv/
+backend/test_env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Node.js
+node_modules/
+frontend/node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reports and temporary files
+*.log
+*.tmp
+
+# Large binaries that shouldn't be tracked
+*.exe
+*.node
+*.so
+*.dylib
+EOF

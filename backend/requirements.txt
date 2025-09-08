@@ -1,0 +1,64 @@
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+python-dotenv>=1.0.0
+python-multipart>=0.0.6
+pydantic>=2.4.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+selenium>=4.15.0
+playwright>=1.40.0
+reportlab>=4.4.0
+weasyprint>=60.0
+jinja2>=3.1.0
+aiofiles>=23.2.1
+httpx>=0.28.0
+cssselect>=1.2.0
+
+# Missing dependencies that are causing the error
+webdriver-manager>=4.0.0
+flask>=3.0.0
+flask-cors>=4.0.0
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+openai>=1.0.0
+anthropic>=0.7.0
+
+# Additional dependencies for security scanning
+paramiko>=3.3.0
+cryptography>=41.0.0
+dnspython>=2.4.0
+python-nmap>=0.7.1
+scapy>=2.5.0
+impacket>=0.11.0
+pycryptodome>=3.18.0
+pyopenssl>=23.2.0
+sslyze>=5.1.0
+
+# Web scraping and crawling
+scrapy>=2.11.0
+twisted>=23.8.0
+pyasn1>=0.5.0
+
+# Database support
+pymongo>=4.5.0
+psycopg2-binary>=2.9.7
+sqlalchemy>=2.0.0
+
+# Utilities
+python-whois>=0.8.0
+tldextract>=3.4.4
+validators>=0.22.0
+colorama>=0.4.6
+rich>=13.5.0
+tabulate>=0.9.0
+
+# AI and Google dependencies
+google-generativeai>=0.3.0
+google-auth>=2.23.0
+google-auth-oauthlib>=1.0.0
+google-auth-httplib2>=0.1.0
+google-api-python-client>=2.100.0
