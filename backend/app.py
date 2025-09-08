@@ -85,10 +85,13 @@ app.add_middleware(
     allow_headers=os.getenv('ALLOWED_HEADERS', '*').split(','),
 )
 
-# Setup reports directory
-reports_root = Path(os.getenv('REPORTS_BASE_DIR', 'backend_reports'))
+# Setup reports directory - FIXED: Use 'reports' as default instead of 'backend_reports'
+reports_root = Path(os.getenv('REPORTS_BASE_DIR', 'reports'))
 reports_root.mkdir(exist_ok=True)
 app.mount("/reports", StaticFiles(directory=str(reports_root)), name="reports")
+
+# Log the reports directory being used
+logger.info(f"Reports directory: {reports_root.absolute()}")
 
 @app.post("/scan")
 def scan(req: ScanRequest):
@@ -223,7 +226,7 @@ def scan(req: ScanRequest):
 
                         # XSS
                         if scanner_type.startswith("xss") and isinstance(data.get("vulnerabilities"), list):
-                            for _ in data["vulnerabilities"]:
+                            for v in data["vulnerabilities"]:
                                 if "risk" not in v:
                                     v["risk"] = "Medium"
                                 assign_cvss(v, default=6.4)
