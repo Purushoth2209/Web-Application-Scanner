@@ -184,7 +184,7 @@ const SecurityScanner = () => {
           <div className="flex items-center justify-center gap-3 mb-2">
             <Shield className="h-8 w-8 text-white" />
             <h1 className="text-4xl font-bold text-white">
-              Web Application Security Scanner
+              B-Secure Scanner
             </h1>
             <span className="text-2xl">🔒</span>
           </div>

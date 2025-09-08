@@ -1,0 +1,13 @@
+{
+  "target_url": "https://juice-shop.herokuapp.com",
+  "visited_urls": [
+    "https://juice-shop.herokuapp.com",
+    "https://juice-shop.herokuapp.com/#/"
+  ],
+  "summary": {
+    "Total Pages Visited": 2,
+    "Total Potential Vulnerabilities Found": 0,
+    "Scan Duration": "11.06s"
+  },
+  "vulnerabilities": []
+}

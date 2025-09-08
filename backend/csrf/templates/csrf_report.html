@@ -6,4 +6,5 @@
 <h2>Detailed Results</h2>
 <table><tr><th>Action</th><th>Vector</th><th>Status</th><th>Exploited</th><th>Note</th></tr>
 {% for r in results %}<tr><td>{{r.action}}<br><small>{{r.url}}</small></td><td>{{r.vector}}</td><td>{{r.status}}</td><td>{{"✅" if r.exploited else "❌"}}</td><td>{{r.note}}</td></tr>{% endfor %}</table>
+<!-- Deprecated: CSRF report now generated via unified template (reports/unified.py). This file retained only for backward compatibility. -->
 </html>

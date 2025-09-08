@@ -1,0 +1,31 @@
+{
+  "site": "https://juice-shop.herokuapp.com",
+  "timestamp": "2025-09-09_00-15-59",
+  "results": [
+    {
+      "issue": "Wildcard Access-Control-Allow-Origin",
+      "status": "Vulnerable",
+      "risk": "Medium",
+      "evidence": "ACAO: * (random origin http://fovhafqy.attacker.site)",
+      "mitigation": "Avoid wildcard; list only trusted origins.",
+      "cvss": 5.3
+    },
+    {
+      "issue": "Overly permissive methods",
+      "status": "Vulnerable",
+      "risk": "Medium",
+      "evidence": "ACAM includes: GET,HEAD,PUT,PATCH,POST,DELETE",
+      "mitigation": "Restrict Access-Control-Allow-Methods to only required methods.",
+      "cvss": 5.3
+    },
+    {
+      "issue": "Sensitive headers exposed",
+      "status": "Vulnerable",
+      "risk": "Medium",
+      "evidence": "ACAH includes: Authorization, X-Api-Key",
+      "mitigation": "Do not expose Authorization or sensitive headers via Access-Control-Allow-Headers.",
+      "cvss": 5.3
+    }
+  ],
+  "summary_text": "Total findings: 3 (vulnerabilities: 3) | Elapsed: 4.69s"
+}

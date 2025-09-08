@@ -1,36 +1,8 @@
 from __future__ import annotations
 import socket, ssl, datetime, json, os
 from pathlib import Path
-from jinja2 import Template
+from reports.unified import render_report
 from urllib.parse import urlparse
-
-HTML_TEMPLATE = """<!doctype html><html><head><meta charset='utf-8'>
-<title>SSL/TLS Configuration Report</title>
-<style>body{font-family:Arial,Helvetica,sans-serif;margin:20px;line-height:1.45}table{border-collapse:collapse;width:100%;margin-top:14px}th,td{border:1px solid #ddd;padding:6px;text-align:left}th{background:#f4f4f4}code{background:#f7f7f7;padding:2px 4px;border-radius:3px} .sev-High{color:#b30000;font-weight:bold} .sev-Medium{color:#b36b00;font-weight:bold} .sev-Low{color:#0a6e0a;font-weight:bold}</style>
-</head><body>
-<h1>SSL/TLS Configuration Report</h1>
-<p><strong>Target:</strong> {{ host }}:{{ port }} | <strong>Generated:</strong> {{ ts }}</p>
-<p>{{ summary_text }}</p>
-<h2>Vulnerabilities / Findings</h2>
-<table><tr><th>Issue</th><th>Status</th><th>Risk</th><th>Evidence</th><th>Mitigation</th></tr>
-{% for v in vulnerabilities %}<tr><td>{{ v.issue }}</td><td>{{ v.status }}</td><td class='sev-{{v.risk}}'>{{ v.risk }}</td><td>{{ v.evidence }}</td><td>{{ v.mitigation }}</td></tr>{% endfor %}
-</table>
-<h2>Protocol Support</h2>
-<table><tr><th>Protocol</th><th>Supported</th></tr>
-{% for p,s in protocol_support.items() %}<tr><td>{{ p }}</td><td>{{ '✅' if s else '❌' }}</td></tr>{% endfor %}
-</table>
-<h2>Certificate Info</h2>
-<table>
-<tr><th>Subject</th><td>{{ cert.subject }}</td></tr>
-<tr><th>Issuer</th><td>{{ cert.issuer }}</td></tr>
-<tr><th>Valid From</th><td>{{ cert.not_before }}</td></tr>
-<tr><th>Valid To</th><td>{{ cert.not_after }}</td></tr>
-<tr><th>Days Until Expiry</th><td>{{ cert.days_until_expiry }}</td></tr>
-<tr><th>Wildcard</th><td>{{ 'Yes' if cert.wildcard else 'No' }}</td></tr>
-<tr><th>Self-Signed</th><td>{{ 'Yes' if cert.self_signed else 'No' }}</td></tr>
-<tr><th>Host Match</th><td>{{ 'Yes' if cert.host_match else 'No' }}</td></tr>
-</table>
-</body></html>"""
 
 MITIGATIONS = {
     "expired_cert": "Renew the TLS certificate immediately.",
@@ -214,8 +186,17 @@ def run(url: str, out_dir: Path):
             'summary_text': summary_text,
         }, f, indent=2)
 
-    html = Template(HTML_TEMPLATE).render(host=host, port=port, ts=ts, vulnerabilities=vulnerabilities, protocol_support=protocol_support, cert=type('C',(),cert_info or {}), summary_text=summary_text)
+    # Use unified renderer instead of legacy template
     html_path = json_path.with_suffix('.html')
-    html_path.write_text(html, encoding='utf-8')
+    cert_obj = type('C', (), cert_info or {})
+    render_report(
+        category="SSL/TLS",
+        target=f"{host}:{port}",
+        findings=vulnerabilities,
+        out_html=html_path,
+        summary={"total_findings": len(vulnerabilities), "vulnerabilities": sum(1 for v in vulnerabilities if v['status']=='Vulnerable')},
+        extras={"protocol_support": protocol_support, "certificate": cert_obj},
+        timestamp=ts.replace('_', ' '),
+    )
 
     return {'json': str(json_path), 'html': str(html_path)}

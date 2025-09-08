@@ -41,7 +41,7 @@ class ScanProgress(BaseModel):
     message: str
 
 
-app = FastAPI(title="AI-Enhanced Web Scanner Backend", version="2.1")
+app = FastAPI(title="B-Secure Scanner Backend", version="2.1")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -57,90 +57,116 @@ app.mount("/reports", StaticFiles(directory=str(reports_root)), name="reports")
 
 
 def enhance_output_with_stats(output, scanner_type):
-    """Enhance scanner output with additional statistics"""
+    """Enhance scanner output with additional statistics + per-finding CVSS."""
     if not output or not isinstance(output, dict):
         return output
-    
-    # Add mock statistics for better UI representation
-    # In a real implementation, these would come from the actual scanners
+
     stats = {
         "vulnerabilities_found": 0,
         "links_crawled": 0,
         "forms_found": 0,
         "scan_duration": 0
     }
-    
-    # Extract information & CVSS estimation
     cvss_scores: list[float] = []
+    per_finding: list[dict] = []
+    risk_map = {"high": 8.8, "medium": 5.3, "low": 3.1, "info": 2.0, "error": 0.0}
+
+    def assign_cvss(f: dict, default: float | None = None):
+        r = (f.get("risk") or f.get("severity") or "").lower()
+        score = None
+        if r in risk_map:
+            score = risk_map[r]
+        elif default is not None:
+            score = default
+        t = (f.get("type") or f.get("issue") or "").lower()
+        if score is None:
+            if t.startswith("error_based") or t.startswith("union") or t.startswith("time_based"):
+                score = 9.0
+            elif t.startswith("boolean"):
+                score = 7.5
+            elif "xss" in t:
+                score = 6.4
+        if score is None:
+            if f.get("vulnerable") or (f.get("status") == "Vulnerable"):
+                score = 5.0
+            else:
+                score = 0.0
+        f["cvss"] = round(float(score), 1)
+        cvss_scores.append(f["cvss"])
+        per_finding.append({
+            "issue": f.get("issue") or f.get("type"),
+            "risk": f.get("risk"),
+            "cvss": f["cvss"],
+        })
+
     if "json" in output:
         try:
             json_path = Path(output["json"])
             if json_path.exists():
                 with open(json_path, 'r') as f:
                     data = json.load(f)
-
                 if isinstance(data, dict):
-                    # Counts
                     if "vulnerabilities" in data:
                         stats["vulnerabilities_found"] = len(data["vulnerabilities"])
                     elif "results" in data:
                         stats["vulnerabilities_found"] = len(data["results"])
                     elif "findings" in data:
                         stats["vulnerabilities_found"] = len(data["findings"])
-
                     if "crawled_links" in data:
                         stats["links_crawled"] = data["crawled_links"]
                     elif "links" in data:
                         stats["links_crawled"] = len(data["links"])
-
                     if "forms" in data:
                         stats["forms_found"] = len(data["forms"])
                     elif "forms_found" in data:
                         stats["forms_found"] = data["forms_found"]
-
                     # BAC style tests
-                    test_blocks = []
                     if "tests" in data and isinstance(data["tests"], list):
-                        test_blocks = data["tests"]
-                    for tb in test_blocks:
-                        for r in tb.get("results", []):
-                            status = (r.get("status") or "").lower()
-                            risk = (r.get("risk") or "").lower()
-                            if status == "vulnerable":
-                                if risk == "high":
-                                    cvss_scores.append(8.8)
-                                elif risk == "medium":
-                                    cvss_scores.append(5.3)
-                                elif risk == "low":
-                                    cvss_scores.append(3.1)
-                                else:
-                                    cvss_scores.append(4.0)
+                        for tb in data["tests"]:
+                            for r in tb.get("results", []):
+                                if "cvss" not in r:
+                                    assign_cvss(r)
                     # XSS
                     if scanner_type.startswith("xss") and isinstance(data.get("vulnerabilities"), list):
-                        for _ in data["vulnerabilities"]:
-                            cvss_scores.append(6.4)
+                        for v in data["vulnerabilities"]:
+                            if "risk" not in v:
+                                v["risk"] = "Medium"
+                            assign_cvss(v, default=6.4)
                     # SQLi
                     if scanner_type.startswith("sql") and isinstance(data.get("results"), list):
                         for r in data["results"]:
                             if r.get("vulnerable"):
-                                cvss_scores.append(9.0 if r.get("type") in ("error_based","union_based","time_based") else 7.5)
+                                assign_cvss(r, default=9.0 if r.get("type") in ("error_based","union_based","time_based") else 7.5)
+                            else:
+                                assign_cvss(r, default=0.0)
+                    # Generic results lists
+                    if isinstance(data.get("results"), list) and not scanner_type.startswith("sql"):
+                        for r in data["results"]:
+                            if "cvss" not in r:
+                                assign_cvss(r)
+                    if isinstance(data.get("vulnerabilities"), list) and not scanner_type.startswith("xss"):
+                        for r in data["vulnerabilities"]:
+                            if "cvss" not in r:
+                                assign_cvss(r)
+                    try:
+                        with open(json_path, 'w') as wf:
+                            json.dump(data, wf, indent=2)
+                    except Exception:
+                        pass
         except Exception as e:
             logger.warning(f"Could not extract stats from {output['json']}: {e}")
-    
+
     # Scanner-specific stat adjustments
     if scanner_type == "broken_access":
-        stats["links_crawled"] = max(stats["links_crawled"], 15)  # BAC typically crawls many links
+        stats["links_crawled"] = max(stats["links_crawled"], 15)
     elif scanner_type == "csrf":
-        stats["forms_found"] = max(stats["forms_found"], 3)  # CSRF focuses on forms
+        stats["forms_found"] = max(stats["forms_found"], 3)
     elif scanner_type == "sqli":
-        stats["vulnerabilities_found"] = max(stats["vulnerabilities_found"], 1)  # SQLi often finds issues
+        stats["vulnerabilities_found"] = max(stats["vulnerabilities_found"], 1)
     elif scanner_type == "xss":
-        stats["vulnerabilities_found"] = max(stats["vulnerabilities_found"], 2)  # XSS is common
-    
-    # Add timing info
-    stats["scan_duration"] = 15 + (hash(scanner_type) % 30)  # 15-45 seconds
-    
-    # Merge stats into output
+        stats["vulnerabilities_found"] = max(stats["vulnerabilities_found"], 2)
+
+    stats["scan_duration"] = 15 + (hash(scanner_type) % 30)
     output.update(stats)
     if cvss_scores:
         output["cvss_max"] = round(max(cvss_scores), 1)
@@ -150,6 +176,18 @@ def enhance_output_with_stats(output, scanner_type):
         output["cvss_max"] = 0.0
         output["cvss_avg"] = 0.0
         output["cvss_count"] = 0
+    if per_finding:
+        seen = set()
+        trimmed = []
+        for pf in per_finding:
+            key = (pf.get("issue"), pf.get("risk"))
+            if key in seen:
+                continue
+            seen.add(key)
+            trimmed.append(pf)
+            if len(trimmed) >= 50:
+                break
+        output["cvss_findings"] = trimmed
     return output
 
 

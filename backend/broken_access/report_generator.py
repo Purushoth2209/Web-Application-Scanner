@@ -1,6 +1,6 @@
 import json
-from jinja2 import Template
 from pathlib import Path
+from reports.unified import render_report
 
 
 TEST_GUIDE = {
@@ -51,12 +51,20 @@ def generate_reports(json_file):
     }
     data["summary"] = summary
 
-    template_path = Path(__file__).parent / "templates" / "report.html"
-    template = template_path.read_text(encoding="utf-8")
-    full_html = Template(template).render(data=data)
     out_file = json_file.replace(".json", ".html")
-    with open(out_file, "w", encoding="utf-8") as f:
-        f.write(full_html)
+    flat = []
+    for t in data["tests"]:
+        for r in t["results"]:
+            fr = dict(r)
+            fr["issue"] = t["type"]
+            flat.append(fr)
+    render_report(
+        category="Broken Access Control",
+        target=data.get("site", "-"),
+        findings=flat,
+        out_html=Path(out_file),
+        summary=data.get("summary"),
+    )
 
     exploited = {
         "site": data["site"],
@@ -75,9 +83,19 @@ def generate_reports(json_file):
     }
 
     exploited_html = json_file.replace(".json", "_exploited.html")
-    html_exploited = Template(template).render(data=exploited)
-    with open(exploited_html, "w", encoding="utf-8") as f:
-        f.write(html_exploited)
+    flat_exp = []
+    for t in exploited["tests"]:
+        for r in t["results"]:
+            fr = dict(r)
+            fr["issue"] = t["type"]
+            flat_exp.append(fr)
+    render_report(
+        category="Broken Access Control (Exploited)",
+        target=exploited.get("site", "-"),
+        findings=flat_exp,
+        out_html=Path(exploited_html),
+        summary=exploited.get("summary"),
+    )
 
     audit_entry = {
         "site": data["site"],

@@ -28,6 +28,7 @@ interface ScannerOutput {
   cvss_max?: number;
   cvss_avg?: number;
   cvss_count?: number;
+  cvss_findings?: { issue?: string; risk?: string; cvss?: number }[];
   // SSL/TLS specific
   protocol_support?: Record<string, boolean>;
   certificate?: CertificateInfo;
@@ -62,6 +63,7 @@ interface UiScannerResult {
   cvss_max?: number;
   cvss_avg?: number;
   cvss_count?: number;
+  cvss_findings?: { issue?: string; risk?: string; cvss?: number }[];
   };
   // SSL/TLS specific
   summary_text?: string;
@@ -108,6 +110,7 @@ interface ScanResult {
   cvss_max?: number;
   cvss_avg?: number;
   cvss_count?: number;
+  cvss_findings?: { issue?: string; risk?: string; cvss?: number }[];
   ssl_tls?: { findings: SSLTLSFinding[]; protocol_support: Record<string, boolean>; certificate: CertificateInfo | null; summary_text: string }
 }
 
@@ -259,7 +262,7 @@ const EnhancedSecurityScanner = () => {
       addLog('info', 'Processing scan results...');
 
       // Build UI results with enhanced stats
-  const scanners: ScannerKey[] = ['broken_access', 'csrf', 'sqli', 'xss', 'cors', 'ssl_tls'];
+  const scanners: ScannerKey[] = ['broken_access', 'csrf', 'sqli', 'xss', 'cors', 'ssl_tls', 'combined'];
       const ui: UiScannerResult[] = scanners.map((key) => {
   const out = data.outputs?.[key];
   const err = data.errors?.[key as 'broken_access' | 'csrf' | 'sqli' | 'xss' | 'cors' | 'ssl_tls'];
@@ -308,6 +311,7 @@ const EnhancedSecurityScanner = () => {
       cvss_max: out?.cvss_max,
       cvss_avg: out?.cvss_avg,
       cvss_count: out?.cvss_count,
+  cvss_findings: out?.cvss_findings,
           },
       summary_text: out?.summary_text,
       protocol_support: out?.protocol_support,
@@ -407,7 +411,7 @@ const EnhancedSecurityScanner = () => {
           <div className="flex items-center justify-center gap-3 mb-2">
             <Shield className="h-8 w-8 text-white" />
             <h1 className="text-4xl font-bold text-white">
-              Advanced Security Scanner
+              B-Secure Scanner
             </h1>
             <Lock className="h-8 w-8 text-white" />
           </div>
@@ -548,17 +552,27 @@ const EnhancedSecurityScanner = () => {
                     Target: <span className="font-mono text-blue-600 bg-blue-50 px-3 py-1 rounded">{url}</span>
                   </p>
                   {combinedLink && (
-                    <Button asChild variant="outline" className="mb-4">
-                      <a href={combinedLink} target="_blank" rel="noreferrer">
-                        <FileText className="h-4 w-4 mr-2" />
-                        Download Complete Report
-                      </a>
-                    </Button>
+                    <div className="flex justify-center gap-2 mb-4">
+                      <Button asChild variant="outline">
+                        <a href={combinedLink} target="_blank" rel="noreferrer">
+                          <FileText className="h-4 w-4 mr-2" />
+                          View Combined Report
+                        </a>
+                      </Button>
+                      {results?.find(r=>r.key==='combined' && r.links?.pdf) && (
+                        <Button asChild variant="outline">
+                          <a href={results.find(r=>r.key==='combined')!.links!.pdf} target="_blank" rel="noreferrer">
+                            <FileDown className="h-4 w-4 mr-2" />
+                            Download PDF
+                          </a>
+                        </Button>
+                      )}
+                    </div>
                   )}
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2">
-                  {results.map((result) => (
+                  {results.filter(r=>r.key!=='combined').map((result) => (
                     <Card
                       key={result.key}
                       className={`shadow-lg border-2 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${getStatusBg(result.status)}`}
@@ -615,6 +629,21 @@ const EnhancedSecurityScanner = () => {
                                 </div>
                               </div>
                             )}
+                          </div>
+                        )}
+
+                        {/* CVSS Findings List */}
+                        {result.stats?.cvss_findings && result.stats.cvss_findings.length > 0 && (
+                          <div className="mt-2">
+                            <div className="text-xs font-semibold text-gray-600 mb-1">Top Findings (CVSS)</div>
+                            <div className="space-y-1 max-h-32 overflow-y-auto pr-1">
+                              {result.stats.cvss_findings.slice(0,5).map((f,i)=>(
+                                <div key={i} className="flex items-center justify-between bg-white/60 rounded px-2 py-1 text-[11px]">
+                                  <span className="truncate max-w-[70%]" title={f.issue}>{f.issue || 'Finding'}</span>
+                                  <span className="font-mono text-gray-700">{f.cvss?.toFixed(1)}</span>
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         )}
 

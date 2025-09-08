@@ -1,7 +1,7 @@
 import time
 import json
 from pathlib import Path
-from jinja2 import Template
+from reports.unified import render_report
 from .utils import parse_domain
 from urllib.parse import urlparse
 import requests
@@ -91,11 +91,12 @@ def run(url: str, out_dir: Path, depth: int = 2):
     with open(json_out, "w", encoding="utf-8") as f:
         json.dump({"generated": time.strftime("%Y-%m-%d %H:%M:%S"), "base_url": url, "results": results, "exploited": []}, f, indent=2)
 
-    template = (Path(__file__).parent / "templates" / "csrf_report.html").read_text(encoding="utf-8")
     html_out = out_dir / f"{domain}_csrf_{ts}.html"
-    with open(html_out, "w", encoding="utf-8") as f:
-        f.write(Template(template).render(
-            generated=time.strftime("%Y-%m-%d %H:%M:%S"),
-            base_url=url, actions_count=1, total_vectors=len(results), results=results, exploited=[]
-        ))
+    render_report(
+        category="CSRF",
+        target=url,
+        findings=results,
+        out_html=html_out,
+        summary={"total_findings": len(results), "vulnerabilities": sum(1 for r in results if r.get('missing_csrf'))},
+    )
     return {"json": str(json_out), "html": str(html_out)}

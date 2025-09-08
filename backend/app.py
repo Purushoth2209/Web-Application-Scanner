@@ -51,7 +51,7 @@ log_level = getattr(logging, os.getenv('LOG_LEVEL', 'INFO').upper())
 logging.basicConfig(level=log_level)
 logger = logging.getLogger(__name__)
 
-logger.info("=== Starting Unified Security Scanner Backend ===")
+logger.info("=== Starting B-Secure Scanner Backend ===")
 logger.info(f"Environment: {os.getenv('DEBUG', 'False')}")
 logger.info(f"Port: {os.getenv('PORT', '8000')}")
 
@@ -65,7 +65,7 @@ class AIAnalysisRequest(BaseModel):
 
 # Initialize FastAPI app with environment configuration
 app = FastAPI(
-    title=os.getenv('TITLE', 'AI-Enhanced Web Scanner Backend'),
+    title=os.getenv('TITLE', 'B-Secure Scanner Backend'),
     version=os.getenv('VERSION', '2.1'),
     debug=os.getenv('DEBUG', 'False').lower() == 'true'
 )
@@ -124,6 +124,39 @@ def scan(req: ScanRequest):
             "scan_duration": 0
         }
         cvss_scores: list[float] = []
+        per_finding: list[dict] = []
+        risk_map = {"high": 8.8, "medium": 5.3, "low": 3.1, "info": 2.0, "error": 0.0}
+        # helper to assign cvss to a finding dict
+        def assign_cvss(f: dict, default: float | None = None):
+            r = (f.get("risk") or f.get("severity") or "").lower()
+            score = None
+            if r in risk_map:
+                score = risk_map[r]
+            elif default is not None:
+                score = default
+            # Special cases by type
+            t = (f.get("type") or f.get("issue") or "").lower()
+            if score is None:
+                if t.startswith("error_based") or t.startswith("union") or t.startswith("time_based"):
+                    score = 9.0
+                elif t.startswith("boolean"):
+                    score = 7.5
+                elif "xss" in t:
+                    score = 6.4
+            if score is None:
+                # fallback if marked vulnerable
+                if f.get("vulnerable") or (f.get("status") == "Vulnerable"):
+                    score = 5.0
+                else:
+                    score = 0.0
+            f["cvss"] = round(float(score), 1)
+            cvss_scores.append(f["cvss"])
+            # minimal projection for API embedding
+            per_finding.append({
+                "issue": f.get("issue") or f.get("type"),
+                "risk": f.get("risk"),
+                "cvss": f["cvss"],
+            })
 
         if output.get("json"):
             try:
@@ -184,17 +217,39 @@ def scan(req: ScanRequest):
                                             cvss_scores.append(3.1)
                                         else:
                                             cvss_scores.append(4.0)
+                                    # assign per-finding cvss (will also push to cvss_scores again so guard)
+                                    if "cvss" not in r:
+                                        assign_cvss(r)
 
                         # XSS
                         if scanner_type.startswith("xss") and isinstance(data.get("vulnerabilities"), list):
                             for _ in data["vulnerabilities"]:
-                                cvss_scores.append(6.4)
+                                if "risk" not in v:
+                                    v["risk"] = "Medium"
+                                assign_cvss(v, default=6.4)
 
                         # SQLi
                         if scanner_type.startswith("sql") and isinstance(data.get("results"), list):
                             for r in data["results"]:
                                 if r.get("vulnerable"):
-                                    cvss_scores.append(9.0 if r.get("type") in ("error_based", "union_based", "time_based") else 7.5)
+                                    assign_cvss(r, default=9.0 if r.get("type") in ("error_based", "union_based", "time_based") else 7.5)
+                                else:
+                                    assign_cvss(r, default=0.0)
+                        # Generic results list (CORS, CSRF, SSL/TLS etc.)
+                        if isinstance(data.get("results"), list) and not scanner_type.startswith("sql"):
+                            for r in data["results"]:
+                                if "cvss" not in r:
+                                    assign_cvss(r)
+                        if isinstance(data.get("vulnerabilities"), list) and not scanner_type.startswith("xss"):
+                            for r in data["vulnerabilities"]:
+                                if "cvss" not in r:
+                                    assign_cvss(r)
+                        # Write back updated data with cvss fields
+                        try:
+                            with open(json_path, "w", encoding="utf-8") as wf:
+                                json.dump(data, wf, indent=2)
+                        except Exception:
+                            pass
             except Exception as e:
                 logger.warning(f"Could not extract stats from {output.get('json')}: {e}")
 
@@ -212,6 +267,20 @@ def scan(req: ScanRequest):
             output["cvss_max"] = 0.0
             output["cvss_avg"] = 0.0
             output["cvss_count"] = 0
+        # Include a trimmed list of findings with cvss for frontend (limit 50)
+        if per_finding:
+            # avoid duplicates if we appended twice; use first occurrence
+            seen = set()
+            trimmed = []
+            for pf in per_finding:
+                key = (pf.get("issue"), pf.get("risk"))
+                if key in seen:
+                    continue
+                seen.add(key)
+                trimmed.append(pf)
+                if len(trimmed) >= 50:
+                    break
+            output["cvss_findings"] = trimmed
         return output
 
     def run_with_timeout(fn, timeout: int, scanner_name: str, **kwargs):

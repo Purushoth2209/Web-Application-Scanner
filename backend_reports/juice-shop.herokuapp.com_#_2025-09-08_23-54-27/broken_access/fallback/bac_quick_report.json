@@ -1,0 +1,110 @@
+{
+  "site": "https://juice-shop.herokuapp.com/#",
+  "timestamp": "2025-09-08_23-54-51",
+  "crawled_links": 0,
+  "links_discovered": [],
+  "tests": [
+    {
+      "type": "Force Browsing (Quick)",
+      "results": [
+        {
+          "path": "/admin",
+          "url": "https://juice-shop.herokuapp.com/#/admin",
+          "http_status": 200,
+          "status": "Vulnerable"
+        },
+        {
+          "path": "/admin/login",
+          "url": "https://juice-shop.herokuapp.com/#/admin/login",
+          "http_status": 200,
+          "status": "Vulnerable"
+        },
+        {
+          "path": "/admin/panel",
+          "url": "https://juice-shop.herokuapp.com/#/admin/panel",
+          "http_status": 200,
+          "status": "Vulnerable"
+        },
+        {
+          "path": "/dashboard",
+          "url": "https://juice-shop.herokuapp.com/#/dashboard",
+          "http_status": 200,
+          "status": "Info"
+        },
+        {
+          "path": "/config",
+          "url": "https://juice-shop.herokuapp.com/#/config",
+          "http_status": 200,
+          "status": "Vulnerable"
+        },
+        {
+          "path": "/debug",
+          "url": "https://juice-shop.herokuapp.com/#/debug",
+          "http_status": 200,
+          "status": "Vulnerable"
+        },
+        {
+          "path": "/manage",
+          "url": "https://juice-shop.herokuapp.com/#/manage",
+          "http_status": 200,
+          "status": "Vulnerable"
+        },
+        {
+          "path": "/management",
+          "url": "https://juice-shop.herokuapp.com/#/management",
+          "http_status": 200,
+          "status": "Vulnerable"
+        },
+        {
+          "path": "/control",
+          "url": "https://juice-shop.herokuapp.com/#/control",
+          "http_status": 200,
+          "status": "Info"
+        },
+        {
+          "path": "/settings",
+          "url": "https://juice-shop.herokuapp.com/#/settings",
+          "http_status": 200,
+          "status": "Info"
+        },
+        {
+          "path": "/user/admin",
+          "url": "https://juice-shop.herokuapp.com/#/user/admin",
+          "http_status": 200,
+          "status": "Vulnerable"
+        },
+        {
+          "path": "/users/admin",
+          "url": "https://juice-shop.herokuapp.com/#/users/admin",
+          "http_status": 200,
+          "status": "Vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal (Quick)",
+      "results": [
+        {
+          "payload": "/../../etc/passwd",
+          "url": "https://juice-shop.herokuapp.com/#/../../etc/passwd",
+          "http_status": 200,
+          "status": "Info"
+        },
+        {
+          "payload": "/..%2f..%2fetc/passwd",
+          "url": "https://juice-shop.herokuapp.com/#/..%2f..%2fetc/passwd",
+          "http_status": 200,
+          "status": "Info"
+        },
+        {
+          "payload": "/..%2F..%2Fwindows/win.ini",
+          "url": "https://juice-shop.herokuapp.com/#/..%2F..%2Fwindows/win.ini",
+          "http_status": 200,
+          "status": "Info"
+        }
+      ]
+    }
+  ],
+  "fallback": true,
+  "note": "Main BAC scan exceeded time budget. Quick fallback results only."
+}

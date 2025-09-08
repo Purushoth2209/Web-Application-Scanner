@@ -1,6 +1,6 @@
 from pathlib import Path
 import time, json, random
-from jinja2 import Template
+from reports.unified import render_report
 import requests
 from common.param_discovery import discover_parameters  # Fixed: removed 'backend.' prefix
 
@@ -142,13 +142,11 @@ def run(url: str, out_dir: Path | None = None):
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump({"meta": meta, "results": findings}, f, indent=2)
 
-    tpl = """<!doctype html><html><meta charset='utf-8'><title>SQLi Report</title>
-    <style>body{font-family:Arial;margin:20px}th,td{border:1px solid #ddd;padding:6px}table{border-collapse:collapse;width:100%}</style>
-    <h1>SQL Injection Report</h1>
-    <p>Target: {{meta.base_url}} | Generated: {{meta.generated}}</p>
-    <table><tr><th>Type</th><th>URL</th><th>Payload</th><th>Status</th><th>Evidence</th><th>Vulnerable</th></tr>
-    {% for r in results %}<tr><td>{{r.type}}</td><td>{{r.url}}</td><td>{{r.payload}}</td><td>{{r.status}}</td><td>{{r.evidence}}</td><td>{{'✅' if r.vulnerable else '❌'}}</td></tr>{% endfor %}
-    </table></html>"""
-    html = Template(tpl).render(meta=meta, results=findings)
-    html_path.write_text(html, encoding="utf-8")
+    render_report(
+        category="SQL Injection",
+        target=meta["base_url"],
+        findings=findings,
+        out_html=html_path,
+        summary={"total_findings": len(findings), "vulnerabilities": sum(1 for f in findings if f.get('vulnerable'))},
+    )
     return {"json": str(json_path), "html": str(html_path)}

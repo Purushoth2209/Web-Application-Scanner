@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ category }} Report - {{ target }}</title>
+  <style>
+    :root { --c-bg:#ffffff; --c-border:#d0d7de; --c-text:#24292f; --c-accent:#0969da; --c-high:#b30000; --c-med:#b36b00; --c-low:#0a6e0a; }
+    body { font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; margin:24px; color:var(--c-text); line-height:1.45; }
+    h1 { margin-top:0; }
+    .meta { background:#f6f8fa; padding:12px 16px; border:1px solid var(--c-border); border-radius:6px; }
+    table { border-collapse: collapse; width:100%; margin-top:16px; font-size:14px; }
+    th, td { border:1px solid var(--c-border); padding:6px 8px; text-align:left; vertical-align:top; }
+    th { background:#f2f4f7; font-weight:600; }
+    .sev-High { color:var(--c-high); font-weight:600; }
+    .sev-Medium { color:var(--c-med); font-weight:600; }
+    .sev-Low, .sev-Info { color:var(--c-low); font-weight:600; }
+    .badge { display:inline-block; padding:2px 6px; border-radius:12px; font-size:12px; line-height:1; background:#eaeef2; }
+    .badge-vuln { background:#ffe2e0; color:var(--c-high); }
+    .badge-ok { background:#e1f6e1; color:var(--c-low); }
+    .small { font-size:12px; color:#57606a; }
+    .section { margin-top:32px; }
+    code { background:#f3f4f6; padding:2px 4px; border-radius:4px; font-size:12px; }
+    .nowrap { white-space:nowrap; }
+  </style>
+</head>
+<body>
+  <h1>{{ category }} Report</h1>
+  <div class="meta">
+    <strong>Target:</strong> {{ target }}<br />
+    <strong>Generated:</strong> {{ generated }}<br />
+    <strong>Summary:</strong>
+      Total Findings: {{ summary.total_findings if summary.total_findings is defined else summary.get('total_findings', summary.get('findings', '?')) }} | 
+      Vulnerabilities: {{ summary.vulnerabilities if summary.vulnerabilities is defined else summary.get('vulnerable', '?') }}
+  </div>
+
+  <div class="section">
+    <h2>Findings</h2>
+    {% if findings %}
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Issue / Type</th>
+        <th>Location</th>
+        <th class="nowrap">Param</th>
+        <th>Payload / Vector</th>
+        <th>Status</th>
+        <th>Risk</th>
+        <th>Evidence / Details</th>
+        <th>Mitigation</th>
+      </tr>
+      {% for f in findings %}
+      <tr>
+        <td class="small">{{ loop.index }}</td>
+        <td>{{ f.issue }}</td>
+        <td>{{ f.location }}</td>
+        <td>{{ f.param or '-' }}</td>
+        <td>{{ f.payload or '-' }}</td>
+        <td>{% if f.vulnerable %}<span class="badge badge-vuln">Vulnerable</span>{% else %}<span class="badge badge-ok">OK</span>{% endif %}</td>
+        <td class="sev-{{f.risk}}">{{ f.risk }}</td>
+        <td>{{ f.evidence or '-' }}</td>
+        <td>{{ f.mitigation or '-' }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+      <p>No findings recorded.</p>
+    {% endif %}
+  </div>
+
+  {% if extras.visited_urls %}
+  <div class="section">
+    <h2>Visited URLs</h2>
+    <ul>{% for u in extras.visited_urls %}<li><code>{{ u }}</code></li>{% endfor %}</ul>
+  </div>
+  {% endif %}
+
+  {% if extras.protocol_support %}
+  <div class="section">
+    <h2>TLS Protocol Support</h2>
+    <table>
+      <tr><th>Protocol</th><th>Supported</th></tr>
+      {% for p,s in extras.protocol_support.items() %}<tr><td>{{ p }}</td><td>{{ '✅' if s else '❌' }}</td></tr>{% endfor %}
+    </table>
+  </div>
+  {% endif %}
+
+  {% if extras.certificate %}
+  <div class="section">
+    <h2>Certificate</h2>
+    <table>
+      <tr><th>Subject / CN</th><td>{{ extras.certificate.subject }}</td></tr>
+      <tr><th>Issuer</th><td>{{ extras.certificate.issuer }}</td></tr>
+      <tr><th>Valid From</th><td>{{ extras.certificate.not_before }}</td></tr>
+      <tr><th>Valid To</th><td>{{ extras.certificate.not_after }}</td></tr>
+      <tr><th>Days Until Expiry</th><td>{{ extras.certificate.days_until_expiry }}</td></tr>
+      <tr><th>Wildcard</th><td>{{ 'Yes' if extras.certificate.wildcard else 'No' }}</td></tr>
+      <tr><th>Self-Signed</th><td>{{ 'Yes' if extras.certificate.self_signed else 'No' }}</td></tr>
+    </table>
+  </div>
+  {% endif %}
+
+</body>
+</html>
