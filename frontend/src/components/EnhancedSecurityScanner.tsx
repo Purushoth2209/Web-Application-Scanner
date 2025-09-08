@@ -122,7 +122,7 @@ const EnhancedSecurityScanner = () => {
   const [logs, setLogs] = useState<LogEntry[]>([]);
   const [activeTab, setActiveTab] = useState('scan');
   const logsEndRef = useRef<HTMLDivElement>(null);
-  const apiBase = useMemo(() => (import.meta.env.VITE_API_BASE as string) || 'http://localhost:8000', []);
+  const apiBase = useMemo(() => (import.meta.env.VITE_API_URL as string) || 'http://localhost:8000', []);
 
   const scrollToBottom = () => {
     logsEndRef.current?.scrollIntoView({ behavior: "smooth" });
