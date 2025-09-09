@@ -1,0 +1,7 @@
+<!doctype html><html><meta charset='utf-8'><title>SQLi Report</title>
+    <style>body{font-family:Arial;margin:20px}th,td{border:1px solid #ddd;padding:6px}table{border-collapse:collapse;width:100%}</style>
+    <h1>SQL Injection Report</h1>
+    <p>Target: http://localhost:8082 | Generated: 2025-09-09_10-03-23</p>
+    <table><tr><th>Type</th><th>URL</th><th>Payload</th><th>Status</th><th>Evidence</th><th>Vulnerable</th></tr>
+    <tr><td>error_based</td><td>http://localhost:8082?id='</td><td>'</td><td>200</td><td></td><td>❌</td></tr><tr><td>error_based</td><td>http://localhost:8082?id="</td><td>"</td><td>200</td><td></td><td>❌</td></tr><tr><td>error_based</td><td>http://localhost:8082?id=' OR 1=1--</td><td>' OR 1=1--</td><td>200</td><td></td><td>❌</td></tr><tr><td>error_based</td><td>http://localhost:8082?id=" OR "1"="1</td><td>" OR "1"="1</td><td>200</td><td></td><td>❌</td></tr><tr><td>error_based</td><td>http://localhost:8082?id=' UNION SELECT null--</td><td>' UNION SELECT null--</td><td>200</td><td></td><td>❌</td></tr><tr><td>error_based</td><td>http://localhost:8082?id=') OR ('1'='1</td><td>') OR ('1'='1</td><td>200</td><td></td><td>❌</td></tr>
+    </table></html>

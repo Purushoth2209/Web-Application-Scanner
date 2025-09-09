@@ -89,3 +89,9 @@
 {"site": "https://svce.ac.in", "timestamp": "2025-09-09_08-21-42", "findings": 15, "vulnerabilities": 0}
 {"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-09_08-30-23", "findings": 0, "vulnerabilities": 0}
 {"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-09_08-31-10", "findings": 15, "vulnerabilities": 8}
+{"site": "http://localhost:8082", "timestamp": "2025-09-09_09-57-48", "findings": 35, "vulnerabilities": 5}
+{"site": "http://localhost:8082", "timestamp": "2025-09-09_10-03-06", "findings": 35, "vulnerabilities": 5}
+{"site": "http://localhost:8082", "timestamp": "2025-09-09_10-04-11", "findings": 35, "vulnerabilities": 5}
+{"site": "http://localhost:8082", "timestamp": "2025-09-09_10-28-58", "findings": 35, "vulnerabilities": 5}
+{"site": "http://localhost:8082", "timestamp": "2025-09-09_10-54-10", "findings": 35, "vulnerabilities": 5}
+{"site": "http://localhost:8082", "timestamp": "2025-09-09_11-04-58", "findings": 35, "vulnerabilities": 5}
