@@ -1,0 +1,110 @@
+{
+  "site": "https://svce.ac.in",
+  "timestamp": "2025-09-09_08-21-42",
+  "crawled_links": 0,
+  "links_discovered": [],
+  "tests": [
+    {
+      "type": "Force Browsing (Quick)",
+      "results": [
+        {
+          "path": "/admin",
+          "url": "https://svce.ac.in/admin",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/admin/login",
+          "url": "https://svce.ac.in/admin/login",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/admin/panel",
+          "url": "https://svce.ac.in/admin/panel",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/dashboard",
+          "url": "https://svce.ac.in/dashboard",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/config",
+          "url": "https://svce.ac.in/config",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/debug",
+          "url": "https://svce.ac.in/debug",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/manage",
+          "url": "https://svce.ac.in/manage",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/management",
+          "url": "https://svce.ac.in/management",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/control",
+          "url": "https://svce.ac.in/control",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/settings",
+          "url": "https://svce.ac.in/settings",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/user/admin",
+          "url": "https://svce.ac.in/user/admin",
+          "http_status": 301,
+          "status": "Info"
+        },
+        {
+          "path": "/users/admin",
+          "url": "https://svce.ac.in/users/admin",
+          "http_status": 301,
+          "status": "Info"
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal (Quick)",
+      "results": [
+        {
+          "payload": "/../../etc/passwd",
+          "url": "https://svce.ac.in/../../etc/passwd",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "payload": "/..%2f..%2fetc/passwd",
+          "url": "https://svce.ac.in/..%2f..%2fetc/passwd",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "payload": "/..%2F..%2Fwindows/win.ini",
+          "url": "https://svce.ac.in/..%2F..%2Fwindows/win.ini",
+          "http_status": 404,
+          "status": "Info"
+        }
+      ]
+    }
+  ],
+  "fallback": true,
+  "note": "Main BAC scan exceeded time budget. Quick fallback results only."
+}

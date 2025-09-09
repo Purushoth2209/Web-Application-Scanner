@@ -1,0 +1,33 @@
+{
+  "host": "0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+  "port": 443,
+  "timestamp": "2025-09-08_21-50-58",
+  "vulnerabilities": [],
+  "protocol_support": {
+    "TLSv1.0": false,
+    "TLSv1.1": false,
+    "TLSv1.2": true,
+    "TLSv1.3": true
+  },
+  "certificate": {
+    "subject": "*.web-security-academy.net",
+    "issuer": "Amazon RSA 2048 M03",
+    "not_before": "Dec  5 00:00:00 2024 GMT",
+    "not_after": "Jan  4 23:59:59 2026 GMT",
+    "days_until_expiry": 118,
+    "wildcard": true,
+    "self_signed": false,
+    "sans": [
+      "*.web-security-academy.net",
+      "*.2.web-security-academy.net",
+      "*.1.web-security-academy.net",
+      "*.3.web-security-academy.net",
+      "*.2.h1-web-security-academy.net",
+      "*.1.h1-web-security-academy.net",
+      "*.h1-web-security-academy.net",
+      "*.3.h1-web-security-academy.net"
+    ],
+    "host_match": true
+  },
+  "summary_text": "Findings: 0 (High risk: 0)"
+}

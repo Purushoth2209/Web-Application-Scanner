@@ -1,0 +1,76 @@
+{
+  "site": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+  "timestamp": "2025-09-09_03-16-28",
+  "crawled_links": 14,
+  "links_discovered": [
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/resources/labheader/js/labHeader.js",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post/comment",
+    "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login"
+  ],
+  "tests": [
+    {
+      "type": "IDOR",
+      "results": []
+    },
+    {
+      "type": "Path IDOR",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Privilege Escalation",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Method Bypass",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Force Browsing",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Unauthenticated Access",
+      "results": [],
+      "skipped": true
+    }
+  ],
+  "crawl_errors": [],
+  "partial": true,
+  "time_elapsed": 33.74,
+  "time_budget": 8.0
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSRF Report</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; color: #222; }
+      table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+      th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+      th { background: #f5f5f5; }
+      tr:nth-child(even) { background: #fbfbfb; }
+      .meta { margin-bottom: 8px; color: #444; }
+      .ok { color: #0a8a0a; font-weight: bold; }
+      .bad { color: #c0392b; font-weight: bold; }
+      .na { color: #888; }
+      .small { font-size: 0.85em; color: #666; }
+    </style>
+  </head>
+  <body>
+    <h1>CSRF Attack Suite Report</h1>
+
+    <p class="meta">
+      Generated: <b>{{ generated }}</b> |
+      Base: <b>{{ base_url }}</b> |
+      Actions: <b>{{ actions_count }}</b> |
+      Vectors tested: <b>{{ total_vectors }}</b>
+    </p>
+
+    {% if exploited %}
+      <h3>✅ Exploited Vectors</h3>
+      <ul>
+      {% for e in exploited %}
+        <li><b>{{ e.action }}</b> → <code>{{ e.vector }}</code> (status: {{ e.status }}) — {{ e.note }}
+            <div class="small"><b>Mitigation:</b> {{ e.mitigation or "N/A" }}</div>
+        </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>ℹ️ <em>No exploited vectors found</em></p>
+    {% endif %}
+
+    <h2>Detailed Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:24%">Action</th>
+          <th style="width:36%">Target URL</th>
+          <th style="width:10%">Vector</th>
+          <th style="width:6%">Status</th>
+          <th style="width:8%">Exploited</th>
+          <th style="width:16%">Note / Mitigation</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for r in results %}
+        <tr>
+          <td>
+            <div><b>{{ r.action }}</b></div>
+            <div class="small">{{ r.url }}</div>
+          </td>
+          <td><div class="small">{{ r.url }}</div></td>
+          <td><code>{{ r.vector }}</code></td>
+          <td>{{ r.status if r.status is not none else "—" }}</td>
+          <td>
+            {% if r.exploited is sameas true %}
+              <span class="ok">✅</span>
+            {% elif r.exploited is sameas false %}
+              <span class="bad">❌</span>
+            {% else %}
+              <span class="na">N/A</span>
+            {% endif %}
+          </td>
+          <td>
+            <div>{{ r.note or "-" }}</div>
+            {% if r.mitigation %}
+              <div class="small"><b>Mitigation:</b> {{ r.mitigation }}</div>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

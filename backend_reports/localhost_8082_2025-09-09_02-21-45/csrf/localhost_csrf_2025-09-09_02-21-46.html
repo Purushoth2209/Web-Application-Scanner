@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSRF Report</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; color: #222; }
+      table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+      th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+      th { background: #f5f5f5; }
+      tr:nth-child(even) { background: #fbfbfb; }
+      .meta { margin-bottom: 8px; color: #444; }
+      .ok { color: #0a8a0a; font-weight: bold; }
+      .bad { color: #c0392b; font-weight: bold; }
+      .na { color: #888; }
+      .small { font-size: 0.85em; color: #666; }
+    </style>
+  </head>
+  <body>
+    <h1>CSRF Attack Suite Report</h1>
+
+    <p class="meta">
+      Generated: <b>2025-09-09 02:21:46</b> |
+      Base: <b>http://localhost:8082</b> |
+      Actions: <b></b> |
+      Vectors tested: <b></b>
+    </p>
+
+    
+      <p>ℹ️ <em>No exploited vectors found</em></p>
+    
+
+    <h2>Detailed Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:24%">Action</th>
+          <th style="width:36%">Target URL</th>
+          <th style="width:10%">Vector</th>
+          <th style="width:6%">Status</th>
+          <th style="width:8%">Exploited</th>
+          <th style="width:16%">Note / Mitigation</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td>
+            <div><b>http://localhost:8082</b></div>
+            <div class="small"></div>
+          </td>
+          <td><div class="small"></div></td>
+          <td><code>page</code></td>
+          <td>0</td>
+          <td>
+            
+              <span class="bad">❌</span>
+            
+          </td>
+          <td>
+            <div>Enumeration error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?</div>
+            
+          </td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </body>
+</html>

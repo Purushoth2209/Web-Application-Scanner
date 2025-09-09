@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset='utf-8'>
+<title>SSL/TLS Configuration Report</title>
+<style>body{font-family:Arial,Helvetica,sans-serif;margin:20px;line-height:1.45}table{border-collapse:collapse;width:100%;margin-top:14px}th,td{border:1px solid #ddd;padding:6px;text-align:left}th{background:#f4f4f4}code{background:#f7f7f7;padding:2px 4px;border-radius:3px} .sev-High{color:#b30000;font-weight:bold} .sev-Medium{color:#b36b00;font-weight:bold} .sev-Low{color:#0a6e0a;font-weight:bold}</style>
+</head><body>
+<h1>SSL/TLS Configuration Report</h1>
+<p><strong>Target:</strong> juice-shop.herokuapp.com:443 | <strong>Generated:</strong> 2025-09-08_19-06-00</p>
+<p>Findings: 1 (High risk: 0)</p>
+<h2>Vulnerabilities / Findings</h2>
+<table><tr><th>Issue</th><th>Status</th><th>Risk</th><th>Evidence</th><th>Mitigation</th></tr>
+<tr><td>Broad Wildcard Certificate</td><td>Info</td><td class='sev-Low'>Low</td><td>Wildcard used with minimal SAN entries</td><td>Limit wildcard certificates; prefer SAN certificates scoped to required hosts only.</td></tr>
+</table>
+<h2>Protocol Support</h2>
+<table><tr><th>Protocol</th><th>Supported</th></tr>
+<tr><td>TLSv1.0</td><td>❌</td></tr><tr><td>TLSv1.1</td><td>❌</td></tr><tr><td>TLSv1.2</td><td>✅</td></tr><tr><td>TLSv1.3</td><td>✅</td></tr>
+</table>
+<h2>Certificate Info</h2>
+<table>
+<tr><th>Subject</th><td>*.herokuapp.com</td></tr>
+<tr><th>Issuer</th><td>Amazon RSA 2048 M02</td></tr>
+<tr><th>Valid From</th><td>Jan 31 00:00:00 2025 GMT</td></tr>
+<tr><th>Valid To</th><td>Mar  1 23:59:59 2026 GMT</td></tr>
+<tr><th>Days Until Expiry</th><td>174</td></tr>
+<tr><th>Wildcard</th><td>Yes</td></tr>
+<tr><th>Self-Signed</th><td>No</td></tr>
+<tr><th>Host Match</th><td>Yes</td></tr>
+</table>
+</body></html>

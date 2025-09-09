@@ -1,0 +1,14 @@
+{
+  "site": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+  "timestamp": "2025-09-09_03-20-56",
+  "results": [
+    {
+      "issue": "No obvious CORS misconfiguration",
+      "status": "Not Vulnerable",
+      "risk": "Low",
+      "evidence": "Did not detect permissive or reflective patterns",
+      "mitigation": "Maintain explicit origin allowlist and avoid credentialed wildcards."
+    }
+  ],
+  "summary_text": "Total findings: 1 (vulnerabilities: 0) | Elapsed: 1.65s"
+}

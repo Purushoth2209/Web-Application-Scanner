@@ -1,0 +1,1214 @@
+{
+  "site": "http://localhost:8082/xss_get.php",
+  "timestamp": "2025-09-09_08-19-08",
+  "crawled_links": 50,
+  "links_discovered": [
+    "http://localhost:8082",
+    "http://localhost:8082/home",
+    "http://localhost:8082/index",
+    "http://localhost:8082/main",
+    "http://localhost:8082/dashboard",
+    "http://localhost:8082/admin",
+    "http://localhost:8082/login",
+    "http://localhost:8082/logout",
+    "http://localhost:8082/profile",
+    "http://localhost:8082/account",
+    "http://localhost:8082/settings",
+    "http://localhost:8082/config",
+    "http://localhost:8082/users",
+    "http://localhost:8082/user",
+    "http://localhost:8082/api",
+    "http://localhost:8082/api/users",
+    "http://localhost:8082/api/admin",
+    "http://localhost:8082/api/v1",
+    "http://localhost:8082/management",
+    "http://localhost:8082/panel",
+    "http://localhost:8082/control",
+    "http://localhost:8082/search",
+    "http://localhost:8082/help",
+    "http://localhost:8082/about",
+    "http://localhost:8082/contact",
+    "http://localhost:8082/register",
+    "http://localhost:8082/signup",
+    "http://localhost:8082/signin",
+    "http://localhost:8082/forgot",
+    "http://localhost:8082/reset",
+    "http://localhost:8082/change-password",
+    "http://localhost:8082/edit-profile",
+    "http://localhost:8082/preferences",
+    "http://localhost:8082/notifications",
+    "http://localhost:8082/messages",
+    "http://localhost:8082/inbox",
+    "http://localhost:8082/reports",
+    "http://localhost:8082/analytics",
+    "http://localhost:8082/logs",
+    "http://localhost:8082/admin/users",
+    "http://localhost:8082/admin/settings",
+    "http://localhost:8082/admin/reports",
+    "http://localhost:8082/admin/logs",
+    "http://localhost:8082/user/profile",
+    "http://localhost:8082/user/settings",
+    "http://localhost:8082/user/dashboard",
+    "http://localhost:8082/user/account",
+    "http://localhost:8082/documents",
+    "http://localhost:8082/images",
+    "http://localhost:8082/passwords"
+  ],
+  "tests": [
+    {
+      "type": "IDOR",
+      "results": [
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No IDOR parameters found",
+          "risk": "Low",
+          "details": "No query parameters discovered",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        }
+      ]
+    },
+    {
+      "type": "Path IDOR",
+      "results": [
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        },
+        {
+          "status": "No numeric path segments",
+          "risk": "Low",
+          "details": "-",
+          "mitigation": "Use opaque identifiers and enforce access checks."
+        }
+      ]
+    },
+    {
+      "type": "Privilege Escalation",
+      "results": [
+        {
+          "status": "Skipped",
+          "risk": "Medium",
+          "details": "No admin credentials provided",
+          "mitigation": "Provide admin creds to validate RBAC or test with dedicated role accounts."
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [
+        {
+          "url": "http://localhost:8082/xss_get.php/../etc/passwd",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content detected (HTTP 404)",
+          "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+        },
+        {
+          "url": "http://localhost:8082/xss_get.php/../../admin/config",
+          "status": "Not Vulnerable",
+          "risk": "High",
+          "details": "No sensitive content detected (HTTP 404)",
+          "mitigation": "Sanitize user input, deny '../', enforce path whitelisting."
+        }
+      ]
+    },
+    {
+      "type": "Method Bypass",
+      "results": [
+        {
+          "url": "http://localhost:8082",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/login.php",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 200)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/home",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/index",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/main",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/dashboard",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/admin",
+          "method": "POST",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "Endpoint accepted POST (possible bypass)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/login",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/logout",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/profile",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/account",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/settings",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/config",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/users",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/user",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/api",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/api/users",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/api/admin",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/api/v1",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/management",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/panel",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/control",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/search",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/help",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/about",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/contact",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/register",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/signup",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/signin",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/forgot",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/reset",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/change-password",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/edit-profile",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/preferences",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/notifications",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/messages",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/inbox",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/reports",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/analytics",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/logs",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/admin/users",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/admin/settings",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/admin/reports",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/admin/logs",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/user/profile",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/user/settings",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/user/dashboard",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/user/account",
+          "method": "POST",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "Rejected (HTTP 404)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/documents",
+          "method": "POST",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "Endpoint accepted POST (possible bypass)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/images",
+          "method": "POST",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "Endpoint accepted POST (possible bypass)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        },
+        {
+          "url": "http://localhost:8082/passwords",
+          "method": "POST",
+          "status": "Vulnerable",
+          "risk": "Medium",
+          "details": "Endpoint accepted POST (possible bypass)",
+          "mitigation": "Restrict allowed HTTP methods, validate server-side."
+        }
+      ]
+    },
+    {
+      "type": "Force Browsing",
+      "results": [
+        {
+          "url": "http://localhost:8082/xss_get.php/admin",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+        },
+        {
+          "url": "http://localhost:8082/xss_get.php/config",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+        },
+        {
+          "url": "http://localhost:8082/xss_get.php/debug",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+        },
+        {
+          "url": "http://localhost:8082/xss_get.php/private",
+          "status": "Error",
+          "risk": "Medium",
+          "details": "Request failed",
+          "mitigation": "Enforce authentication/authorization on all sensitive endpoints."
+        }
+      ]
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [
+        {
+          "url": "http://localhost:8082/xss_get.php/admin",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Ensure proper error handling for auth headers."
+        },
+        {
+          "url": "http://localhost:8082/xss_get.php/config",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Ensure proper error handling for auth headers."
+        },
+        {
+          "url": "http://localhost:8082/xss_get.php/private",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Ensure proper error handling for auth headers."
+        }
+      ]
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [
+        {
+          "url": "http://localhost:8082/xss_get.php/admin",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Ensure cookies are validated properly."
+        },
+        {
+          "url": "http://localhost:8082/xss_get.php/config",
+          "status": "Error",
+          "risk": "High",
+          "details": "Request failed",
+          "mitigation": "Ensure cookies are validated properly."
+        }
+      ]
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [
+        {
+          "url": "http://localhost:8082/xss_get.php",
+          "status": "Not Vulnerable",
+          "risk": "Medium",
+          "details": "CORS restricted properly",
+          "mitigation": "Restrict Access-Control-Allow-Origin to trusted domains only."
+        }
+      ]
+    },
+    {
+      "type": "Unauthenticated Access",
+      "results": [
+        {
+          "status": "No endpoints evaluated",
+          "risk": "Low",
+          "details": "No suitable URLs discovered or crawl empty",
+          "mitigation": "Ensure application is reachable and provides protected paths."
+        }
+      ]
+    }
+  ],
+  "crawl_errors": []
+}

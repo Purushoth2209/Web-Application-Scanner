@@ -1,0 +1,13 @@
+{
+  "target_url": "http://localhost:8082",
+  "visited_urls": [
+    "http://localhost:8082",
+    "http://localhost:8082/login.php"
+  ],
+  "summary": {
+    "Total Pages Visited": 2,
+    "Total Potential Vulnerabilities Found": 0,
+    "Scan Duration": "0.21s"
+  },
+  "vulnerabilities": []
+}

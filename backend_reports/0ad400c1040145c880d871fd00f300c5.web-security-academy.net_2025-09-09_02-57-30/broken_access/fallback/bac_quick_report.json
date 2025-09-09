@@ -1,0 +1,110 @@
+{
+  "site": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+  "timestamp": "2025-09-09_02-57-58",
+  "crawled_links": 0,
+  "links_discovered": [],
+  "tests": [
+    {
+      "type": "Force Browsing (Quick)",
+      "results": [
+        {
+          "path": "/admin",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/admin",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/admin/login",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/admin/login",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/admin/panel",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/admin/panel",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/dashboard",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/dashboard",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/config",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/config",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/debug",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/debug",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/manage",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/manage",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/management",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/management",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/control",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/control",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/settings",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/settings",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/user/admin",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/user/admin",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "path": "/users/admin",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/users/admin",
+          "http_status": 404,
+          "status": "Info"
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal (Quick)",
+      "results": [
+        {
+          "payload": "/../../etc/passwd",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/../../etc/passwd",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "payload": "/..%2f..%2fetc/passwd",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/..%2f..%2fetc/passwd",
+          "http_status": 404,
+          "status": "Info"
+        },
+        {
+          "payload": "/..%2F..%2Fwindows/win.ini",
+          "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/..%2F..%2Fwindows/win.ini",
+          "http_status": 404,
+          "status": "Info"
+        }
+      ]
+    }
+  ],
+  "fallback": true,
+  "note": "Main BAC scan exceeded time budget. Quick fallback results only."
+}

@@ -1,0 +1,969 @@
+{
+  "meta": {
+    "base_url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+    "generated": "2025-09-09_03-01-24",
+    "targets": 1
+  },
+  "results": [
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+      "param": "id",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net?id='",
+      "payload": "'",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+      "param": "id",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net?id=\"",
+      "payload": "\"",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+      "param": "id",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net?id=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+      "param": "id",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net?id=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+      "param": "id",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net?id=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+      "param": "id",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net?id=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3&postId='",
+      "payload": "'",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3&postId=\"",
+      "payload": "\"",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3&postId=' OR 1=1--",
+      "payload": "' OR 1=1--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3&postId=\" OR \"1\"=\"1",
+      "payload": "\" OR \"1\"=\"1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3&postId=' UNION SELECT null--",
+      "payload": "' UNION SELECT null--",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    },
+    {
+      "type": "error_based",
+      "endpoint": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3",
+      "param": "postId",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3&postId=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 400,
+      "vulnerable": false,
+      "evidence": ""
+    }
+  ]
+}

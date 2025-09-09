@@ -1,0 +1,14 @@
+{
+  "site": "http://localhost:8082",
+  "timestamp": "2025-09-09_02-22-55",
+  "results": [
+    {
+      "issue": "No obvious CORS misconfiguration",
+      "status": "Not Vulnerable",
+      "risk": "Low",
+      "evidence": "Did not detect permissive or reflective patterns",
+      "mitigation": "Maintain explicit origin allowlist and avoid credentialed wildcards."
+    }
+  ],
+  "summary_text": "Total findings: 1 (vulnerabilities: 0) | Elapsed: 0.03s"
+}

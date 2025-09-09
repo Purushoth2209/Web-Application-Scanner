@@ -1,0 +1,2816 @@
+{
+  "generated": "2025-09-09 03:01:24",
+  "base_url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net",
+  "results": [
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/login/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/my-account/login'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=1/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=10/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=2/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=3/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=4/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=5/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=6/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=7/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=8/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "img_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "script_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "iframe_get",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "meta_refresh",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "link_click",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "noreferrer_link",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "form_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "fetch_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "xhr_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "multipart_post",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "duplicate_token",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "referer_bypass",
+      "req_method": "POST",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X POST 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    },
+    {
+      "action": "form_1",
+      "url": "https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment",
+      "vector": "method_override",
+      "req_method": "GET",
+      "status": 200,
+      "exploited": true,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks.",
+      "curl": "curl -X GET 'https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/post?postId=9/post/comment'"
+    }
+  ],
+  "exploited": [
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "img_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "script_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "iframe_get",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "meta_refresh",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "link_click",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "noreferrer_link",
+      "status": 200,
+      "note": "Accepted no Referer",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "form_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "fetch_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "xhr_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "multipart_post",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "duplicate_token",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "referer_bypass",
+      "status": 200,
+      "note": "Accepted (heuristic)",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    },
+    {
+      "action": "form_1",
+      "vector": "method_override",
+      "status": 200,
+      "note": "Accepted method override",
+      "mitigation": "Use CSRF tokens + SameSite=strict and strict Origin/Referer checks."
+    }
+  ]
+}

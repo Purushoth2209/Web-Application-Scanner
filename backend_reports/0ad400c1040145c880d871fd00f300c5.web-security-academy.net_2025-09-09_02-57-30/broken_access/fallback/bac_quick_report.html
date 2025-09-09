@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BAC Report - https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2, h3 { color: #333; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f2f2f2; }
+    .vulnerable { color: red; font-weight: bold; }
+    .not-vulnerable { color: green; }
+    .skipped { color: orange; }
+    .error { color: gray; }
+    .summary { background: #eef; padding: 10px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Broken Access Control Report</h1>
+  <h2>Site: https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net</h2>
+  <h3>Date: 2025-09-09_02-57-58</h3>
+
+  
+  <p><strong>Note:</strong> No dynamic links discovered; results based on fallback dictionary & quick probes. Consider enabling JavaScript rendering or providing authentication to improve coverage.</p>
+  
+  <hr>
+
+  
+  <div class="summary">
+    <h3>Summary</h3>
+    <p>Total Tests: 2</p>
+    <p>Total Findings: 15</p>
+    <p><span class="vulnerable">Vulnerable: 0</span></p>
+  </div>
+  
+
+  
+    <h3>Force Browsing (Quick)</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/admin</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/admin/login</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/admin/panel</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/dashboard</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/config</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/debug</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/manage</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/management</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/control</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/settings</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/user/admin</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/users/admin</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Directory Traversal (Quick)</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/../../etc/passwd</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/..%2f..%2fetc/passwd</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>https://0ad400c1040145c880d871fd00f300c5.web-security-academy.net/..%2F..%2Fwindows/win.ini</td>
+            <td class="
+              error">
+              Info
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+      </table>
+    
+  
+</body>
+</html>

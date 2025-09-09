@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BAC Report - {{data.site}}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2, h3 { color: #333; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f2f2f2; }
+    .vulnerable { color: red; font-weight: bold; }
+    .not-vulnerable { color: green; }
+    .skipped { color: orange; }
+    .error { color: gray; }
+    .summary { background: #eef; padding: 10px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Broken Access Control Report</h1>
+  <h2>Site: {{data.site}}</h2>
+  <h3>Date: {{data.timestamp}}</h3>
+
+  {% if data.crawl_note is defined %}
+  <p><strong>Note:</strong> {{data.crawl_note}}</p>
+  {% endif %}
+  <hr>
+
+  {% if data.summary is defined %}
+  <div class="summary">
+    <h3>Summary</h3>
+    <p>Total Tests: {{data.summary.total_tests}}</p>
+    <p>Total Findings: {{data.summary.total_findings}}</p>
+    <p><span class="vulnerable">Vulnerable: {{data.summary.vulnerable}}</span></p>
+  </div>
+  {% endif %}
+
+  {% for test in data.tests %}
+    <h3>{{test.type}}</h3>
+    {% if test.results %}
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        {% for r in test.results %}
+          <tr>
+            <td>{{r.url if r.url is defined else "-"}}</td>
+            <td class="
+              {% if r.status == 'Vulnerable' %}vulnerable
+              {% elif r.status == 'Not Vulnerable' %}not-vulnerable
+              {% elif r.status == 'Skipped' %}skipped
+              {% else %}error{% endif %}">
+              {{r.status}}
+            </td>
+            <td>{{r.risk if r.risk is defined else "-"}}</td>
+            <td>{{r.details if r.details is defined else "-"}}</td>
+            <td>{{r.mitigation if r.mitigation is defined else "-"}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No results for this test.</p>
+    {% endif %}
+  {% endfor %}
+</body>
+</html>

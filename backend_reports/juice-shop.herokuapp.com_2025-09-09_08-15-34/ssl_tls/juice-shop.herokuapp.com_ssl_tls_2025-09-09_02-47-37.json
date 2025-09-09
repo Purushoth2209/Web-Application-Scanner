@@ -1,0 +1,24 @@
+{
+  "host": "juice-shop.herokuapp.com",
+  "port": 443,
+  "timestamp": "2025-09-09_02-47-37",
+  "vulnerabilities": [
+    {
+      "issue": "Hostname Mismatch",
+      "status": "Vulnerable",
+      "risk": "High",
+      "evidence": "Host juice-shop.herokuapp.com not in SAN/CN",
+      "mitigation": "Serve a certificate whose SAN/CN matches the requested hostname."
+    }
+  ],
+  "protocol_support": {
+    "TLSv1.0": false,
+    "TLSv1.1": false,
+    "TLSv1.2": true,
+    "TLSv1.3": true
+  },
+  "certificate": {
+    "host_match": false
+  },
+  "summary_text": "Findings: 1 (High risk: 1)"
+}

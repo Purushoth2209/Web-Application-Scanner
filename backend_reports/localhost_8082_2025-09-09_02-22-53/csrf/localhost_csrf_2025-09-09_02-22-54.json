@@ -1,0 +1,16 @@
+{
+  "generated": "2025-09-09 02:22:54",
+  "base_url": "http://localhost:8082",
+  "results": [
+    {
+      "action": "http://localhost:8082/login.php",
+      "method": "post",
+      "vector": "form_post",
+      "missing_csrf": true,
+      "status": 200,
+      "exploited": false,
+      "note": "Missing CSRF token"
+    }
+  ],
+  "exploited": []
+}

@@ -1,0 +1,110 @@
+{
+  "site": "https://juice-shop.herokuapp.com",
+  "timestamp": "2025-09-09_01-33-55",
+  "crawled_links": 0,
+  "links_discovered": [],
+  "tests": [
+    {
+      "type": "Force Browsing (Quick)",
+      "results": [
+        {
+          "path": "/admin",
+          "url": "https://juice-shop.herokuapp.com/admin",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/admin/login",
+          "url": "https://juice-shop.herokuapp.com/admin/login",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/admin/panel",
+          "url": "https://juice-shop.herokuapp.com/admin/panel",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/dashboard",
+          "url": "https://juice-shop.herokuapp.com/dashboard",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/config",
+          "url": "https://juice-shop.herokuapp.com/config",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/debug",
+          "url": "https://juice-shop.herokuapp.com/debug",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/manage",
+          "url": "https://juice-shop.herokuapp.com/manage",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/management",
+          "url": "https://juice-shop.herokuapp.com/management",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/control",
+          "url": "https://juice-shop.herokuapp.com/control",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/settings",
+          "url": "https://juice-shop.herokuapp.com/settings",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/user/admin",
+          "url": "https://juice-shop.herokuapp.com/user/admin",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "path": "/users/admin",
+          "url": "https://juice-shop.herokuapp.com/users/admin",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        }
+      ]
+    },
+    {
+      "type": "Directory Traversal (Quick)",
+      "results": [
+        {
+          "payload": "/../../etc/passwd",
+          "url": "https://juice-shop.herokuapp.com/../../etc/passwd",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "payload": "/..%2f..%2fetc/passwd",
+          "url": "https://juice-shop.herokuapp.com/..%2f..%2fetc/passwd",
+          "error": "HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=3)",
+          "status": "Error"
+        },
+        {
+          "payload": "/..%2F..%2Fwindows/win.ini",
+          "url": "https://juice-shop.herokuapp.com/..%2F..%2Fwindows/win.ini",
+          "http_status": 200,
+          "status": "Info"
+        }
+      ]
+    }
+  ],
+  "fallback": true,
+  "note": "Main BAC scan exceeded time budget. Quick fallback results only."
+}

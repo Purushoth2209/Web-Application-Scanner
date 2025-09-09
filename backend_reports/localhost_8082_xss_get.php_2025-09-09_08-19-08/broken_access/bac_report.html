@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BAC Report - http://localhost:8082/xss_get.php</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2, h3 { color: #333; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f2f2f2; }
+    .vulnerable { color: red; font-weight: bold; }
+    .not-vulnerable { color: green; }
+    .skipped { color: orange; }
+    .error { color: gray; }
+    .summary { background: #eef; padding: 10px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Broken Access Control Report</h1>
+  <h2>Site: http://localhost:8082/xss_get.php</h2>
+  <h3>Date: 2025-09-09_08-19-08</h3>
+
+  
+  <p><strong>Note:</strong> Crawled 50 links successfully.<br><small>Discovered links:<br>http://localhost:8082<br>http://localhost:8082/home<br>http://localhost:8082/index<br>http://localhost:8082/main<br>http://localhost:8082/dashboard<br>http://localhost:8082/admin<br>http://localhost:8082/login<br>http://localhost:8082/logout<br>http://localhost:8082/profile<br>http://localhost:8082/account<br>http://localhost:8082/settings<br>http://localhost:8082/config<br>http://localhost:8082/users<br>http://localhost:8082/user<br>http://localhost:8082/api<br>http://localhost:8082/api/users<br>http://localhost:8082/api/admin<br>http://localhost:8082/api/v1<br>http://localhost:8082/management<br>http://localhost:8082/panel<br>http://localhost:8082/control<br>http://localhost:8082/search<br>http://localhost:8082/help<br>http://localhost:8082/about<br>http://localhost:8082/contact<br>http://localhost:8082/register<br>http://localhost:8082/signup<br>http://localhost:8082/signin<br>http://localhost:8082/forgot<br>http://localhost:8082/reset<br>http://localhost:8082/change-password<br>http://localhost:8082/edit-profile<br>http://localhost:8082/preferences<br>http://localhost:8082/notifications<br>http://localhost:8082/messages<br>http://localhost:8082/inbox<br>http://localhost:8082/reports<br>http://localhost:8082/analytics<br>http://localhost:8082/logs<br>http://localhost:8082/admin/users<br>http://localhost:8082/admin/settings<br>http://localhost:8082/admin/reports<br>http://localhost:8082/admin/logs<br>http://localhost:8082/user/profile<br>http://localhost:8082/user/settings<br>http://localhost:8082/user/dashboard<br>http://localhost:8082/user/account<br>http://localhost:8082/documents<br>http://localhost:8082/images<br>http://localhost:8082/passwords</small></p>
+  
+  <hr>
+
+  
+  <div class="summary">
+    <h3>Summary</h3>
+    <p>Total Tests: 10</p>
+    <p>Total Findings: 165</p>
+    <p><span class="vulnerable">Vulnerable: 4</span></p>
+  </div>
+  
+
+  
+    <h3>IDOR</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No IDOR parameters found
+            </td>
+            <td>Low</td>
+            <td>No query parameters discovered</td>
+            <td>Use UUIDs or indirect references, enforce access checks on every request.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Path IDOR</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No numeric path segments
+            </td>
+            <td>Low</td>
+            <td>-</td>
+            <td>General best practices</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Privilege Escalation</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              skipped
+              ">
+              Skipped
+            </td>
+            <td>Medium</td>
+            <td>No admin credentials provided</td>
+            <td>Enforce server-side RBAC, never rely on client-side checks.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Directory Traversal</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/../etc/passwd</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>High</td>
+            <td>No sensitive content detected (HTTP 404)</td>
+            <td>Sanitize inputs, deny '../', use path whitelisting.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/../../admin/config</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>High</td>
+            <td>No sensitive content detected (HTTP 404)</td>
+            <td>Sanitize inputs, deny '../', use path whitelisting.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Method Bypass</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>http://localhost:8082</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/login.php</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 200)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/home</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/index</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/main</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/dashboard</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/admin</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Endpoint accepted POST (possible bypass)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/login</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/logout</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/profile</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/account</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/settings</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/config</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/users</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/user</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/api</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/api/users</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/api/admin</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/api/v1</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/management</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/panel</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/control</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/search</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/help</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/about</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/contact</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/register</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/signup</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/signin</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/forgot</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/reset</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/change-password</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/edit-profile</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/preferences</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/notifications</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/messages</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/inbox</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/reports</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/analytics</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/logs</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/admin/users</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/admin/settings</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/admin/reports</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/admin/logs</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/user/profile</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/user/settings</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/user/dashboard</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/user/account</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Rejected (HTTP 404)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/documents</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Endpoint accepted POST (possible bypass)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/images</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Endpoint accepted POST (possible bypass)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/passwords</td>
+            <td class="
+              vulnerable
+              ">
+              Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>Endpoint accepted POST (possible bypass)</td>
+            <td>Restrict allowed HTTP methods, validate them server-side.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Force Browsing</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/admin</td>
+            <td class="
+              error">
+              Error
+            </td>
+            <td>Medium</td>
+            <td>Request failed</td>
+            <td>Enforce authentication/authorization on all sensitive endpoints.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/config</td>
+            <td class="
+              error">
+              Error
+            </td>
+            <td>Medium</td>
+            <td>Request failed</td>
+            <td>Enforce authentication/authorization on all sensitive endpoints.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/debug</td>
+            <td class="
+              error">
+              Error
+            </td>
+            <td>Medium</td>
+            <td>Request failed</td>
+            <td>Enforce authentication/authorization on all sensitive endpoints.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/private</td>
+            <td class="
+              error">
+              Error
+            </td>
+            <td>Medium</td>
+            <td>Request failed</td>
+            <td>Enforce authentication/authorization on all sensitive endpoints.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Header/Token Tampering</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/admin</td>
+            <td class="
+              error">
+              Error
+            </td>
+            <td>High</td>
+            <td>Request failed</td>
+            <td>Validate tokens strictly server-side; never trust missing or forged headers.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/config</td>
+            <td class="
+              error">
+              Error
+            </td>
+            <td>High</td>
+            <td>Request failed</td>
+            <td>Validate tokens strictly server-side; never trust missing or forged headers.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/private</td>
+            <td class="
+              error">
+              Error
+            </td>
+            <td>High</td>
+            <td>Request failed</td>
+            <td>Validate tokens strictly server-side; never trust missing or forged headers.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Cookie Manipulation</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/admin</td>
+            <td class="
+              error">
+              Error
+            </td>
+            <td>High</td>
+            <td>Request failed</td>
+            <td>Do not store roles in cookies; enforce all roles and permissions server-side.</td>
+          </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php/config</td>
+            <td class="
+              error">
+              Error
+            </td>
+            <td>High</td>
+            <td>Request failed</td>
+            <td>Do not store roles in cookies; enforce all roles and permissions server-side.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>CORS Misconfiguration</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>http://localhost:8082/xss_get.php</td>
+            <td class="
+              not-vulnerable
+              ">
+              Not Vulnerable
+            </td>
+            <td>Medium</td>
+            <td>CORS restricted properly</td>
+            <td>Restrict CORS Access-Control-Allow-Origin to trusted domains only.</td>
+          </tr>
+        
+      </table>
+    
+  
+    <h3>Unauthenticated Access</h3>
+    
+      <table>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Risk</th>
+          <th>Details</th>
+          <th>Mitigation</th>
+        </tr>
+        
+          <tr>
+            <td>-</td>
+            <td class="
+              error">
+              No endpoints evaluated
+            </td>
+            <td>Low</td>
+            <td>No suitable URLs discovered or crawl empty</td>
+            <td>General best practices</td>
+          </tr>
+        
+      </table>
+    
+  
+</body>
+</html>

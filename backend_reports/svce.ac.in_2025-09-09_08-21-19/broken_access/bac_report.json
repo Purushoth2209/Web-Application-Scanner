@@ -1,0 +1,99 @@
+{
+  "site": "https://svce.ac.in",
+  "timestamp": "2025-09-09_08-21-19",
+  "crawled_links": 37,
+  "links_discovered": [
+    "https://svce.ac.in/placement/?page=office-of-training-placement",
+    "https://svce.ac.in/placement/?page=training",
+    "https://svce.ac.in/placement/?page=training&subMenu=placement",
+    "https://svce.ac.in/placement/?page=training&subMenu=higher-studies",
+    "https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer",
+    "https://svce.ac.in/placement/?page=training&subMenu=internship",
+    "https://svce.ac.in/placement/?page=major-recruiters",
+    "https://svce.ac.in/placement/?page=list-of-recruiters",
+    "https://svce.ac.in/placement/?page=packages-offered",
+    "https://svce.ac.in/placement/?page=placement-statistics",
+    "https://svce.ac.in/placement/?page=feedback",
+    "https://svce.ac.in/placement/?page=feedback&subMenu=recruiters",
+    "https://svce.ac.in/placement/?page=feedback&subMenu=students",
+    "https://svce.ac.in/placement/?page=feedback&subMenu=parents",
+    "https://svce.ac.in/placement/?page=gallery",
+    "https://svce.ac.in/placement/?page=preparation-for-placement",
+    "https://svce.ac.in/placement/?page=circulars",
+    "https://svce.ac.in/placement/?page=contact",
+    "https://svce.ac.in/#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=contact#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=circulars#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=preparation-for-placement#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=gallery#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=feedback&subMenu=parents#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=feedback&subMenu=students#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=feedback&subMenu=recruiters#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=feedback#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=placement-statistics#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=packages-offered#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=list-of-recruiters#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=major-recruiters#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=training&subMenu=internship#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=training&subMenu=train-the-trainer#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=training&subMenu=higher-studies#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=training&subMenu=placement#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=training#wpcf7-f4261-o1",
+    "https://svce.ac.in/placement/?page=office-of-training-placement#wpcf7-f4261-o1"
+  ],
+  "tests": [
+    {
+      "type": "IDOR",
+      "results": []
+    },
+    {
+      "type": "Path IDOR",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Privilege Escalation",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Directory Traversal",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Method Bypass",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Force Browsing",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Header/Token Tampering",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Cookie Manipulation",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "CORS Misconfiguration",
+      "results": [],
+      "skipped": true
+    },
+    {
+      "type": "Unauthenticated Access",
+      "results": [],
+      "skipped": true
+    }
+  ],
+  "crawl_errors": [],
+  "partial": true,
+  "time_elapsed": 22.74,
+  "time_budget": 8.0
+}
