@@ -14,11 +14,15 @@ type Status = 'safe' | 'warning' | 'vulnerable' | 'info' | 'scanning' | 'pending
 
 interface ScannerOutput {
   html?: string;
+  html_full?: string;
   pdf?: string;
+  pdf_full?: string;
   json?: string;
   html_exploited?: string;
   web_html?: string;
+  web_html_full?: string;
   web_pdf?: string;
+  web_pdf_full?: string;
   web_json?: string;
   web_html_exploited?: string;
   vulnerabilities_found?: number;
@@ -96,11 +100,15 @@ interface ScanResult {
   status: Status;
   error?: string;
   html?: string;
+  html_full?: string;
   pdf?: string;
+  pdf_full?: string;
   json?: string;
   html_exploited?: string;
   web_html?: string;
+  web_html_full?: string;
   web_pdf?: string;
+  web_pdf_full?: string;
   web_json?: string;
   web_html_exploited?: string;
   vulnerabilities_found?: number;
@@ -297,8 +305,8 @@ const EnhancedSecurityScanner = () => {
           details,
           icon: toIcon(key, status),
           links: {
-            html: out?.web_html ? `${apiBase}${out.web_html}` : undefined,
-            pdf: out?.web_pdf ? `${apiBase}${out.web_pdf}` : undefined,
+            html: out?.web_html_full ? `${apiBase}${out.web_html_full}` : (out?.web_html ? `${apiBase}${out.web_html}` : undefined),
+            pdf: out?.web_pdf_full ? `${apiBase}${out.web_pdf_full}` : (out?.web_pdf ? `${apiBase}${out.web_pdf}` : undefined),
             json: out?.web_json ? `${apiBase}${out.web_json}` : undefined,
             exploited: out?.web_html_exploited ? `${apiBase}${out.web_html_exploited}` : undefined,
           },
@@ -320,8 +328,8 @@ const EnhancedSecurityScanner = () => {
       });
 
       const combined = data.outputs?.combined;
-      if (combined?.web_html) {
-        setCombinedLink(`${apiBase}${combined.web_html}`);
+      if (combined?.web_html_full || combined?.web_html) {
+        setCombinedLink(`${apiBase}${combined.web_html_full || combined.web_html}`);
         addLog('success', 'Combined security report generated');
       }
 
@@ -559,14 +567,19 @@ const EnhancedSecurityScanner = () => {
                           View Combined Report
                         </a>
                       </Button>
-                      {results?.find(r=>r.key==='combined' && r.links?.pdf) && (
-                        <Button asChild variant="outline">
-                          <a href={results.find(r=>r.key==='combined')!.links!.pdf} target="_blank" rel="noreferrer">
-                            <FileDown className="h-4 w-4 mr-2" />
-                            Download PDF
-                          </a>
-                        </Button>
-                      )}
+                      {(() => {
+                        const combinedItem = results.find(r => r.key === 'combined');
+                        const pdfLink = combinedItem?.links?.pdf;
+                        return pdfLink ? (
+                          <Button asChild variant="outline">
+                            <a href={pdfLink} target="_blank" rel="noreferrer">
+                              <FileDown className="h-4 w-4 mr-2" />
+                              Download PDF
+                            </a>
+                          </Button>
+                        ) : null;
+                      })()}
+                      
                     </div>
                   )}
                 </div>

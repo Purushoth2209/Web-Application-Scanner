@@ -11,11 +11,15 @@ type Status = 'safe' | 'warning' | 'vulnerable' | 'info';
 
 interface ScannerOutput {
   html?: string;
+  html_full?: string;
   pdf?: string;
+  pdf_full?: string;
   json?: string;
   html_exploited?: string;
   web_html?: string;
+  web_html_full?: string;
   web_pdf?: string;
+  web_pdf_full?: string;
   web_json?: string;
   web_html_exploited?: string;
 }
@@ -125,7 +129,25 @@ const SecurityScanner = () => {
       });
 
       const combined = data.outputs?.combined;
-      if (combined?.web_html) setCombinedLink(`${apiBase}${combined.web_html}`);
+      if (combined?.web_html_full || combined?.web_html)
+        setCombinedLink(`${apiBase}${(combined.web_html_full||combined.web_html) as string}`);
+      const combinedPdf = combined?.web_pdf_full || combined?.web_pdf;
+      const combinedPdfUrl = combinedPdf ? `${apiBase}${combinedPdf}` : undefined;
+
+      // Inject a synthetic combined row at the top with links if desired
+      if (combinedPdfUrl || (combined?.web_html_full || combined?.web_html)) {
+        ui.unshift({
+          key: 'combined',
+          name: 'Combined Report',
+          status: 'info',
+          details: 'Complete combined report generated',
+          icon: <FileText className="h-5 w-5" />,
+          links: {
+            html: (combined?.web_html_full || combined?.web_html) ? `${apiBase}${(combined.web_html_full||combined.web_html) as string}` : undefined,
+            pdf: combinedPdfUrl,
+          },
+        });
+      }
 
       setResults(ui);
     } catch (e: unknown) {

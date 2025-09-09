@@ -1,0 +1,16 @@
+{
+  "generated": "2025-09-09 11:29:52",
+  "base_url": "https://juice-shop.herokuapp.com",
+  "results": [
+    {
+      "action": "https://juice-shop.herokuapp.com",
+      "method": "get",
+      "vector": "page",
+      "status": 0,
+      "exploited": false,
+      "note": "Enumeration error: HTTPSConnectionPool(host='juice-shop.herokuapp.com', port=443): Read timed out. (read timeout=8)",
+      "cvss": 0.0
+    }
+  ],
+  "exploited": []
+}

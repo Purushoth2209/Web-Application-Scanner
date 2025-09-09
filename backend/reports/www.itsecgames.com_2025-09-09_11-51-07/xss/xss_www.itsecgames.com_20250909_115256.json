@@ -1,0 +1,13 @@
+{
+  "target_url": "http://www.itsecgames.com",
+  "visited_urls": [
+    "http://www.itsecgames.com",
+    "http://www.itsecgames.com/"
+  ],
+  "summary": {
+    "Total Pages Visited": 2,
+    "Total Potential Vulnerabilities Found": 0,
+    "Scan Duration": "23.65s"
+  },
+  "vulnerabilities": []
+}

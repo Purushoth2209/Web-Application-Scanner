@@ -14,7 +14,7 @@ COMMON_ORIGINS = [
 SENSITIVE_METHODS = {"PUT", "DELETE", "PATCH"}
 SENSITIVE_HEADERS = {"authorization", "x-api-key"}
 
-HTML_TEMPLATE = None  # Legacy placeholder (unused)
+HTML_TEMPLATE = None  
 
 MITIGATIONS = {
     "wildcard_credentials": "Never use Access-Control-Allow-Origin: * with credentials; specify explicit trusted origins.",

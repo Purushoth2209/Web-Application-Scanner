@@ -67,3 +67,14 @@
 {"site": "https://juice-shop.herokuapp.com/#", "timestamp": "2025-09-09_00-58-07", "findings": 15, "vulnerabilities": 9}
 {"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-09_01-01-08", "findings": 0, "vulnerabilities": 0}
 {"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-09_01-01-25", "findings": 15, "vulnerabilities": 9}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-09_11-02-43", "findings": 0, "vulnerabilities": 0}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-09_11-03-43", "findings": 15, "vulnerabilities": 9}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-09_11-22-58", "findings": 0, "vulnerabilities": 0}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-09_11-26-33", "findings": 0, "vulnerabilities": 0}
+{"site": "https://juice-shop.herokuapp.com", "timestamp": "2025-09-09_11-28-28", "findings": 15, "vulnerabilities": 0}
+{"site": "http://www.itsecgames.com", "timestamp": "2025-09-09_11-34-49", "findings": 0, "vulnerabilities": 0}
+{"site": "http://www.itsecgames.com", "timestamp": "2025-09-09_11-35-12", "findings": 15, "vulnerabilities": 0}
+{"site": "http://www.itsecgames.com", "timestamp": "2025-09-09_11-51-07", "findings": 0, "vulnerabilities": 0}
+{"site": "http://www.itsecgames.com", "timestamp": "2025-09-09_11-51-33", "findings": 15, "vulnerabilities": 0}
+{"site": "http://www.itsecgames.com", "timestamp": "2025-09-09_12-02-37", "findings": 0, "vulnerabilities": 0}
+{"site": "http://www.itsecgames.com", "timestamp": "2025-09-09_12-03-11", "findings": 15, "vulnerabilities": 0}

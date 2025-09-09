@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "base_url": "http://www.itsecgames.com",
+    "generated": "2025-09-09_11-35-31",
+    "targets": 1
+  },
+  "results": [
+    {
+      "type": "error_based",
+      "endpoint": "http://www.itsecgames.com",
+      "param": "id",
+      "url": "http://www.itsecgames.com?id='",
+      "payload": "'",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": "",
+      "cvss": 0.0
+    },
+    {
+      "type": "error_based",
+      "endpoint": "http://www.itsecgames.com",
+      "param": "id",
+      "url": "http://www.itsecgames.com?id=\"",
+      "payload": "\"",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": "",
+      "cvss": 0.0
+    },
+    {
+      "type": "error_based",
+      "endpoint": "http://www.itsecgames.com",
+      "param": "id",
+      "url": "http://www.itsecgames.com?id=') OR ('1'='1",
+      "payload": "') OR ('1'='1",
+      "status": 200,
+      "vulnerable": false,
+      "evidence": "",
+      "cvss": 0.0
+    }
+  ]
+}

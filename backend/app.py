@@ -34,6 +34,7 @@ from sqli.module import run as run_sqli
 from xss.module import run as run_xss
 from cors.module import run as run_cors
 from reports.enhanced_combine import combine_reports
+from reports.full_combine import generate_full_combined
 from reports.pdf import html_to_pdf
 from reports.ai_enhance import generate_ai_summary, generate_detailed_recommendations
 
@@ -386,6 +387,7 @@ def scan(req: ScanRequest):
         logger.warning("SSL/TLS module not available, skipping SSL/TLS assessment")
     elif not url.lower().startswith("https://"):
         logger.info("Non-HTTPS target detected; skipping SSL/TLS assessment")
+        results["errors"]["ssl_tls"] = "Target is not HTTPS; SSL/TLS analysis skipped"
     else:
         ssl_timeout = int(os.getenv("SSL_SCAN_TIMEOUT", "30"))
         res = run_with_timeout(lambda: ssl_tls_module.run(url, out_dir / "ssl_tls"),
@@ -400,7 +402,7 @@ def scan(req: ScanRequest):
                 with open(json_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                 vulns = data.get("vulnerabilities", [])
-                results["outputs"]["ssl_tls"] = {
+                ssl_output = {
                     "html": res.get("html"),
                     "json": json_path,
                     "vulnerabilities_found": len(vulns),
@@ -408,6 +410,9 @@ def scan(req: ScanRequest):
                     "certificate": data.get("certificate"),
                     "summary_text": data.get("summary_text"),
                 }
+                # Enhance with CVSS and stats for frontend
+                ssl_output = enhance_output_with_stats(ssl_output, "ssl_tls")
+                results["outputs"]["ssl_tls"] = ssl_output
             except Exception as e:
                 results["errors"]["ssl_tls"] = f"Failed to process SSL/TLS scan results: {e}"
 
@@ -419,6 +424,17 @@ def scan(req: ScanRequest):
     except Exception as e:
         logger.error(f"Failed to generate combined report: {e}")
         results["errors"]["combined"] = f"Report generation failed: {str(e)}"
+
+    # Generate full combined (single HTML with all inline) + PDF
+    try:
+        logger.info("Generating full combined single-file report")
+        full = generate_full_combined(out_dir, results)
+        # Attach to existing combined output to keep API stable
+        if "combined" not in results["outputs"]:
+            results["outputs"]["combined"] = {}
+        results["outputs"]["combined"].update(full)
+    except Exception as e:
+        logger.warning(f"Full combined report failed: {e}")
 
     # Generate PDFs for HTML reports
     logger.info("Converting reports to PDF format")
@@ -432,6 +448,7 @@ def scan(req: ScanRequest):
                     logger.info(f"Generated PDF report for {name}")
             except Exception as e:
                 logger.warning(f"Failed to generate PDF for {name}: {e}")
+        # Also ensure full combined gets a web path exposed below
 
     # Add web-accessible URLs
     def to_web(p: str) -> str | None:
@@ -443,7 +460,7 @@ def scan(req: ScanRequest):
 
     for name, out in list(results["outputs"].items()):
         if out and isinstance(out, dict):
-            for key in ["html", "pdf", "json", "html_exploited"]:
+            for key in ["html", "pdf", "json", "html_exploited", "html_full", "pdf_full"]:
                 if out.get(key):
                     web = to_web(out[key])
                     if web:

@@ -32,7 +32,11 @@ def _supports_protocol(host: str, port: int, protocol: ssl._SSLMethod, timeout_s
 
 
 def _fetch_cert(host: str, port: int, timeout_sec: float):
-    ctx = ssl.create_default_context()
+    """Fetch peer certificate without verification to avoid blocking on self-signed/expired certs."""
+    # Use a permissive context for retrieval only
+    ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
     with socket.create_connection((host, port), timeout=timeout_sec) as sock:
         with ctx.wrap_socket(sock, server_hostname=host) as ssock:
             cert = ssock.getpeercert()
@@ -189,14 +193,34 @@ def run(url: str, out_dir: Path):
     # Use unified renderer instead of legacy template
     html_path = json_path.with_suffix('.html')
     cert_obj = type('C', (), cert_info or {})
-    render_report(
-        category="SSL/TLS",
-        target=f"{host}:{port}",
-        findings=vulnerabilities,
-        out_html=html_path,
-        summary={"total_findings": len(vulnerabilities), "vulnerabilities": sum(1 for v in vulnerabilities if v['status']=='Vulnerable')},
-        extras={"protocol_support": protocol_support, "certificate": cert_obj},
-        timestamp=ts.replace('_', ' '),
-    )
+    try:
+        render_report(
+            category="SSL/TLS",
+            target=f"{host}:{port}",
+            findings=vulnerabilities,
+            out_html=html_path,
+            summary={"total_findings": len(vulnerabilities), "vulnerabilities": sum(1 for v in vulnerabilities if v['status']=='Vulnerable')},
+            extras={"protocol_support": protocol_support, "certificate": cert_obj},
+            timestamp=ts.replace('_', ' '),
+        )
+    except Exception as e:
+        # Fallback minimal HTML to ensure a report is produced
+        try:
+            findings_html = "".join(
+                f"<li><strong>{v['issue']}</strong> - {v.get('status')} ({v.get('risk')}): {v.get('evidence')}</li>"
+                for v in vulnerabilities
+            )
+            minimal = (
+                f"<html><head><meta charset='utf-8'><title>SSL/TLS Report</title></head><body>"
+                f"<h1>SSL/TLS Report - {host}:{port}</h1>"
+                f"<p>Generated: {ts}</p>"
+                f"<h2>Summary</h2>"
+                f"<p>{summary_text}</p>"
+                f"<h2>Findings</h2><ul>{findings_html}</ul>"
+                f"</body></html>"
+            )
+            html_path.write_text(minimal, encoding="utf-8")
+        except Exception:
+            pass
 
     return {'json': str(json_path), 'html': str(html_path)}

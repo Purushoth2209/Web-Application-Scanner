@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Complete Security Report</title>
+    <style>
+    body { font-family: Segoe UI, Tahoma, Arial, sans-serif; color:#333; }
+    header { padding: 12px 0 18px; border-bottom: 2px solid #ddd; margin-bottom: 18px; }
+    h1 { margin: 0 0 6px; }
+    .meta { color:#666; font-size: 12px; }
+    nav.toc { background:#f7f7f9; border:1px solid #eee; padding:10px; margin: 10px 0 20px; }
+    nav.toc a { text-decoration:none; color:#0366d6; }
+    section.scanner-section { page-break-before: always; margin-top: 20px; }
+    section.scanner-section h2 { border-left: 4px solid #667eea; padding-left: 8px; }
+    .inlined-report { margin-top: 8px; }
+    .exec-summary { background:#f0f7ff; border:1px solid #d8e8ff; padding:12px; margin:12px 0; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Complete Security Report</h1>
+      <div class="meta">
+        Target: http://www.itsecgames.com • Generated: 2025-09-09 06:34:00 UTC
+      </div>
+      <div class="exec-summary"><h3>Executive Summary</h3><p>Automated scan completed. Review module reports for details.</p>
+<ul>
+<li>Prioritize remediation of High and Medium risk findings.</li>
+<li>Implement input validation, output encoding, and least privilege.</li>
+</ul></div>
+    </header>
+    <nav class="toc">
+      <strong>Contents</strong>
+      <ol>
+        <li><a href="#sect-broken_access">Broken Access</a></li><li><a href="#sect-csrf">Csrf</a></li><li><a href="#sect-sqli">Sqli</a></li><li><a href="#sect-xss">Xss</a></li><li><a href="#sect-cors">Cors</a></li>
+      </ol>
+    </nav>
+    
+                <section id="sect-broken_access" class="scanner-section">
+                  <h2>Broken Access</h2>
+                  <div class="inlined-report">
+                    <body>
+<h1>Broken Access Control Report</h1>
+<div class="meta">
+<strong>Target:</strong> http://www.itsecgames.com<br/>
+<strong>Generated:</strong> 2025-09-09 06:33:17 UTC<br/>
+<strong>Summary:</strong>
+      Total Findings: 15 | 
+      Vulnerabilities: 0
+  </div>
+<div class="section">
+<h2>Findings</h2>
+<table>
+<tr>
+<th>#</th>
+<th>Issue / Type</th>
+<th>Location</th>
+<th class="nowrap">Param</th>
+<th>Payload / Vector</th>
+<th>Status</th>
+<th>Risk</th>
+<th>Evidence / Details</th>
+<th>Mitigation</th>
+</tr>
+<tr>
+<td class="small">1</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/admin</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">2</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/admin/login</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">3</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/admin/panel</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">4</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/dashboard</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">5</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/config</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">6</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/debug</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">7</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/manage</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">8</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/management</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">9</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/control</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">10</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/settings</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">11</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/user/admin</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">12</td>
+<td>Force Browsing (Quick)</td>
+<td>http://www.itsecgames.com/users/admin</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">13</td>
+<td>Directory Traversal (Quick)</td>
+<td>http://www.itsecgames.com/../../etc/passwd</td>
+<td>-</td>
+<td>/../../etc/passwd</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">14</td>
+<td>Directory Traversal (Quick)</td>
+<td>http://www.itsecgames.com/..%2f..%2fetc/passwd</td>
+<td>-</td>
+<td>/..%2f..%2fetc/passwd</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+<tr>
+<td class="small">15</td>
+<td>Directory Traversal (Quick)</td>
+<td>http://www.itsecgames.com/..%2F..%2Fwindows/win.ini</td>
+<td>-</td>
+<td>/..%2F..%2Fwindows/win.ini</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>General best practices</td>
+</tr>
+</table>
+</div>
+</body>
+                  </div>
+                </section>
+                
+                <section id="sect-csrf" class="scanner-section">
+                  <h2>Csrf</h2>
+                  <div class="inlined-report">
+                    <body>
+<h1>CSRF Report</h1>
+<div class="meta">
+<strong>Target:</strong> http://www.itsecgames.com<br/>
+<strong>Generated:</strong> 2025-09-09 06:33:18 UTC<br/>
+<strong>Summary:</strong>
+      Total Findings: 0 | 
+      Vulnerabilities: 0
+  </div>
+<div class="section">
+<h2>Findings</h2>
+<p>No findings recorded.</p>
+</div>
+</body>
+                  </div>
+                </section>
+                
+                <section id="sect-sqli" class="scanner-section">
+                  <h2>Sqli</h2>
+                  <div class="inlined-report">
+                    <body>
+<h1>SQL Injection Report</h1>
+<div class="meta">
+<strong>Target:</strong> http://www.itsecgames.com<br/>
+<strong>Generated:</strong> 2025-09-09 06:33:43 UTC<br/>
+<strong>Summary:</strong>
+      Total Findings: 6 | 
+      Vulnerabilities: 0
+  </div>
+<div class="section">
+<h2>Findings</h2>
+<table>
+<tr>
+<th>#</th>
+<th>Issue / Type</th>
+<th>Location</th>
+<th class="nowrap">Param</th>
+<th>Payload / Vector</th>
+<th>Status</th>
+<th>Risk</th>
+<th>Evidence / Details</th>
+<th>Mitigation</th>
+</tr>
+<tr>
+<td class="small">1</td>
+<td>error_based</td>
+<td>http://www.itsecgames.com?id='</td>
+<td>id</td>
+<td>'</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td class="small">2</td>
+<td>error_based</td>
+<td>http://www.itsecgames.com?id="</td>
+<td>id</td>
+<td>"</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td class="small">3</td>
+<td>error_based</td>
+<td>http://www.itsecgames.com?id=' OR 1=1--</td>
+<td>id</td>
+<td>' OR 1=1--</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td class="small">4</td>
+<td>error_based</td>
+<td>http://www.itsecgames.com?id=" OR "1"="1</td>
+<td>id</td>
+<td>" OR "1"="1</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td class="small">5</td>
+<td>error_based</td>
+<td>http://www.itsecgames.com?id=' UNION SELECT null--</td>
+<td>id</td>
+<td>' UNION SELECT null--</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td class="small">6</td>
+<td>error_based</td>
+<td>http://www.itsecgames.com?id=') OR ('1'='1</td>
+<td>id</td>
+<td>') OR ('1'='1</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+</body>
+                  </div>
+                </section>
+                
+                <section id="sect-xss" class="scanner-section">
+                  <h2>Xss</h2>
+                  <div class="inlined-report">
+                    <body>
+<h1>XSS Report</h1>
+<div class="meta">
+<strong>Target:</strong> http://www.itsecgames.com<br/>
+<strong>Generated:</strong> 2025-09-09 06:33:56 UTC<br/>
+<strong>Summary:</strong>
+      Total Findings: 0 | 
+      Vulnerabilities: 0
+  </div>
+<div class="section">
+<h2>Findings</h2>
+<p>No findings recorded.</p>
+</div>
+<div class="section">
+<h2>Visited URLs</h2>
+<ul><li><code>http://www.itsecgames.com</code></li><li><code>http://www.itsecgames.com/</code></li></ul>
+</div>
+</body>
+                  </div>
+                </section>
+                
+                <section id="sect-cors" class="scanner-section">
+                  <h2>Cors</h2>
+                  <div class="inlined-report">
+                    <body>
+<h1>CORS Report</h1>
+<div class="meta">
+<strong>Target:</strong> http://www.itsecgames.com<br/>
+<strong>Generated:</strong> 2025-09-09 06:34:00 UTC<br/>
+<strong>Summary:</strong>
+      Total Findings: 1 | 
+      Vulnerabilities: 0
+  </div>
+<div class="section">
+<h2>Findings</h2>
+<table>
+<tr>
+<th>#</th>
+<th>Issue / Type</th>
+<th>Location</th>
+<th class="nowrap">Param</th>
+<th>Payload / Vector</th>
+<th>Status</th>
+<th>Risk</th>
+<th>Evidence / Details</th>
+<th>Mitigation</th>
+</tr>
+<tr>
+<td class="small">1</td>
+<td>No obvious CORS misconfiguration</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td class="sev-Low">Low</td>
+<td>Did not detect permissive or reflective patterns</td>
+<td>Maintain explicit origin allowlist and avoid credentialed wildcards.</td>
+</tr>
+</table>
+</div>
+</body>
+                  </div>
+                </section>
+                
+  </body>
+</html>
+    
