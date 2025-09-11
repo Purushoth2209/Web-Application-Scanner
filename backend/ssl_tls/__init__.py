@@ -1,1 +1,0 @@
-# Package marker for SSL/TLS scanner

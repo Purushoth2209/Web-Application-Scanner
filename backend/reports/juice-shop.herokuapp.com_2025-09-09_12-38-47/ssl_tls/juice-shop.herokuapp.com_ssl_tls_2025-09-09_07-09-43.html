@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SSL/TLS Report - juice-shop.herokuapp.com:443</title>
+  <style>
+    :root { --c-bg:#ffffff; --c-border:#d0d7de; --c-text:#24292f; --c-accent:#0969da; --c-high:#b30000; --c-med:#b36b00; --c-low:#0a6e0a; }
+    body { font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; margin:24px; color:var(--c-text); line-height:1.45; }
+    h1 { margin-top:0; }
+    .meta { background:#f6f8fa; padding:12px 16px; border:1px solid var(--c-border); border-radius:6px; }
+    table { border-collapse: collapse; width:100%; margin-top:16px; font-size:14px; }
+    th, td { border:1px solid var(--c-border); padding:6px 8px; text-align:left; vertical-align:top; }
+    th { background:#f2f4f7; font-weight:600; }
+    .sev-High { color:var(--c-high); font-weight:600; }
+    .sev-Medium { color:var(--c-med); font-weight:600; }
+    .sev-Low, .sev-Info { color:var(--c-low); font-weight:600; }
+    .badge { display:inline-block; padding:2px 6px; border-radius:12px; font-size:12px; line-height:1; background:#eaeef2; }
+    .badge-vuln { background:#ffe2e0; color:var(--c-high); }
+    .badge-ok { background:#e1f6e1; color:var(--c-low); }
+    .small { font-size:12px; color:#57606a; }
+    .section { margin-top:32px; }
+    code { background:#f3f4f6; padding:2px 4px; border-radius:4px; font-size:12px; }
+    .nowrap { white-space:nowrap; }
+  </style>
+</head>
+<body>
+  <h1>SSL/TLS Report</h1>
+  <div class="meta">
+    <strong>Target:</strong> juice-shop.herokuapp.com:443<br />
+    <strong>Generated:</strong> 2025-09-09 07-09-43<br />
+    <strong>Summary:</strong>
+      Total Findings: 2 | 
+      Vulnerabilities: 2
+  </div>
+
+  <div class="section">
+    <h2>Findings</h2>
+    
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Issue / Type</th>
+        <th>Location</th>
+        <th class="nowrap">Param</th>
+        <th>Payload / Vector</th>
+        <th>Status</th>
+        <th>Risk</th>
+        <th>Evidence / Details</th>
+        <th>Mitigation</th>
+      </tr>
+      
+      <tr>
+        <td class="small">1</td>
+        <td>Self-Signed Certificate</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><span class="badge badge-vuln">Vulnerable</span></td>
+        <td class="sev-High">High</td>
+        <td>Issuer matches subject</td>
+        <td>Use a publicly trusted CA-signed certificate (Let's Encrypt or commercial CA).</td>
+      </tr>
+      
+      <tr>
+        <td class="small">2</td>
+        <td>Hostname Mismatch</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><span class="badge badge-vuln">Vulnerable</span></td>
+        <td class="sev-High">High</td>
+        <td>Host juice-shop.herokuapp.com not in SAN/CN</td>
+        <td>Serve a certificate whose SAN/CN matches the requested hostname.</td>
+      </tr>
+      
+    </table>
+    
+  </div>
+
+  
+
+  
+  <div class="section">
+    <h2>TLS Protocol Support</h2>
+    <table>
+      <tr><th>Protocol</th><th>Supported</th></tr>
+      <tr><td>TLSv1.0</td><td>❌</td></tr><tr><td>TLSv1.1</td><td>❌</td></tr><tr><td>TLSv1.2</td><td>✅</td></tr><tr><td>TLSv1.3</td><td>✅</td></tr>
+    </table>
+  </div>
+  
+
+  
+  <div class="section">
+    <h2>Certificate</h2>
+    <table>
+      <tr><th>Subject / CN</th><td>{}</td></tr>
+      <tr><th>Issuer</th><td>{}</td></tr>
+      <tr><th>Valid From</th><td>None</td></tr>
+      <tr><th>Valid To</th><td>None</td></tr>
+      <tr><th>Days Until Expiry</th><td>None</td></tr>
+      <tr><th>Wildcard</th><td>No</td></tr>
+      <tr><th>Self-Signed</th><td>Yes</td></tr>
+    </table>
+  </div>
+  
+
+</body>
+</html>

@@ -16,11 +16,8 @@ MITIGATIONS = {
     "hostname_mismatch": "Serve a certificate whose SAN/CN matches the requested hostname.",
 }
 
-# Helper to attempt protocol handshake
-
 def _supports_protocol(host: str, port: int, protocol: ssl._SSLMethod, timeout_sec: float) -> bool:
     ctx = ssl.SSLContext(protocol)
-    # We don't verify here: only probing capability
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
     try:
@@ -33,7 +30,6 @@ def _supports_protocol(host: str, port: int, protocol: ssl._SSLMethod, timeout_s
 
 def _fetch_cert(host: str, port: int, timeout_sec: float):
     """Fetch peer certificate without verification to avoid blocking on self-signed/expired certs."""
-    # Use a permissive context for retrieval only
     ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
@@ -78,7 +74,6 @@ def _host_matches(cert_info: dict, host: str) -> bool:
     for name in sans:
         name = name.lower()
         if name.startswith('*.'):
-            # wildcard covers one label only
             if h.split('.', 1)[-1] == name[2:]:
                 return True
         elif name == h:
@@ -121,7 +116,6 @@ def run(url: str, out_dir: Path):
             'mitigation': 'Ensure port 443 reachable and proper TLS handshake possible.'
         })
 
-    # Certificate based findings
     if cert_info:
         days = cert_info.get('days_until_expiry')
         if days is not None:
@@ -151,13 +145,11 @@ def run(url: str, out_dir: Path):
                 'evidence': f"Host {host} not in SAN/CN", 'mitigation': MITIGATIONS['hostname_mismatch']
             })
 
-    # Protocol support probing (fast: attempt limited set)
-    # Some Python builds may disable old protocols; guard with getattr
     proto_map = [
         ('TLSv1.0', 'PROTOCOL_TLSv1'),
         ('TLSv1.1', 'PROTOCOL_TLSv1_1'),
         ('TLSv1.2', 'PROTOCOL_TLSv1_2'),
-        ('TLSv1.3', 'PROTOCOL_TLS_CLIENT'),  # rely on modern negotiation
+        ('TLSv1.3', 'PROTOCOL_TLS_CLIENT'),  
     ]
     for label, attr in proto_map:
         supports = False
@@ -190,7 +182,6 @@ def run(url: str, out_dir: Path):
             'summary_text': summary_text,
         }, f, indent=2)
 
-    # Use unified renderer instead of legacy template
     html_path = json_path.with_suffix('.html')
     cert_obj = type('C', (), cert_info or {})
     try:
@@ -204,7 +195,6 @@ def run(url: str, out_dir: Path):
             timestamp=ts.replace('_', ' '),
         )
     except Exception as e:
-        # Fallback minimal HTML to ensure a report is produced
         try:
             findings_html = "".join(
                 f"<li><strong>{v['issue']}</strong> - {v.get('status')} ({v.get('risk')}): {v.get('evidence')}</li>"

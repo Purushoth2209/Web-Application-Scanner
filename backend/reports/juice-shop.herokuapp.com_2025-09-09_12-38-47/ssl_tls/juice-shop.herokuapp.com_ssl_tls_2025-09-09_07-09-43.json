@@ -1,0 +1,41 @@
+{
+  "host": "juice-shop.herokuapp.com",
+  "port": 443,
+  "timestamp": "2025-09-09_07-09-43",
+  "vulnerabilities": [
+    {
+      "issue": "Self-Signed Certificate",
+      "status": "Vulnerable",
+      "risk": "High",
+      "evidence": "Issuer matches subject",
+      "mitigation": "Use a publicly trusted CA-signed certificate (Let's Encrypt or commercial CA).",
+      "cvss": 8.8
+    },
+    {
+      "issue": "Hostname Mismatch",
+      "status": "Vulnerable",
+      "risk": "High",
+      "evidence": "Host juice-shop.herokuapp.com not in SAN/CN",
+      "mitigation": "Serve a certificate whose SAN/CN matches the requested hostname.",
+      "cvss": 8.8
+    }
+  ],
+  "protocol_support": {
+    "TLSv1.0": false,
+    "TLSv1.1": false,
+    "TLSv1.2": true,
+    "TLSv1.3": true
+  },
+  "certificate": {
+    "subject": {},
+    "issuer": {},
+    "not_before": null,
+    "not_after": null,
+    "days_until_expiry": null,
+    "wildcard": false,
+    "self_signed": true,
+    "sans": [],
+    "host_match": false
+  },
+  "summary_text": "Findings: 2 (High risk: 2)"
+}
